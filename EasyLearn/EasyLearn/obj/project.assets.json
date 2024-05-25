@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\EasyLearn\\EasyLearn\\EasyLearn\\EasyLearn.csproj",
+      "projectUniqueName": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn\\EasyLearn.csproj",
       "projectName": "EasyLearn",
-      "projectPath": "D:\\EasyLearn\\EasyLearn\\EasyLearn\\EasyLearn.csproj",
+      "projectPath": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn\\EasyLearn.csproj",
       "packagesPath": "C:\\Users\\dalba\\.nuget\\packages\\",
-      "outputPath": "D:\\EasyLearn\\EasyLearn\\EasyLearn\\obj\\",
+      "outputPath": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dalba\\AppData\\Roaming\\NuGet\\NuGet.Config",
