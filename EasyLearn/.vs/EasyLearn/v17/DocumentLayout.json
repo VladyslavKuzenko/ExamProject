@@ -3,6 +3,30 @@
   "WorkspaceRootPath": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8C77134F-E795-4BC7-98C2-99C72C66512B}|EasyLearn.Models\\EasyLearn.Models.csproj|d:\\easylearngit\\examproject\\easylearn\\easylearn.models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C77134F-E795-4BC7-98C2-99C72C66512B}|EasyLearn.Models\\EasyLearn.Models.csproj|solutionrelative:easylearn.models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C77134F-E795-4BC7-98C2-99C72C66512B}|EasyLearn.Models\\EasyLearn.Models.csproj|d:\\easylearngit\\examproject\\easylearn\\easylearn.models\\folder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C77134F-E795-4BC7-98C2-99C72C66512B}|EasyLearn.Models\\EasyLearn.Models.csproj|solutionrelative:easylearn.models\\folder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C77134F-E795-4BC7-98C2-99C72C66512B}|EasyLearn.Models\\EasyLearn.Models.csproj|d:\\easylearngit\\examproject\\easylearn\\easylearn.models\\trainingmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C77134F-E795-4BC7-98C2-99C72C66512B}|EasyLearn.Models\\EasyLearn.Models.csproj|solutionrelative:easylearn.models\\trainingmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C77134F-E795-4BC7-98C2-99C72C66512B}|EasyLearn.Models\\EasyLearn.Models.csproj|d:\\easylearngit\\examproject\\easylearn\\easylearn.models\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C77134F-E795-4BC7-98C2-99C72C66512B}|EasyLearn.Models\\EasyLearn.Models.csproj|solutionrelative:easylearn.models\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4805E9B-D99C-4CA7-A7BD-C3B73DA0A2C5}|EasyLearn\\EasyLearn.csproj|d:\\easylearngit\\examproject\\easylearn\\easylearn\\easylearn.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A4805E9B-D99C-4CA7-A7BD-C3B73DA0A2C5}|EasyLearn\\EasyLearn.csproj|solutionrelative:easylearn\\easylearn.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4805E9B-D99C-4CA7-A7BD-C3B73DA0A2C5}|EasyLearn\\EasyLearn.csproj|d:\\easylearngit\\examproject\\easylearn\\easylearn\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A4805E9B-D99C-4CA7-A7BD-C3B73DA0A2C5}|EasyLearn\\EasyLearn.csproj|solutionrelative:easylearn\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A4805E9B-D99C-4CA7-A7BD-C3B73DA0A2C5}|EasyLearn\\EasyLearn.csproj|d:\\easylearngit\\examproject\\easylearn\\easylearn\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4805E9B-D99C-4CA7-A7BD-C3B73DA0A2C5}|EasyLearn\\EasyLearn.csproj|solutionrelative:easylearn\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -21,10 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A4805E9B-D99C-4CA7-A7BD-C3B73DA0A2C5}|EasyLearn\\EasyLearn.csproj|d:\\easylearngit\\examproject\\easylearn\\easylearn\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A4805E9B-D99C-4CA7-A7BD-C3B73DA0A2C5}|EasyLearn\\EasyLearn.csproj|solutionrelative:easylearn\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4805E9B-D99C-4CA7-A7BD-C3B73DA0A2C5}|EasyLearn\\EasyLearn.csproj|d:\\easylearngit\\examproject\\easylearn\\easylearn\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A4805E9B-D99C-4CA7-A7BD-C3B73DA0A2C5}|EasyLearn\\EasyLearn.csproj|solutionrelative:easylearn\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4805E9B-D99C-4CA7-A7BD-C3B73DA0A2C5}|EasyLearn\\EasyLearn.csproj|d:\\easylearngit\\examproject\\easylearn\\easylearn\\pages\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -62,7 +82,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -77,8 +97,69 @@
               "Name": "ST:1877472534:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Course.cs",
+              "DocumentMoniker": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn.Models\\Course.cs",
+              "RelativeDocumentMoniker": "EasyLearn.Models\\Course.cs",
+              "ToolTip": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn.Models\\Course.cs",
+              "RelativeToolTip": "EasyLearn.Models\\Course.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T12:31:53.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Folder.cs",
+              "DocumentMoniker": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn.Models\\Folder.cs",
+              "RelativeDocumentMoniker": "EasyLearn.Models\\Folder.cs",
+              "ToolTip": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn.Models\\Folder.cs",
+              "RelativeToolTip": "EasyLearn.Models\\Folder.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T12:30:20.886Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TrainingModule.cs",
+              "DocumentMoniker": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn.Models\\TrainingModule.cs",
+              "RelativeDocumentMoniker": "EasyLearn.Models\\TrainingModule.cs",
+              "ToolTip": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn.Models\\TrainingModule.cs",
+              "RelativeToolTip": "EasyLearn.Models\\TrainingModule.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T12:26:33.976Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Card.cs",
+              "DocumentMoniker": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn.Models\\Card.cs",
+              "RelativeDocumentMoniker": "EasyLearn.Models\\Card.cs",
+              "ToolTip": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn.Models\\Card.cs",
+              "RelativeToolTip": "EasyLearn.Models\\Card.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T11:31:24.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EasyLearn",
+              "DocumentMoniker": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn\\EasyLearn.csproj",
+              "RelativeDocumentMoniker": "EasyLearn\\EasyLearn.csproj",
+              "ToolTip": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn\\EasyLearn.csproj",
+              "RelativeToolTip": "EasyLearn\\EasyLearn.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-05-27T11:09:28.676Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -88,14 +169,14 @@
               "RelativeDocumentMoniker": "EasyLearn\\Pages\\Shared\\_Layout.cshtml",
               "ToolTip": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn\\Pages\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "EasyLearn\\Pages\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAACEAAAAOAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAB4AAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-25T19:06:13.443Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn\\Pages\\Index.cshtml",
               "RelativeDocumentMoniker": "EasyLearn\\Pages\\Index.cshtml",
@@ -103,12 +184,11 @@
               "RelativeToolTip": "EasyLearn\\Pages\\Index.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-25T19:01:14.532Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-25T19:01:14.532Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "Error.cshtml",
               "DocumentMoniker": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn\\Pages\\Error.cshtml",
               "RelativeDocumentMoniker": "EasyLearn\\Pages\\Error.cshtml",
@@ -116,12 +196,11 @@
               "RelativeToolTip": "EasyLearn\\Pages\\Error.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-25T19:01:00.536Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-25T19:01:00.536Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn\\Program.cs",
               "RelativeDocumentMoniker": "EasyLearn\\Program.cs",
@@ -129,12 +208,11 @@
               "RelativeToolTip": "EasyLearn\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T16:56:02.213Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-25T16:56:02.213Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "Privacy.cshtml",
               "DocumentMoniker": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn\\Pages\\Privacy.cshtml",
               "RelativeDocumentMoniker": "EasyLearn\\Pages\\Privacy.cshtml",
@@ -142,12 +220,11 @@
               "RelativeToolTip": "EasyLearn\\Pages\\Privacy.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-25T19:03:37.572Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-25T19:03:37.572Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "Privacy.cshtml.cs",
               "DocumentMoniker": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn\\Pages\\Privacy.cshtml.cs",
               "RelativeDocumentMoniker": "EasyLearn\\Pages\\Privacy.cshtml.cs",
@@ -155,12 +232,11 @@
               "RelativeToolTip": "EasyLearn\\Pages\\Privacy.cshtml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T19:03:34.381Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-25T19:03:34.381Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "Index.cshtml.cs",
               "DocumentMoniker": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn\\Pages\\Index.cshtml.cs",
               "RelativeDocumentMoniker": "EasyLearn\\Pages\\Index.cshtml.cs",
@@ -168,12 +244,11 @@
               "RelativeToolTip": "EasyLearn\\Pages\\Index.cshtml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T19:02:14.043Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-25T19:02:14.043Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "_ValidationScriptsPartial.cshtml",
               "DocumentMoniker": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
               "RelativeDocumentMoniker": "EasyLearn\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
@@ -181,12 +256,11 @@
               "RelativeToolTip": "EasyLearn\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-25T19:06:10.56Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-25T19:06:10.56Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn\\Pages\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "EasyLearn\\Pages\\_ViewStart.cshtml",
@@ -194,12 +268,11 @@
               "RelativeToolTip": "EasyLearn\\Pages\\_ViewStart.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-25T19:00:44.506Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-25T19:00:44.506Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn\\Pages\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "EasyLearn\\Pages\\_ViewImports.cshtml",
@@ -207,12 +280,11 @@
               "RelativeToolTip": "EasyLearn\\Pages\\_ViewImports.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-25T19:00:28.212Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-25T19:00:28.212Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "site.css",
               "DocumentMoniker": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "EasyLearn\\wwwroot\\css\\site.css",
@@ -220,12 +292,11 @@
               "RelativeToolTip": "EasyLearn\\wwwroot\\css\\site.css",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-05-25T19:00:18.532Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-25T19:00:18.532Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 16,
               "Title": "site.js",
               "DocumentMoniker": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn\\wwwroot\\js\\site.js",
               "RelativeDocumentMoniker": "EasyLearn\\wwwroot\\js\\site.js",
@@ -233,12 +304,11 @@
               "RelativeToolTip": "EasyLearn\\wwwroot\\js\\site.js",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-05-25T19:00:12.482Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-25T19:00:12.482Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\EasyLearnGit\\ExamProject\\EasyLearn\\EasyLearn\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "EasyLearn\\Properties\\launchSettings.json",
@@ -246,8 +316,7 @@
               "RelativeToolTip": "EasyLearn\\Properties\\launchSettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-25T18:57:51.888Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-25T18:57:51.888Z"
             }
           ]
         }
