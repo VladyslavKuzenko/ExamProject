@@ -1,22 +1,234 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #0a092d;
+    color: white;
+    height: 2000px;
 }
+
+footer {
+    background-color: #0a092d;
+    color: white !important;
+}
+
+.navbar-brand {
+    position: relative;
+    color: white !important;
+    font-size: 30px;
+    font-family: 'Comic Sans MS';
+    right: 285px;
+}
+
+header {
+    background-color: #0a092d;
+}
+
+.navbar-toggler {
+    background-color: #503DFC;
+}
+
+.nav-link {
+    position: relative;
+    right: 270px;
+    font-weight: bold;
+    font-size: 17px;
+    top: 4px;
+    margin-left: 20px;
+}
+
+.nav-link1 {
+    position: relative;
+    right: 250px;
+    font-weight: bold;
+    font-size: 17px;
+    top: 11px;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+
+.search-input {
+    width: 900px;
+    font-size: 16px;
+    position: absolute;
+    left: 500px;
+    top: 15px;
+    height: 40px;
+    border-radius: 1.2rem;
+    text-align: center;
+    z-index: 1;
+    background-color: #2e3856;
+    border: 0px;
+    color: white;
+}
+
+.lupa {
+    position: absolute;
+    left: 505px;
+    z-index: 2;
+    top: 20px;
+}
+
+.circle-button {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    border-radius: 50px;
+    background-color: #4657fd;
+    left: 1425px;
+    border: 0;
+    top: 15px;
+    z-index: 1;
+    background-image: url('../images/plusik.png');
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.circle-avatarka {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    border-radius: 50px;
+    background-color: mediumaquamarine;
+    left: 1815px;
+    border: 0;
+    top: 15px;
+    z-index: 1;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 20px;
+    text-decoration-color: #a8b1ff;
+    text-decoration-thickness: 5px;
+    cursor: pointer;
+}
+
+.nav-link1:hover {
+    text-decoration: underline;
+    text-underline-offset: 20px;
+    text-decoration-color: #a8b1ff;
+    text-decoration-thickness: 5px;
+    cursor: pointer;
+}
+
+.circle-button:hover {
+    background-color: #423ed8;
+}
+
+.openLibrary {
+    width: 400px;
+    height: 400px;
+    border-radius: .5rem;
+    position: absolute;
+    left: 300px;
+    background-color: white;
+    border: 2px solid #282e3e;
+    background-color: #0a092e;
+    visibility: hidden;
+}
+
+hr {
+    position: relative;
+    width: 90%;
+    left: 25px;
+    top: 30px;
+}
+
+.fullHr {
+    position: relative;
+    top: 320px;
+    width: 100%;
+    left: 0px;
+}
+
+.checkModels {
+    position: relative;
+    top: 313px;
+    left: 20px;
+    cursor: pointer;
+    color: #a8b1ff;
+    font-weight: 600;
+}
+
+    .checkModels:hover {
+        color: #4255ff;
+    }
+
+.EdM {
+    width: 150px;
+    position: relative;
+    bottom: 52px;
+    left: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #939bb4;
+}
+
+.folders {
+    position: relative;
+    bottom: 72px;
+    left: 200px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #939bb4;
+    width: 30px;
+}
+
+    .folders:hover {
+        color: #7583ff;
+        text-decoration: underline;
+        text-underline-offset: 5px;
+        text-decoration-color: #a8b1ff;
+        text-decoration-thickness: 3px;
+    }
+
+.EdM:hover {
+    color: #7583ff;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-color: #a8b1ff;
+    text-decoration-thickness: 3px;
+}
+
+.Courses {
+    width: 30px;
+    position: relative;
+    bottom: 92px;
+    left: 300px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #939bb4;
+}
+
+    .Courses:hover {
+        color: #7583ff;
+        text-decoration: underline;
+        text-underline-offset: 5px;
+        text-decoration-color: #a8b1ff;
+        text-decoration-thickness: 3px;
+    }
