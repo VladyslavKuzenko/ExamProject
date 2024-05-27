@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace EasyLearn.Models
 {
-    internal class Course
+    public class Course
     {
-
-        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }
