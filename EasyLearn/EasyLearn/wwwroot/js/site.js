@@ -15,3 +15,21 @@ if (navLinks.length > 0) {
         });
     }
 }
+
+var addButtons = document.getElementsByClassName('add-button');
+var openAddButtons = document.getElementsByClassName('openAddButton');
+if (addButtons.length > 0) {
+    for (var i = 0; i < addButtons.length; i++) {
+        addButtons[i].addEventListener('click', function () {
+            if (openAddButtons.length > 0 && openAddButtons[0].style.visibility === 'visible') {
+                for (var j = 0; j < openAddButtons.length; j++) {
+                    openAddButtons[j].style.visibility = 'hidden';
+                }
+            } else {
+                for (var j = 0; j < openAddButtons.length; j++) {
+                    openAddButtons[j].style.visibility = 'visible';
+                }
+            }
+        });
+    }
+}
