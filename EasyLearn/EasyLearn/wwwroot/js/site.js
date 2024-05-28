@@ -33,3 +33,7 @@ if (addButtons.length > 0) {
         });
     }
 }
+
+document.getElementById('toggleButtonik').addEventListener('click', function () {
+    this.classList.toggle('active');
+});
