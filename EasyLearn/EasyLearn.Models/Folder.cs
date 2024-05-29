@@ -16,5 +16,7 @@ namespace EasyLearn.Models
         public DateTime Create { get; set; }
         public DateTime LastOpen { get; set; }
         public bool IsLearned { get; set; } = false;
+
+       
     }
 }

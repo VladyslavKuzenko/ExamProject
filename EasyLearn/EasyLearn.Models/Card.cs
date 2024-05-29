@@ -13,5 +13,12 @@ namespace EasyLearn.Models
         public string Term { get; set; }
         public string? Definition {  get; set; }
         public byte[]? Image { get; set; }
+       
+        public static IEnumerable<Card> DefaultCards()
+        {
+            yield return new Card { Id = 1, Term="apple",Definition="яблуко"};
+            yield return new Card { Id = 2, Term = "car", Definition = "машина" };
+            yield return new Card { Id = 3, Term = "ball", Definition = "м'яч" };
+        }
     }
 }

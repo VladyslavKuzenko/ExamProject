@@ -16,5 +16,12 @@ namespace EasyLearn.Models
         public DateTime Create {  get; set; }
         public DateTime LastOpen { get; set; }
         public bool IsLearned { get; set; } = false;
+
+        public static IEnumerable<TrainingModule> DefaultTrainingModules()
+        {
+            IEnumerable<Card> cards = Card.DefaultCards();
+            
+            yield return new TrainingModule { Id = 1, Name = "Something like a1", Cards = new List<Card> { cards.ElementAt(0), cards.ElementAt(1), cards.ElementAt(3) } ,Create=DateTime.Now,LastOpen=DateTime.Now };
+        }
     }
 }
