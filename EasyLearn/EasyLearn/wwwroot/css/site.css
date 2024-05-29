@@ -1,5 +1,7 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+    scrollbar-width: thin;
+    scrollbar-color: #fff cornflowerblue; 
 }
 
 @media (min-width: 768px) {
@@ -25,7 +27,7 @@ body {
 
 .x {
     position: relative;
-    left: 644px;
+    left: 580px;
     width: 30px;
     height: 15px;
     top: 3px;
@@ -33,19 +35,19 @@ body {
 
 .x1 {
     position: relative;
-    left: 1550px;
+    left: 1488px;
     bottom: 11px;
 }
 
 .x3 {
     position: relative;
-    left: 1760px;
+    left: 1550px;
     bottom: 11px;
 }
 
 .x4 {
     position: relative;
-    left: 1770px;
+    left: 1565px;
     bottom: 11px;
 }
 
@@ -53,7 +55,7 @@ body {
     width: 50px;
     height: 50px;
     position: relative;
-    left: 120px;
+    left: 165px;
     bottom: 10px;
     background-image: url(../images/mental-health.png);
     background-repeat: no-repeat;
@@ -75,7 +77,7 @@ footer {
 
 .navbar-brand {
     position: relative;
-    right: 550px;
+    right: 400px;
     bottom: 9px;
     color: white !important;
     font-weight: 600;
@@ -85,7 +87,7 @@ footer {
 
 .navbar-nav {
     position: relative;
-    right: 535px;
+    right: 380px;
     bottom: 8px;
     font-size: 20px;
     font-weight: 500;
@@ -127,10 +129,6 @@ footer {
     text-decoration-color: #a8b1ff;
     text-decoration-thickness: 5px;
     cursor: pointer;
-}
-
-.search-area {
-    position: relative;
 }
 
 .search-area {
@@ -212,7 +210,7 @@ input::placeholder {
     height: 400px;
     border-radius: .5rem;
     position: absolute;
-    left: 330px;
+    left: 375px;
     top: 80px;
     background-color: white;
     border: 2px solid #282e3e;
@@ -378,7 +376,7 @@ hr {
     color: white;
     font-size: 22px;
     font-weight: 600;
-    left: 370px;
+    left: 330px;
     top: 150px;
     font-family: "Gill Sans", sans-serif;
 }
@@ -388,7 +386,7 @@ hr {
     color: white;
     font-size: 22px;
     font-weight: 600;
-    left: 370px;
+    left: 330px;
     top: 200px;
     width:1370px;
     height:230px;
@@ -401,7 +399,7 @@ hr {
     color: white;
     font-size: 22px;
     font-weight: 600;
-    left: 370px;
+    left: 330px;
     top: 500px;
     font-family: "Gill Sans", sans-serif;
 }
@@ -535,7 +533,7 @@ hr {
     justify-content: center;
     margin-left: 90px;
     border-radius: .9rem;
-    right: 110px;
+    right: 150px;
 }
 
 .jb1 {
@@ -559,7 +557,7 @@ hr {
     width: 50px;
     height: 50px;
     position: relative;
-    left: 1340px;
+    left: 1290px;
     bottom: 185px;
     margin: 20px;
     padding: 10px 20px;
