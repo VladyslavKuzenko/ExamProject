@@ -20,6 +20,7 @@ html {
 body {
     margin-bottom: 60px;
     background-color: #0a092d;
+    height:1500px;
 }
 
 .x {
@@ -38,13 +39,13 @@ body {
 
 .x3 {
     position: relative;
-    left: 1790px;
+    left: 1760px;
     bottom: 11px;
 }
 
 .x4 {
     position: relative;
-    left: 1800px;
+    left: 1770px;
     bottom: 11px;
 }
 
@@ -378,7 +379,7 @@ hr {
     font-size: 22px;
     font-weight: 600;
     left: 370px;
-    top: 170px;
+    top: 150px;
     font-family: "Gill Sans", sans-serif;
 }
 
@@ -388,7 +389,7 @@ hr {
     font-size: 22px;
     font-weight: 600;
     left: 370px;
-    top: 215px;
+    top: 200px;
     width:1370px;
     height:230px;
     background-color:lawngreen;
@@ -413,6 +414,7 @@ hr {
     width: 420px;
     height:330px;
     border-radius: .9rem;
+    bottom:-350px;
 }
 
 .container2 {
@@ -423,7 +425,8 @@ hr {
     width: 420px;
     height: 330px;
     border-radius: .9rem;
-    left:470px;
+    left: 470px;
+    bottom: -350px;
 }
 
 .container3 {
@@ -435,6 +438,7 @@ hr {
     height: 330px;
     border-radius: .9rem;
     left: 950px;
+    bottom: -350px;
 }
 
 .info {
@@ -503,4 +507,103 @@ hr {
     position: relative;
     top: 25px;
     left: 30px;
+}
+
+.choose-books {
+    position: absolute;
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    left: 370px;
+    top: 1000px;
+    font-family: "Gill Sans", sans-serif;
+}
+
+.kotik {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.div-item2 {
+    position: relative;
+    width: 400px;
+    height: 230px;
+    background-color: #2e3856;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 90px;
+    border-radius: .9rem;
+    right: 110px;
+}
+
+.jb1 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    right: 150px;
+    bottom: 185px;
+    margin: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 3px solid #2719BD;
+    background-color: cornflowerblue;
+    background-image: url(../images/sleft.png);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center left 10px;
+}
+.jb2 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    left: 1340px;
+    bottom: 185px;
+    margin: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 3px solid #2719BD;
+    background-color: cornflowerblue;
+    background-image: url(../images/sright.png);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center right 10px;
+}
+
+.div-image {
+    position: absolute;
+    width: 130px;
+    height: 185px;
+    background-color: red;
+    left: 18px;
+    top: 23px;
+    border-radius: .9rem;
+    background-image: url(../images/hn.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.books-name {
+    position: absolute;
+    width:235px;
+    height:70px;
+    top: 25px;
+    font-family: "Gill Sans", sans-serif;
+    font-size: 16px;
+    font-weight:600;
+    left: 155px;
+
+}
+
+.div-about {
+    position: absolute;
+    top: 110px;
+    font-family: "Gill Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 100;
+    left:155px;
 }

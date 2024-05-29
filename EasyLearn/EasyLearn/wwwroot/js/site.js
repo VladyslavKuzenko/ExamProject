@@ -37,3 +37,34 @@ if (addButtons.length > 0) {
 document.getElementById('toggleButtonik').addEventListener('click', function () {
     this.classList.toggle('active');
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const divSets = document.querySelectorAll('.div-set1');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    let currentSet = 0;
+
+    function showDivSet(index) {
+        divSets.forEach((divSet, i) => {
+            divSet.style.display = i === index ? 'flex' : 'none';
+        });
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (currentSet > 0) {
+            currentSet--;
+            showDivSet(currentSet);
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentSet < divSets.length - 1) {
+            currentSet++;
+            showDivSet(currentSet);
+        }
+    });
+
+    showDivSet(currentSet);
+});
