@@ -553,6 +553,11 @@ hr {
     background-repeat: no-repeat;
     background-position: center left 10px;
 }
+
+.jb1:hover, .jb2:hover {
+        background-color: #5178BF;
+    }
+
 .jb2 {
     width: 50px;
     height: 50px;
@@ -580,6 +585,73 @@ hr {
     top: 23px;
     border-radius: .9rem;
     background-image: url(../images/hn.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.div-image1 {
+    position: absolute;
+    width: 130px;
+    height: 185px;
+    background-color: red;
+    left: 18px;
+    top: 23px;
+    border-radius: .9rem;
+    background-image: url(../images/mathb.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.div-image2 {
+    position: absolute;
+    width: 130px;
+    height: 185px;
+    background-color: red;
+    left: 18px;
+    top: 23px;
+    border-radius: .9rem;
+    background-image: url(../images/phb.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.div-image3 {
+    position: absolute;
+    width: 130px;
+    height: 185px;
+    background-color: red;
+    left: 18px;
+    top: 23px;
+    border-radius: .9rem;
+    background-image: url(../images/naspbook.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.div-image4 {
+    position: absolute;
+    width: 130px;
+    height: 185px;
+    background-color: red;
+    left: 18px;
+    top: 23px;
+    border-radius: .9rem;
+    background-image: url(../images/ghy.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.div-image5 {
+    position: absolute;
+    width: 130px;
+    height: 185px;
+    background-color: red;
+    left: 18px;
+    top: 23px;
+    border-radius: .9rem;
+    background-image: url(../images/chb.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     cursor: pointer;
