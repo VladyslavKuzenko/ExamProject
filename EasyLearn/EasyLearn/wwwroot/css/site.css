@@ -715,7 +715,6 @@ hr {
     left: 1310px;
 }
 
-
 .video-info {
     position: relative;
     width: 100%;
@@ -769,3 +768,26 @@ hr {
     top:15px;
     left:18px;
 }
+
+.crabik {
+    position:absolute;
+    width: 70px;
+    height: 70px;
+    background-image: url(../images/crab.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    left:650px;
+    top:465px;
+}
+
+.crocodilik {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-image: url(../images/crocodile.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    left: 1760px;
+    top: 1020px;
+}
+
