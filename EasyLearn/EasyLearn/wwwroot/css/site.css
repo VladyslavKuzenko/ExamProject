@@ -1,152 +1,239 @@
 html {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 @media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
+  html {
+    font-size: 16px;
+  }
 }
 
-
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-    position: relative;
-    min-height: 100%;
+  position: relative;
+  min-height: 100%;
 }
 
 body {
     margin-bottom: 60px;
     background-color: #0a092d;
-    color: white;
-    height: 2000px;
+    height:1500px;
 }
 
-footer {
-    background-color: #0a092d;
-    color: white !important;
-}
-
-.navbar-brand {
+.x {
     position: relative;
-    color: white !important;
-    font-size: 30px;
-    font-family: 'Comic Sans MS';
-    right: 285px;
+    left: 644px;
+    width: 30px;
+    height: 15px;
+    top: 3px;
+}
+
+.x1 {
+    position: relative;
+    left: 1550px;
+    bottom: 11px;
+}
+
+.x3 {
+    position: relative;
+    left: 1760px;
+    bottom: 11px;
+}
+
+.x4 {
+    position: relative;
+    left: 1770px;
+    bottom: 11px;
+}
+
+.x5 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    left: 120px;
+    bottom: 10px;
+    background-image: url(../images/mental-health.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
 }
 
 header {
     background-color: #0a092d;
+    height: 70px;
+    padding: 12px;
+    padding: 12px;
+    border-bottom: 1px solid #282e3e;
 }
 
-.navbar-toggler {
-    background-color: #503DFC;
+footer {
+    background-color: #0a092d;
+}
+
+.navbar-brand {
+    position: relative;
+    right: 550px;
+    bottom: 9px;
+    color: white !important;
+    font-weight: 600;
+    font-size: 30px;
+    font-family: "Gill Sans", sans-serif;
+}
+
+.navbar-nav {
+    position: relative;
+    right: 535px;
+    bottom: 8px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 0px;
 }
 
 .nav-link {
-    position: relative;
-    right: 270px;
-    font-weight: bold;
-    font-size: 17px;
-    top: 4px;
-    margin-left: 20px;
+    margin-left: 15px;
+}
+
+.nav-link:hover { 
+    text-decoration: underline;
+    text-underline-offset: 17px;
+    text-decoration-color: #a8b1ff;
+    text-decoration-thickness: 5px;
+    cursor: pointer;
 }
 
 .nav-link1 {
     position: relative;
-    right: 250px;
     font-weight: bold;
     font-size: 17px;
-    top: 11px;
+    top: 8px;
     margin-left: 20px;
     text-decoration: none;
 }
 
+.nav-link1:hover {
+    text-decoration: underline;
+    text-underline-offset: 17px;
+    text-decoration-color: #a8b1ff;
+    text-decoration-thickness: 5px;
+    cursor: pointer;
+}
 
-.search-input {
+.nav-link1.active {
+    text-decoration: underline;
+    text-underline-offset: 17px;
+    text-decoration-color: #a8b1ff;
+    text-decoration-thickness: 5px;
+    cursor: pointer;
+}
+
+.search-area {
+    position: relative;
+}
+
+.search-area {
+    position: relative;
     width: 900px;
-    font-size: 16px;
-    position: absolute;
-    left: 500px;
-    top: 15px;
-    height: 40px;
-    border-radius: 1.2rem;
-    text-align: center;
-    z-index: 1;
+    height: 42px;
+    bottom: 28px;
+    border: none;
+    border-radius: 1.5rem;
+    text-align: left;
     background-color: #2e3856;
-    border: 0px;
-    color: white;
-}
-
-.lupa {
-    position: absolute;
-    left: 505px;
-    z-index: 2;
-    top: 20px;
-}
-
-.circle-button {
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    border-radius: 50px;
-    background-color: #4657fd;
-    left: 1425px;
-    border: 0;
-    top: 15px;
-    z-index: 1;
-    background-image: url('../images/plusik.png');
-    background-size: 50%;
+    background-image: url(../images/nwlupa.png);
     background-repeat: no-repeat;
+    background-size: 2%;
+    background-position: center left 13px;
+    z-index: 1;
+    color: white;
+    font-size: 18px;
+    padding-left: 35px;
+}
+
+input::placeholder {
+    position: relative;
+    color: #d9dde8;
+    font-weight: 600;
+    font-size: 16px;
+    right: -2px;
+    bottom: 1px;
+}
+
+.add-button {
+    height: 42px;
+    width: 42px;
+    background-color: #734BE3;
+    border-radius: 50%;
+    border: none;
+    background-image: url(../images/nplusik.png);
+    background-repeat: no-repeat;
+    background-size: 52%;
     background-position: center;
 }
 
+.add-button:hover {
+    background-color: #6542C7;
+ }
 
-.circle-avatarka {
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    border-radius: 50px;
-    background-color: mediumaquamarine;
-    left: 1815px;
-    border: 0;
-    top: 15px;
-    z-index: 1;
+.log-in {
+    border-radius: .5rem;
+    height: 42px;
+    width: 120px;
+    background-color: #0a092d;
+    border: 1px solid white;
+    color: white;
+    font-weight: 600;
 }
 
-.nav-link:hover {
-    text-decoration: underline;
-    text-underline-offset: 20px;
-    text-decoration-color: #a8b1ff;
-    text-decoration-thickness: 5px;
-    cursor: pointer;
+.log-in:hover {
+    border: 1px solid gray;
+    color: lightgray;
 }
 
-.nav-link1:hover {
-    text-decoration: underline;
-    text-underline-offset: 20px;
-    text-decoration-color: #a8b1ff;
-    text-decoration-thickness: 5px;
-    cursor: pointer;
+.register {
+    border-radius: .5rem;
+    height: 42px;
+    width: 120px;
+    background-color: orange;
+    border: none;
+    color: white;
+    font-weight: 600;
 }
 
-.circle-button:hover {
-    background-color: #423ed8;
+.register:hover {
+    background-color: #FF8000;
 }
 
 .openLibrary {
+    position: relative;
     width: 400px;
     height: 400px;
     border-radius: .5rem;
     position: absolute;
-    left: 300px;
+    left: 330px;
+    top: 80px;
     background-color: white;
     border: 2px solid #282e3e;
     background-color: #0a092e;
     visibility: hidden;
+    z-index:1;
+}
+
+.openAddButton {
+    position: relative;
+    width: 230px;
+    height: 150px;
+    border-radius: .5rem;
+    position: absolute;
+    left: 1400px;
+    top: 61px;
+    background-color: white;
+    border: 2px solid #282e3e;
+    background-color: #0a092d;
+    visibility: hidden;
+    z-index:1;
 }
 
 hr {
@@ -154,6 +241,8 @@ hr {
     width: 90%;
     left: 25px;
     top: 30px;
+    background-color: white;
+    height: 3px;
 }
 
 .fullHr {
@@ -172,9 +261,9 @@ hr {
     font-weight: 600;
 }
 
-    .checkModels:hover {
-        color: #4255ff;
-    }
+.checkModels:hover {
+    color: #4255ff;
+}
 
 .EdM {
     width: 150px;
@@ -187,10 +276,18 @@ hr {
     color: #939bb4;
 }
 
+.EdM:hover {
+    color: #7583ff;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-color: #a8b1ff;
+    text-decoration-thickness: 3px;
+}
+
 .folders {
     position: relative;
     bottom: 72px;
-    left: 200px;
+    left: 310px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
@@ -198,15 +295,7 @@ hr {
     width: 30px;
 }
 
-    .folders:hover {
-        color: #7583ff;
-        text-decoration: underline;
-        text-underline-offset: 5px;
-        text-decoration-color: #a8b1ff;
-        text-decoration-thickness: 3px;
-    }
-
-.EdM:hover {
+.folders:hover {
     color: #7583ff;
     text-decoration: underline;
     text-underline-offset: 5px;
@@ -218,17 +307,303 @@ hr {
     width: 30px;
     position: relative;
     bottom: 92px;
-    left: 300px;
+    left: 200px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     color: #939bb4;
 }
 
-    .Courses:hover {
-        color: #7583ff;
-        text-decoration: underline;
-        text-underline-offset: 5px;
-        text-decoration-color: #a8b1ff;
-        text-decoration-thickness: 3px;
-    }
+.Courses:hover {
+    color: #7583ff;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-color: #a8b1ff;
+    text-decoration-thickness: 3px;
+}
+
+.studyModule {
+    width: 100%;
+    height: 33.3%;
+    border-radius: .5rem;
+    color: #D9D9D9;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-image: url(../images/wdocument.png);
+    background-repeat: no-repeat;
+    background-size: 9%;
+    background-position: center left 13px;
+}
+
+.Papka {
+    width: 100%;
+    height: 33.3%;
+    border-radius: .5rem;
+    color: #D9D9D9;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-indent: -70px;
+    background-image: url(../images/wfolder.png);
+    background-repeat: no-repeat;
+    background-size: 9%;
+    background-position: center left 13px;
+}
+
+.Kurs {
+    width: 100%;
+    height: 33.3%;
+    border-radius: .5rem;
+    color: #D9D9D9;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-indent: -70px;
+    background-image: url(../images/wpeople.png);
+    background-repeat: no-repeat;
+    background-size: 9%;
+    background-position: center left 13px;
+}
+
+.Kurs:hover, .Papka:hover, .studyModule:hover {
+    background-color: #282e3e;
+}
+
+.recent-modules {
+    position: absolute;
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    left: 370px;
+    top: 150px;
+    font-family: "Gill Sans", sans-serif;
+}
+
+.recent-containers {
+    position: absolute;
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    left: 370px;
+    top: 200px;
+    width:1370px;
+    height:230px;
+    background-color:lawngreen;
+    border-radius:.6rem;
+}
+
+.try-funct-label {
+    position: absolute;
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    left: 370px;
+    top: 500px;
+    font-family: "Gill Sans", sans-serif;
+}
+
+.container1 {
+    position: absolute;
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    width: 420px;
+    height:330px;
+    border-radius: .9rem;
+    bottom:-350px;
+}
+
+.container2 {
+    position: absolute;
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    width: 420px;
+    height: 330px;
+    border-radius: .9rem;
+    left: 470px;
+    bottom: -350px;
+}
+
+.container3 {
+    position: absolute;
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    width: 420px;
+    height: 330px;
+    border-radius: .9rem;
+    left: 950px;
+    bottom: -350px;
+}
+
+.info {
+    position: relative;
+    width: 99.9%;
+    height: 45%;
+    background-color: white;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: .9rem;
+    top: 55%;
+}
+
+.image1 {
+    position: relative;
+    width: 100%;
+    height: 55%;
+    background-color: mediumpurple;
+    border-top-left-radius: .9rem;
+    border-top-right-radius: .9rem;
+    bottom: 148px;
+    cursor:pointer;
+    background-image:url(../images/paint1.png);
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+.image2 {
+    position: relative;
+    width: 100%;
+    height: 55%;
+    background-color: mediumpurple;
+    border-top-left-radius: .9rem;
+    border-top-right-radius: .9rem;
+    bottom: 148px;
+    cursor: pointer;
+    background-image: url(../images/paint2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.image3 {
+    position: relative;
+    width: 100%;
+    height: 55%;
+    background-color: mediumpurple;
+    border-top-left-radius: .9rem;
+    border-top-right-radius: .9rem;
+    bottom: 148px;
+    cursor: pointer;
+    background-image: url(../images/paint3.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.name {
+    color: #0a092d;
+    font-size: 20px;
+    font-weight: 600;
+    position: relative;
+    top: 21px;
+    left: 30px;
+}
+
+.about {
+    color: black;
+    font-size: 16.5px;
+    font-weight: 500;
+    position: relative;
+    top: 25px;
+    left: 30px;
+}
+
+.choose-books {
+    position: absolute;
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    left: 370px;
+    top: 1000px;
+    font-family: "Gill Sans", sans-serif;
+}
+
+.kotik {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.div-item2 {
+    position: relative;
+    width: 400px;
+    height: 230px;
+    background-color: #2e3856;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 90px;
+    border-radius: .9rem;
+    right: 110px;
+}
+
+.jb1 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    right: 150px;
+    bottom: 185px;
+    margin: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 3px solid #2719BD;
+    background-color: cornflowerblue;
+    background-image: url(../images/sleft.png);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center left 10px;
+}
+.jb2 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    left: 1340px;
+    bottom: 185px;
+    margin: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 3px solid #2719BD;
+    background-color: cornflowerblue;
+    background-image: url(../images/sright.png);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center right 10px;
+}
+
+.div-image {
+    position: absolute;
+    width: 130px;
+    height: 185px;
+    background-color: red;
+    left: 18px;
+    top: 23px;
+    border-radius: .9rem;
+    background-image: url(../images/hn.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.books-name {
+    position: absolute;
+    width:235px;
+    height:70px;
+    top: 25px;
+    font-family: "Gill Sans", sans-serif;
+    font-size: 16px;
+    font-weight:600;
+    left: 155px;
+
+}
+
+.div-about {
+    position: absolute;
+    top: 110px;
+    font-family: "Gill Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 100;
+    left:155px;
+}

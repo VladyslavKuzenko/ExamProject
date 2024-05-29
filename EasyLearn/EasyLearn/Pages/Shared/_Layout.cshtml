@@ -6,54 +6,49 @@
     <title>@ViewData["Title"] - EasyLearn</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/js/site.js" asp-append-version="true" />
-
     <link rel="stylesheet" href="~/EasyLearn.styles.css" asp-append-version="true" />
-    <div x1 class="lupa">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 85" width="50px" height="50px">
-            <path d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z" fill="#D6F1F9" />
-        </svg>
-    </div>
-
-
 </head>
 <body>
 
     <header>
-        <input type="search" class="search-input" placeholder="Search...">
-        <button class="circle-button"></button>
-        <button class="circle-avatarka"></button>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-none box-shadow mb-3">
 
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-none border-bottom box-shadow mb-3">
+            <div class="x"><input class="search-area" type="search" placeholder="Ask something in EasyLearn" /> </div>
+
+            <div class="x1"><input class="add-button" type="button"/></div>
+
+            <div class="x3"><input class="log-in" type="button" value="Log in"> </div>
+
+            <div class="x4"><input class="register" type="button" value="Registration" /></div>
+
+            <div class="x5"></div>
+
             <div class="container">
+
                 <a class="navbar-brand" asp-area="" asp-page="/Index">EasyLearn</a>
-
-
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+
                     <ul class="navbar-nav flex-grow-1">
+
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-page="/Index">Home</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link1 text-light">Your Library</a>
+                            <a class="nav-link1 text-light" id="toggleButtonik">Your Library</a>
+
                         </li>
 
-
-                        <li class="nav-item">
-                            @* <a class="nav-link text-light" asp-area="" asp-page="/Privacy">Privacy</a> *@
-                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-
 
     <div class="openLibrary">
         <hr />
@@ -63,6 +58,109 @@
         <div class="folders">Folders</div>
         <div class="Courses">Courses</div>
     </div>
+
+    <div class="openAddButton">
+        <div class="studyModule"> Educational module </div>
+        <div class="Papka">Folder</div>
+        <div class="Kurs">Course</div>
+    </div>
+
+
+    <div class="recent-modules">Recent</div>
+    <div class="recent-containers"></div>
+
+    <div class="try-funct-label">Try these updated functions
+
+        <div class="container1">
+            <div class="info" style="background-color:#BED7FF;">
+                <div class="name"> Advanced search </div>
+                <div class="about">Find the flashcards you need to study any<br /> subject</div>
+            </div>
+            <div class="image1"></div>
+        </div>
+
+        <div class="container2">
+            <div class="info" style="background-color:#BBFFA2;">
+                <div class="name"> Learn something new! </div>
+                <div class="about">
+                    Improve your grades by learning new words
+                </div>
+            </div>
+            <div class="image2"></div>
+        </div>
+
+        <div class="container3">
+            <div class="info" style="background-color:#FFBDFF">
+                <div class="name"> Be prepared for exams </div>
+                <div class="about">Test yourself with study tips and advice</div>
+            </div>
+            <div class="image3"></div>
+        </div>
+
+    </div>
+
+
+    <div class="choose-books">Popular textbooks
+
+
+        <div class="kotik">
+
+
+            <div class="div-set1" id="div-set-1">
+                <div class="div-item2">
+                    <a href="https://shop.dinternal-education.ua/product/high-note-3-students-book/" target="_blank">
+                    <div class="div-image">
+                    </div>
+                    </a>
+                    <div class="books-name">Textbook High Note 3 Student's Book</div>
+                    <div class="div-about">Year: 2020<br />Pages: 200<br />Language: English<br />Level: B2<br />Episode: Pearson Education Ltd
+                    </div>
+                </div>
+
+                <div class="div-item2">Div 2</div>
+                <div class="div-item2">Div 3</div>
+            </div>
+            <div class="div-set1" id="div-set-2" style="display: none;">
+                <div class="div-item2">Div 4</div>
+                <div class="div-item2">Div 5</div>
+                <div class="div-item2">Div 6</div>
+            </div>
+
+
+        </div>
+
+
+        <button class="jb1"id="prev-btn"> </button>
+        <button class="jb2" id="next-btn"></button>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     <div class="container">
