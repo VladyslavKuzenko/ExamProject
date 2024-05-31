@@ -68,3 +68,75 @@ document.addEventListener('DOMContentLoaded', () => {
 
     showDivSet(currentSet);
 });
+
+
+
+document.getElementById('openModal').addEventListener('click', function () {
+    document.getElementById('modalBackdrop').classList.add('visible');
+    document.getElementById('popupModal').classList.add('visible');
+});
+
+document.getElementById('modalBackdrop').addEventListener('click', function () {
+    document.getElementById('modalBackdrop').classList.remove('visible');
+    document.getElementById('popupModal').classList.remove('visible');
+});
+
+var passwordVisible = false;
+
+document.getElementById('togglePassword').addEventListener('click', function () {
+    var passwordField = document.getElementById('passwordField');
+    passwordVisible = !passwordVisible; 
+
+    if (passwordVisible) {
+        passwordField.type = 'text';
+        this.style.backgroundImage = "url('../images/not-visible.png')";
+    } else {
+        passwordField.type = 'password';
+        this.style.backgroundImage = "url('../images/visual.png')";
+    }
+});
+
+
+
+document.getElementById('openModal1').addEventListener('click', function () {
+    document.getElementById('modalBackdrop').classList.add('visible');
+    document.getElementById('popupModal1').classList.add('visible');
+});
+
+document.getElementById('modalBackdrop').addEventListener('click', function () {
+    document.getElementById('modalBackdrop').classList.remove('visible');
+    document.getElementById('popupModal1').classList.remove('visible');
+});
+
+var passwordVisible = false;
+
+document.getElementById('togglePassword1').addEventListener('click', function () {
+    var passwordField = document.getElementById('passwordField1');
+    passwordVisible = !passwordVisible;
+
+    if (passwordVisible) {
+        passwordField.type = 'text';
+        this.style.backgroundImage = "url('../images/not-visible.png')";
+    } else {
+        passwordField.type = 'password';
+        this.style.backgroundImage = "url('../images/visual.png')";
+    }
+});
+
+
+function displayImage(event) {
+    var file = event.target.files[0];
+    if (file) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            var profileImageReg = document.querySelector('.profile-image-reg');
+            profileImageReg.style.backgroundImage = 'url(' + e.target.result + ')';
+        }
+        reader.readAsDataURL(file);
+    }
+}
+
+function deleteImage() {
+    var profileImageReg = document.querySelector('.profile-image-reg');
+    profileImageReg.style.backgroundImage = 'url(../images/user.png)'; 
+}

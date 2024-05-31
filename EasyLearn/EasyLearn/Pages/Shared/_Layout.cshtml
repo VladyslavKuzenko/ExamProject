@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/EasyLearn.styles.css" asp-append-version="true" />
+
 </head>
 <body>
 
@@ -17,9 +18,9 @@
 
             <div class="x1"><input class="add-button" type="button"/></div>
 
-            <div class="x3"><input class="log-in" type="button" value="Log in"> </div>
+            <div class="x3"><input class="log-in" type="button" value="Log in" id="openModal"></div>
 
-            <div class="x4"><input class="register" type="button" value="Registration" /></div>
+            <div class="x4"><input class="register" type="button" value="Registration" id="openModal1"/></div>
 
             <div class="x5"></div>
 
@@ -67,12 +68,14 @@
 
 
     <div class="recent-modules">Recent</div>
-    <div class="recent-containers"></div>
+    <div class="recent-containers"> </div>
+
+
 
     <div class="try-funct-label">Try these updated functions
 
         <div class="container1">
-            <div class="info" style="background-color:#BED7FF;">
+            <div class="info" style="background-color:#EBEBEB;">
                 <div class="name"> Advanced search </div>
                 <div class="about">Find the flashcards you need to study any<br /> subject</div>
             </div>
@@ -80,7 +83,7 @@
         </div>
 
         <div class="container2">
-            <div class="info" style="background-color:#BBFFA2;">
+            <div class="info" style="background-color:#EBEBEB;">
                 <div class="name"> Learn something new! </div>
                 <div class="about">
                     Improve your grades by learning new words
@@ -90,7 +93,7 @@
         </div>
 
         <div class="container3">
-            <div class="info" style="background-color:#FFBDFF">
+            <div class="info" style="background-color:#EBEBEB">
                 <div class="name"> Be prepared for exams </div>
                 <div class="about">Test yourself with study tips and advice</div>
             </div>
@@ -98,8 +101,6 @@
         </div>
 
     </div>
-
-
     <div class="choose-books">Popular textbooks
 
 
@@ -176,8 +177,6 @@
                         Year: 2018<br />Pages: 171<br />Language: English<br />Level: Standart <br />Episode: Bloomsbury Foundations Series
                     </div>
                 </div>
-
-
             </div>
 
 
@@ -191,9 +190,7 @@
 
     </div>
 
-
-    <div class="video-instructions"> Video lessons
-    </div>
+    <div class="video-instructions"> Video lessons</div>
 
 
     <a href="https://www.youtube.com/watch?v=juKd26qkNAw&ab_channel=LearnEnglishwithEnglishClass101.com" target="_blank">
@@ -228,7 +225,49 @@
 
     <div class="crabik"></div>
     <div class="crocodilik"></div>
+    <div class="drakon"></div>
 
+
+    <div id="modalBackdrop" class="backdrop"></div>
+
+
+    <div class="log-popup" id="popupModal">
+        <div class="site-name">EasyLearn</div>
+        <input type="text" class="login-input" placeholder="Enter your login" />
+
+        <div class="password-container">
+            <input type="password" class="password-input" id="passwordField" placeholder="Enter your password" />
+            <button type="button" id="togglePassword"></button>
+        </div>
+
+        <input type="button" value="Submit" class="submit-button"/>
+        <div class="login-label">Log in</div>
+    </div>
+
+
+    <div class="register-popup" id="popupModal1">
+
+        <div class="site-name">EasyLearn</div>
+        <input type="text" class="register-input" placeholder="Create your login" />
+
+        <div class="password-container1">
+            <input type="password" class="password-input1" id="passwordField1" placeholder="Create your password" />
+            <button type="button" id="togglePassword1"></button>
+        </div>
+
+        <input type="button" value="Submit" class="submit-button1" />
+        <div class="login-label">Registration</div>
+
+        <div class="upload">
+            <button type="button" class="btn-warning"> 
+                <i class="fade fa-upload"></i>Upload file
+                <input type="file" accept="image/png, image/jpeg" onchange="displayImage(event)"/>
+            </button>
+        </div>
+
+        <div class="profile-image-reg"></div>
+        <input type="button" class="del-image" onclick="deleteImage()" />
+    </div>
 
 
 
