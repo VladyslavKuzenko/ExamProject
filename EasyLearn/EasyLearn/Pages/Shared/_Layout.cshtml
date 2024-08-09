@@ -3,10 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - EasyLearn</title>
+    <title>@ViewData["Title"] EasyLearn</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/EasyLearn.styles.css" asp-append-version="true" />
+
 </head>
 <body>
 
@@ -17,9 +18,9 @@
 
             <div class="x1"><input class="add-button" type="button"/></div>
 
-            <div class="x3"><input class="log-in" type="button" value="Log in"> </div>
+            <div class="x3"><input class="log-in" type="button" value="Log in" id="openModal"></div>
 
-            <div class="x4"><input class="register" type="button" value="Registration" /></div>
+            <div class="x4"><input class="register" type="button" value="Registration" id="openModal1"/></div>
 
             <div class="x5"></div>
 
@@ -67,12 +68,14 @@
 
 
     <div class="recent-modules">Recent</div>
-    <div class="recent-containers"></div>
+    <div class="recent-containers"> </div>
+
+
 
     <div class="try-funct-label">Try these updated functions
 
         <div class="container1">
-            <div class="info" style="background-color:#BED7FF;">
+            <div class="info" style="background-color:#EBEBEB;">
                 <div class="name"> Advanced search </div>
                 <div class="about">Find the flashcards you need to study any<br /> subject</div>
             </div>
@@ -80,7 +83,7 @@
         </div>
 
         <div class="container2">
-            <div class="info" style="background-color:#BBFFA2;">
+            <div class="info" style="background-color:#EBEBEB;">
                 <div class="name"> Learn something new! </div>
                 <div class="about">
                     Improve your grades by learning new words
@@ -90,7 +93,7 @@
         </div>
 
         <div class="container3">
-            <div class="info" style="background-color:#FFBDFF">
+            <div class="info" style="background-color:#EBEBEB">
                 <div class="name"> Be prepared for exams </div>
                 <div class="about">Test yourself with study tips and advice</div>
             </div>
@@ -98,8 +101,6 @@
         </div>
 
     </div>
-
-
     <div class="choose-books">Popular textbooks
 
 
@@ -117,13 +118,65 @@
                     </div>
                 </div>
 
-                <div class="div-item2">Div 2</div>
-                <div class="div-item2">Div 3</div>
+                <div class="div-item2">
+                    <a href="https://www.yakaboo.ua/ua/fundamental-mathematics-for-epidemiology-study.html?gad_source=1&gclid=Cj0KCQjwpNuyBhCuARIsANJqL9O-fMUDJ-J6jhuD8PGVAsMabtAMzkCPoIAFjM3DuGlnH4XFtjwK4_kaAk89EALw_wcB" target="_blank">
+                        <div class="div-image1">
+                        </div>
+                    </a>
+                    <div class="books-name">Textbook Fundamental Mathematics For Epidemiology Study</div>
+                    <div class="div-about">
+                        Year: 2018<br />Pages: 352<br />Language: English<br />Level: Advanced <br />Episode: Wiley. John Wiley & Sons, LTD
+                    </div>
+                </div>
+
+                <div class="div-item2">
+                    <a href="https://www.yakaboo.ua/ua/basic-physics-a-self-teaching-guide.html?gad_source=1&gclid=Cj0KCQjwpNuyBhCuARIsANJqL9On1souB-9RU6-lceN5TJi4hubh7l5hUnNWOss2IThhVD8vTGwDuU4aAk9gEALw_wcB" target="_blank">
+                        <div class="div-image2">
+                        </div>
+                    </a>
+                    <div class="books-name">Textbook Fundamental Mathematics For Epidemiology Study</div>
+                    <div class="div-about">
+                        Year: 2020<br />Pages: 138<br />Language: English<br />Level: Advanced <br />Episode: Jones and Bartlett Publishers
+                    </div>
+                </div>
             </div>
+
+
             <div class="div-set1" id="div-set-2" style="display: none;">
-                <div class="div-item2">Div 4</div>
-                <div class="div-item2">Div 5</div>
-                <div class="div-item2">Div 6</div>
+
+
+                <div class="div-item2">
+                    <a href="https://balka-book.com/programmirovanie-v-net-401/architectingaspnetcoreapplicationsthirdeditionanatypicaldesignpatternsguidefornet8c12andbeyond3rdededition-277861?utm_source=google&utm_medium=cpc&utm_campaign=18680074526&utm_content=&utm_term=&gad_source=1&gclid=Cj0KCQjwpNuyBhCuARIsANJqL9M2AE-FoBxvF-Tl0aPvbw8VpDvYNZlhoGRdGjhta2BvI2DTx_tUGjUaAgElEALw_wcB&lang=ua" target="_blank">
+                        <div class="div-image3">
+                        </div>
+                    </a>
+                    <div class="books-name">Architecting ASP.NET Core Applications - Third Edition: Guide for .NET 8, C#</div>
+                    <div class="div-about">
+                        Year: 2024<br />Pages: 806<br />Language: English<br />Level: Advanced <br />Episode: Packt Publishing
+                    </div>
+                </div>
+
+                <div class="div-item2">
+                    <a href="https://www.yakaboo.ua/ua/introducing-physical-geography.html?gad_source=1&gclid=Cj0KCQjwpNuyBhCuARIsANJqL9OdQjX9QftL93bYNJagniShnN3VRsMn5S3mpHVIYhW6LrAJMgU8uQkaArS-EALw_wcB" target="_blank">
+                        <div class="div-image4">
+                        </div>
+                    </a>
+                    <div class="books-name">Introducing Physical Geography</div>
+                    <div class="div-about">
+                        Year: 2013<br />Pages: 672<br />Language: English<br />Level: Advanced <br />Episode: Wiley. John Wiley & Sons, LTD
+                    </div>
+                </div>
+
+                <div class="div-item2">
+                    <a href="https://www.bloomsbury.com/uk/chemistry-9781137610355/" target="_blank">
+                        <div class="div-image5">
+                        </div>
+                    </a>
+                    <div class="books-name">Fundamentals of Chemistry. Chemistry of Nanomaterials: Applications </div>
+                    <div class="div-about">
+                        Year: 2018<br />Pages: 171<br />Language: English<br />Level: Standart <br />Episode: Bloomsbury Foundations Series
+                    </div>
+                </div>
             </div>
 
 
@@ -137,6 +190,84 @@
 
     </div>
 
+    <div class="video-instructions"> Video lessons</div>
+
+
+    <a href="https://www.youtube.com/watch?v=juKd26qkNAw&ab_channel=LearnEnglishwithEnglishClass101.com" target="_blank">
+        <div class="video-continer1">
+            <div class="preview"></div>
+                <div class="video-info"><p class="pYt">Learn English in 30 Minutes - ALL the English Basics You Need</p></div>
+        </div>
+        </a>
+
+    <a href="https://www.youtube.com/watch?v=NybHckSEQBI&t=375s&ab_channel=mathantics" target="_blank">
+        <div class="video-continer2">
+            <div class="preview1"></div>
+            <div class="video-info">
+                <p class="pYt">
+                    Algebra Basics: What Is Algebra? <br />Math Antics
+                </p>
+            </div>
+        </div>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=gfkTfcpWqAY&ab_channel=ProgrammingwithMosh" target="_blank">
+        <div class="video-continer3">
+            <div class="preview2"></div>
+            <div class="video-info">
+                <p class="pYt">
+                    C# Tutorial For Beginners - Learn C# <br /> Basics in 1 Hour
+                </p>
+            </div>
+        </div>
+    </a>
+       
+
+    <div class="crabik"></div>
+    <div class="crocodilik"></div>
+    <div class="drakon"></div>
+
+
+    <div id="modalBackdrop" class="backdrop"></div>
+
+
+    <div class="log-popup" id="popupModal">
+        <div class="site-name">EasyLearn</div>
+        <input type="text" class="login-input" placeholder="Enter your login" />
+
+        <div class="password-container">
+            <input type="password" class="password-input" id="passwordField" placeholder="Enter your password" />
+            <button type="button" id="togglePassword"></button>
+        </div>
+
+        <input type="button" value="Submit" class="submit-button"/>
+        <div class="login-label">Log in</div>
+    </div>
+
+
+    <div class="register-popup" id="popupModal1">
+
+        <div class="site-name">EasyLearn</div>
+        <input type="text" class="register-input" placeholder="Create your login" />
+
+        <div class="password-container1">
+            <input type="password" class="password-input1" id="passwordField1" placeholder="Create your password" />
+            <button type="button" id="togglePassword1"></button>
+        </div>
+
+        <input type="button" value="Submit" class="submit-button1" />
+        <div class="login-label">Registration</div>
+
+        <div class="upload">
+            <button type="button" class="btn-warning"> 
+                <i class="fade fa-upload"></i>Upload file
+                <input type="file" accept="image/png, image/jpeg" onchange="displayImage(event)"/>
+            </button>
+        </div>
+
+        <div class="profile-image-reg"></div>
+        <input type="button" class="del-image" onclick="deleteImage()" />
+    </div>
 
 
 

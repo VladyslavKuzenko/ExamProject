@@ -22,7 +22,7 @@ html {
 body {
     margin-bottom: 60px;
     background-color: #0a092d;
-    height:1500px;
+    height:1800px;
 }
 
 .x {
@@ -225,7 +225,7 @@ input::placeholder {
     height: 150px;
     border-radius: .5rem;
     position: absolute;
-    left: 1400px;
+    left: 1330px;
     top: 61px;
     background-color: white;
     border: 2px solid #282e3e;
@@ -388,9 +388,9 @@ hr {
     font-weight: 600;
     left: 330px;
     top: 180px;
-    width:1370px;
+    width:1300px;
     height:230px;
-    background-color:lawngreen;
+    background-color:cornflowerblue;
     border-radius:.6rem;
 }
 
@@ -423,7 +423,7 @@ hr {
     width: 420px;
     height: 330px;
     border-radius: .9rem;
-    left: 470px;
+    left: 440px;
     bottom: -350px;
 }
 
@@ -435,7 +435,7 @@ hr {
     width: 420px;
     height: 330px;
     border-radius: .9rem;
-    left: 950px;
+    left: 880px;
     bottom: -350px;
 }
 
@@ -447,6 +447,7 @@ hr {
     border-bottom-left-radius: 2rem;
     border-bottom-right-radius: .9rem;
     top: 55%;
+    border-top: 1px solid lightgray;
 }
 
 .image1 {
@@ -531,16 +532,16 @@ hr {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 90px;
+    margin-left:35px;
     border-radius: .9rem;
-    right: 110px;
+    right: 40px;
 }
 
 .jb1 {
     width: 50px;
     height: 50px;
     position: relative;
-    right: 130px;
+    right: 110px;
     bottom: 185px;
     margin: 20px;
     padding: 10px 20px;
@@ -553,11 +554,16 @@ hr {
     background-repeat: no-repeat;
     background-position: center left 10px;
 }
+
+.jb1:hover, .jb2:hover {
+        background-color: #5178BF;
+    }
+
 .jb2 {
     width: 50px;
     height: 50px;
     position: relative;
-    left: 1320px;
+    left: 1220px;
     bottom: 185px;
     margin: 20px;
     padding: 10px 20px;
@@ -575,11 +581,75 @@ hr {
     position: absolute;
     width: 130px;
     height: 185px;
-    background-color: red;
     left: 18px;
     top: 23px;
     border-radius: .9rem;
     background-image: url(../images/hn.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.div-image1 {
+    position: absolute;
+    width: 130px;
+    height: 185px;
+    left: 18px;
+    top: 23px;
+    border-radius: .9rem;
+    background-image: url(../images/mathb.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.div-image2 {
+    position: absolute;
+    width: 130px;
+    height: 185px;
+    left: 18px;
+    top: 23px;
+    border-radius: .9rem;
+    background-image: url(../images/phb.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.div-image3 {
+    position: absolute;
+    width: 130px;
+    height: 185px;
+    left: 18px;
+    top: 23px;
+    border-radius: .9rem;
+    background-image: url(../images/naspbook.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.div-image4 {
+    position: absolute;
+    width: 130px;
+    height: 185px;
+    left: 18px;
+    top: 23px;
+    border-radius: .9rem;
+    background-image: url(../images/ghy.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.div-image5 {
+    position: absolute;
+    width: 130px;
+    height: 185px;
+    left: 18px;
+    top: 23px;
+    border-radius: .9rem;
+    background-image: url(../images/chb.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     cursor: pointer;
@@ -605,3 +675,355 @@ hr {
     font-weight: 100;
     left:155px;
 }
+
+.video-instructions {
+    position: absolute;
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    left: 330px;
+    top: 1300px;
+    font-family: "Gill Sans", sans-serif;
+}
+
+.video-continer1 {
+    width: 400px;
+    height: 300px;
+    border-radius: .9rem;
+    position: absolute;
+    bottom: 210px;
+    left: 345px;
+    box-shadow: 3px 2px 7px 2px #888888;
+}
+
+.video-continer2 {
+        width: 400px;
+        height: 300px;
+        border-radius: .9rem;
+        position: absolute;
+        bottom: 210px;
+        left: 780px;
+        box-shadow: 3px 2px 7px 2px #888888;
+    }
+
+.video-continer3 {
+    width: 400px;
+    height: 300px;
+    border-radius: .9rem;
+    position: absolute;
+    bottom: 210px;
+    box-shadow: 3px 2px 7px 2px #888888;
+    left: 1220px;
+}
+
+.video-info {
+    position: relative;
+    width: 100%;
+    height: 35%;
+    background-color: #2e3856;
+    border-bottom-right-radius: .9rem;
+    border-bottom-left-radius: .9rem;
+    font-size:19px;
+
+}
+
+.preview {
+    border-top-right-radius: .9rem;
+    border-top-left-radius: .9rem;
+    position: relative;
+    height: 65%;
+    width: 100%;
+    background-image: url(../images/el1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.preview1 {
+    border-top-right-radius: .9rem;
+    border-top-left-radius: .9rem;
+    position: relative;
+    height: 65%;
+    width: 100%;
+    background-image: url(../images/mathls.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.preview2 {
+    border-top-right-radius: .9rem;
+    border-top-left-radius: .9rem;
+    position: relative;
+    height: 65%;
+    width: 100%;
+    background-image: url(../images/cpr.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.video-info:hover {
+    background-color: #2C3552;
+}
+
+.pYt {
+    position:relative;
+    top:15px;
+    left:18px;
+}
+
+.crabik {
+    position:absolute;
+    width: 70px;
+    height: 70px;
+    background-image: url(../images/crab.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    left:650px;
+    top:465px;
+}
+
+.crocodilik {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-image: url(../images/crocodile.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    left: 1660px;
+    top: 1020px;
+}
+
+.drakon {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/dragon.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    left: -60px;
+    top: 120px;
+}
+
+.log-popup {
+    width: 750px;
+    height: 380px;
+    background-color: #354C9C;
+    visibility: hidden;
+    position: fixed;
+    z-index: 1000;
+    border-radius: 1.9rem;
+    bottom: 320px;
+    left: 585px;
+    box-shadow: 2px 2px 20px 2px #3851A6;
+}
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    visibility: hidden;
+    z-index: 999;
+    backdrop-filter: blur(10px);
+}
+
+.visible {
+    visibility: visible;
+}
+
+.site-name {
+    color: #fff;
+    font-weight: 600;
+    font-size: 45px;
+    font-family: cursive;
+    right: 265px;
+    position: absolute;
+    top: 12px;
+
+}
+
+.login-input {
+    width: 430px;
+    height: 35px;
+    position: absolute;
+    left: 25px;
+    top: 125px;
+    border-radius: .7rem;
+    border: none;
+}
+
+.password-input {
+    width: 430px;
+    height: 35px;
+    position: absolute;
+    left: 25px;
+    top: 200px;
+    border-radius: .7rem;
+    border: none;
+}
+
+.password-container {
+    position: relative;
+}
+
+.password-container button {
+    width: 40px;
+    height:40px;
+    position: absolute;
+    top: 215px;
+    left: 470px;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    background-image: url(../images/visual.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.submit-button {
+    position: absolute;
+    width: 170px;
+    height: 50px;
+    background-color: #37B86F;
+    border-radius: .7rem;
+    border: none;
+    top: 300px;
+    right: 40px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.submit-button:hover {
+    background-color: #33AB67;
+}
+
+.login-label {
+    font-weight: 600;
+    color: #fff;
+    position: relative;
+    left: 30px;
+    top: 90px;
+}
+
+.register-popup {
+    width: 750px;
+    height: 380px;
+    background-color: #354C9C;
+    visibility: hidden;
+    position: fixed;
+    z-index: 1000;
+    border-radius: 1.9rem;
+    bottom: 320px;
+    left: 585px;
+    box-shadow: 2px 2px 20px 2px #3851A6;
+}
+
+.register-input {
+    width: 430px;
+    height: 35px;
+    position: absolute;
+    left: 25px;
+    top: 125px;
+    border-radius: .7rem;
+    border: none;
+}
+
+.password-input1 {
+    width: 430px;
+    height: 35px;
+    position: absolute;
+    left: 25px;
+    top: 200px;
+    border-radius: .7rem;
+    border: none;
+}
+
+.password-container1 {
+    position: relative;
+}
+
+.password-container1 button {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 215px;
+        left: 470px;
+        transform: translateY(-50%);
+        border: none;
+        background: none;
+        cursor: pointer;
+        background-image: url(../images/visual.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+.submit-button1 {
+    position: absolute;
+    width: 170px;
+    height: 50px;
+    background-color: #37B86F;
+    border-radius: .7rem;
+    border: none;
+    top: 300px;
+    left: 27px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.submit-button1:hover {
+    background-color: #33AB67;
+}
+
+.btn-warning {
+    position:relative;
+    padding: 11px 16px;
+    font-size: 15px;
+    line-height:1.5;
+    border-radius: .7rem;
+    color: #fff;
+    background-color:orange;
+    border: 0;
+    overflow: hidden;
+    left:570px;
+    top: 280px
+}
+
+.btn-warning input[type="file"] {
+    cursor:pointer;
+    position:absolute;
+    transform: scale(3);
+    opacity: 0;
+}
+
+.profile-image-reg {
+    position: absolute;
+    width: 200px;
+    height: 180px;
+    background-color: #e6ecff;
+    right: 28px;
+    border-radius: .7rem;
+    top: 100px;
+    background-image: url(../images/user.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.del-image {
+    position:relative;
+    width:40px;
+    height:40px;
+    border:none;
+    top:237px;
+    left:680px;
+    border-radius: .3rem;
+    background-image: url('../images/krest.png');
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+    .del-image:hover {
+        background-color: #E6E6E6;
+    }
