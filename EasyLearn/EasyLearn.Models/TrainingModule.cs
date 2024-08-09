@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace EasyLearn.Models
@@ -12,16 +13,22 @@ namespace EasyLearn.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }
+        [JsonIgnore]
         public IEnumerable<Card> Cards { get; set; }
+        
         public DateTime Create {  get; set; }
         public DateTime LastOpen { get; set; }
         public bool IsLearned { get; set; } = false;
 
+        [JsonIgnore]
+        public TrainingModule? Folder { get; set; }
+        public int? FolderId { get; set; }
+
+        public static TrainingModule defaultModule= new TrainingModule { Id = 1, Name = "Something like a1", Create = DateTime.Now, LastOpen = DateTime.Now };
         public static IEnumerable<TrainingModule> DefaultTrainingModules()
         {
-            IEnumerable<Card> cards = Card.DefaultCards();
-            
-            yield return new TrainingModule { Id = 1, Name = "Something like a1", Cards = new List<Card> { cards.ElementAt(0), cards.ElementAt(1), cards.ElementAt(3) } ,Create=DateTime.Now,LastOpen=DateTime.Now };
+
+            yield return defaultModule;
         }
     }
 }
