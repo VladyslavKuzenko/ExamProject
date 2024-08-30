@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Resources\Pages\Home\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -52,6 +52,12 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.UseRequestLocalization(new RequestLocalizationOptions()
+{ ApplyCurrentCultureToResponseHeaders = true }
+.AddSupportedCultures(new[] { "en-US", "uk-UA" })
+.AddSupportedUICultures(new[] { "en-US", "uk-UA" })
+.SetDefaultCulture("en-US"));
+
 app.MapRazorPages();
 
 app.Run();
