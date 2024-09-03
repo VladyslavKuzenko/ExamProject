@@ -20,9 +20,14 @@
 
             <div class="x3"><input class="log-in" type="button" value="Log in" id="openModal"></div>
 
-            <div class="x4"><input class="register" type="button" value="Registration" id="openModal1"/></div>
+            <div class="x4">
+                <input class="register" type="button" value="Registration" id="openModal1"/>
+                <partial name="_SelectLanguagePartial" />
+            </div>
 
-            <div class="x5"></div>
+            <div class="x5">
+                
+            </div>
 
             <div class="container">
 
@@ -37,7 +42,9 @@
                     <ul class="navbar-nav flex-grow-1">
 
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link text-light" asp-area="" asp-page="/Index">
+                                @Localizer["Home"]
+                            </a>
                         </li>
 
                         <li class="nav-item">
