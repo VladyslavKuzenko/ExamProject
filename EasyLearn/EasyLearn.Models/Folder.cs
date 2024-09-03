@@ -10,7 +10,7 @@ namespace EasyLearn.Models
     public class Folder
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
         public string? Description { get; set; }
         public IEnumerable<TrainingModule>? TrainingModules { get; set; }
         public DateTime Create { get; set; }

@@ -11,10 +11,10 @@ namespace EasyLearn.Models
     public class TrainingModule
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
         public string? Description { get; set; }
         [JsonIgnore]
-        public IEnumerable<Card> Cards { get; set; }
+        public IEnumerable<Card>? Cards { get; set; } 
         
         public DateTime Create {  get; set; }
         public DateTime LastOpen { get; set; }
