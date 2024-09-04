@@ -13,7 +13,7 @@ namespace EasyLearn.Models
         public int Id { get; set; }
         public string Term { get; set; } = default!;
         public string? Definition {  get; set; }
-        public byte[]? Image { get; set; }
+        //public byte[]? Image { get; set; }
         [JsonIgnore]
         public TrainingModule? TrainingModule { get; set; }
         public int TrainingModuleId { get; set; }
