@@ -272,12 +272,19 @@ h2 {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    position:relative;
+    right:180px;
+    height:200px;
 }
 
 .images-section, .textbook-section, .video-section {
     display: flex;
     justify-content: space-between;
     margin: 20px 0;
+}
+
+.images-section {
+    height: 300px;
 }
 
 .image-block, .textbook-block, .video-block {
@@ -296,11 +303,12 @@ h2 {
 }
 
 .textbook-block {
-    width: 30%;
+    width: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    margin:50px;
 }
 
 
