@@ -19,12 +19,15 @@ builder.Services.AddControllers();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.Services.AddRazorPages();
+
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 builder.Services.AddMvc().AddViewLocalization().AddDataAnnotationsLocalization(options => {
     options.DataAnnotationLocalizerProvider = (type, factory) =>
         factory.Create(typeof(DataAnotationSharedResorce));
 });
+
 
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {

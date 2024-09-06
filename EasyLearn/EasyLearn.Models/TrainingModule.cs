@@ -24,11 +24,12 @@ namespace EasyLearn.Models
         public TrainingModule? Folder { get; set; }
         public int? FolderId { get; set; }
 
-        public static TrainingModule defaultModule= new TrainingModule { Id = 1, Name = "Something like a1", Create = DateTime.Now, LastOpen = DateTime.Now };
+        public static TrainingModule defaultModule = new TrainingModule { Id = 1, Name = "Something like a1", Create = DateTime.Now, LastOpen = DateTime.Now };
         public static IEnumerable<TrainingModule> DefaultTrainingModules()
         {
 
             yield return defaultModule;
+          
         }
     }
 }
