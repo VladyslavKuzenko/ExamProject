@@ -4,171 +4,133 @@
     ViewData["Title"] = "Home";
 }
 
+<style>
+    body {
+        background-color: #0A082D; 
+    }
+</style>
 
-<div class="recent-modules">Recent</div>
-<div class="recent-containers"> </div>
 
-
-
-<div class="try-funct-label">
-    Try these updated functions
-
-    <div class="container1">
-        <div class="info" style="background-color:#F6E6FF;">
-            <div class="name"> Advanced search </div>
-            <div class="about">Find the flashcards you need to study any<br /> subject</div>
-        </div>
-        <div class="image1"></div>
+<div class="container1">
+    <h2>Recent</h2>
+    <div class="main-content">
+        <p>Main content area</p>
     </div>
+    <p>Try this updated functions</p>
+</div>
 
-    <div class="container2">
-        <div class="info" style="background-color:#E2FFDE;">
-            <div class="name"> Learn something new! </div>
-            <div class="about">
-                Improve your grades by learning new words
+<section class="images-section">
+    <div class="image-block">
+        <img src="image1.jpg" alt="Image 1">
+        <h3>Title 1</h3>
+        <p>Description 1</p>
+    </div>
+    <div class="image-block">
+        <img src="image2.jpg" alt="Image 2">
+        <h3>Title 2</h3>
+        <p>Description 2</p>
+    </div>
+    <div class="image-block">
+        <img src="image3.jpg" alt="Image 3">
+        <h3>Title 3</h3>
+        <p>Description 3</p>
+    </div>
+</section>
+
+<h2 class="textbook-title">Popular textbooks</h2>
+
+<section class="textbook-section">
+    <button class="left-btn">&lt;</button>
+
+    <div class="textbook-blocks">
+        <div class="textbook-block" id="set-1">
+            <img src="textbook1.jpg" alt="Textbook 1">
+            <div class="textbook-info">
+                <h4>Textbook 1</h4>
+                <p>Year: 2022</p>
+                <p>Pages: 320</p>
+                <p>Language: English</p>
+                <p>Level: Intermediate</p>
+                <p>Episode: 5</p>
             </div>
         </div>
-        <div class="image2"></div>
-    </div>
-
-    <div class="container3">
-        <div class="info" style="background-color:#F8E6FF">
-            <div class="name"> Be prepared for exams </div>
-            <div class="about">Test yourself with study tips and advice</div>
+        <div class="textbook-block" id="set-1">
+            <img src="textbook2.jpg" alt="Textbook 2">
+            <div class="textbook-info">
+                <h4>Textbook 2</h4>
+                <p>Year: 2021</p>
+                <p>Pages: 280</p>
+                <p>Language: French</p>
+                <p>Level: Beginner</p>
+                <p>Episode: 3</p>
+            </div>
         </div>
-        <div class="image3"></div>
-    </div>
-
-</div>
-<div class="choose-books">
-    Popular textbooks
-
-
-    <div class="kotik">
-
-
-        <div class="div-set1" id="div-set-1">
-
-            <a href="https://shop.dinternal-education.ua/product/high-note-3-students-book/" target="_blank">
-                <div class="div-item2">
-                    <div class="div-image">
-                    </div>
-                    <div class="books-name">Textbook High Note 3 Student's Book</div>
-                    <div class="div-about">
-                        Year: 2020<br />Pages: 200<br />Language: English<br />Level: B2<br />Episode: Pearson Education Ltd
-                    </div>
-                </div>
-            </a>
-
-            <a href="https://www.yakaboo.ua/ua/fundamental-mathematics-for-epidemiology-study.html?gad_source=1&gclid=Cj0KCQjwpNuyBhCuARIsANJqL9O-fMUDJ-J6jhuD8PGVAsMabtAMzkCPoIAFjM3DuGlnH4XFtjwK4_kaAk89EALw_wcB" target="_blank">
-                <div class="div-item2">
-                    <div class="div-image1">
-                    </div>
-                    <div class="books-name">Textbook Fundamental Mathematics For Epidemiology Study</div>
-                    <div class="div-about">
-                        Year: 2018<br />Pages: 352<br />Language: English<br />Level: Advanced <br />Episode: Wiley. John Wiley & Sons, LTD
-                    </div>
-                </div>
-            </a>
-
-            <a href="https://www.yakaboo.ua/ua/basic-physics-a-self-teaching-guide.html?gad_source=1&gclid=Cj0KCQjwpNuyBhCuARIsANJqL9On1souB-9RU6-lceN5TJi4hubh7l5hUnNWOss2IThhVD8vTGwDuU4aAk9gEALw_wcB" target="_blank">
-                <div class="div-item2">
-                    <div class="div-image2">
-                    </div>
-                    <div class="books-name">Textbook Fundamental Mathematics For Epidemiology Study</div>
-                    <div class="div-about">
-                        Year: 2020<br />Pages: 138<br />Language: English<br />Level: Advanced <br />Episode: Jones and Bartlett Publishers
-                    </div>
-                </div>
+        <div class="textbook-block" id="set-1">
+            <img src="textbook3.jpg" alt="Textbook 3">
+            <div class="textbook-info">
+                <h4>Textbook 3</h4>
+                <p>Year: 2023</p>
+                <p>Pages: 450</p>
+                <p>Language: Spanish</p>
+                <p>Level: Advanced</p>
+                <p>Episode: 8</p>
+            </div>
         </div>
-        </a>
 
-
-        <div class="div-set1" id="div-set-2" style="display: none;">
-
-            <a href="https://balka-book.com/programmirovanie-v-net-401/architectingaspnetcoreapplicationsthirdeditionanatypicaldesignpatternsguidefornet8c12andbeyond3rdededition-277861?utm_source=google&utm_medium=cpc&utm_campaign=18680074526&utm_content=&utm_term=&gad_source=1&gclid=Cj0KCQjwpNuyBhCuARIsANJqL9M2AE-FoBxvF-Tl0aPvbw8VpDvYNZlhoGRdGjhta2BvI2DTx_tUGjUaAgElEALw_wcB&lang=ua" target="_blank">
-                <div class="div-item2">
-                    <div class="div-image3">
-                    </div>
-                    <div class="books-name">Architecting ASP.NET Core Applications - Third Edition: Guide for .NET 8, C#</div>
-                    <div class="div-about">
-                        Year: 2024<br />Pages: 806<br />Language: English<br />Level: Advanced <br />Episode: Packt Publishing
-                    </div>
-                </div>
-            </a>
-
-            <a href="https://www.yakaboo.ua/ua/introducing-physical-geography.html?gad_source=1&gclid=Cj0KCQjwpNuyBhCuARIsANJqL9OdQjX9QftL93bYNJagniShnN3VRsMn5S3mpHVIYhW6LrAJMgU8uQkaArS-EALw_wcB" target="_blank">
-                <div class="div-item2">
-                    <div class="div-image4">
-                    </div>
-                    <div class="books-name">Introducing Physical Geography</div>
-                    <div class="div-about">
-                        Year: 2013<br />Pages: 672<br />Language: English<br />Level: Advanced <br />Episode: Wiley. John Wiley & Sons, LTD
-                    </div>
-                </div>
-            </a>
-
-            <a href="https://www.bloomsbury.com/uk/chemistry-9781137610355/" target="_blank">
-                <div class="div-item2">
-                    <div class="div-image5">
-                    </div>
-                    <div class="books-name">Fundamentals of Chemistry. Chemistry of Nanomaterials: Applications </div>
-                    <div class="div-about">
-                        Year: 2018<br />Pages: 171<br />Language: English<br />Level: Standart <br />Episode: Bloomsbury Foundations Series
-                    </div>
-                </div>
+        <!-- Додаємо ще один набір карточок -->
+        <div class="textbook-block" id="set-2" style="display:none;">
+            <img src="textbook4.jpg" alt="Textbook 4">
+            <div class="textbook-info">
+                <h4>Textbook 4</h4>
+                <p>Year: 2020</p>
+                <p>Pages: 290</p>
+                <p>Language: German</p>
+                <p>Level: Beginner</p>
+                <p>Episode: 1</p>
+            </div>
         </div>
-        </a>
-
-
-    </div>
-
-
-    <button class="jb1" id="prev-btn"> </button>
-    <button class="jb2" id="next-btn"></button>
-
-
-
-</div>
-
-<div class="video-instructions"> Video lessons</div>
-
-
-<a href="https://www.youtube.com/watch?v=juKd26qkNAw&ab_channel=LearnEnglishwithEnglishClass101.com" target="_blank">
-    <div class="video-continer1">
-        <div class="preview"></div>
-        <div class="video-info"><p class="pYt">Learn English in 30 Minutes - ALL the English Basics You Need</p></div>
-    </div>
-</a>
-
-<a href="https://www.youtube.com/watch?v=NybHckSEQBI&t=375s&ab_channel=mathantics" target="_blank">
-    <div class="video-continer2">
-        <div class="preview1"></div>
-        <div class="video-info">
-            <p class="pYt">
-                Algebra Basics: What Is Algebra? <br />Math Antics
-            </p>
+        <div class="textbook-block" id="set-2" style="display:none;">
+            <img src="textbook5.jpg" alt="Textbook 5">
+            <div class="textbook-info">
+                <h4>Textbook 5</h4>
+                <p>Year: 2019</p>
+                <p>Pages: 350</p>
+                <p>Language: Italian</p>
+                <p>Level: Intermediate</p>
+                <p>Episode: 6</p>
+            </div>
+        </div>
+        <div class="textbook-block" id="set-2" style="display:none;">
+            <img src="textbook6.jpg" alt="Textbook 6">
+            <div class="textbook-info">
+                <h4>Textbook 6</h4>
+                <p>Year: 2024</p>
+                <p>Pages: 380</p>
+                <p>Language: Japanese</p>
+                <p>Level: Advanced</p>
+                <p>Episode: 7</p>
+            </div>
         </div>
     </div>
-</a>
 
-<a href="https://www.youtube.com/watch?v=gfkTfcpWqAY&ab_channel=ProgrammingwithMosh" target="_blank">
-    <div class="video-continer3">
-        <div class="preview2"></div>
-        <div class="video-info">
-            <p class="pYt">
-                C# Tutorial For Beginners - Learn C# <br /> Basics in 1 Hour
-            </p>
-        </div>
+    <button class="right-btn">&gt;</button>
+</section>
+
+<h2>Video lessons</h2>
+<section class="video-section">
+    <div class="video-block">
+        <img src="video1.jpg" alt="Video 1">
+        <h3>Video Title 1</h3>
     </div>
-</a>
-
-
-<div class="crabik"></div>
-<div class="crocodilik"></div>
-<div class="drakon"></div>
-
-
+    <div class="video-block">
+        <img src="video2.jpg" alt="Video 2">
+        <h3>Video Title 2</h3>
+    </div>
+    <div class="video-block">
+        <img src="video3.jpg" alt="Video 3">
+        <h3>Video Title 3</h3>
+    </div>
+</section>
 
 
 
