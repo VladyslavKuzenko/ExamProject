@@ -1,5 +1,8 @@
 ﻿@page
-@model EasyLearn.Pages.Home.HomeModel
+@using Microsoft.Extensions.Localization
+@model EasyLearn.Pages.Home.IndexModel
+@inject IStringLocalizer<IndexModel> Localize
+
 @{
     ViewData["Title"] = "Index";
 }
