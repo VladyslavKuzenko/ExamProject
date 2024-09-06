@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyLearn", "EasyLearn\EasyLearn.csproj", "{A4805E9B-D99C-4CA7-A7BD-C3B73DA0A2C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyLearn.Models", "EasyLearn.Models\EasyLearn.Models.csproj", "{8C77134F-E795-4BC7-98C2-99C72C66512B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyLearn.Models", "EasyLearn.Models\EasyLearn.Models.csproj", "{8C77134F-E795-4BC7-98C2-99C72C66512B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

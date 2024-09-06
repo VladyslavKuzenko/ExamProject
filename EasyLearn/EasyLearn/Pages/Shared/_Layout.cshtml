@@ -10,20 +10,91 @@
 
 </head>
 <body>
+    <header>
+        <div class="logo">EasyLearn</div>
+
+        <nav>
+            <ul class="nav-list">
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="/Home/Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="/YourLibrary/Index">Your library</a>
+                </li>
+
+
+                <input type="text" class="search-input" placeholder="Search...">
+
+                <div class="popup-container">
+                    <input type="checkbox" id="popup-toggle" class="popup-toggle">
+                    <label for="popup-toggle" class="popup-button">+</label>
+                    <div class="popup">
+                        <div class="popup-tab">Навчальний модуль</div>
+                        <div class="popup-tab">Папка</div>
+                        <div class="popup-tab">Курс</div>
+                    </div>
+                </div>
+
+                <li class="nav-item">
+                    <input type="button" class="LogInButton" value="Log In" />
+                </li>
+                <li class="nav-item">
+                    <input type="button" class="RegistrationButton" value="Registration" />
+                </li>
+
+
+
+            </ul>
+        </nav>
+
+       
+
+      
+
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - EasyLearn - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+@* <body>
 
     <header>
+
+
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-none box-shadow mb-3">
-
             <div class="x"><input class="search-area" type="search" placeholder="Ask something in EasyLearn" /> </div>
-
             <div class="x1"><input class="add-button" type="button"/></div>
-
             <div class="x3"><input class="log-in" type="button" value="Log in" id="openModal"></div>
-
             <div class="x4"><input class="register" type="button" value="Registration" id="openModal1"/></div>
-
             <div class="x5"></div>
-
             <div class="container">
 
                 <a class="navbar-brand" asp-area="" asp-page="/Index">EasyLearn</a>
@@ -31,18 +102,17 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-
                     <ul class="navbar-nav flex-grow-1">
-
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-page="/Index">Home</a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link1 text-light" id="toggleButtonik">Your Library</a>
+                        </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-page="/Add/CreateEducationModule">Add</a>
                         </li>
 
                     </ul>
@@ -61,7 +131,7 @@
     </div>
 
     <div class="openAddButton">
-        <div class="studyModule"> Educational module </div>
+        <div class="studyModule">Educational module </div>
         <div class="Papka">Folder</div>
         <div class="Kurs">Course</div>
     </div>
@@ -75,7 +145,7 @@
     <div class="try-funct-label">Try these updated functions
 
         <div class="container1">
-            <div class="info" style="background-color:#EBEBEB;">
+            <div class="info" style="background-color:#F6E6FF;">
                 <div class="name"> Advanced search </div>
                 <div class="about">Find the flashcards you need to study any<br /> subject</div>
             </div>
@@ -83,7 +153,7 @@
         </div>
 
         <div class="container2">
-            <div class="info" style="background-color:#EBEBEB;">
+            <div class="info" style="background-color:#E2FFDE;">
                 <div class="name"> Learn something new! </div>
                 <div class="about">
                     Improve your grades by learning new words
@@ -93,7 +163,7 @@
         </div>
 
         <div class="container3">
-            <div class="info" style="background-color:#EBEBEB">
+            <div class="info" style="background-color:#F8E6FF">
                 <div class="name"> Be prepared for exams </div>
                 <div class="about">Test yourself with study tips and advice</div>
             </div>
@@ -108,76 +178,76 @@
 
 
             <div class="div-set1" id="div-set-1">
+
+                <a href="https://shop.dinternal-education.ua/product/high-note-3-students-book/" target="_blank">
                 <div class="div-item2">
-                    <a href="https://shop.dinternal-education.ua/product/high-note-3-students-book/" target="_blank">
                     <div class="div-image">
                     </div>
-                    </a>
                     <div class="books-name">Textbook High Note 3 Student's Book</div>
                     <div class="div-about">Year: 2020<br />Pages: 200<br />Language: English<br />Level: B2<br />Episode: Pearson Education Ltd
                     </div>
                 </div>
+                </a>
 
+                <a href="https://www.yakaboo.ua/ua/fundamental-mathematics-for-epidemiology-study.html?gad_source=1&gclid=Cj0KCQjwpNuyBhCuARIsANJqL9O-fMUDJ-J6jhuD8PGVAsMabtAMzkCPoIAFjM3DuGlnH4XFtjwK4_kaAk89EALw_wcB" target="_blank">
                 <div class="div-item2">
-                    <a href="https://www.yakaboo.ua/ua/fundamental-mathematics-for-epidemiology-study.html?gad_source=1&gclid=Cj0KCQjwpNuyBhCuARIsANJqL9O-fMUDJ-J6jhuD8PGVAsMabtAMzkCPoIAFjM3DuGlnH4XFtjwK4_kaAk89EALw_wcB" target="_blank">
                         <div class="div-image1">
                         </div>
-                    </a>
                     <div class="books-name">Textbook Fundamental Mathematics For Epidemiology Study</div>
                     <div class="div-about">
                         Year: 2018<br />Pages: 352<br />Language: English<br />Level: Advanced <br />Episode: Wiley. John Wiley & Sons, LTD
                     </div>
                 </div>
+                </a>
 
+                <a href="https://www.yakaboo.ua/ua/basic-physics-a-self-teaching-guide.html?gad_source=1&gclid=Cj0KCQjwpNuyBhCuARIsANJqL9On1souB-9RU6-lceN5TJi4hubh7l5hUnNWOss2IThhVD8vTGwDuU4aAk9gEALw_wcB" target="_blank">
                 <div class="div-item2">
-                    <a href="https://www.yakaboo.ua/ua/basic-physics-a-self-teaching-guide.html?gad_source=1&gclid=Cj0KCQjwpNuyBhCuARIsANJqL9On1souB-9RU6-lceN5TJi4hubh7l5hUnNWOss2IThhVD8vTGwDuU4aAk9gEALw_wcB" target="_blank">
                         <div class="div-image2">
                         </div>
-                    </a>
                     <div class="books-name">Textbook Fundamental Mathematics For Epidemiology Study</div>
                     <div class="div-about">
                         Year: 2020<br />Pages: 138<br />Language: English<br />Level: Advanced <br />Episode: Jones and Bartlett Publishers
                     </div>
                 </div>
             </div>
+            </a>
 
 
             <div class="div-set1" id="div-set-2" style="display: none;">
 
-
+                <a href="https://balka-book.com/programmirovanie-v-net-401/architectingaspnetcoreapplicationsthirdeditionanatypicaldesignpatternsguidefornet8c12andbeyond3rdededition-277861?utm_source=google&utm_medium=cpc&utm_campaign=18680074526&utm_content=&utm_term=&gad_source=1&gclid=Cj0KCQjwpNuyBhCuARIsANJqL9M2AE-FoBxvF-Tl0aPvbw8VpDvYNZlhoGRdGjhta2BvI2DTx_tUGjUaAgElEALw_wcB&lang=ua" target="_blank">
                 <div class="div-item2">
-                    <a href="https://balka-book.com/programmirovanie-v-net-401/architectingaspnetcoreapplicationsthirdeditionanatypicaldesignpatternsguidefornet8c12andbeyond3rdededition-277861?utm_source=google&utm_medium=cpc&utm_campaign=18680074526&utm_content=&utm_term=&gad_source=1&gclid=Cj0KCQjwpNuyBhCuARIsANJqL9M2AE-FoBxvF-Tl0aPvbw8VpDvYNZlhoGRdGjhta2BvI2DTx_tUGjUaAgElEALw_wcB&lang=ua" target="_blank">
                         <div class="div-image3">
                         </div>
-                    </a>
                     <div class="books-name">Architecting ASP.NET Core Applications - Third Edition: Guide for .NET 8, C#</div>
                     <div class="div-about">
                         Year: 2024<br />Pages: 806<br />Language: English<br />Level: Advanced <br />Episode: Packt Publishing
                     </div>
                 </div>
+                </a>
 
+                <a href="https://www.yakaboo.ua/ua/introducing-physical-geography.html?gad_source=1&gclid=Cj0KCQjwpNuyBhCuARIsANJqL9OdQjX9QftL93bYNJagniShnN3VRsMn5S3mpHVIYhW6LrAJMgU8uQkaArS-EALw_wcB" target="_blank">
                 <div class="div-item2">
-                    <a href="https://www.yakaboo.ua/ua/introducing-physical-geography.html?gad_source=1&gclid=Cj0KCQjwpNuyBhCuARIsANJqL9OdQjX9QftL93bYNJagniShnN3VRsMn5S3mpHVIYhW6LrAJMgU8uQkaArS-EALw_wcB" target="_blank">
                         <div class="div-image4">
                         </div>
-                    </a>
                     <div class="books-name">Introducing Physical Geography</div>
                     <div class="div-about">
                         Year: 2013<br />Pages: 672<br />Language: English<br />Level: Advanced <br />Episode: Wiley. John Wiley & Sons, LTD
                     </div>
                 </div>
+                </a>
 
+                <a href="https://www.bloomsbury.com/uk/chemistry-9781137610355/" target="_blank">
                 <div class="div-item2">
-                    <a href="https://www.bloomsbury.com/uk/chemistry-9781137610355/" target="_blank">
                         <div class="div-image5">
                         </div>
-                    </a>
                     <div class="books-name">Fundamentals of Chemistry. Chemistry of Nanomaterials: Applications </div>
                     <div class="div-about">
                         Year: 2018<br />Pages: 171<br />Language: English<br />Level: Standart <br />Episode: Bloomsbury Foundations Series
                     </div>
                 </div>
             </div>
+            </a>
 
 
         </div>
@@ -311,5 +381,4 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
-</body>
-</html>
+</body> *@
