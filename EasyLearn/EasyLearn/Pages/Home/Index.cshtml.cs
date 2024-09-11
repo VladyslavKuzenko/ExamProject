@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace EasyLearn.Pages.Home
 {
-    public class HomeModel : PageModel
+    public class IndexModel : PageModel
     {
         public void OnGet()
         {
