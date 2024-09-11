@@ -16,13 +16,17 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+
 builder.Services.AddRazorPages();
+
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+
 builder.Services.AddMvc().AddViewLocalization().AddDataAnnotationsLocalization(options => {
     options.DataAnnotationLocalizerProvider = (type, factory) =>
         factory.Create(typeof(DataAnotationSharedResorce));
 });
-
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
     var supportedCultures = new[] { new CultureInfo("en-US"), new CultureInfo("uk-UA") };
@@ -35,9 +39,14 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
+{
+    app.UseMigrationsEndPoint();
+}
+else
 {
     app.UseExceptionHandler("/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -55,5 +64,7 @@ app.UseRequestLocalization(new RequestLocalizationOptions()
 .SetDefaultCulture("en-US"));
 
 app.MapRazorPages();
+app.MapControllers();
+
 
 app.Run();

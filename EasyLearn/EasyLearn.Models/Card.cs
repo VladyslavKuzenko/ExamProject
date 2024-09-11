@@ -12,15 +12,17 @@ namespace EasyLearn.Models
     {
         public int Id { get; set; }
         public string Term { get; set; } = default!;
-        public string? Definition {  get; set; }
+        public string Definition {  get; set; }
         //public byte[]? Image { get; set; }
         [JsonIgnore]
         public TrainingModule? TrainingModule { get; set; }
+
         public int TrainingModuleId { get; set; }
         public static IEnumerable<Card> DefaultCards()
         {
-            yield return new Card { Id = 1, Term="apple",Definition="яблуко", TrainingModuleId=TrainingModule.defaultModule.Id};
-            yield return new Card { Id = 2, Term = "car", Definition = "машина" , TrainingModuleId = TrainingModule.defaultModule.Id };
+
+            yield return new Card { Id = 1, Term = "apple", Definition = "яблуко", TrainingModuleId = TrainingModule.defaultModule.Id };
+            yield return new Card { Id = 2, Term = "car", Definition = "машина", TrainingModuleId = TrainingModule.defaultModule.Id };
             yield return new Card { Id = 3, Term = "ball", Definition = "м'яч", TrainingModuleId = TrainingModule.defaultModule.Id };
         }
     }
