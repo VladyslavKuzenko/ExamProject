@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="~/EasyLearn.styles.css" asp-append-version="true" />
 
 </head>
-<body>
+    <body>
     <header>
+<<<<<<< HEAD
         <div class="logo">EasyLearn</div>
 
         <nav>
@@ -54,7 +55,42 @@
 
       
 
+=======
+        <div class="container">
+            <div class="logo">
+                <a asp-area="" asp-page="/Index">EasyLearn</a>
+            </div>
+            <nav class="nav-links">
+                <a asp-area="" asp-page="/Home/Index">Home</a>
+                <a asp-area="" asp-page="/Library/Index">Your Library</a>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+            </div>
+            <div class="add-button">
+                <a asp-area="" asp-page="/Add/Index">+</a>
+            </div>
+            <div class="auth-buttons">
+                <button class="login">Log In</button>
+                <button class="registration">Registration</button>
+            </div>
+            <div class="menu-toggle" id="menu-toggle">
+                ☰
+            </div>
+        </div>
+>>>>>>> 75c4f8e046df1a538900bed75ecb1e9cbd573682
     </header>
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="close-menu" id="close-menu">&times;</div>
+        <div class="mobile-menu-content">
+            <a asp-area="" asp-page="/Home/Index">Home</a>
+            <a asp-area="" asp-page="/Library/Index">Your Library</a>
+            <a asp-area="" asp-page="/Add/Index">+</a>
+           <button class="login">Log In</button>
+           <button class="registration">Registration</button>
+        </div>
+    </div>
+
 
 
     <div class="container">
@@ -76,3 +112,30 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 75c4f8e046df1a538900bed75ecb1e9cbd573682

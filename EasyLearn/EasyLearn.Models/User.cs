@@ -9,9 +9,6 @@ namespace EasyLearn.Models
 {
     public class User : IdentityUser
     {
-        public string Name { get; set; } = default!;
-        public string Login { get; set; } = default!;
-        public string Password { get; set; } = default!;
-        public byte[]? Avatar { get; set; }
+        public string UIName { get; set; } = default!;
     }
 }
