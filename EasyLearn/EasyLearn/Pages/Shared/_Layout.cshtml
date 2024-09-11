@@ -9,60 +9,15 @@
     <link rel="stylesheet" href="~/EasyLearn.styles.css" asp-append-version="true" />
 
 </head>
-    <body>
+<body>
     <header>
-<<<<<<< HEAD
-        <div class="logo">EasyLearn</div>
-
-        <nav>
-            <ul class="nav-list">
-
-                <li class="nav-item x">
-                    <a class="nav-link" asp-area="" asp-page="/Home/Index">Home</a>
-                </li>
-                <li class="nav-item x">
-                    <a class="nav-link" asp-area="" asp-page="/YourLibrary/Index">Your library</a>
-                </li>
-                <div class="brain"></div>
-
-
-                <input type="text" class="search-input" placeholder="Search...">
-
-                <div class="popup-container">
-                    <input type="checkbox" id="popup-toggle" class="popup-toggle">
-                    <label for="popup-toggle" class="popup-button">+</label>
-                    <div class="popup">
-                        <div class="popup-tab">Навчальний модуль</div>
-                        <div class="popup-tab">Папка</div>
-                        <div class="popup-tab">Курс</div>
-                    </div>
-                </div>
-
-                <li class="nav-item">
-                    <input type="button" class="LogInButton" value="Log In" />
-                </li>
-                <li class="nav-item">
-                    <input type="button" class="RegistrationButton" value="Registration" />
-                </li>
-                <partial name="_SelectLanguagePartial" />
-
-
-
-            </ul>
-        </nav>
-
-       
-
-      
-
-=======
         <div class="container">
             <div class="logo">
-                <a asp-area="" asp-page="/Index">EasyLearn</a>
+                <a asp-area="" asp-page="/Home/Index">EasyLearn</a>
             </div>
             <nav class="nav-links">
                 <a asp-area="" asp-page="/Home/Index">Home</a>
-                <a asp-area="" asp-page="/Library/Index">Your Library</a>
+                <a asp-area="" asp-page="/YourLibrary/Index">Your Library</a>
             </nav>
             <div class="search-bar">
                 <input type="text" placeholder="Search...">
@@ -70,6 +25,7 @@
             <div class="add-button">
                 <a asp-area="" asp-page="/Add/Index">+</a>
             </div>
+            <partial name="_SelectLanguagePartial" />
             <div class="auth-buttons">
                 <button class="login">Log In</button>
                 <button class="registration">Registration</button>
@@ -78,16 +34,16 @@
                 ☰
             </div>
         </div>
->>>>>>> 75c4f8e046df1a538900bed75ecb1e9cbd573682
     </header>
     <div class="mobile-menu" id="mobile-menu">
         <div class="close-menu" id="close-menu">&times;</div>
         <div class="mobile-menu-content">
             <a asp-area="" asp-page="/Home/Index">Home</a>
-            <a asp-area="" asp-page="/Library/Index">Your Library</a>
+            <a asp-area="" asp-page="/YourLibrary/Index">Your Library</a>
             <a asp-area="" asp-page="/Add/Index">+</a>
-           <button class="login">Log In</button>
-           <button class="registration">Registration</button>
+            <partial name="_SelectLanguagePartial" />
+            <button class="login">Log In</button>
+            <button class="registration">Registration</button>
         </div>
     </div>
 
@@ -112,30 +68,3 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-<<<<<<< HEAD
-=======
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 75c4f8e046df1a538900bed75ecb1e9cbd573682
