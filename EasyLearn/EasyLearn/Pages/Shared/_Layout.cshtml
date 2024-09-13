@@ -26,10 +26,12 @@
                 <a asp-area="" asp-page="/Add/Index">+</a>
             </div>
             <partial name="_SelectLanguagePartial" />
+            <partial name="_LoginPartial" />
+@* 
             <div class="auth-buttons">
                 <button class="login">Log In</button>
                 <button class="registration">Registration</button>
-            </div>
+            </div> *@
             <div class="menu-toggle" id="menu-toggle">
                 ☰
             </div>
@@ -42,8 +44,10 @@
             <a asp-area="" asp-page="/YourLibrary/Index">Your Library</a>
             <a asp-area="" asp-page="/Add/Index">+</a>
             <partial name="_SelectLanguagePartial" />
-            <button class="login">Log In</button>
-            <button class="registration">Registration</button>
+            <partial name="_LoginPartial" />
+
+@*             <button class="login">Log In</button>
+            <button class="registration">Registration</button> *@
         </div>
     </div>
 

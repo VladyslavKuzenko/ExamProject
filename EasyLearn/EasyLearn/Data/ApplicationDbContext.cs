@@ -1,19 +1,28 @@
-﻿
+﻿//using EasyLearn.Areas.Identity.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using EasyLearn.Models;
 
 namespace EasyLearn.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<User>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
+
         public DbSet<EasyLearn.Models.Card> Card { get; set; } = default!;
         public DbSet<EasyLearn.Models.TrainingModule> TrainingModule { get; set; } = default!;
         public DbSet<EasyLearn.Models.Folder> Folder { get; set; } = default!;
         public DbSet<EasyLearn.Models.Course> Course { get; set; } = default!;
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            // Customize the ASP.NET Identity model and override the defaults if needed.
+            // For example, you can rename the ASP.NET Identity table names and more.
+            // Add your customizations after calling base.OnModelCreating(builder);
+        }
     }
 }
