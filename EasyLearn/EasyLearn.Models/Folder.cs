@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace EasyLearn.Models
@@ -12,14 +13,17 @@ namespace EasyLearn.Models
         public int Id { get; set; }
         public string Name { get; set; } = default!;
         public string? Description { get; set; }
-        public IEnumerable<Course>? Courses { get; set; }
-        //public int CourseId { get; set; }
+        [JsonIgnore]
+        public IEnumerable<TrainingModule>? TrainingModules { get; set; }
+        public Course? Course { get; set; }
+        public int? CourseId { get; set; }
         public User? User { get; set; }
         public string UserId { get; set; } = default!;
         public DateTime Create { get; set; }
         public DateTime LastOpen { get; set; }
         public bool IsLearned { get; set; } = false;
 
+        
        
     }
 }
