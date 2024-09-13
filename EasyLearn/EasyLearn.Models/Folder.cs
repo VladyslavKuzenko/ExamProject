@@ -13,7 +13,7 @@ namespace EasyLearn.Models
         public string Name { get; set; } = default!;
         public string? Description { get; set; }
         public IEnumerable<Course>? Courses { get; set; }
-        public int CourseId { get; set; }
+        //public int CourseId { get; set; }
         public User? User { get; set; }
         public string UserId { get; set; } = default!;
         public DateTime Create { get; set; }

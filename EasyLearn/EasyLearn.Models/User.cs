@@ -10,5 +10,6 @@ namespace EasyLearn.Models
     public class User : IdentityUser
     {
         public string UIName { get; set; } = default!;
+
     }
 }

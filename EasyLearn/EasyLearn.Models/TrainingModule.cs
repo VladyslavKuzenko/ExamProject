@@ -22,7 +22,7 @@ namespace EasyLearn.Models
 
         //[JsonIgnore]
         public IEnumerable<Folder>? Folders { get; set; }
-        public int FolderId { get; set; }
+        //public int FolderId { get; set; }
 
         public User? User { get; set; }
         public string UserId { get; set; } = default!;
