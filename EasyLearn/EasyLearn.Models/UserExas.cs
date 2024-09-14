@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace EasyLearn.Models
 {
-    internal class UserExas
+    public class UserExas
     {
-        int UserId { get; set; }
-        int UserWhoCanReadId { get; set; }
+        public int UserId { get; set; }
+        public int UserWhoCanReadId { get; set; }
 
-        Course? Course { get; set; }
-        int? CourseId { get; set; }
-        Folder? Folder { get; set; }
-        int? FolderId { get; set; }
-        TrainingModule?TrainingModule { get; set; }
-        int? TrainingModuleId {  get; set; }
+        public Course? Course { get; set; }
+        public int? CourseId { get; set; }
+        public Folder? Folder { get; set; }
+        public int? FolderId { get; set; }
+        public TrainingModule?TrainingModule { get; set; }
+        public int? TrainingModuleId {  get; set; }
     }
 }
