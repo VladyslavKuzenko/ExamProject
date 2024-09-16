@@ -15,15 +15,17 @@ namespace EasyLearn.Models
         public string Term { get; set; } = default!;
         public string Definition { get; set; } = default!;
         //public byte[]? Image { get; set; }
+
         [JsonIgnore]
-        public TrainingModule TrainingModule { get; set; } =  TrainingModule.defaultModule;
-        public int TrainingModuleId { get; set; } = TrainingModule.defaultModule.Id;
+        public TrainingModule? TrainingModule { get; set; }  // Навігаційна властивість має бути nullable, щоб уникнути конфліктів при сідінгу
+        public int TrainingModuleId { get; set; }  // Зовнішній ключ
+
         public static IEnumerable<Card> DefaultCards()
         {
-
-            yield return new Card { Id = 1, Term = "apple", Definition = "яблуко", TrainingModuleId = TrainingModule.defaultModule.Id, TrainingModule = TrainingModule.defaultModule };
-            yield return new Card { Id = 2, Term = "car", Definition = "машина", TrainingModuleId = TrainingModule.defaultModule.Id, TrainingModule = TrainingModule.defaultModule };
-            yield return new Card { Id = 3, Term = "ball", Definition = "м'яч", TrainingModuleId = TrainingModule.defaultModule.Id, TrainingModule = TrainingModule.defaultModule };
+            yield return new Card { Id = 1, Term = "apple", Definition = "яблуко", TrainingModuleId = 1 };
+            yield return new Card { Id = 2, Term = "car", Definition = "машина", TrainingModuleId = 1 };
+            yield return new Card { Id = 3, Term = "ball", Definition = "м'яч", TrainingModuleId = 1 };
         }
     }
+
 }

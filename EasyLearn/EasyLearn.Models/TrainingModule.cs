@@ -14,22 +14,22 @@ namespace EasyLearn.Models
         public int Id { get; set; }
         public string Name { get; set; } = default!;
         public string? Description { get; set; }
-        public DateTime Create {  get; set; }
+        public DateTime Create { get; set; }
         public DateTime LastOpen { get; set; }
         public bool IsLearned { get; set; } = false;
+
         [JsonIgnore]
         public IEnumerable<Card> Cards { get; set; } = Enumerable.Empty<Card>();
+
         public Folder? Folder { get; set; }
         public int? FolderId { get; set; }
-
-    
         public string UserId { get; set; } = default!;
 
-        public static TrainingModule defaultModule= new TrainingModule { Id = 1, Name = "Something like a1", Create = DateTime.Now, LastOpen = DateTime.Now };
         public static IEnumerable<TrainingModule> DefaultTrainingModules()
         {
-
-            yield return defaultModule;
+            yield return new TrainingModule { Id = 1, Name = "C# Basics", Create = DateTime.Now, LastOpen = DateTime.Now };
+            yield return new TrainingModule { Id = 2, Name = "Advanced C#", Create = DateTime.Now, LastOpen = DateTime.Now };
         }
     }
+
 }

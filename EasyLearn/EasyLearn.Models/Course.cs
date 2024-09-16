@@ -14,7 +14,7 @@ namespace EasyLearn.Models
         public string Name { get; set; } = default!;
         public string? Description { get; set; }
         [JsonIgnore]
-        public IEnumerable<Folder>? Folders { get; set; }
+        public IEnumerable<Folder>? Folders { get; set; } 
 
         public string UserId { get; set; } = default!;
         public DateTime Create { get; set; }

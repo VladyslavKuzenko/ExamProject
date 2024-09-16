@@ -8,8 +8,9 @@ namespace EasyLearn.Models
 {
     public class UserExas
     {
-        public int UserId { get; set; }
-        public int UserWhoCanReadId { get; set; }
+        public int Id { get; set; }
+        public string UserId { get; set; } = default!;
+        public string UserWhoCanReadId { get; set; } = default!;
 
         public Course? Course { get; set; }
         public int? CourseId { get; set; }

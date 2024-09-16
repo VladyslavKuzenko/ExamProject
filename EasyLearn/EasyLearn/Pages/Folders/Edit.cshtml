@@ -1,0 +1,65 @@
+﻿@page
+@model EasyLearn.Resources.Pages.Folders.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Folder</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Folder.Id" />
+            <div class="form-group">
+                <label asp-for="Folder.Name" class="control-label"></label>
+                <input asp-for="Folder.Name" class="form-control" />
+                <span asp-validation-for="Folder.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Folder.Description" class="control-label"></label>
+                <input asp-for="Folder.Description" class="form-control" />
+                <span asp-validation-for="Folder.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Folder.CourseId" class="control-label"></label>
+                <select asp-for="Folder.CourseId" class="form-control" asp-items="ViewBag.CourseId"></select>
+                <span asp-validation-for="Folder.CourseId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Folder.UserId" class="control-label"></label>
+                <select asp-for="Folder.UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                <span asp-validation-for="Folder.UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Folder.Create" class="control-label"></label>
+                <input asp-for="Folder.Create" class="form-control" />
+                <span asp-validation-for="Folder.Create" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Folder.LastOpen" class="control-label"></label>
+                <input asp-for="Folder.LastOpen" class="form-control" />
+                <span asp-validation-for="Folder.LastOpen" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Folder.IsLearned" /> @Html.DisplayNameFor(model => model.Folder.IsLearned)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
