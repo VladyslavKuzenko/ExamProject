@@ -1,6 +1,11 @@
 body {
     margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
@@ -14,11 +19,12 @@ header {
     display: flex;
     align-items: center;
     padding: 10px 20px;
-    max-width: 1200px;
+    width:100%;
     margin: 0 auto;
     justify-content: space-between;
     position: relative;
 }
+
 
 .logo {
     position: relative;
@@ -252,17 +258,23 @@ header {
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
 }
 
 .container1 {
     width: 70%;
     margin: 20px auto;
     text-align: center;
+    color: white;
 }
 
 h2 {
     text-align: left;
     margin-bottom: 10px;
+    color:wheat;
 }
 
 .main-content {
@@ -276,6 +288,7 @@ h2 {
     right:180px;
     height:200px;
 }
+
 
 .images-section, .textbook-section, .video-section {
     display: flex;
@@ -310,6 +323,17 @@ h2 {
     text-align: center;
     margin:50px;
 }
+footer {
+    padding: 15px 0;
+    text-align: center;
+    width: 100%;
+    border-top: 1px solid #e7e7e7;
+}
+    footer .container {
+        max-width: 1500px;
+        margin: 0 auto; 
+        padding: 0 20px; 
+    }
 
 
     .image-block img, .video-block img {
