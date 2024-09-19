@@ -1,7 +1,7 @@
 ﻿@page
 @using Microsoft.AspNetCore.Mvc.Localization
-@using Microsoft.Extensions.Localization
 @model EasyLearn.Pages.Home.IndexModel
+@using Microsoft.Extensions.Localization
 @inject IStringLocalizer<IndexModel> Localize
 
 
@@ -14,9 +14,6 @@
     body {
         background-color: #0A082D; 
 
-<<<<<<< HEAD
-<h1>@Localize["Welcome to index"]</h1>
-=======
     }
 
 </style>
@@ -27,7 +24,7 @@
     <div class="main-content">
         <p>Main content area</p>
     </div>
-    <p>Try this updated functions</p>
+    <p>@Localize["Try this updated functions"]</p>
 </div>
 
 <section class="images-section">
@@ -168,4 +165,3 @@
 
 
 
->>>>>>> 75c4f8e046df1a538900bed75ecb1e9cbd573682

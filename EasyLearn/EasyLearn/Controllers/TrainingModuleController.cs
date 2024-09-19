@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using EasyLearn.Models;
-using EasyLearn.Data;
+
 namespace EasyLearn.Controllers
 {
     [Route("api/[controller]")]
