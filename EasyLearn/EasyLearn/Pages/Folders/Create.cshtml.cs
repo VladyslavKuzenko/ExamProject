@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using EasyLearn.Data;
 using EasyLearn.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EasyLearn.Resources.Pages.Folders
 {
+    
     public class CreateModel : PageModel
     {
         private readonly EasyLearn.Data.ApplicationDbContext _context;
@@ -24,47 +26,39 @@ namespace EasyLearn.Resources.Pages.Folders
         public IActionResult OnGet()
         {
             ViewData["CourseId"] = new SelectList(_context.Course, "Id", "Name");
+            //this.Folder = new Folder { UserId = _userManager.GetUserId(User) };
             return Page();
         }
 
+        //[BindProperty]
+        //public Folder Folder { get; set; }
         [BindProperty]
-        public Folder Folder { get; set; } = default!;
+        public string Name { get; set; }
+        [BindProperty]
+        public string Description { get; set; }
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            // Перевіряємо, чи користувач залогований
-            if (!User.Identity.IsAuthenticated)
-            {
-                return RedirectToPage("/Identity/Account/Login");
-            }
-            if (_userManager == null)
-            {
-                throw new Exception("UserManager is not available.");
-            }
+            
 
 
             // Отримуємо ідентифікатор користувача
             var userId = _userManager.GetUserId(User);
-            Console.WriteLine($"UserId: {userId}");
-
+            
             if (string.IsNullOrEmpty(userId))
             {
-                ModelState.AddModelError(string.Empty, "UserId is not available.");
+                ModelState.AddModelError(string.Empty, "Login firstly.");
                 return Page();
             }
 
-            Folder.UserId = userId;  // Встановлюємо UserId до моделі
             var timeNow = DateTime.Now;
-            Folder.Create = timeNow;
-            Folder.LastOpen = timeNow;
-            Folder.IsLearned = false;
+            var folder = new Folder { UserId = userId, Name = this.Name, Description = this.Description };
+            folder.Create = timeNow;
+            folder.LastOpen = timeNow;
+            folder.IsLearned = false;
 
-            var existingFolder = await _context.Folder.FindAsync(Folder.Id);
-            if (existingFolder != null)
-            {
-                Console.WriteLine($"Folder with this id already exist {existingFolder.Id}");
-            }
+            
 
             if (!ModelState.IsValid)
             {
@@ -79,7 +73,7 @@ namespace EasyLearn.Resources.Pages.Folders
 
             
 
-            _context.Folder.Add(Folder);
+            _context.Folder.Add(folder);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
