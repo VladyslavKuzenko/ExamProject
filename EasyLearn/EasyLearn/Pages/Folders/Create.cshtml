@@ -23,29 +23,7 @@
                 <input asp-for="Folder.Description" class="form-control" />
                 <span asp-validation-for="Folder.Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Folder.CourseId" class="control-label"></label>
-                <select asp-for="Folder.CourseId" class ="form-control" asp-items="ViewBag.CourseId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Folder.UserId" class="control-label"></label>
-                <select asp-for="Folder.UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Folder.Create" class="control-label"></label>
-                <input asp-for="Folder.Create" class="form-control" />
-                <span asp-validation-for="Folder.Create" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Folder.LastOpen" class="control-label"></label>
-                <input asp-for="Folder.LastOpen" class="form-control" />
-                <span asp-validation-for="Folder.LastOpen" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Folder.IsLearned" /> @Html.DisplayNameFor(model => model.Folder.IsLearned)
-                </label>
-            </div>
+         
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
