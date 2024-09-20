@@ -40,3 +40,32 @@ document.querySelector('.left-btn').addEventListener('click', () => {
         card.style.display = 'flex'; // Відображаємо нові блоки
     });
 });
+
+
+
+
+// Функція для відкриття/закриття вікна
+function togglePopup7() {
+    var popup7 = document.getElementById('popup7');
+    if (popup7.style.display === 'none' || popup7.style.display === '') {
+        popup7.style.display = 'flex';
+    } else {
+        popup7.style.display = 'none';
+    }
+}
+
+
+
+
+function togglePopup7() {
+    var popup7 = document.getElementById('popup7');
+    popup7.style.display = (popup7.style.display === 'none' || popup7.style.display === '') ? 'block' : 'none';
+}
+
+// Закриваємо вікно, якщо клікаємо за його межами
+window.onclick = function (event) {
+    var popup7 = document.getElementById('popup7');
+    if (event.target !== document.querySelector('.btn7') && !popup7.contains(event.target)) {
+        popup7.style.display = 'none';
+    }
+}
