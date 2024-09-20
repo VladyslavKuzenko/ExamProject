@@ -9,17 +9,14 @@
 <body class="custom-background">
 
     <h1 class="h1">Ваша бібліотека</h1>
+
     <div class="tabs">
-        <a asp-area="" asp-page="/" class="tab">Навчальні модулі</a>
-        <a asp-area="" asp-page="/" class="tab">Папки</a>
-        <a asp-area="" asp-page="/" class="tab">Курси</a>
+        <a asp-area="" asp-page="/YourLibrary/Index" class="tab" style="color:cornflowerblue">Навчальні модулі</a>
+        <a asp-area="" asp-page="/YourLibraryFolders/Index" class="tab" style="color:white">Папки</a>
+        <a asp-area="" asp-page="/YourLibraryCourses/Index" class="tab" style="color:white">Курси</a>
     </div>
     <hr class="tab-line">
 
-    <div class="search-container2">
-        <input type="search" class="search-input2" placeholder="Пошук модуля" >
-    </div>
-    <div class="search-results2" id="searchResults2"></div>
 
 
 

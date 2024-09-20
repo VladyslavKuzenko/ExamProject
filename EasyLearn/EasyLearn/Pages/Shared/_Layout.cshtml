@@ -16,17 +16,30 @@
                 <a asp-area="" asp-page="/Home/Index">EasyLearn</a>
             </div>
             <nav class="nav-links">
-                <a asp-area="" asp-page="/Home/Index">Home</a>
+                <a asp-area="" asp-page="/Home/Index" >Home</a>
                 <a asp-area="" asp-page="/YourLibrary/Index">Your Library</a>
             </nav>
             <div class="search-bar">
                 <input type="text" placeholder="Search...">
             </div>
-            <div class="add-button">
-                <a asp-area="" asp-page="/Add/Index">+</a>
+            
+            <button class="btn7" onclick="togglePopup7()">+</button>
+
+            <!-- Випливаюче вікно -->
+            <div class="popup7" id="popup7">
+                <a asp-area="" asp-page="/YourLibrary/Index">
+                    <div class="tab7">Навчальні модулі</div>
+                </a>
+                <a asp-area="" asp-page="/YourLibraryFolders/Index">
+                    <div class="tab7">Папки</div>
+                </a>
+                <a asp-area="" asp-page="/YourLibraryCourses/Index">
+                    <div class="tab7">Курси</div>
+                </a>
             </div>
-            <partial name="_SelectLanguagePartial" />
-            <partial name="_LoginPartial" />
+                <partial name="_SelectLanguagePartial" />
+                <partial name="_LoginPartial" />
+            
 @* 
             <div class="auth-buttons">
                 <button class="login">Log In</button>
@@ -35,8 +48,19 @@
             <div class="menu-toggle" id="menu-toggle">
                 ☰
             </div>
+
+            
         </div>
+
+
+
+        
+
+
     </header>
+
+
+
     <div class="mobile-menu" id="mobile-menu">
         <div class="close-menu" id="close-menu">&times;</div>
         <div class="mobile-menu-content">
