@@ -36,7 +36,7 @@ namespace EasyLearn.Resources.Pages.Folders
             // Перевіряємо, чи користувач залогований
             if (!User.Identity.IsAuthenticated)
             {
-                return RedirectToPage("/Account/Login");
+                return RedirectToPage("/Identity/Account/Login");
             }
             if (_userManager == null)
             {
@@ -55,6 +55,16 @@ namespace EasyLearn.Resources.Pages.Folders
             }
 
             Folder.UserId = userId;  // Встановлюємо UserId до моделі
+            var timeNow = DateTime.Now;
+            Folder.Create = timeNow;
+            Folder.LastOpen = timeNow;
+            Folder.IsLearned = false;
+
+            var existingFolder = await _context.Folder.FindAsync(Folder.Id);
+            if (existingFolder != null)
+            {
+                Console.WriteLine($"Folder with this id already exist {existingFolder.Id}");
+            }
 
             if (!ModelState.IsValid)
             {
@@ -67,10 +77,7 @@ namespace EasyLearn.Resources.Pages.Folders
             }
 
 
-            var timeNow = DateTime.Now;
-            Folder.Create = timeNow;
-            Folder.LastOpen = timeNow;
-            Folder.IsLearned = false;
+            
 
             _context.Folder.Add(Folder);
             await _context.SaveChangesAsync();
