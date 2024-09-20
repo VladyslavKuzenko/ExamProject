@@ -399,3 +399,74 @@ footer {
         display: none;
     }
 }
+
+.custom-background {
+    background-color: #0A082D;
+    color:#fff;
+
+}
+
+
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    position:relative;
+    top:100px;
+    right:140px;
+}
+
+.tab {
+    text-decoration: none;
+    padding: 10px;
+    color: white; /* Білий текст */
+    transition: color 0.3s, text-decoration 0.3s; /* Анімація */
+}
+
+    .tab:hover {
+        color: #e0e0e0; /* Трохи темніший білий при наведенні */
+        text-decoration: underline 3px; /* Підкреслення при наведенні */
+        text-decoration-color: purple; /* Світле фіолетове підкреслення */
+    }
+
+.tab-line {
+    width:450%;
+    height: 5px;
+    background-color: #fff; /* Звичайний колір лінії */
+    position: relative;
+    top:90px;
+    right:130px;
+}
+
+.h1 {
+    position:relative;
+    right:130px;
+    top:50px;
+
+}
+
+
+.search-container2 {
+    margin: 20px;
+    position:relative;
+    left:730px;
+    top:100px;
+}
+
+.search-input2 {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.search-results2 {
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none; /* Сховати результати за замовчуванням */
+}
