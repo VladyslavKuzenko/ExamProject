@@ -1,0 +1,62 @@
+﻿@page
+@model EasyLearn.Pages.TrainingModules.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TrainingModule</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TrainingModule.Name" class="control-label"></label>
+                <input asp-for="TrainingModule.Name" class="form-control" />
+                <span asp-validation-for="TrainingModule.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrainingModule.Description" class="control-label"></label>
+                <input asp-for="TrainingModule.Description" class="form-control" />
+                <span asp-validation-for="TrainingModule.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrainingModule.Create" class="control-label"></label>
+                <input asp-for="TrainingModule.Create" class="form-control" />
+                <span asp-validation-for="TrainingModule.Create" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrainingModule.LastOpen" class="control-label"></label>
+                <input asp-for="TrainingModule.LastOpen" class="form-control" />
+                <span asp-validation-for="TrainingModule.LastOpen" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TrainingModule.IsLearned" /> @Html.DisplayNameFor(model => model.TrainingModule.IsLearned)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrainingModule.FolderId" class="control-label"></label>
+                <select asp-for="TrainingModule.FolderId" class ="form-control" asp-items="ViewBag.FolderId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrainingModule.UserId" class="control-label"></label>
+                <select asp-for="TrainingModule.UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

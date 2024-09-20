@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -8,20 +7,29 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EasyLearn.Data;
 using EasyLearn.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace EasyLearn.Resources.Pages.Folders
 {
     public class EditModel : PageModel
     {
-        private readonly EasyLearn.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public EditModel(EasyLearn.Data.ApplicationDbContext context)
+        public EditModel(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         [BindProperty]
-        public Folder Folder { get; set; } = default!;
+        public int Id { get; set; }
+
+        [BindProperty]
+        public string Name { get; set; }
+
+        [BindProperty]
+        public string Description { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,18 +38,23 @@ namespace EasyLearn.Resources.Pages.Folders
                 return NotFound();
             }
 
-            var folder =  await _context.Folder.FirstOrDefaultAsync(m => m.Id == id);
+            var userId = _userManager.GetUserId(User);
+            var folder = await _context.Folder.FirstOrDefaultAsync(m => m.Id == id && m.UserId == userId);
+
             if (folder == null)
             {
                 return NotFound();
             }
-            Folder = folder;
-           ViewData["CourseId"] = new SelectList(_context.Course, "Id", "Name");
+
+            // Заповнюємо поля для редагування
+            Id = folder.Id;
+            Name = folder.Name;
+            Description = folder.Description;
+
+            ViewData["CourseId"] = new SelectList(_context.Course, "Id", "Name");
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -49,7 +62,17 @@ namespace EasyLearn.Resources.Pages.Folders
                 return Page();
             }
 
-            _context.Attach(Folder).State = EntityState.Modified;
+            var userId = _userManager.GetUserId(User);
+            var folder = await _context.Folder.FirstOrDefaultAsync(f => f.Id == Id && f.UserId == userId);
+
+            if (folder == null)
+            {
+                return NotFound();
+            }
+
+            // Оновлюємо лише поля Name і Description
+            folder.Name = Name;
+            folder.Description = Description;
 
             try
             {
@@ -57,7 +80,7 @@ namespace EasyLearn.Resources.Pages.Folders
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!FolderExists(Folder.Id))
+                if (!FolderExists(Id))
                 {
                     return NotFound();
                 }
