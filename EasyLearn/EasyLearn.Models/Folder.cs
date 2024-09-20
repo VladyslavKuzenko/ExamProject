@@ -17,7 +17,6 @@ namespace EasyLearn.Models
         public IEnumerable<TrainingModule>? TrainingModules { get; set; }
         public Course? Course { get; set; }
         public int? CourseId { get; set; }
-
         public string UserId { get; set; } = default!;
         public DateTime Create { get; set; }
         public DateTime LastOpen { get; set; }
