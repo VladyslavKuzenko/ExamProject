@@ -67,7 +67,7 @@ header {
         border-radius: 25px;
         border: none;
         outline: none;
-        background-color: #ffffff;
+        background-color: #2E3756;
         color: #000;
     }
 
@@ -392,10 +392,10 @@ footer {
 
 .tabs {
     display: flex;
-    justify-content: space-around;
     position:relative;
     top:100px;
     right:140px;
+    margin-left:0px;
 }
 
 .tab {
@@ -412,7 +412,7 @@ footer {
     }
 
 .tab-line {
-    width:450%;
+    width:1350px;
     height: 5px;
     background-color: #fff; /* Звичайний колір лінії */
     position: relative;
@@ -480,3 +480,13 @@ a {
 }
 
 
+.s1 {
+    position: relative;
+    top: 100px;
+    width: 600px;
+    height: 50px;
+    left: 620px;
+    border-radius: 10px;
+    background-color: #2E3756;
+    border:none;
+}
