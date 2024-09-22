@@ -1,0 +1,48 @@
+﻿@page
+@model EasyLearn.Pages.Cards.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create" asp-route-trainingModuleId="@Model.TrainingModuleId">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Card[0].Term)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Card[0].Definition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Card[0].TrainingModule)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Card) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Term)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Definition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrainingModule.Name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
