@@ -1,11 +1,17 @@
+html {
+    scrollbar-width: thin;  
+    scrollbar-color: cornflowerblue white;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    height: 100%;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 header {
@@ -72,162 +78,6 @@ header {
     }
 
 
-.login {
-    background-color: transparent;
-    border: 1px solid white;
-    border-radius: 10px;
-    width: 120px;
-    height: 50px;
-    color: white;
-    font-weight: bold;
-    position: relative;
-    left: 280px;
-}
-.registration {
-    background-color: orange;
-    border: none;
-    border-radius: 10px;
-    width: 120px;
-    height: 50px;
-    color: white;
-    font-weight: bold;
-    position: relative;
-    left: 300px;
-}
-
-
-.auth-buttons {
-    display: flex;
-    align-items: center;
-}
-
-    .auth-buttons a {
-        color: white;
-        text-decoration: none;
-        margin: 0 10px;
-    }
-
-.menu-toggle {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.mobile-menu {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 250px;
-    height: 100%;
-    background-color: #0a092d;
-    color: white;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    overflow-y: auto;
-    padding-top: 20px;
-}
-
-.close-menu {
-    font-size: 36px;
-    color: white;
-    text-align: right;
-    padding: 0 20px;
-    cursor: pointer;
-}
-
-.mobile-menu-content {
-    display: flex;
-    flex-direction: column;
-    padding: 0 20px;
-}
-
-    .mobile-menu-content a {
-        color: white;
-        text-decoration: none;
-        margin-bottom: 15px;
-        font-size: 18px;
-    }
-@media (max-width: 1770px) {
-    .login {
-        width: 100px;
-        left:80px;
-    }
-
-    .registration {
-        width: 100px;
-        left: 100px;
-    }
-}
-
-@media (max-width: 1800px) {
-    .logo{
-        left:-200px;
-    }
-}
-@media (max-width: 1550px) {
-    .logo {
-        left: -100px;
-    }
-    .login
-    {
-        left:10px;
-    }
-    .registration {
-        left: 20px;
-    }
-
-
-
-
-        @media (max-width: 1345px) {
-            .logo {
-                left: 0px;
-            }
-
-            .nav-links {
-                left: 0;
-            }
-
-            .login {
-                width: 100px;
-            }
-
-            .registration {
-                width: 100px;
-            }
-
-
-            @media (max-width: 768px) {
-                .nav-links, .search-bar, .auth-buttons, .add-button {
-                    display: none;
-                }
-
-                .menu-toggle {
-                    display: block;
-                }
-
-                .logo {
-                    left: 10px; 
-                }
-            }
-
-            @media (max-width: 480px) {
-                .search-bar input {
-                    font-size: 14px;
-                }
-            }
-
-            .mobile-menu.open {
-                display: block;
-            }
-        }
-    }
-
-
-
-
-
 
 * {
     margin: 0;
@@ -235,53 +85,7 @@ header {
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-}
 
-
-.custom-background {
-    background-color: #0A082D;
-    color:#fff;
-
-}
-
-
-
-.tabs {
-    display: flex;
-    position:relative;
-    top:100px;
-    right:140px;
-    margin-left:0px;
-}
-
-.tab {
-    text-decoration: none;
-    padding: 10px;
-    color: white; 
-    transition: color 0.3s, text-decoration 0.3s; 
-}
-
-    .tab:hover {
-        color: #e0e0e0; 
-        text-decoration: underline 3px; 
-        text-decoration-color: purple; 
-    }
-
-.tab-line {
-    width:1350px;
-    height: 5px;
-    background-color: #fff;
-    position: relative;
-    top:90px;
-    right:130px;
-}
 
 .h1 {
     position:relative;
@@ -340,16 +144,6 @@ a {
 }
 
 
-.s1 {
-    position: relative;
-    top: 100px;
-    width: 600px;
-    height: 50px;
-    left: 620px;
-    border-radius: 10px;
-    background-color: #2E3756;
-    border:none;
-}
 
 /*__________________________Недавні модулі*/
 .recent {
@@ -362,7 +156,7 @@ a {
 .recent-modules {
     position:absolute;
     width:1200px;
-    height:220px;
+    height:285px;
     background-color:cornflowerblue;
     border-radius:10px;
 }
@@ -380,9 +174,10 @@ a {
 .box-info {
     width: 380px;
     height: 320px;
-    background-color: cornflowerblue;
+    background-color: #2E3756;
     border-radius: 10px;
     margin: 0px;
+    border: 1px solid white;
 }
 
 .box-info-container {
@@ -390,8 +185,7 @@ a {
     justify-content: space-between;
     width: 1200px;
     height: 320px;
-    position:relative;  
-
+    position: relative;
 }
 
 .photo1 {
@@ -434,7 +228,6 @@ a {
     position: relative;
     left: 25px;
     font-size: 23px;
-    color: black;
     top: 15px;
 }
 
@@ -444,7 +237,6 @@ a {
     font-size: 17px;
     width: 320px;
     height: 30px;
-    color: black;
     top: 30px;
 }
 
@@ -453,7 +245,7 @@ a {
 .books-container {
     position: relative;
     width: 1200px;
-    top: 1000px;
+    top: 930px;
     left:75px;
 }
 
@@ -468,6 +260,7 @@ a {
     background-color: #2E3756;
     border-radius: 10px;
     transition: all 0.3s ease;
+    border: 1px solid white;
 }
 
 .hidden {
@@ -593,3 +386,153 @@ a {
 }
 
 /*__________________________*/
+
+.video-lessons-column1 {
+    position: absolute;
+    top: 1320px;
+    left: 100px;
+    color: #fff;
+}
+
+.photo7 {
+    position: relative;
+    width: 100%;
+    height: 70%;
+    border-radius: 10px;
+    background-image: url(../images/el1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.photo8 {
+    position: relative;
+    width: 100%;
+    height:70%;
+    border-radius: 10px;
+    background-image: url(../images/cpr.png);
+    background-repeat: no-repeat;
+}
+
+.photo9 {
+    position: relative;
+    width: 100%;
+    height: 70%;
+    border-radius: 10px;
+    background-image: url(../images/mathls.png);
+    background-repeat: no-repeat;
+}
+
+.nameless {
+    position: relative;
+    left: 7px;
+    font-size: 23px;
+    color: white;
+    top: 10px;
+    font-size:20px;
+}
+
+.border-class {
+    border:1px solid white;
+}
+
+.video-lessons-column2 {
+    position: absolute;
+    top: 1730px;
+    left: 100px;
+    color: #fff;
+}
+
+.photo10 {
+    position: relative;
+    width: 100%;
+    height: 70%;
+    border-radius: 10px;
+    background-image: url(../images/aspl.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.photo11 {
+    position: relative;
+    width: 100%;
+    height: 70%;
+    border-radius: 10px;
+    background-image: url(../images/frl.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.photo12 {
+    position: relative;
+    width: 100%;
+    height: 70%;
+    border-radius: 10px;
+    background-image: url(../images/hq720.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*__________________________*/
+
+.dragon {
+    position:absolute;
+    width: 400px;
+    height: 400px;
+    background-image: url(../images/dragon.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    left:-400px;
+    top:80px;
+}
+
+.owl {
+    position: absolute;
+    width: 284px;
+    height: 300px;
+    background-image: url(../images/owl.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    left: 1330px;
+    top: 922px;
+}
+
+.cat {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background-image: url(../images/cat.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    left: -330px;
+    top: 1670px;
+}
+
+
+/*__________________________*/
+
+
+#register {
+    position: relative;
+    border: 1px solid white;
+    top: 20px;
+    padding: 10px;
+    padding-left: 10px;
+    left: 30px;
+    background-color: orange;
+    font-weight: bold;
+    color: #fff;
+    border-radius:7px;
+}
+
+#login {
+    border: 1px solid white;
+    position: relative;
+    left: 160px;
+    top: -27px;
+    padding: 10px;
+    padding-left: 20px;
+    color: #fff;
+    border-radius: 7px;
+    width:90px;
+
+}
