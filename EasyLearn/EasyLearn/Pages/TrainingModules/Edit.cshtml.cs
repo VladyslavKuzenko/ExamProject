@@ -8,48 +8,56 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EasyLearn.Data;
 using EasyLearn.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace EasyLearn.Pages.TrainingModules
 {
     public class EditModel : PageModel
     {
-        private readonly EasyLearn.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public EditModel(EasyLearn.Data.ApplicationDbContext context)
+        public EditModel(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
+        [BindProperty]
+        public int Id { get; set;}
 
         [BindProperty]
-        public TrainingModule TrainingModule { get; set; } = default!;
+        public string Name { get; set; }
+        [BindProperty]
+        public string Description { get; set; }
+      
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            var trainingmodule =  await _context.TrainingModule.FirstOrDefaultAsync(m => m.Id == id);
-            if (trainingmodule == null)
-            {
-                return NotFound();
-            }
-            TrainingModule = trainingmodule;
-           ViewData["FolderId"] = new SelectList(_context.Folder, "Id", "Name");
+            var userId = _userManager.GetUserId(User);
+            var module = await _context.TrainingModule.FirstOrDefaultAsync(m => m.Id == id && m.UserId == userId);
+            if (module == null) return NotFound();
+
+            Id = module.Id;
+            Name = module.Name;
+            Description = module.Description;
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more information, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+            var userId = _userManager.GetUserId(User);
+            var moduleToUpdate = await _context.TrainingModule.FirstOrDefaultAsync(m => m.Id == id && m.UserId == userId);
 
-            _context.Attach(TrainingModule).State = EntityState.Modified;
+            if (moduleToUpdate == null) return NotFound();
+
+            moduleToUpdate.Name = Name;
+            moduleToUpdate.Description = Description;
 
             try
             {
@@ -57,7 +65,7 @@ namespace EasyLearn.Pages.TrainingModules
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TrainingModuleExists(TrainingModule.Id))
+                if (!ModuleExists(Id))
                 {
                     return NotFound();
                 }
@@ -67,12 +75,13 @@ namespace EasyLearn.Pages.TrainingModules
                 }
             }
 
+
             return RedirectToPage("./Index");
         }
-
-        private bool TrainingModuleExists(int id)
+        private bool ModuleExists(int id)
         {
             return _context.TrainingModule.Any(e => e.Id == id);
         }
     }
+
 }

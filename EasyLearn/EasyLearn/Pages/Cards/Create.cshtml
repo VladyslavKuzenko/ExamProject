@@ -1,0 +1,42 @@
+﻿@page
+@model EasyLearn.Pages.Cards.CreateModel
+
+@{
+    ViewData["Title"] = "Create Card";
+}
+
+<h1>Create Card</h1>
+
+<h4>Card</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Term" class="control-label"></label>
+                <input asp-for="Term" class="form-control" />
+                <span asp-validation-for="Term" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Definition" class="control-label"></label>
+                <input asp-for="Definition" class="form-control" />
+                <span asp-validation-for="Definition" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="TrainingModuleId" />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
