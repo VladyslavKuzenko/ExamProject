@@ -28,7 +28,7 @@ header {
 
 .logo {
     position: relative;
-    right: 300px; /* Adjust this value as needed */
+    right: 300px;
 }
 
     .logo a {
@@ -113,7 +113,6 @@ header {
     cursor: pointer;
 }
 
-/* Mobile Menu Styles */
 .mobile-menu {
     display: none;
     position: fixed;
@@ -199,7 +198,6 @@ header {
             }
 
 
-            /* Media Queries */
             @media (max-width: 768px) {
                 .nav-links, .search-bar, .auth-buttons, .add-button {
                     display: none;
@@ -210,7 +208,7 @@ header {
                 }
 
                 .logo {
-                    left: 10px; /* Ensure logo is properly positioned on mobile */
+                    left: 10px; 
                 }
             }
 
@@ -246,141 +244,6 @@ body {
     min-height: 100vh;
 }
 
-.container1 {
-    width: 70%;
-    margin: 20px auto;
-    text-align: center;
-    color: white;
-}
-
-h2 {
-    text-align: left;
-    margin-bottom: 10px;
-    color:wheat;
-}
-
-.main-content {
-    width:1200px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    position:relative;
-    right:180px;
-    height:200px;
-}
-
-
-.images-section, .textbook-section, .video-section {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
-}
-
-.images-section {
-    height: 300px;
-}
-
-.image-block, .textbook-block, .video-block {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 30%;
-    text-align: center;
-}
-
-.textbook-blocks {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.textbook-block {
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin:50px;
-}
-footer {
-    padding: 15px 0;
-    text-align: center;
-    width: 100%;
-    border-top: 1px solid #e7e7e7;
-}
-    footer .container {
-        max-width: 1500px;
-        margin: 0 auto; 
-        padding: 0 20px; 
-    }
-
-
-    .image-block img, .video-block img {
-        width: 100%;
-        border-radius: 10px;
-    }
-
-.textbook-block img {
-    width: 100%;
-    height: auto;
-}
-
-.textbook-info {
-    margin-top: 10px;
-}
-
-.textbook-section {
-    position: relative;
-}
-
-.left-btn, .right-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #0a092d;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.left-btn {
-    left: -50px;
-}
-
-.right-btn {
-    right: -50px;
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
-    .container1 {
-        width: 90%;
-    }
-
-    .images-section, .textbook-section, .video-section {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .image-block, .textbook-block, .video-block {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-        .textbook-block img {
-            float: none;
-            margin: 0 auto;
-            display: block;
-        }
-
-    .left-btn, .right-btn {
-        display: none;
-    }
-}
 
 .custom-background {
     background-color: #0A082D;
@@ -401,20 +264,20 @@ footer {
 .tab {
     text-decoration: none;
     padding: 10px;
-    color: white; /* Білий текст */
-    transition: color 0.3s, text-decoration 0.3s; /* Анімація */
+    color: white; 
+    transition: color 0.3s, text-decoration 0.3s; 
 }
 
     .tab:hover {
-        color: #e0e0e0; /* Трохи темніший білий при наведенні */
-        text-decoration: underline 3px; /* Підкреслення при наведенні */
-        text-decoration-color: purple; /* Світле фіолетове підкреслення */
+        color: #e0e0e0; 
+        text-decoration: underline 3px; 
+        text-decoration-color: purple; 
     }
 
 .tab-line {
     width:1350px;
     height: 5px;
-    background-color: #fff; /* Звичайний колір лінії */
+    background-color: #fff;
     position: relative;
     top:90px;
     right:130px;
@@ -429,7 +292,6 @@ footer {
 
 
 
-/* Стилі для кнопки */
 .btn7 {
     padding: 10px 20px;
     background-color: #4CAF50;
@@ -440,12 +302,11 @@ footer {
     margin-right: 17px;
 }
 
-/* Стилі для випливаючого вікна */
 .popup7 {
     display: none;
     position: absolute;
-    width: 200px; /* Ширина випливаючого вікна */
-    height: 150px; /* Висота випливаючого вікна */
+    width: 200px; 
+    height: 150px; 
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -455,10 +316,9 @@ footer {
 
 }
 
-/* Стилі для вкладок */
 .tab7 {
     width: 100%;
-    height: 33.33%; /* Кожна вкладка займає 1/3 висоти вікна */
+    height: 33.33%; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -475,8 +335,8 @@ footer {
 
 
 a {
-    text-decoration: none; /* Прибирає підкреслення */
-    color: inherit; /* Використовує колір тексту батьківського елемента */
+    text-decoration: none; 
+    color: inherit; 
 }
 
 
@@ -490,3 +350,246 @@ a {
     background-color: #2E3756;
     border:none;
 }
+
+/*__________________________Недавні модулі*/
+.recent {
+    position:absolute;
+    top:80px;
+    left:100px;
+    color:#fff;
+}
+
+.recent-modules {
+    position:absolute;
+    width:1200px;
+    height:220px;
+    background-color:cornflowerblue;
+    border-radius:10px;
+}
+
+/*__________________________*/
+
+.upd-func {
+    position: absolute;
+    top: 480px;
+    left: 100px;
+    color: #fff;
+    
+}
+
+.box-info {
+    width: 380px;
+    height: 320px;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+    margin: 0px;
+}
+
+.box-info-container {
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
+    height: 320px;
+    position:relative;  
+
+}
+
+.photo1 {
+    width: 100%;
+    height: 60%;
+    background-color: red;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position:relative;
+    background-image:url(../images/paint1.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+.photo2 {
+    width: 100%;
+    height: 60%;
+    background-color: red;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+    background-image: url(../images/paint2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.photo3 {
+    width: 100%;
+    height: 60%;
+    background-color: red;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+    background-image: url(../images/paint3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.name {
+    position: relative;
+    left: 25px;
+    font-size: 23px;
+    color: black;
+    top: 15px;
+}
+
+.info {
+    position: relative;
+    left: 25px;
+    font-size: 17px;
+    width: 320px;
+    height: 30px;
+    color: black;
+    top: 30px;
+}
+
+/*__________________________*/
+
+.books-container {
+    position: relative;
+    width: 1200px;
+    top: 1000px;
+    left:75px;
+}
+
+.box-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.box {
+    width: 380px;
+    height: 220px;
+    background-color: #2E3756;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: lightgray;
+    border: none;
+    border-radius: 5px;
+}
+
+.left-btn {
+    left: -50px; 
+}
+
+.right-btn {
+    right: -50px;  
+}
+
+.nav-btn:disabled {
+    background-color: darkgray;
+    cursor: not-allowed;
+}
+
+.book-photo1 {
+    position: relative;
+    width: 120px;
+    height: 168px;
+    top: 25px;
+    left: 20px;
+    border-radius: 10px;
+    background-image: url(../images/hn.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.image-link {
+    display: block;
+    width: 120px; 
+    height: 168px;
+
+}
+
+.book-photo2 {
+    position: relative;
+    width: 120px;
+    height: 168px;
+    top: 25px;
+    left: 20px;
+    border-radius: 10px;
+    background-image: url(../images/mathb.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.book-photo3 {
+    position: relative;
+    width: 120px;
+    height: 168px;
+    top: 25px;
+    left: 20px;
+    border-radius: 10px;
+    background-image: url(../images/phb.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.book-photo4 {
+    position: relative;
+    width: 120px;
+    height: 168px;
+    top: 25px;
+    left: 20px;
+    border-radius: 10px;
+    background-image: url(../images/ghy.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.book-photo5 {
+    position: relative;
+    width: 120px;
+    height: 168px;
+    top: 25px;
+    left: 20px;
+    border-radius: 10px;
+    background-image: url(../images/naspbook.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.book-photo6 {
+    position: relative;
+    width: 120px;
+    height: 168px;
+    top: 25px;
+    left: 20px;
+    border-radius: 10px;
+    background-image: url(../images/chemistry.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.book-name {
+    position: relative;
+    width: 200px;
+    height: 16px;
+    top: -142px;
+    left: 150px;
+    color:#fff;
+    font-weight:bold;
+}
+
+.book-info {
+    position: relative;
+    bottom: 83px;
+    left: 150px;
+    color: #fff;
+    font-size: 12px;
+}
+
+/*__________________________*/

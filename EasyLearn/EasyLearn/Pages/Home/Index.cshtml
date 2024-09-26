@@ -15,140 +15,112 @@
         background-color: #0A082D; 
 
     }
+    html {
+        height:2000px;
+    }
 
 </style>
 
 
-<div class="container1">
-    <h2>Recent</h2>
-    <div class="main-content">
-        <p>Main content area</p>
-    </div>
-    <p>@Localize["Try this updated functions"]</p>
+<div class="recent">
+    <h1>Recent</h1>
+    <div class="recent-modules"></div>
 </div>
 
-<section class="images-section">
-    <div class="image-block">
-        <img src="image1.jpg" alt="Image 1">
-        <h3>Title 1</h3>
-        <p>Description 1</p>
-    </div>
-    <div class="image-block">
-        <img src="image2.jpg" alt="Image 2">
-        <h3>Title 2</h3>
-        <p>Description 2</p>
-    </div>
-    <div class="image-block">
-        <img src="image3.jpg" alt="Image 3">
-        <h3>Title 3</h3>
-        <p>Description 3</p>
-    </div>
-</section>
 
-<h2 class="textbook-title">Popular textbooks</h2>
+<div class="upd-func">
+    <h1>Try this updated funtions</h1>
+    
+    <div class="box-info-container">
 
-<section class="textbook-section">
-    <button class="left-btn">&lt;</button>
+    <div class="box-info">
+            <div class="photo1"></div>
+        <div class="name">Advanced search</div>
+        <div class="info">Find the flashcards you need to study any subject</div>
+    </div>
 
-    <div class="textbook-blocks">
-        <div class="textbook-block" id="set-1">
-            <img src="textbook1.jpg" alt="Textbook 1">
-            <div class="textbook-info">
-                <h4>Textbook 1</h4>
-                <p>Year: 2022</p>
-                <p>Pages: 320</p>
-                <p>Language: English</p>
-                <p>Level: Intermediate</p>
-                <p>Episode: 5</p>
-            </div>
-        </div>
-        <div class="textbook-block" id="set-1">
-            <img src="textbook2.jpg" alt="Textbook 2">
-            <div class="textbook-info">
-                <h4>Textbook 2</h4>
-                <p>Year: 2021</p>
-                <p>Pages: 280</p>
-                <p>Language: French</p>
-                <p>Level: Beginner</p>
-                <p>Episode: 3</p>
-            </div>
-        </div>
-        <div class="textbook-block" id="set-1">
-            <img src="textbook3.jpg" alt="Textbook 3">
-            <div class="textbook-info">
-                <h4>Textbook 3</h4>
-                <p>Year: 2023</p>
-                <p>Pages: 450</p>
-                <p>Language: Spanish</p>
-                <p>Level: Advanced</p>
-                <p>Episode: 8</p>
-            </div>
+    <div class="box-info">
+            <div class="photo2"></div>
+        <div class="name">Learn something new!</div>
+        <div class="info">Improve your grades by learning new words</div>
+    </div>
+
+        <div class="box-info">
+            <div class="photo3"></div>
+            <div class="name">Be prepared for exams</div>
+            <div class="info">Test yourself with study tips and advices</div>
         </div>
 
-        <!-- Додаємо ще один набір карточок -->
-        <div class="textbook-block" id="set-2" style="display:none;">
-            <img src="textbook4.jpg" alt="Textbook 4">
-            <div class="textbook-info">
-                <h4>Textbook 4</h4>
-                <p>Year: 2020</p>
-                <p>Pages: 290</p>
-                <p>Language: German</p>
-                <p>Level: Beginner</p>
-                <p>Episode: 1</p>
+
+
+
+
+
+    </div>
+
+</div>
+
+<div class="books-container">
+    <h1 style="color:#fff;">Popular textbooks</h1>
+
+    <button class="nav-btn left-btn" onclick="prevGroup()">&#9664;</button>
+
+    <div class="box-container">
+
+        <div class="box">
+            <a href="https://knigi1886.com/ua/" target="_blank" class="image-link">
+                <div class="book-photo1"></div>
+            </a>
+            <div class="book-name">Textbook High Note 3 Student's Book</div>
+            <div class="book-info">Year: 2020 <br>Pages: 200<br>Language: English<br>Level: B2<br>Episode: Pearson Education Ltd</div>
+        </div>
+
+        <div class="box">
+            <a href="https://www.yakaboo.ua/ua/fundamental-mathematics-for-epidemiology-study.html?" target="_blank" class="image-link">
+                <div class="book-photo2"></div>
+            </a>
+            <div class="book-name">Textbook Fundamental Mathematics For Epidemiology Study</div>
+            <div class="book-info">Year: 2018 <br>Pages: 271<br>Language: English<br>Level: Advanced<br>Episode: Wiley. John Wiley &Aacute; Sons, LTD</div>
+        </div>
+
+        <div class="box">
+            <a href="https://www.wiley.com/en-sg/Basic+Physics%3A+A+Self-Teaching+Guide%2C+3rd+Edition-p-9781119629900" target="_blank" class="image-link">
+                <div class="book-photo3"></div>
+            </a>
+            <div class="book-name">Basic Physics: A Self-Teaching Guide, 3rd Edition</div>
+            <div class="book-info">Year: 2020 <br>Pages: 352<br>Language: English<br>Level: Advanced<br>Episode: Jossey-Bass</div>
+        </div>
+
+        <div class="box hidden">
+            <a href="https://www.wiley.com/en-nl/Introducing+Physical+Geography%2C+6th+Edition-p-9781118396209" target="_blank" class="image-link">
+                <div class="book-photo4"></div>
+            </a>
+            <div class="book-name">Introducing Physical Geography, 6th Edition</div>
+            <div class="book-info">Year: 2013 <br>Pages: 672 <br>Language: English<br>Level: Advanced<br>Episode: Alan H. Strahler</div>
+        </div>
+
+        <div class="box hidden">
+            <a href="https://www.example.com/architecting-aspnet-patterns-guide" target="_blank" class="image-link">
+                <div class="book-photo5"></div>
+            </a>
+            <div class="book-name">Architecting ASP.NET. Patterns guide for .NET 8</div>
+            <div class="book-info">Year: 2024 <br>Pages: 806<br>Language: English<br>Level: Advanced<br>Episode: Carl-Hugo Marcotte</div>
+        </div>
+
+        <div class="box hidden">
+            <a href="https://www.example.com/textbook-chemistry-lewis-and-evans" target="_blank" class="image-link">
+                <div class="book-photo6"></div>
+            </a>
+            <div class="book-name">Textbook Chemistry, Lewis and Evans</div>
+            <div class="book-info">
+                Year: 2018 <br>Pages: 508<br>Language: English<br>Level: Advanced<br>Episode: Rob Lewis and Wynne Evans
             </div>
         </div>
-        <div class="textbook-block" id="set-2" style="display:none;">
-            <img src="textbook5.jpg" alt="Textbook 5">
-            <div class="textbook-info">
-                <h4>Textbook 5</h4>
-                <p>Year: 2019</p>
-                <p>Pages: 350</p>
-                <p>Language: Italian</p>
-                <p>Level: Intermediate</p>
-                <p>Episode: 6</p>
-            </div>
-        </div>
-        <div class="textbook-block" id="set-2" style="display:none;">
-            <img src="textbook6.jpg" alt="Textbook 6">
-            <div class="textbook-info">
-                <h4>Textbook 6</h4>
-                <p>Year: 2024</p>
-                <p>Pages: 380</p>
-                <p>Language: Japanese</p>
-                <p>Level: Advanced</p>
-                <p>Episode: 7</p>
-            </div>
-        </div>
+
     </div>
 
-    <button class="right-btn">&gt;</button>
-</section>
-
-<h2>Video lessons</h2>
-<section class="video-section">
-    <div class="video-block">
-        <img src="video1.jpg" alt="Video 1">
-        <h3>Video Title 1</h3>
-    </div>
-    <div class="video-block">
-        <img src="video2.jpg" alt="Video 2">
-        <h3>Video Title 2</h3>
-    </div>
-    <div class="video-block">
-        <img src="video3.jpg" alt="Video 3">
-        <h3>Video Title 3</h3>
-    </div>
-</section>
-<footer class="border-top footer text-muted">
-    <div class="container">
-        &copy; 2024 - EasyLearn - <a asp-area="" asp-page="/Privacy">Privacy</a>
-    </div>
-</footer>
-
-
-
-
-
+    <button class="nav-btn right-btn" onclick="nextGroup()">&#9654;</button>
+</div>
 
 
 
