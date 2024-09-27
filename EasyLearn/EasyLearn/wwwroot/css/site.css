@@ -110,15 +110,14 @@ header {
 .popup7 {
     display: none;
     position: absolute;
-    width: 200px; 
-    height: 150px; 
-    background-color: white;
-    border-radius: 5px;
+    width: 220px;
+    height: 150px;
+    background-color: #0A082D;
     left: 845px;
     bottom: -120px;
     z-index: 1;
-    border-radius:10px;
-
+    border-radius: 10px;
+    border: 1px solid white;
 }
 
 .create-button {
@@ -129,13 +128,36 @@ header {
     align-items: center;
     cursor: pointer;
     text-align: center;
-    transition: background-color 0.3s ease;
-    background-color: #2E3756;
+    background-color: #0A082D;
+    border-radius: 10px;
 }
 
-    .create-button:hover {
-        background-color: #2E2756;
-    }
+.create-button-photo1 {
+    background-image: url(../images/wdocument.png);
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 16px;
+    background-position-y: 10px;
+}
+.create-button-photo2 {
+    background-image: url(../images/wfolder.png);
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 16px;
+    background-position-y: 10px;
+}
+.create-button-photo3 {
+    background-image: url(../images/wpeople.png);
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 16px;
+    background-position-y: 10px;
+}
+
+
+.create-button:hover {
+    background-color: #090729;
+}
 
 
 a {
@@ -177,7 +199,7 @@ a {
     background-color: #2E3756;
     border-radius: 10px;
     margin: 0px;
-    border: 1px solid white;
+    border: 1px solid cornflowerblue;
 }
 
 .box-info-container {
@@ -260,7 +282,7 @@ a {
     background-color: #2E3756;
     border-radius: 10px;
     transition: all 0.3s ease;
-    border: 1px solid white;
+    border: 1px solid cornflowerblue;
 }
 
 .hidden {
@@ -432,7 +454,7 @@ a {
 }
 
 .border-class {
-    border:1px solid white;
+    border: 1px solid cornflowerblue;
 }
 
 .video-lessons-column2 {
@@ -506,6 +528,8 @@ a {
     left: -330px;
     top: 1670px;
 }
+/*__________________________*/
+
 .custom-background {
     background-color: #0A082D;
     font-family: Arial, sans-serif; 
@@ -732,3 +756,17 @@ a {
     left: 560px;
     top: 165px;
 }
+
+/*_________________________________*/
+.full-button {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    text-align: center;
+    color: white;  
+    text-decoration: none;
+    text-align:start;
+    padding-left:50px;
+}
+
