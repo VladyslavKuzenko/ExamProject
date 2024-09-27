@@ -10,12 +10,14 @@
 
     <h1 class="h1">Your library</h1>
 
-    <style>
-        body{
-            background-color: #0A082C;
-            color:#fff;
-        }
-    </style>
+    <div class="tabs">
+        <a asp-area="" asp-page="/YourLibrary/Index" class="tab" style="color:cornflowerblue">Навчальні модулі</a>
+        <a asp-area="" asp-page="/YourLibraryFolders/Index" class="tab" style="color:white">Папки</a>
+        <a asp-area="" asp-page="/YourLibraryCourses/Index" class="tab" style="color:white">Курси</a>
+    </div>
+    <hr class="tab-line">
+
+    <input type="search" class="s1" placeholder="Пошук..."/>
 
 
 
