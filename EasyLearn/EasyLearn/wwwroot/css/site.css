@@ -104,6 +104,7 @@ header {
     cursor: pointer;
     border-radius: 5px;
     margin-right: 17px;
+    border-radius: 10px;
 }
 
 .popup7 {
@@ -112,28 +113,27 @@ header {
     width: 200px; 
     height: 150px; 
     background-color: white;
-    border: 1px solid #ccc;
     border-radius: 5px;
-    left: 900px;
+    left: 845px;
     bottom: -120px;
     z-index: 1;
+    border-radius:10px;
 
 }
 
-.tab7 {
+.create-button {
     width: 100%;
-    height: 33.33%; 
+    height: 33.33%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid #ccc;
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s ease;
     background-color: #2E3756;
 }
 
-    .tab7:hover {
+    .create-button:hover {
         background-color: #2E2756;
     }
 
@@ -535,4 +535,132 @@ a {
     border-radius: 7px;
     width:90px;
 
+}
+
+/*_________________________________*/
+
+.create-title {
+    position: relative;
+    color:white;
+    top:70px;
+}
+
+.form-group {
+    position: relative;
+    top: 100px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+#Name {
+    background-color: #0A082D;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+}
+
+#Description {
+    background-color: #0A082D;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+}
+
+#Name:focus {
+    border-bottom: 2px solid cornflowerblue;
+}
+#Description:focus {
+    border-bottom: 2px solid cornflowerblue;
+}
+/*_________________________________*/
+.card-box {
+    width: 1100px;
+    height: 155px;
+    background-color: #2E3756;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    color: white;
+}
+
+.card-box-container {
+    position: relative;
+    top: 170px;
+}
+
+.upper-card-box {
+    width: 1100px;
+    height: 55px;
+    background-color: #2E3756;
+    margin-bottom: 3px;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+}
+
+.card-number {
+    width: 40px;
+    height: 40px;
+    position:relative;
+    top:17px;
+    left:15px;
+    font-size:17px;
+    font-weight:bold;
+    color:white;
+    justify-content:center;
+    text-align:center
+}
+
+.remove-card {
+    width: 27px;
+    height: 27px;
+    position: relative;
+    left: 1050px;
+    bottom: 25px;
+    background-color: transparent;
+    border: none;
+    background-image: url(../images/delete.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-term {
+    position: relative;
+    left: 40px;
+    top: 75px;
+    width: 45%;
+    border: none;
+    border-bottom: 3px solid white;
+    background-color: #2E3756;
+    outline: none;
+    color: white;
+}
+
+.card-description {
+    position: relative;
+    left: 60px;
+    top: 75px;
+    width: 45%;
+    border: none;
+    border-bottom: 3px solid white;
+    background-color: #2E3756;
+    outline: none;
+    color:white;
+}
+.card-term:focus {
+    border-bottom: 3px solid yellow;
+}
+.card-description:focus {
+    border-bottom: 3px solid yellow;
+}
+
+
+.label-term {
+    position: absolute;
+    left: 40px;
+    top: 165px;
+}
+
+.label-description{
+    position: absolute;
+    left: 560px;
+    top: 165px;
 }

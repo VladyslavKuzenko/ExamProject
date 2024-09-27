@@ -1,7 +1,15 @@
 ﻿@page
 @model EasyLearn.Pages.TrainingModules.CreateModel
 
-<h2>Create Training Module</h2>
+<style>
+    body {
+        background-color: #0A082D;
+    }
+</style>
+
+
+
+<h2 class="create-title">Створити модуль із картками</h2>
 
 <form method="post">
     <div class="form-group">
@@ -15,12 +23,40 @@
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
 
-    
 
     <div class="form-group mt-3">
         <input type="submit" value="Create" class="btn btn-primary" />
     </div>
+
+
+    <div class="card-box-container">
+
+        <div class="upper-card-box">
+            <div class="card-number">1</div>
+            <input type="button" name="name" value="" class="remove-card" />
+        </div>
+
+        <div class="card-box">
+            <input type="text" name="name" value="" class="card-term" />
+            <input type="text" name="name" value="" class="card-description" />
+            <label class="label-term">Term</label>
+            <label class="label-description">Description</label>
+        </div>
+    </div>
+
 </form>
+
+
+
+
+
+
+
+
+
+
+
+
 
 @section Scripts {
     @{
