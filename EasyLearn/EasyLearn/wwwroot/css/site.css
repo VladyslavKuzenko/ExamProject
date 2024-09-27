@@ -506,7 +506,75 @@ a {
     left: -330px;
     top: 1670px;
 }
+.custom-background {
+    background-color: #0A082D;
+    font-family: Arial, sans-serif; 
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.h1 {
+    font-size: 32px;
+    color: yellowgreen;
+    margin-top: 40px; 
+    margin-bottom: 20px;
+    font-weight: bold;
+    position: relative;
+}
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
 
+.tab {
+    text-decoration: none; 
+    padding: 10px 20px;
+    margin: 0 15px;
+    font-size: 18px;
+    color: white;
+    background-color: #2E3756; 
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+    .tab:hover {
+        background-color: #0056b3; 
+    }
+
+    .tab.active {
+        background-color: cornflowerblue;
+        color: white;
+    }
+.tab-line {
+    border: none;
+    height: 4px;
+    background-color: navajowhite; 
+    margin: 10px auto 0;
+    width: 100%; 
+    transition: width 0.3s ease, background-color 0.3s ease; 
+}
+
+.tab.active + .tab-line {
+    width: 100px; 
+    background-color: cornflowerblue; 
+}
+.s1 {
+    width: 100%; 
+    max-width: 400px; 
+    padding: 10px; 
+    margin-top:50px;
+    border: 1px solid #ccc; 
+    border-radius: 20px; 
+    font-size: 16px; 
+    outline: none; 
+    justify-content: space-between;
+    transition: box-shadow 0.3s ease; 
+}
+
+    .s1:focus {
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); 
+        border-color: #007bff; 
+    }
 
 /*__________________________*/
 
