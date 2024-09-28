@@ -17,10 +17,14 @@
             </div>
             <nav class="nav-links">
                 <a asp-area="" asp-page="/Home/Index" >Home</a>
-                <a asp-area="" asp-page="/YourLibrary/Index">Your Library</a>
+
+
+                <a asp-area="" asp-page="/TrainingModules/Index">Your Library</a>
+
+
             </nav>
             <div class="search-bar">
-                <input type="text" placeholder="Search...">
+                <input type="text" placeholder="Search">
             </div>
             
             <button class="btn7" onclick="togglePopup7()">+</button>
@@ -40,7 +44,7 @@
                 </div>
             </div>
 
-                <partial name="_SelectLanguagePartial" />
+                <partial name="_SelectLanguagePartial"/>
 
                 <partial name="_LoginPartial" />
 

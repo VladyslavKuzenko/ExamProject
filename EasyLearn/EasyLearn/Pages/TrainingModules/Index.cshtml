@@ -5,7 +5,22 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+
+<body class="custom-background">
+
+    <h1 class="create-title">Your library</h1>
+
+    <div class="tabs">
+        <a asp-area="" asp-page="/TrainingModules/Index" class="tab" style="color:cornflowerblue">Навчальні модулі</a>
+        <a asp-area="" asp-page="//Index" class="tab" style="color:white">Папки</a>
+        <a asp-area="" asp-page="//Index" class="tab" style="color:white">Курси</a>
+    </div>
+    <hr class="tab-line">
+
+    <input type="search" class="s1" placeholder="Find module" />
+
+
+</body>
 
 <p>
     <a asp-page="Create">Create New</a>
