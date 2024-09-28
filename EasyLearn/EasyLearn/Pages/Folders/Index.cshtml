@@ -31,9 +31,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Folder[0].IsLearned)
             </th>
-            @* <th>
-                Training Modules
-            </th> *@
+           
             <th></th>
         </tr>
     </thead>
@@ -59,26 +57,13 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.IsLearned)
                 </td>
-               @*  <td>
-                    <ul>
-                        @foreach (var module in item.TrainingModules)
-                        {
-                            <li>
-                                @module.Name - @module.Description
-                                <ul>
-                                    @foreach (var card in module.Cards)
-                                    {
-                                        <li>@card.Term: @card.Definition</li>
-                                    }
-                                </ul>
-                            </li>
-                        }
-                    </ul>
-                </td> *@
+              
                 <td>
                     <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                     <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>|
+                    <a asp-page="./AddTrainingModules" asp-route-folderId="@item.Id" class="btn btn-primary">Add Training Modules</a>
+
                 </td>
             </tr>
         }
