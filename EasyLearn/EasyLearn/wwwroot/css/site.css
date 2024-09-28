@@ -74,9 +74,16 @@ header {
         border: none;
         outline: none;
         background-color: #2E3756;
-        color: #000;
+        color: #fff;
+        padding:10px;
     }
 
+.search-bar input::placeholder {
+    color:white;
+    font-weight:bold;
+    opacity:0.6;
+    text-align:center
+}
 
 
 * {
@@ -104,38 +111,60 @@ header {
     cursor: pointer;
     border-radius: 5px;
     margin-right: 17px;
+    border-radius: 10px;
 }
 
 .popup7 {
     display: none;
     position: absolute;
-    width: 200px; 
-    height: 150px; 
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    left: 900px;
-    bottom: -120px;
+    width: 220px;
+    height: 150px;
+    background-color: #0A082D;
+    left: 833px;
+    bottom: -140px;
     z-index: 1;
-
+    border-radius: 10px;
+    border: 1px solid white;
 }
 
-.tab7 {
+.create-button {
     width: 100%;
-    height: 33.33%; 
+    height: 33.33%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid #ccc;
     cursor: pointer;
     text-align: center;
-    transition: background-color 0.3s ease;
-    background-color: #2E3756;
+    background-color: #0A082D;
+    border-radius: 10px;
 }
 
-    .tab7:hover {
-        background-color: #2E2756;
-    }
+.create-button-photo1 {
+    background-image: url(../images/wdocument.png);
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 16px;
+    background-position-y: 10px;
+}
+.create-button-photo2 {
+    background-image: url(../images/wfolder.png);
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 16px;
+    background-position-y: 10px;
+}
+.create-button-photo3 {
+    background-image: url(../images/wpeople.png);
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 16px;
+    background-position-y: 10px;
+}
+
+
+.create-button:hover {
+    background-color: #090729;
+}
 
 
 a {
@@ -177,7 +206,7 @@ a {
     background-color: #2E3756;
     border-radius: 10px;
     margin: 0px;
-    border: 1px solid white;
+    border: 1px solid cornflowerblue;
 }
 
 .box-info-container {
@@ -260,7 +289,7 @@ a {
     background-color: #2E3756;
     border-radius: 10px;
     transition: all 0.3s ease;
-    border: 1px solid white;
+    border: 1px solid cornflowerblue;
 }
 
 .hidden {
@@ -432,7 +461,7 @@ a {
 }
 
 .border-class {
-    border:1px solid white;
+    border: 1px solid cornflowerblue;
 }
 
 .video-lessons-column2 {
@@ -506,40 +535,35 @@ a {
     left: -330px;
     top: 1670px;
 }
+/*__________________________*/
+
 .custom-background {
     background-color: #0A082D;
     font-family: Arial, sans-serif; 
     margin: 0;
     padding: 0;
-    text-align: center;
+    
 }
-.h1 {
-    font-size: 32px;
-    color: yellowgreen;
-    margin-top: 40px; 
-    margin-bottom: 20px;
-    font-weight: bold;
-    position: relative;
-}
+
 .tabs {
     display: flex;
-    justify-content: center;
-    margin-top: 60px;
+    justify-content: flex-start;
+    margin-top: 130px;
+    width:1100px;
+    position:relative;
+    right:35px;
 }
 
 .tab {
-    text-decoration: none; 
+    text-decoration: none;
     padding: 10px 20px;
     margin: 0 15px;
     font-size: 18px;
     color: white;
-    background-color: #2E3756; 
     border-radius: 25px;
-    transition: background-color 0.3s ease;
+    background-color: transparent
 }
-    .tab:hover {
-        background-color: #0056b3; 
-    }
+
 
     .tab.active {
         background-color: cornflowerblue;
@@ -547,9 +571,8 @@ a {
     }
 .tab-line {
     border: none;
-    height: 4px;
-    background-color: navajowhite; 
-    margin: 10px auto 0;
+    background-color: white; 
+    margin-top: 1px;
     width: 100%; 
     transition: width 0.3s ease, background-color 0.3s ease; 
 }
@@ -559,16 +582,24 @@ a {
     background-color: cornflowerblue; 
 }
 .s1 {
-    width: 100%; 
-    max-width: 400px; 
-    padding: 10px; 
-    margin-top:50px;
-    border: 1px solid #ccc; 
-    border-radius: 20px; 
-    font-size: 16px; 
-    outline: none; 
-    justify-content: space-between;
-    transition: box-shadow 0.3s ease; 
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin-top: 50px;
+    border-radius: 7px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background-color: #2E3756;
+    color:white;
+    position:relative;
+    margin-left:700px;
+}
+
+.s1::placeholder {
+    color: white;
+    opacity:0.8;
+
 }
 
     .s1:focus {
@@ -603,4 +634,243 @@ a {
     border-radius: 7px;
     width:90px;
 
+}
+
+/*_________________________________*/
+
+.create-title {
+    position: relative;
+    color:white;
+    top:70px;
+}
+
+.form-group {
+    position: relative;
+    top: 100px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+#Name {
+    background-color: #0A082D;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+}
+
+#Description {
+    background-color: #0A082D;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+}
+
+#Name:focus {
+    border-bottom: 2px solid cornflowerblue;
+}
+#Description:focus {
+    border-bottom: 2px solid cornflowerblue;
+}
+/*_________________________________*/
+.card-box {
+    width: 1100px;
+    height: 155px;
+    background-color: #2E3756;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    color: white;
+}
+
+.card-box-container {
+    position: relative;
+    top: 170px;
+}
+
+.upper-card-box {
+    width: 1100px;
+    height: 55px;
+    background-color: #2E3756;
+    margin-bottom: 3px;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+}
+
+.card-number {
+    width: 40px;
+    height: 40px;
+    position:relative;
+    top:17px;
+    left:15px;
+    font-size:17px;
+    font-weight:bold;
+    color:white;
+    justify-content:center;
+    text-align:center
+}
+
+.remove-card {
+    width: 27px;
+    height: 27px;
+    position: relative;
+    left: 1050px;
+    bottom: 25px;
+    background-color: transparent;
+    border: none;
+    background-image: url(../images/delete.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-term {
+    position: relative;
+    left: 40px;
+    top: 75px;
+    width: 45%;
+    border: none;
+    border-bottom: 3px solid white;
+    background-color: #2E3756;
+    outline: none;
+    color: white;
+}
+
+.card-description {
+    position: relative;
+    left: 60px;
+    top: 75px;
+    width: 45%;
+    border: none;
+    border-bottom: 3px solid white;
+    background-color: #2E3756;
+    outline: none;
+    color:white;
+}
+.card-term:focus {
+    border-bottom: 3px solid yellow;
+}
+.card-description:focus {
+    border-bottom: 3px solid yellow;
+}
+
+
+.label-term {
+    position: absolute;
+    left: 40px;
+    top: 165px;
+}
+
+.label-description{
+    position: absolute;
+    left: 560px;
+    top: 165px;
+}
+
+/*_________________________________*/
+.full-button {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    text-align: center;
+    color: white;  
+    text-decoration: none;
+    text-align:start;
+    padding-left:50px;
+}
+/*_________________________________*/
+
+.profile-button {
+    border:1px solid white;
+    width:100px;
+    text-align:center;
+    border-radius:10px;
+}
+
+.nav-link {
+    color:white;
+}
+
+.nav-link:hover {
+    color:lightgray;
+}
+
+
+#logout {
+    width: 80px;
+    color: white;
+    text-align: start;
+    position: relative;
+    left: 20px;
+    background-image: url(../images/leave.png);
+    background-repeat: no-repeat;
+    background-size: 25%;
+    background-position-x: 55px;
+    background-position-y: 9px;
+}
+
+
+.profile-logout {
+    position: relative;
+    left: 250px;
+    display: flex;
+    flex-direction: row;
+}
+
+.reg-log {
+    position: relative;
+    left: 140px;
+}
+/*_________________________________*/
+
+.home-footer {
+    border-top:1px solid white;
+    position:absolute;
+    top:2100px;
+    width:1900px;
+    left:-290px;
+    height:70px;
+}
+
+/*_________________________________*/
+
+.recent-library-module {
+    margin-top: 20px;
+    height: 83px;
+    border-radius: 6px;
+    background-color: #2E3756;
+    color: white;
+    font-weight: bold;
+    font-size: 23px;
+    padding-left: 30px;
+    padding-top: 20px;
+}
+
+.recent-library-folders {
+    margin-top: 20px;
+    height: 83px;
+    border-radius: 6px;
+    background-color: #2E3756;
+    color: white;
+    font-weight: bold;
+    font-size: 23px;
+    padding-left: 30px;
+    padding-top: 21px;
+}
+
+.recent-library-courses {
+    margin-top: 20px;
+    height: 83px;
+    border-radius: 6px;
+    background-color: #2E3756;
+    color: white;
+    font-weight: bold;
+    font-size: 23px;
+    padding-left: 30px;
+    padding-top: 21px;
+}
+
+
+.recent-description {
+    font-size: 12px;
+    font-weight: 400;
+    color:lightgray;
 }
