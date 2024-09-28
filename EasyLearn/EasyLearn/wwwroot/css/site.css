@@ -829,3 +829,48 @@ a {
     left:-290px;
     height:70px;
 }
+
+/*_________________________________*/
+
+.recent-library-module {
+    margin-top: 20px;
+    height: 83px;
+    border-radius: 6px;
+    background-color: #2E3756;
+    color: white;
+    font-weight: bold;
+    font-size: 23px;
+    padding-left: 30px;
+    padding-top: 20px;
+}
+
+.recent-library-folders {
+    margin-top: 20px;
+    height: 83px;
+    border-radius: 6px;
+    background-color: #2E3756;
+    color: white;
+    font-weight: bold;
+    font-size: 23px;
+    padding-left: 30px;
+    padding-top: 21px;
+}
+
+.recent-library-courses {
+    margin-top: 20px;
+    height: 83px;
+    border-radius: 6px;
+    background-color: #2E3756;
+    color: white;
+    font-weight: bold;
+    font-size: 23px;
+    padding-left: 30px;
+    padding-top: 21px;
+}
+
+
+.recent-description {
+    font-size: 12px;
+    font-weight: 400;
+    color:lightgray;
+}
