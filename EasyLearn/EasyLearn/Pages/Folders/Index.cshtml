@@ -24,13 +24,13 @@
 
 <table class="table">
    
+        </tr>
+    </thead>
     <tbody>
         @foreach (var item in Model.Folder)
         {
             <div class="recent-library-folders">
                     @Html.DisplayFor(modelItem => item.Name)
-                    <div class="recent-description">
-                    @Html.DisplayFor(modelItem => item.Description)
                 </div>
             </div>
                @*  <td>
@@ -50,6 +50,47 @@
                     </ul>
                 </td> *@
              
+                                    @foreach (var card in module.Cards)
+                                    {
+                                        <li>@card.Term: @card.Definition</li>
+                                    }
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+                </td> *@
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+                                        <li>@card.Term: @card.Definition</li>
+                                    }
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+                </td> *@
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+                                        <li>@card.Term: @card.Definition</li>
+                                    }
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+                </td> *@
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
