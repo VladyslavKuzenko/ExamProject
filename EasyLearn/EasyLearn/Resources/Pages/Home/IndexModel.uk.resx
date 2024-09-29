@@ -117,8 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Advanced search" xml:space="preserve">
+    <value>Розширений пошук</value>
+  </data>
+  <data name="Be prepared for exams" xml:space="preserve">
+    <value>Будьте готові до іспитів</value>
+  </data>
+  <data name="Find the flashcards you need to study any subject" xml:space="preserve">
+    <value>Знайдіть картки, необхідні для вивчення будь-якого предмету</value>
+  </data>
+  <data name="Improve your grades by learning new words" xml:space="preserve">
+    <value>Покращуйте свої оцінки, вивчаючи нові слова</value>
+  </data>
+  <data name="Learn something new!" xml:space="preserve">
+    <value>Дізнайся щось нове!</value>
+  </data>
+  <data name="Popular textbooks" xml:space="preserve">
+    <value>Популярні книги</value>
+  </data>
+  <data name="Recent" xml:space="preserve">
+    <value>Недавні</value>
+  </data>
+  <data name="Test yourself with study tips and advices" xml:space="preserve">
+    <value>Перевірте себе за допомогою підказок і порад щодо навчання</value>
+  </data>
+  <data name="Try these updated functions" xml:space="preserve">
+    <value>Спробуй ці оновлені функції</value>
+  </data>
   <data name="Try this updated functions" xml:space="preserve">
     <value>Спробуй ці оновлені функції</value>
+  </data>
+  <data name="Video lessons" xml:space="preserve">
+    <value>Відео уроки</value>
   </data>
   <data name="Welcome to index" xml:space="preserve">
     <value>Ласкаво просимо до індексу</value>
