@@ -54,7 +54,9 @@ namespace EasyLearn.Data
                 .HasOne<ApplicationUser>()                 
                 .WithMany()                                
                 .HasForeignKey(ue => ue.UserWhoCanReadId)  
-                .HasConstraintName("FK_UserExas_UserWhoCanRead");
+                .HasConstraintName("FK_UserExas_UserWhoCanRead")
+                .OnDelete(DeleteBehavior.Restrict);
+
 
 
             builder.Entity<ApplicationUser>().HasData(

@@ -8,9 +8,11 @@ using EasyLearn.Data;
 using EasyLearn.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EasyLearn.Pages.TrainingModules
 {
+    [Authorize]    
     public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext _context;

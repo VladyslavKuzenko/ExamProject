@@ -10,9 +10,10 @@ using EasyLearn.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 
+
 namespace EasyLearn.Resources.Pages.Folders
 {
-    
+    [Authorize]    
     public class CreateModel : PageModel
     {
         private readonly EasyLearn.Data.ApplicationDbContext _context;

@@ -39,7 +39,7 @@ namespace EasyLearn.Migrations
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTimeOffset?>("LockoutEnd")
+                    b.Property<string>("LockoutEnd")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -142,7 +142,7 @@ namespace EasyLearn.Migrations
 
                     b.HasIndex("TrainingModuleId");
 
-                    b.ToTable("Card");
+                    b.ToTable("Card", (string)null);
 
                     b.HasData(
                         new
@@ -174,7 +174,8 @@ namespace EasyLearn.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("Create")
+                    b.Property<string>("Create")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
@@ -183,7 +184,8 @@ namespace EasyLearn.Migrations
                     b.Property<bool>("IsLearned")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("LastOpen")
+                    b.Property<string>("LastOpen")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -198,26 +200,26 @@ namespace EasyLearn.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Course");
+                    b.ToTable("Course", (string)null);
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Create = new DateTime(2024, 9, 20, 15, 18, 36, 748, DateTimeKind.Local).AddTicks(8552),
+                            Create = "2024-09-20 15:18:36.7488552",
                             Description = "Basic course for C# programming",
                             IsLearned = false,
-                            LastOpen = new DateTime(2024, 9, 20, 15, 18, 36, 748, DateTimeKind.Local).AddTicks(8604),
+                            LastOpen = "2024-09-20 15:18:36.7488604",
                             Name = "C# for Beginners",
                             UserId = "user123"
                         },
                         new
                         {
                             Id = 2,
-                            Create = new DateTime(2024, 9, 20, 15, 18, 36, 748, DateTimeKind.Local).AddTicks(8606),
+                            Create = "2024-09-20 15:18:36.7488606",
                             Description = "Advanced topics in C#",
                             IsLearned = false,
-                            LastOpen = new DateTime(2024, 9, 20, 15, 18, 36, 748, DateTimeKind.Local).AddTicks(8607),
+                            LastOpen = "2024-09-20 15:18:36.7488607",
                             Name = "Advanced C#",
                             UserId = "user456"
                         });
@@ -232,7 +234,8 @@ namespace EasyLearn.Migrations
                     b.Property<int?>("CourseId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("Create")
+                    b.Property<string>("Create")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
@@ -241,7 +244,8 @@ namespace EasyLearn.Migrations
                     b.Property<bool>("IsLearned")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("LastOpen")
+                    b.Property<string>("LastOpen")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -258,17 +262,17 @@ namespace EasyLearn.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Folder");
+                    b.ToTable("Folder", (string)null);
 
                     b.HasData(
                         new
                         {
                             Id = 1,
                             CourseId = 1,
-                            Create = new DateTime(2024, 9, 20, 15, 18, 36, 748, DateTimeKind.Local).AddTicks(8634),
+                            Create = "2024-09-20 15:18:36.7488634",
                             Description = "Introductory folder",
                             IsLearned = false,
-                            LastOpen = new DateTime(2024, 9, 20, 15, 18, 36, 748, DateTimeKind.Local).AddTicks(8635),
+                            LastOpen = "2024-09-20 15:18:36.7488635",
                             Name = "Introduction",
                             UserId = "user123"
                         },
@@ -276,10 +280,10 @@ namespace EasyLearn.Migrations
                         {
                             Id = 2,
                             CourseId = 2,
-                            Create = new DateTime(2024, 9, 20, 15, 18, 36, 748, DateTimeKind.Local).AddTicks(8638),
+                            Create = "2024-09-20 15:18:36.7488638",
                             Description = "Folder with advanced topics",
                             IsLearned = false,
-                            LastOpen = new DateTime(2024, 9, 20, 15, 18, 36, 748, DateTimeKind.Local).AddTicks(8639),
+                            LastOpen = "2024-09-20 15:18:36.7488639",
                             Name = "Advanced Topics",
                             UserId = "user456"
                         });
@@ -291,7 +295,8 @@ namespace EasyLearn.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("Create")
+                    b.Property<string>("Create")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
@@ -303,7 +308,8 @@ namespace EasyLearn.Migrations
                     b.Property<bool>("IsLearned")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("LastOpen")
+                    b.Property<string>("LastOpen")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -320,28 +326,28 @@ namespace EasyLearn.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("TrainingModule");
+                    b.ToTable("TrainingModule", (string)null);
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Create = new DateTime(2024, 9, 20, 15, 18, 36, 748, DateTimeKind.Local).AddTicks(8669),
+                            Create = "2024-09-20 15:18:36.7488669",
                             Description = "Learn the basics of C#",
                             FolderId = 1,
                             IsLearned = false,
-                            LastOpen = new DateTime(2024, 9, 20, 15, 18, 36, 748, DateTimeKind.Local).AddTicks(8671),
+                            LastOpen = "2024-09-20 15:18:36.7488671",
                             Name = "C# Basics",
                             UserId = "user123"
                         },
                         new
                         {
                             Id = 2,
-                            Create = new DateTime(2024, 9, 20, 15, 18, 36, 748, DateTimeKind.Local).AddTicks(8675),
+                            Create = "2024-09-20 15:18:36.7488675",
                             Description = "Learn advanced C# features",
                             FolderId = 2,
                             IsLearned = false,
-                            LastOpen = new DateTime(2024, 9, 20, 15, 18, 36, 748, DateTimeKind.Local).AddTicks(8676),
+                            LastOpen = "2024-09-20 15:18:36.7488676",
                             Name = "Advanced C# Features",
                             UserId = "user456"
                         });
@@ -382,7 +388,7 @@ namespace EasyLearn.Migrations
 
                     b.HasIndex("UserWhoCanReadId");
 
-                    b.ToTable("UserExas");
+                    b.ToTable("UserExas", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
