@@ -74,9 +74,16 @@ header {
         border: none;
         outline: none;
         background-color: #2E3756;
-        color: #000;
+        color: #fff;
+        padding:10px;
     }
 
+.search-bar input::placeholder {
+    color:white;
+    font-weight:bold;
+    opacity:0.6;
+    text-align:center
+}
 
 
 * {
@@ -113,8 +120,8 @@ header {
     width: 220px;
     height: 150px;
     background-color: #0A082D;
-    left: 845px;
-    bottom: -120px;
+    left: 968px;
+    bottom: -140px;
     z-index: 1;
     border-radius: 10px;
     border: 1px solid white;
@@ -213,7 +220,6 @@ a {
 .photo1 {
     width: 100%;
     height: 60%;
-    background-color: red;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     position:relative;
@@ -225,7 +231,6 @@ a {
 .photo2 {
     width: 100%;
     height: 60%;
-    background-color: red;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     position: relative;
@@ -237,7 +242,6 @@ a {
 .photo3 {
     width: 100%;
     height: 60%;
-    background-color: red;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     position: relative;
@@ -535,35 +539,28 @@ a {
     font-family: Arial, sans-serif; 
     margin: 0;
     padding: 0;
-    text-align: center;
+    
 }
-.h1 {
-    font-size: 32px;
-    color: yellowgreen;
-    margin-top: 40px; 
-    margin-bottom: 20px;
-    font-weight: bold;
-    position: relative;
-}
+
 .tabs {
     display: flex;
-    justify-content: center;
-    margin-top: 60px;
+    justify-content: flex-start;
+    margin-top: 130px;
+    width:1100px;
+    position:relative;
+    right:35px;
 }
 
 .tab {
-    text-decoration: none; 
+    text-decoration: none;
     padding: 10px 20px;
     margin: 0 15px;
     font-size: 18px;
     color: white;
-    background-color: #2E3756; 
     border-radius: 25px;
-    transition: background-color 0.3s ease;
+    background-color: transparent
 }
-    .tab:hover {
-        background-color: #0056b3; 
-    }
+
 
     .tab.active {
         background-color: cornflowerblue;
@@ -571,9 +568,8 @@ a {
     }
 .tab-line {
     border: none;
-    height: 4px;
-    background-color: navajowhite; 
-    margin: 10px auto 0;
+    background-color: white; 
+    margin-top: 1px;
     width: 100%; 
     transition: width 0.3s ease, background-color 0.3s ease; 
 }
@@ -583,16 +579,29 @@ a {
     background-color: cornflowerblue; 
 }
 .s1 {
-    width: 100%; 
-    max-width: 400px; 
-    padding: 10px; 
-    margin-top:50px;
-    border: 1px solid #ccc; 
-    border-radius: 20px; 
-    font-size: 16px; 
-    outline: none; 
-    justify-content: space-between;
-    transition: box-shadow 0.3s ease; 
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin-top: 50px;
+    border-radius: 7px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background-color: #2E3756;
+    color: white;
+    position: relative;
+    margin-left: 700px;
+    background-image: url(../images/nwlupa.png);
+    background-repeat: no-repeat;
+    background-size: 7%;
+    background-position-x: 360px;
+    background-position-y: 6.5px;
+}
+
+.s1::placeholder {
+    color: white;
+    opacity:0.8;
+
 }
 
     .s1:focus {
@@ -635,6 +644,7 @@ a {
     position: relative;
     color:white;
     top:70px;
+    font-weight:bold;
 }
 
 .form-group {
@@ -769,4 +779,108 @@ a {
     text-align:start;
     padding-left:50px;
 }
+/*_________________________________*/
 
+.profile-button {
+    border:1px solid white;
+    width:100px;
+    text-align:center;
+    border-radius:10px;
+}
+
+.nav-link {
+    color:white;
+}
+
+.nav-link:hover {
+    color:lightgray;
+}
+
+
+#logout {
+    width: 80px;
+    color: white;
+    text-align: start;
+    position: relative;
+    left: 20px;
+    background-image: url(../images/leave.png);
+    background-repeat: no-repeat;
+    background-size: 25%;
+    background-position-x: 55px;
+    background-position-y: 9px;
+}
+
+
+.profile-logout {
+    position: relative;
+    left: 250px;
+    display: flex;
+    flex-direction: row;
+}
+
+.reg-log {
+    position: relative;
+    left: 140px;
+}
+/*_________________________________*/
+
+.home-footer {
+    border-top:1px solid white;
+    position:absolute;
+    top:2100px;
+    width:1900px;
+    left:-290px;
+    height:70px;
+}
+
+/*_________________________________*/
+
+.recent-library-module {
+    margin-top: 20px;
+    height: 83px;
+    border-radius: 6px;
+    background-color: #2E3756;
+    color: white;
+    font-weight: bold;
+    font-size: 23px;
+    padding-left: 30px;
+    padding-top: 20px;
+}
+
+.recent-library-folders {
+    margin-top: 20px;
+    height: 83px;
+    border-radius: 6px;
+    background-color: #2E3756;
+    color: white;
+    font-weight: bold;
+    font-size: 23px;
+    padding-left: 30px;
+    padding-top: 21px;
+}
+
+.recent-library-courses {
+    margin-top: 20px;
+    height: 83px;
+    border-radius: 6px;
+    background-color: #2E3756;
+    color: white;
+    font-weight: bold;
+    font-size: 23px;
+    padding-left: 30px;
+    padding-top: 21px;
+}
+
+
+.recent-description {
+    font-size: 12px;
+    font-weight: 400;
+    color:lightgray;
+}
+/*_________________________________*/
+
+.language-selector {
+    position:relative;
+    left:30px;
+    width:130px;
+}
