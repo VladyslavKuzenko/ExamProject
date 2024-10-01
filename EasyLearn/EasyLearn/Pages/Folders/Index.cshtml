@@ -7,53 +7,98 @@
 
 <body class="custom-background">
 
-    <h1 class="create-title">Your library</h1>
+    <button id="openPopup">Відкрити вашу бібліотеку</button> <!-- Кнопка для відкриття вікна -->
 
-    <div class="tabs">
-        <a asp-area="" asp-page="/TrainingModules/Index" class="tab" style="color:white">Training modules</a>
-        <a asp-area="" asp-page="/Folders/Index" class="tab" style="color:cornflowerblue">Folders</a>
-        <a asp-area="" asp-page="/Courses/Index" class="tab" style="color:white">Courses</a>
+    <div id="myPopup" class="popup">
+        <div class="popup-content">
+            <span class="popup-close">&times;</span>
+
+            <h1 class="create-title">Your library</h1>
+
+            <div class="tabs">
+                <a asp-area="" asp-page="/TrainingModules/Index" class="tab" style="color:white">Training modules</a>
+                <a asp-area="" asp-page="/Folders/Index" class="tab" style="color:cornflowerblue">Folders</a>
+                <a asp-area="" asp-page="/Courses/Index" class="tab" style="color:white">Courses</a>
+            </div>
+            <hr class="tab-line">
+
+            <input type="search" class="s1" placeholder="Search Folder" />
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Folder)
+                    {
+                        <tr>
+                            <td class="recent-library-folders">
+                                @Html.DisplayFor(modelItem => item.Name)
+                                <div class="recent-description">
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
-    <hr class="tab-line">
-
-    <input type="search" class="s1" placeholder="Search Folder" />
-
 
 </body>
 
+<!-- CSS для стилю випливаючого вікна -->
+<style>
+    .popup {
+        display: none; 
+        position: fixed; 
+        z-index: 1; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        overflow: auto; 
+        background-color: rgba(0, 0, 0, 0.4);
+    }
 
-<table class="table">
-   
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Folder)
-        {
-            <div class="recent-library-folders">
-                    @Html.DisplayFor(modelItem => item.Name)
-                <div class="recent-description">
-                    @Html.DisplayFor(modelItem => item.Description)
+    .popup-content {
+        background-color: #fefefe;
+        margin: 15% auto; 
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
 
-                    </div>
+    .popup-close {
+        cursor: pointer;
+        float: right;
+        font-size: 24px;
+    }
+</style>
 
-                </div>
-               @*  <td>
-                    <ul>
-                        @foreach (var module in item.TrainingModules)
-                        {
-                            <li>
-                                @module.Name - @module.Description
-                                <ul>
-                                    @foreach (var card in module.Cards)
-                                    {
-                                        <li>@card.Term: @card.Definition</li>
-                                    }
-                                </ul>
-                            </li>
-                        }
-                    </ul>
-                </td> *@
-             
+<!-- JavaScript для відкриття і закриття вікна -->
+<script>
+    var popup = document.getElementById("myPopup");
+    var btn = document.getElementById("openPopup");
+    var span = document.getElementsByClassName("popup-close")[0];
+
+    // Відкрити вікно при натисканні на кнопку
+    btn.onclick = function() {
+        popup.style.display = "block";
+    }
+
+    // Закрити вікно при натисканні на хрестик
+    span.onclick = function() {
+        popup.style.display = "none";
+    }
+
+    // Закрити вікно при натисканні поза ним
+    window.onclick = function(event) {
+        if (event.target == popup) {
+            popup.style.display = "none";
         }
-    </tbody>
-</table>
+    }
+</script>
