@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using EasyLearn.Data;
 using EasyLearn.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
 
 namespace EasyLearn.Pages.TrainingModules
 {
-    [Authorize]    
+    [Authorize]
     public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext _context;
@@ -26,14 +24,21 @@ namespace EasyLearn.Pages.TrainingModules
 
         [BindProperty]
         public string Name { get; set; }
+
         [BindProperty]
         public string Description { get; set; }
-        //[BindProperty]
-        //public List<Card> Cards { get; set; } = new List<Card>(); // Card data is bound here
+
+        [BindProperty]
+        public List<CardInputModel> Cards { get; set; } = new List<CardInputModel>();
+
+        public class CardInputModel
+        {
+            public string Term { get; set; }
+            public string Definition { get; set; }
+        }
 
         public IActionResult OnGet()
         {
-            ViewData["FolderId"] = new SelectList(_context.Folder, "Id", "Name");
             return Page();
         }
 
@@ -51,20 +56,35 @@ namespace EasyLearn.Pages.TrainingModules
                 return Page();
             }
 
-            var timeNow = DateTime.Now;
             var trainingModule = new TrainingModule
             {
                 Name = Name,
                 Description = Description,
-                Create = timeNow,
-                LastOpen = timeNow,
-                UserId = userId,
+                Create = DateTime.Now,
+                LastOpen = DateTime.Now,
+                UserId = userId
             };
 
             _context.TrainingModule.Add(trainingModule);
             await _context.SaveChangesAsync();
 
+            foreach (var cardInput in Cards)
+            {
+                var card = new Card
+                {
+                    Term = cardInput.Term,
+                    Definition = cardInput.Definition,
+                    TrainingModuleId = trainingModule.Id
+                };
+
+                // Додаємо картку до бази даних
+                _context.Card.Add(card);
+                trainingModule.Cards.Add(card);
+            }
+
+            await _context.SaveChangesAsync();
             return RedirectToPage("./Index");
         }
+
     }
 }

@@ -19,7 +19,9 @@ namespace EasyLearn.Models
         public bool IsLearned { get; set; } = false;
 
         [JsonIgnore]
-        public IEnumerable<Card> Cards { get; set; } = Enumerable.Empty<Card>();
+        public List<Card> Cards { get; set; } = new List<Card>();
+        //public IEnumerable<Card> Cards { get; set; } = Enumerable.Empty<Card>();
+
 
         public Folder? Folder { get; set; }
         public int? FolderId { get; set; }

@@ -27,7 +27,7 @@
     <tbody>
         @foreach (var item in Model.TrainingModule)
         {
-             <a asp-area="" asp-page="/Cards/Index">
+            <a asp-area="" asp-page="/Cards/Index" asp-route-trainingModuleId="@item.Id">
             <div class="recent-library-module">
                     @Html.DisplayFor(modelItem => item.Name)
                 <div class="recent-description">
