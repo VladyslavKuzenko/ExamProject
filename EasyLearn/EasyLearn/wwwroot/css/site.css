@@ -883,3 +883,46 @@ a {
     left:30px;
     width:130px;
 }
+/*_________________________________*/
+
+#profile-form {
+    position:relative;
+    left:30px;
+    width:250px;
+}
+
+#email-form {
+    position: relative;
+    left: 30px;
+    width: 250px;
+    bottom:16px;
+}
+
+#change-password-form {
+    position: relative;
+    left: 30px;
+    width: 250px;
+}
+
+.profile-position {
+    position: relative;
+    top: 70px;
+}
+
+.authentication {
+    color:white;
+    font-size:27px;
+}
+
+.authentication-smaller {
+    color: white;
+    font-size: 20px;
+    margin-bottom:55px;
+}
+
+.auth-btn {
+    height: 65px;
+    text-align: center;
+    padding: 17px;
+    font-size: 19px;
+}
