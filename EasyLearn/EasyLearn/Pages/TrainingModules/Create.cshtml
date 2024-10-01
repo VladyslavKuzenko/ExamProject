@@ -21,26 +21,32 @@
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
 
+
+
+
     <div id="cards-container">
+        <hr style="background-color:white; height:5px;position:relative; top:55px; background-color:#0A082D; opacity:1" />
         <div class="card-box">
             <div class="form-group">
-                <label>Term</label>
-                <input type="text" name="Cards[0].Term" class="form-control" />
+                <label class="gg" style="position:relative; top:70px;">Term</label>
+                <input type="text" name="Cards[0].Term" class="form-control shire" />
             </div>
             <div class="form-group">
-                <label>Definition</label>
-                <input type="text" name="Cards[0].Definition" class="form-control" />
+                <label class="gg" style="position:relative; top:70px;">Description</label>
+                <input type="text" name="Cards[0].Definition" class="form-control shire" />
             </div>
         </div>
     </div>
 
-    <button type="button" class="btn btn-secondary" id="add-card">Додати картку</button>
+
+
+
+    <button type="button" class="btn btn-secondary" id="add-card">+ ДОДАТИ КАРТКУ</button>
 
     <div class="form-group mt-3">
         <input type="submit" value="Create" class="btn btn-primary" />
     </div>
 </form>
-<
 
 @section Scripts {
     <script>
@@ -65,16 +71,19 @@
 
             // Якщо всі поля заповнені, додаємо нову картку
             let cardHtml = `
-                        <div class="card-box">
-                            <div class="form-group">
-                                <label>Term</label>
-                                <input type="text" name="Cards[${cardIndex}].Term" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label>Definition</label>
-                                <input type="text" name="Cards[${cardIndex}].Definition" class="form-control" />
-                            </div>
-                        </div>`;
+                                <div id="cards-container">
+                <hr style="background-color:white; height:5px;position:relative; top:55px; background-color:#0A082D; opacity:1" />
+                <div class="card-box">
+                    <div class="form-group">
+                        <label class="gg" style="position:relative; top:70px;">Term</label>
+                                <input type="text" name="Cards[${cardIndex}].Term" class="form-control shire" />
+                    </div>
+                    <div class="form-group">
+                        <label class="gg" style="position:relative; top:70px;">Description</label>
+                                <input type="text" name="Cards[${cardIndex}].Definition" class="form-control shire" />
+                    </div>
+                </div>
+            </div>`;
             container.insertAdjacentHTML('beforeend', cardHtml);
             cardIndex++;
         });
