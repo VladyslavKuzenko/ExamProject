@@ -25,13 +25,16 @@
 <table class="table">
    
     <tbody>
-@foreach (var item in Model.TrainingModule) {
+        @foreach (var item in Model.TrainingModule)
+        {
+             <a asp-area="" asp-page="/Cards/Index">
             <div class="recent-library-module">
-                @Html.DisplayFor(modelItem => item.Name)
+                    @Html.DisplayFor(modelItem => item.Name)
                 <div class="recent-description">
                     @Html.DisplayFor(modelItem => item.Description)
                 </div>
             </div>
-}
+            </a>
+        }
     </tbody>
 </table>
