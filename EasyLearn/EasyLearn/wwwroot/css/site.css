@@ -883,3 +883,132 @@ a {
     left:30px;
     width:130px;
 }
+/*_________________________________*/
+
+#profile-form {
+    position:relative;
+    left:30px;
+    width:250px;
+}
+
+#email-form {
+    position: relative;
+    left: 30px;
+    width: 250px;
+    bottom:16px;
+}
+
+#change-password-form {
+    position: relative;
+    left: 30px;
+    width: 250px;
+}
+
+.profile-position {
+    position: relative;
+    top: 70px;
+}
+
+.authentication {
+    color:white;
+    font-size:27px;
+}
+
+.authentication-smaller {
+    color: white;
+    font-size: 20px;
+    margin-bottom:55px;
+}
+
+.auth-btn {
+    height: 65px;
+    text-align: center;
+    padding: 17px;
+    font-size: 19px;
+}
+
+/*_________________________________*/
+
+
+
+.reg-page-maket {
+    width: 550px;
+    height: 600px;
+    background-color: #2E3756;
+    justify-content: center;
+    position: absolute;
+    left: 420px;
+    top: 50px;
+    border-radius: 20px;
+}
+
+.label-reg {
+    color: white;
+    text-align: center;
+    position: relative;
+    top: 20px;
+    font-weight:bold;
+}
+
+.hr-reg {
+    border: 5px solid white;
+    position: relative;
+    top: 15px;
+    background-color: white;
+}
+
+.reg-form {
+    width: 400px;
+    position:relative;
+    left:120px;
+
+}
+/*_________________________________*/
+
+
+.log-page-maket {
+    width: 550px;
+    height: 600px;
+    background-color: #2E3756;
+    justify-content: center;
+    position: absolute;
+    left: 420px;
+    top: 50px;
+    border-radius: 20px;
+}
+
+.label-log {
+    color: white;
+    text-align: center;
+    position: relative;
+    top: 20px;
+    font-weight: bold;
+}
+
+.hr-log {
+    border: 5px solid white;
+    position: relative;
+    top: 15px;
+    background-color: white;
+}
+
+.log-form {
+    width: 400px;
+    position: relative;
+    left: 120px;
+}
+
+.log-text {
+    width: 400px;
+    margin-bottom: 30px;
+    color: white;
+    position: relative;
+    top: 20px;
+}
+
+.other-log {
+    width: 200px;
+    color: deepskyblue;
+    position: relative;
+    top: 50px;
+}
