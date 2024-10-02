@@ -22,8 +22,8 @@
     </div>
 
 
-
-
+    <hr style=" height:15px;position:relative; top:115px; background-color:#0A082D ; opacity:1" />
+    <lable class="counter">1</lable>
     <div id="cards-container">
         <hr style="background-color:white; height:5px;position:relative; top:55px; background-color:#0A082D; opacity:1" />
         <div class="card-box">
@@ -40,11 +40,10 @@
 
 
 
-
     <button type="button" class="btn btn-secondary" id="add-card">+ ДОДАТИ КАРТКУ</button>
 
     <div class="form-group mt-3">
-        <input type="submit" value="Create" class="btn btn-primary" />
+        <input type="submit" value="Create" class="btn btn-primary create-module-button " />
     </div>
 </form>
 
@@ -70,8 +69,10 @@
             }
 
             // Якщо всі поля заповнені, додаємо нову картку
-            let cardHtml = `
-                                <div id="cards-container">
+            let cardHtml = `         <hr style=" height:15px;position:relative; top:115px; background-color:#0A082D; opacity:1" />
+                            <label class="gg" style="position:relative; top:140px; left:15px; color:white; font-weight:bold; z-index:1;">${cardIndex + 1}</label>
+
+            <div id="cards-container">
                 <hr style="background-color:white; height:5px;position:relative; top:55px; background-color:#0A082D; opacity:1" />
                 <div class="card-box">
                     <div class="form-group">

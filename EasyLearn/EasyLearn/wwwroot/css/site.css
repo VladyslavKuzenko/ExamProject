@@ -659,6 +659,8 @@ a {
     border: none;
     border-bottom: 1px solid white;
     color: white;
+    border-radius: 0;
+    width:30%;
 }
 
 #Description {
@@ -666,13 +668,17 @@ a {
     border: none;
     border-bottom: 1px solid white;
     color: white;
+    border-radius: 0;
+    width: 30%;
 }
 
 #Name:focus {
     border-bottom: 2px solid cornflowerblue;
+    box-shadow:none;
 }
 #Description:focus {
     border-bottom: 2px solid cornflowerblue;
+    box-shadow: none;
 }
 /*_________________________________*/
 .full-button {
@@ -862,6 +868,7 @@ a {
     position: relative;
     top: 15px;
     background-color: white;
+    opacity: 1;
 }
 
 .reg-form {
@@ -897,6 +904,7 @@ a {
     position: relative;
     top: 15px;
     background-color: white;
+    opacity:1;
 }
 
 .log-form {
@@ -924,7 +932,7 @@ a {
 
 #add-card {
     position: relative;
-    top: 130px;
+    top:230px;
     background-color: #2E3756;
     width: 100%;
     height: 140px;
@@ -935,10 +943,10 @@ a {
 }
 
 .card-box {
-    display:flex;
-    justify-content:space-around;
-    position:relative;
-    bottom:35px;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    bottom: 35px;
 }
 
 .shire {
@@ -950,7 +958,7 @@ a {
     position: relative;
     right: 10px;
     color: white;
-    border-radius:0;
+    border-radius: 0;
 }
     .shire:focus {
         background-color: #2E3756;
@@ -961,14 +969,34 @@ a {
     }
 
 #cards-container {
-    height: 200px;  
+    min-height: 200px;
     background-color: #2E3756;
     position: relative;
-    top: 100px;
     border-radius: 10px;
+    top: 100px;
 }
+
 
 .gg {
     position: relative;
     left: 10px;
+}
+
+
+.create-module-button {
+    position:absolute;
+    top:130px;
+    left:690px;
+    width:150px;
+    height:60px;
+}
+
+.counter {
+    position:absolute;
+    top:385px;
+    left:45px;
+    color:white;
+    font-weight:bold;
+    z-index:1;
+
 }
