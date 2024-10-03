@@ -5,12 +5,36 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<style>
+    body {
+        background-color: #0A082D;
+    }
 
-<p>
-    <a asp-page="Create" asp-route-trainingModuleId="@Model.TrainingModuleId">Create New</a>
-</p>
-<table class="table">
+</style>
+
+<h1 class="create-title" style="position:relative; left:100px;">Word List</h1>
+
+<div class="card-container">
+    <div class="card" id="flashcard">
+        <div class="card-face card-front">
+            <span id="card-term">@Model.Card.FirstOrDefault()?.Term</span>
+        </div>
+        <div class="card-face card-back">
+            <span id="card-definition">@Model.Card.FirstOrDefault()?.Definition</span>
+        </div>
+    </div>
+</div>
+
+<div class="navigation-buttons">
+    <button id="prevBtn" disabled>⭠</button>
+    <button id="nextBtn" @(Model.Card.Count <= 1 ? "disabled" : "")>⭢</button>
+</div>
+
+<div class="card-index">
+    <span id="cardCounter">1/@Model.Card.Count</span>
+</div>
+
+@* <table class="table" style="position:relative; top:100px;">
     <thead>
         <tr>
             <th>
@@ -27,6 +51,7 @@
         </tr>
     </thead>
     <tbody>
+
 @foreach (var item in Model.Card) {
         <tr>
             <td>
@@ -38,10 +63,88 @@
             <td>
                 @Html.DisplayFor(modelItem => item.TrainingModule.Name)
             </td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <div class="items">
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </div>
         </tr>
 }
+      
     </tbody>
-</table>
+</table> *@
+
+<script>
+    const cards = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Card.Select(c => new { c.Term, c.Definition })));
+    let currentIndex = 0;
+    let isFlipped = false;
+
+    const flashcard = document.getElementById('flashcard');
+    const cardTerm = document.getElementById('card-term');
+    const cardDefinition = document.getElementById('card-definition');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const cardCounter = document.getElementById('cardCounter');
+
+    // Клік по картці для перевертання
+    flashcard.addEventListener('click', () => {
+        flashcard.classList.toggle('flipped');
+        isFlipped = !isFlipped;
+    });
+
+    // Клік по кнопці "Назад"
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCard();
+        }
+    });
+
+    // Клік по кнопці "Вперед"
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < cards.length - 1) {
+            currentIndex++;
+            updateCard();
+        }
+    });
+
+    // Функція для оновлення картки
+    function updateCard() {
+        if (isFlipped) {
+            // Перевертаємо картку назад
+            flashcard.classList.remove('flipped');
+            isFlipped = false;
+
+            // Додаємо обробник події завершення анімації
+            flashcard.addEventListener('transitionend', function handler() {
+                // Оновлюємо вміст картки
+                cardTerm.textContent = cards[currentIndex].Term;
+                cardDefinition.textContent = cards[currentIndex].Definition;
+
+                // Оновлюємо стан кнопок навігації
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex === cards.length - 1;
+
+                // Оновлюємо індекс картки
+                cardCounter.textContent = `${currentIndex + 1} з ${cards.length}`;
+
+                // Видаляємо обробник, щоб уникнути повторного виклику
+                flashcard.removeEventListener('transitionend', handler);
+            });
+        } else {
+            // Якщо картка не перевернута, просто оновлюємо вміст
+            cardTerm.textContent = cards[currentIndex].Term;
+            cardDefinition.textContent = cards[currentIndex].Definition;
+
+            // Оновлюємо стан кнопок навігації
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === cards.length - 1;
+
+            // Оновлюємо індекс картки
+            cardCounter.textContent = `${currentIndex + 1}/${cards.length}`;
+        }
+    }
+
+    // Ініціалізація індексу картки при завантаженні сторінки
+    cardCounter.textContent = `${currentIndex + 1}/${cards.length}`;
+</script>
