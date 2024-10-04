@@ -18,12 +18,17 @@
     <div class="card" id="flashcard">
         <div class="card-face card-front">
             <span id="card-term">@Model.Card.FirstOrDefault()?.Term</span>
+            @* <a asp-page="./Edit" asp-route-id="@Model.Card.FirstOrDefault()?.Id">Edit</a> *@
+
         </div>
         <div class="card-face card-back">
             <span id="card-definition">@Model.Card.FirstOrDefault()?.Definition</span>
+            @* <a asp-page="./Edit" asp-route-id="@Model.Card.FirstOrDefault()?.Id">Edit</a> *@
+
         </div>
     </div>
 </div>
+
 
 <div class="navigation-buttons">
     <button id="prevBtn" disabled>⭠</button>
@@ -33,6 +38,8 @@
 <div class="card-index">
     <span id="cardCounter">1/@Model.Card.Count</span>
 </div>
+<a asp-page="../TrainingModules/Edit" asp-route-id="@Model.TrainingModuleId">Edit</a> |
+
 
 @* <table class="table" style="position:relative; top:100px;">
     <thead>
@@ -75,7 +82,8 @@
 </table> *@
 
 <script>
-    const cards = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Card.Select(c => new { c.Term, c.Definition })));
+    const cards = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Card.Select(c => new { c.Term, c.Definition/* ,c.Id */ })));
+    // console.log(cards.currentIndex);
     let currentIndex = 0;
     let isFlipped = false;
 
@@ -120,6 +128,10 @@
                 // Оновлюємо вміст картки
                 cardTerm.textContent = cards[currentIndex].Term;
                 cardDefinition.textContent = cards[currentIndex].Definition;
+
+                //Test
+                // cardDefinition.id = cards[currentIndex].Id;
+
 
                 // Оновлюємо стан кнопок навігації
                 prevBtn.disabled = currentIndex === 0;

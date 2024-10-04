@@ -1,15 +1,21 @@
 ﻿@page
 @model EasyLearn.Pages.TrainingModules.EditModel
-
+<style>
+    body {
+        background-color: #0A082D;
+    }
+</style>
 @{
     ViewData["Title"] = "Edit";
+    int cardIndex = 1;
+
 }
 
 <h1>Edit</h1>
 
 <h4>TrainingModule</h4>
 <hr />
-<div class="row">
+@* <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -29,12 +35,112 @@
             </div>
         </form>
     </div>
-</div>
+</div> *@
 
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
+<h2 class="create-title">Створити модуль із картками</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    @* @foreach (var item in Model.Cards) *@
+    @for (int i = 0; i < Model.Cards.Count; i++)
+    {
+@*         <hr style=" height:15px;position:relative; top:115px; background-color:#0A082D ; opacity:1" />
+        <lable class="counter">@cardIndex</lable> *@
+
+        <hr style=" height:15px;position:relative; top:115px; background-color:#0A082D; opacity:1" />
+        <label class="gg" style="position:relative; top:140px; left:15px; color:white; font-weight:bold; z-index:1;">@cardIndex</label>
+        <div> 
+        @{
+            cardIndex++;
+        }
+        </div>
+        <div id="cards-container">
+            <hr style="background-color:white; height:5px;position:relative; top:55px; background-color:#0A082D; opacity:1" />
+            <div class="card-box">
+                <div class="form-group">
+@*                     <label asp-for="Cards[i].Term" class="control-label"></label>
+                    <input asp-for="Cards[i].Term" class="form-control" />
+                    <span asp-validation-for="Cards[i].Term" class="text-danger"></span> *@
+                    <label class="gg" style="position:relative; top:70px;">Term</label>
+                    <input type="text" name="Cards[@i].Term" value="@Model.Cards[@i].Term" class="form-control shire" />
+                </div>
+                <div class="form-group">
+                  @*   <label asp-for="Cards[i].Definition" class="control-label"></label>
+                    <input asp-for="Cards[i].Definition" class="form-control" />
+                <span asp-validation-for="Cards[i].Definition" class="text-danger"></span> *@
+                     <label class="gg" style="position:relative; top:70px;">Description</label>
+                    <input type="text" name="Cards[@i].Definition" value="@Model.Cards[@i].Definition" class="form-control shire" />
+                </div>
+            </div>
+        </div>
+    }
+
+
+    <button type="button" class="btn btn-secondary" id="add-card">+ ДОДАТИ КАРТКУ</button>
+
+    <div class="form-group mt-3">
+        <input type="submit" value="Save" class="btn btn-primary create-module-button " />
+    </div>
+
+ @*    <div>
+        <a asp-page="./Index">Back to List</a>
+    </div> *@
+</form>
 
 @section Scripts {
+    <script>
+        let cardIndex = @cardIndex-1;
+
+        document.getElementById('add-card').addEventListener('click', function () {
+            let container = document.getElementById('cards-container');
+
+            // Отримуємо останню картку
+            let lastCard = container.querySelector(`.card-box:nth-child(${cardIndex})`);
+
+            // Перевіряємо, чи існує картка і чи її поля заповнені
+            if (lastCard) {
+                let lastTerm = lastCard.querySelector('input[name^="Cards"][name$=".Term"]').value;
+                let lastDefinition = lastCard.querySelector('input[name^="Cards"][name$=".Definition"]').value;
+
+                if (lastTerm.trim() === "" || lastDefinition.trim() === "") {
+                    alert('Please fill in the term and definition fields before adding a new card.');
+                    return;
+                }
+            }
+
+            // Якщо всі поля заповнені, додаємо нову картку
+            let cardHtml = `         <hr style=" height:15px;position:relative; top:115px; background-color:#0A082D; opacity:1" />
+                            <label class="gg" style="position:relative; top:140px; left:15px; color:white; font-weight:bold; z-index:1;">${cardIndex + 1}</label>
+
+            <div id="cards-container">
+                <hr style="background-color:white; height:5px;position:relative; top:55px; background-color:#0A082D; opacity:1" />
+                <div class="card-box">
+                    <div class="form-group">
+                        <label class="gg" style="position:relative; top:70px;">Term</label>
+                                <input type="text" name="Cards[${cardIndex}].Term" class="form-control shire" />
+                    </div>
+                    <div class="form-group">
+                        <label class="gg" style="position:relative; top:70px;">Description</label>
+                                <input type="text" name="Cards[${cardIndex}].Definition" class="form-control shire" />
+                    </div>
+                </div>
+            </div>`;
+            container.insertAdjacentHTML('beforeend', cardHtml);
+            cardIndex++;
+        });
+    </script>
+
+
+
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

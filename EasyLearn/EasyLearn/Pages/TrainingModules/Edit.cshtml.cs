@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using EasyLearn.Data;
 using EasyLearn.Models;
 using Microsoft.AspNetCore.Identity;
+using static EasyLearn.Pages.TrainingModules.CreateModel;
 
 namespace EasyLearn.Pages.TrainingModules
 {
@@ -22,6 +23,8 @@ namespace EasyLearn.Pages.TrainingModules
             _context = context;
             _userManager = userManager;
         }
+
+
         [BindProperty]
         public int Id { get; set;}
 
@@ -29,19 +32,32 @@ namespace EasyLearn.Pages.TrainingModules
         public string Name { get; set; }
         [BindProperty]
         public string Description { get; set; }
-      
+
+        [BindProperty]
+        public List<CardInputModel> Cards { get; set; }
+
+        public class CardInputModel
+        {
+            public string Term { get; set; }
+            public string Definition { get; set; }
+        }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null) return NotFound();
 
             var userId = _userManager.GetUserId(User);
-            var module = await _context.TrainingModule.FirstOrDefaultAsync(m => m.Id == id && m.UserId == userId);
+            var module = await _context.TrainingModule.Include(o => o.Cards).FirstOrDefaultAsync(m => m.Id == id && m.UserId == userId);
             if (module == null) return NotFound();
 
             Id = module.Id;
             Name = module.Name;
             Description = module.Description;
+            Cards=new List<CardInputModel>();
+            for (int i = 0; i < module.Cards.Count; i++)
+            {
+                Cards.Add(new CardInputModel { Term = module.Cards[i].Term, Definition = module.Cards[i].Definition });
+            }
             return Page();
         }
 
@@ -52,12 +68,45 @@ namespace EasyLearn.Pages.TrainingModules
                 return Page();
             }
             var userId = _userManager.GetUserId(User);
-            var moduleToUpdate = await _context.TrainingModule.FirstOrDefaultAsync(m => m.Id == id && m.UserId == userId);
+            var moduleToUpdate = await _context.TrainingModule.Include(o => o.Cards).FirstOrDefaultAsync(m => m.Id == id && m.UserId == userId);
+
 
             if (moduleToUpdate == null) return NotFound();
 
             moduleToUpdate.Name = Name;
             moduleToUpdate.Description = Description;
+
+
+            if (Cards.Count>moduleToUpdate.Cards.Count)
+            {
+                for (int i = 0; i < moduleToUpdate.Cards.Count; i++)
+                {
+                    moduleToUpdate.Cards[i].Term = Cards[i].Term;
+                    moduleToUpdate.Cards[i].Definition = Cards[i].Definition;
+                }
+                for (int i = moduleToUpdate.Cards.Count; i < Cards.Count; i++)
+                {
+                    var card = new Card
+                    {
+                        Term = Cards[i].Term,
+                        Definition = Cards[i].Definition,
+                        TrainingModuleId = moduleToUpdate.Id
+                    };
+
+                    // Додаємо картку до бази даних
+                    _context.Card.Add(card);
+                    moduleToUpdate.Cards.Add(card);
+                }
+            }
+            else 
+            {
+                for (int i = 0; i < moduleToUpdate.Cards.Count; i++)
+                {
+                    moduleToUpdate.Cards[i].Term = Cards[i].Term;
+                    moduleToUpdate.Cards[i].Definition = Cards[i].Definition;
+                }
+            }
+
 
             try
             {
