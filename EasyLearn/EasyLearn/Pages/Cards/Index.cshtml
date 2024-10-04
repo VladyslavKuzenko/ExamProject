@@ -38,7 +38,17 @@
 <div class="card-index">
     <span id="cardCounter">1/@Model.Card.Count</span>
 </div>
-<a asp-page="../TrainingModules/Edit" asp-route-id="@Model.TrainingModuleId">Edit</a> |
+<a asp-page="../TrainingModules/Edit" asp-route-id="@Model.TrainingModuleId">
+
+    <div class="edit-card"></div>
+</a>
+
+<a asp-page="../TrainingModules/Delete" asp-route-id="@Model.TrainingModuleId"> 
+    <div class="delete-card"></div>
+
+</a>
+
+
 
 
 @* <table class="table" style="position:relative; top:100px;">
@@ -138,7 +148,7 @@
                 nextBtn.disabled = currentIndex === cards.length - 1;
 
                 // Оновлюємо індекс картки
-                cardCounter.textContent = `${currentIndex + 1} з ${cards.length}`;
+                cardCounter.textContent = `${currentIndex + 1}/${cards.length}`;
 
                 // Видаляємо обробник, щоб уникнути повторного виклику
                 flashcard.removeEventListener('transitionend', handler);
