@@ -1097,7 +1097,7 @@ a {
 #cardCounter {
     position: relative;
     top: 100px;
-    left: 485px;
+    left: 480px;
     color: white;
     font-size: 20px;
 }
@@ -1145,3 +1145,75 @@ a {
     background-position-y: center;
 }
 
+.classic-game-button {
+    width: 31.1%;
+    height: 60px;
+    background-color: cornflowerblue;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 10px;
+    background-image: url(../images/flash-cards.png);
+    background-size: 20%;
+    background-repeat: no-repeat;
+    background-position-x: 160px;
+    background-position-y: 5px;
+}
+
+.random-game-button {
+    width: 32%;
+    height: 60px;
+    background-color: #1E90FF;
+    border: none;
+    border-radius: 10px;
+    margin-right: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 10px;
+    background-image: url(../images/shuffle.png);
+    background-size: 15%;
+    background-repeat: no-repeat;
+    background-position-x: 173px;
+    background-position-y: 11.5px;
+}
+.test-game-button {
+    width: 32%;
+    height: 60px;
+    background-color: #FF8C00;
+    border: none;
+    border-radius: 10px;
+    margin-right: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 19.5px;
+    margin-right: 10px;
+    background-image: url(../images/test.png);
+    background-size: 14%;
+    background-repeat: no-repeat;
+    background-position-x: 162px;
+    background-position-y: 11px;
+}
+
+.game-container{
+    width:100%;
+    position:relative;
+    top:-490px;
+    left:100px;
+
+}
+
+.current-mode {
+    width:170px;
+    position: relative;
+    top:-645px;
+    left: -80px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align:end
+
+}

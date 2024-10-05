@@ -43,7 +43,12 @@
     <div class="edit-card"></div>
 </a>
 
-
+<div class="game-container">
+<input type="button" name="name" value="Classic" class="classic-game-button" />
+    <input type="button" name="name" value="Random" class="random-game-button" />
+<input type="button" name="name" value="Exam" class="test-game-button" />
+</div>
+<div id="currentMode" class="current-mode">Classic mode</div>
 
 
 
@@ -89,8 +94,10 @@
 </table> *@
 
 <script>
-    const cards = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Card.Select(c => new { c.Term, c.Definition/* ,c.Id */ })));
-    // console.log(cards.currentIndex);
+    // Отримуємо картки з моделі
+    const originalCards = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Card.Select(c => new { c.Term, c.Definition })));
+    console.log('Original Cards:', originalCards); // Дебаг
+    let currentCards = [...originalCards]; // Поточний набір карток
     let currentIndex = 0;
     let isFlipped = false;
 
@@ -100,6 +107,33 @@
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     const cardCounter = document.getElementById('cardCounter');
+    const currentMode = document.getElementById('currentMode'); // Новий елемент
+
+    const classicBtn = document.querySelector('.classic-game-button');
+    const randomBtn = document.querySelector('.random-game-button');
+    const examBtn = document.querySelector('.test-game-button');
+
+    // Додаємо обробники подій для кнопок режимів
+    classicBtn.addEventListener('click', () => {
+        currentCards = [...originalCards];
+        resetQuiz();
+        updateCurrentMode('Classic');
+        console.log('Switched to Classic Mode');
+    });
+
+    randomBtn.addEventListener('click', () => {
+        currentCards = shuffleArray([...originalCards]);
+        resetQuiz();
+        updateCurrentMode('Random');
+        console.log('Switched to Random Mode');
+    });
+
+    examBtn.addEventListener('click', () => {
+        currentCards = generateExamCards(originalCards, 12);
+        resetQuiz();
+        updateCurrentMode('Exam');
+        console.log('Switched to Exam Mode');
+    });
 
     // Клік по картці для перевертання
     flashcard.addEventListener('click', () => {
@@ -117,53 +151,77 @@
 
     // Клік по кнопці "Вперед"
     nextBtn.addEventListener('click', () => {
-        if (currentIndex < cards.length - 1) {
+        if (currentIndex < currentCards.length - 1) {
             currentIndex++;
             updateCard();
         }
     });
 
-    // Функція для оновлення картки
-    function updateCard() {
-        if (isFlipped) {
-            // Перевертаємо картку назад
-            flashcard.classList.remove('flipped');
-            isFlipped = false;
+    // Функція для перемішування масиву (Рандомний режим)
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
 
-            // Додаємо обробник події завершення анімації
-            flashcard.addEventListener('transitionend', function handler() {
-                // Оновлюємо вміст картки
-                cardTerm.textContent = cards[currentIndex].Term;
-                cardDefinition.textContent = cards[currentIndex].Definition;
-
-                //Test
-                // cardDefinition.id = cards[currentIndex].Id;
-
-
-                // Оновлюємо стан кнопок навігації
-                prevBtn.disabled = currentIndex === 0;
-                nextBtn.disabled = currentIndex === cards.length - 1;
-
-                // Оновлюємо індекс картки
-                cardCounter.textContent = `${currentIndex + 1}/${cards.length}`;
-
-                // Видаляємо обробник, щоб уникнути повторного виклику
-                flashcard.removeEventListener('transitionend', handler);
-            });
+    // Функція для генерації карток для екзамену
+    function generateExamCards(array, total) {
+        if (array.length >= total) {
+            return shuffleArray([...array]).slice(0, total);
         } else {
-            // Якщо картка не перевернута, просто оновлюємо вміст
-            cardTerm.textContent = cards[currentIndex].Term;
-            cardDefinition.textContent = cards[currentIndex].Definition;
-
-            // Оновлюємо стан кнопок навігації
-            prevBtn.disabled = currentIndex === 0;
-            nextBtn.disabled = currentIndex === cards.length - 1;
-
-            // Оновлюємо індекс картки
-            cardCounter.textContent = `${currentIndex + 1}/${cards.length}`;
+            const result = [];
+            for (let i = 0; i < total; i++) {
+                const randomIndex = Math.floor(Math.random() * array.length);
+                result.push(array[randomIndex]);
+            }
+            return result;
         }
     }
 
-    // Ініціалізація індексу картки при завантаженні сторінки
-    cardCounter.textContent = `${currentIndex + 1}/${cards.length}`;
+    // Функція для оновлення картки
+    function updateCard() {
+        if (isFlipped) {
+            flashcard.classList.remove('flipped');
+            isFlipped = false;
+
+            flashcard.addEventListener('transitionend', function handler() {
+                cardTerm.textContent = currentCards[currentIndex].Term;
+                cardDefinition.textContent = currentCards[currentIndex].Definition;
+
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex === currentCards.length - 1;
+
+                cardCounter.textContent = `${currentIndex + 1}/${currentCards.length}`;
+
+                flashcard.removeEventListener('transitionend', handler);
+            });
+        } else {
+            cardTerm.textContent = currentCards[currentIndex].Term;
+            cardDefinition.textContent = currentCards[currentIndex].Definition;
+
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === currentCards.length - 1;
+
+            cardCounter.textContent = `${currentIndex + 1}/${currentCards.length}`;
+        }
+    }
+
+    // Функція для скидання стану квізу
+    function resetQuiz() {
+        currentIndex = 0;
+        isFlipped = false;
+        flashcard.classList.remove('flipped');
+        updateCard();
+    }
+
+    // Функція для оновлення поточного режиму
+    function updateCurrentMode(mode) {
+        currentMode.textContent = `${mode}`;
+    }
+
+    // Ініціалізація при завантаженні сторінки
+    updateCard();
+    updateCurrentMode('Classic'); // Встановлюємо початковий режим
 </script>
