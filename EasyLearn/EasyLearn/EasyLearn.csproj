@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
 
@@ -40,7 +41,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EasyLearn.DbContext\EasyLearn.DbContext.csproj" />
     <ProjectReference Include="..\EasyLearn.Models\EasyLearn.Models.csproj" />
+    <ProjectReference Include="..\EasyLearn.MSSqlDb\EasyLearn.MSSqlDb.csproj" />
+    <ProjectReference Include="..\EasyLearn.SqlLiteDb\EasyLearn.SqlLiteDb.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,20 +1,17 @@
-﻿//using EasyLearn.Areas.Identity.Data;
+﻿using EasyLearn.Data;
 using EasyLearn.Models;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Emit;
 
-namespace EasyLearn.Data
-{
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+namespace EasyLearn.Data;
+
+    public abstract class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
-        {
-        }
+    public ApplicationDbContext(DbContextOptions options) : base(options)
+    {
+    }
 
-        public DbSet<EasyLearn.Models.Card> Card { get; set; } = default!;
+    public DbSet<EasyLearn.Models.Card> Card { get; set; } = default!;
         public DbSet<EasyLearn.Models.TrainingModule> TrainingModule { get; set; } = default!;
         public DbSet<EasyLearn.Models.Folder> Folder { get; set; } = default!;
         public DbSet<EasyLearn.Models.Course> Course { get; set; } = default!;
@@ -26,15 +23,15 @@ namespace EasyLearn.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
             builder.Entity<Course>()
-            .HasOne<ApplicationUser>()  
-            .WithMany()      
-            .HasForeignKey(c => c.UserId)  
+            .HasOne<ApplicationUser>()
+            .WithMany()
+            .HasForeignKey(c => c.UserId)
             .HasConstraintName("FK_Course_User");
 
             builder.Entity<Folder>()
-               .HasOne<ApplicationUser>()        
-               .WithMany()                       
-               .HasForeignKey(f => f.UserId)     
+               .HasOne<ApplicationUser>()
+               .WithMany()
+               .HasForeignKey(f => f.UserId)
                .HasConstraintName("FK_Folder_User");
 
             builder.Entity<TrainingModule>()
@@ -46,14 +43,14 @@ namespace EasyLearn.Data
             // Зовнішні ключі для UserId та UserWhoCanReadId
             builder.Entity<UserExas>()
                 .HasOne<ApplicationUser>()
-                .WithMany()                        
-                .HasForeignKey(ue => ue.UserId)    
+                .WithMany()
+                .HasForeignKey(ue => ue.UserId)
                 .HasConstraintName("FK_UserExas_User");
 
             builder.Entity<UserExas>()
-                .HasOne<ApplicationUser>()                 
-                .WithMany()                                
-                .HasForeignKey(ue => ue.UserWhoCanReadId)  
+                .HasOne<ApplicationUser>()
+                .WithMany()
+                .HasForeignKey(ue => ue.UserWhoCanReadId)
                 .HasConstraintName("FK_UserExas_UserWhoCanRead")
                 .OnDelete(DeleteBehavior.Restrict);
 
@@ -170,4 +167,4 @@ namespace EasyLearn.Data
 
         }
     }
-}
+
