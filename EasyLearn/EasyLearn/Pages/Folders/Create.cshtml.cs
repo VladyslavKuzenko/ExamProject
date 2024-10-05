@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 
 
-namespace EasyLearn.Resources.Pages.Folders
+namespace EasyLearn.Pages.Folders
 {
     [Authorize]    
     public class CreateModel : PageModel

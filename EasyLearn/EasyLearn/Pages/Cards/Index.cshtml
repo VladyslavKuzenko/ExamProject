@@ -12,7 +12,7 @@
 
 </style>
 
-<h1 class="create-title" style="position:relative; left:100px;">Word List </h1>
+<h1 class="create-title" style="position:relative; left:100px;">Word List  @Model.TrainingModule.Name</h1>
 
 <div class="card-container">
     <div class="card" id="flashcard">
@@ -118,21 +118,18 @@
         currentCards = [...originalCards];
         resetQuiz();
         updateCurrentMode('Classic');
-        console.log('Switched to Classic Mode');
     });
 
     randomBtn.addEventListener('click', () => {
         currentCards = shuffleArray([...originalCards]);
         resetQuiz();
         updateCurrentMode('Random');
-        console.log('Switched to Random Mode');
     });
 
     examBtn.addEventListener('click', () => {
         currentCards = generateExamCards(originalCards, 12);
         resetQuiz();
         updateCurrentMode('Exam');
-        console.log('Switched to Exam Mode');
     });
 
     // Клік по картці для перевертання

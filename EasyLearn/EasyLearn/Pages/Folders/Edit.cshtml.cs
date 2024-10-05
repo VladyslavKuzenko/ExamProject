@@ -9,7 +9,7 @@ using EasyLearn.Data;
 using EasyLearn.Models;
 using Microsoft.AspNetCore.Identity;
 
-namespace EasyLearn.Resources.Pages.Folders
+namespace EasyLearn.Pages.Folders
 {
     public class EditModel : PageModel
     {

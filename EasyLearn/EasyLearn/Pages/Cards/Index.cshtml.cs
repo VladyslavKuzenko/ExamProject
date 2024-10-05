@@ -22,12 +22,15 @@ namespace EasyLearn.Pages.Cards
         public IList<Card> Card { get;set; } = default!;
         public int TrainingModuleId { get; set; }
 
+        public TrainingModule TrainingModule { get; set; }
+
         public async Task OnGetAsync(int trainingModuleId)
         {
             TrainingModuleId = trainingModuleId;
             Card = await _context.Card
              .Where(c => c.TrainingModuleId == trainingModuleId)
              .ToListAsync();
+            TrainingModule= await _context.TrainingModule.FirstOrDefaultAsync(o=>o.Id == trainingModuleId);
         }
     }
 }

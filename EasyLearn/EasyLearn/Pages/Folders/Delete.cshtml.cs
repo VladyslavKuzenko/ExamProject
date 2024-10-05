@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using EasyLearn.Data;
 using EasyLearn.Models;
 
-namespace EasyLearn.Resources.Pages.Folders
+namespace EasyLearn.Pages.Folders
 {
     public class DeleteModel : PageModel
     {
