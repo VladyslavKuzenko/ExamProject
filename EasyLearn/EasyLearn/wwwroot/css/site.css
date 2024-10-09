@@ -1173,16 +1173,12 @@ a {
     font-weight: bold;
     font-size: 18px;
     margin-right: 10px;
-    background-image: url(../images/shuffle.png);
-    background-size: 15%;
-    background-repeat: no-repeat;
-    background-position-x: 173px;
-    background-position-y: 11.5px;
+
 }
 .test-game-button {
     width: 32%;
     height: 60px;
-    background-color: #FF8C00;
+    background-color:chartreuse;
     border: none;
     border-radius: 10px;
     margin-right: 10px;
@@ -1190,11 +1186,7 @@ a {
     font-weight: bold;
     font-size: 19.5px;
     margin-right: 10px;
-    background-image: url(../images/test.png);
-    background-size: 14%;
-    background-repeat: no-repeat;
-    background-position-x: 162px;
-    background-position-y: 11px;
+
 }
 
 .game-container{
@@ -1217,3 +1209,63 @@ a {
     text-align:end
 
 }
+
+
+#examButton1 {
+    border: none;
+    width: 200px;
+    height: 60px;
+    background-color: lime;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+#examButton2 {
+    border: none;
+    width: 200px;
+    height: 60px;
+    background-color: orange;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+#examButton3 {
+    border: none;
+    width: 200px;
+    height: 60px;
+    background-color: red;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+#examButton1:hover {
+    background-color: #00DE00;
+    transform: scale(1.05)
+}
+
+#examButton2:hover {
+    background-color: #E89600;
+    transform: scale(1.05)
+}
+
+#examButton3:hover {
+    background-color: #E80000;
+    transform: scale(1.05)
+}
+
+#examButtonsContainer {
+    position:absolute;
+    width:200px;
+    top:300px;
+    left:950px;
+}
+

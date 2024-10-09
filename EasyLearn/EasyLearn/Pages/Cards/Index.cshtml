@@ -9,26 +9,20 @@
     body {
         background-color: #0A082D;
     }
-
 </style>
 
-<h1 class="create-title" style="position:relative; left:100px;">Word List  @Model.TrainingModule.Name</h1>
+<h1 class="create-title" style="position:relative; left:100px;">List: @Model.TrainingModule.Name</h1>
 
 <div class="card-container">
     <div class="card" id="flashcard">
         <div class="card-face card-front">
             <span id="card-term">@Model.Card.FirstOrDefault()?.Term</span>
-            @* <a asp-page="./Edit" asp-route-id="@Model.Card.FirstOrDefault()?.Id">Edit</a> *@
-
         </div>
         <div class="card-face card-back">
             <span id="card-definition">@Model.Card.FirstOrDefault()?.Definition</span>
-            @* <a asp-page="./Edit" asp-route-id="@Model.Card.FirstOrDefault()?.Id">Edit</a> *@
-
         </div>
     </div>
 </div>
-
 
 <div class="navigation-buttons">
     <button id="prevBtn" disabled>⭠</button>
@@ -39,59 +33,19 @@
     <span id="cardCounter">1/@Model.Card.Count</span>
 </div>
 <a asp-page="../TrainingModules/Edit" asp-route-id="@Model.TrainingModuleId">
-
     <div class="edit-card"></div>
 </a>
 
 <div class="game-container">
-<input type="button" name="name" value="Classic" class="classic-game-button" />
+    <input type="button" name="name" value="Classic" class="classic-game-button" />
     <input type="button" name="name" value="Random" class="random-game-button" />
-<input type="button" name="name" value="Exam" class="test-game-button" />
+    <input type="button" name="name" value="Exam" class="test-game-button" />
 </div>
-<div id="currentMode" class="current-mode">Classic mode</div>
 
+<!-- Контейнер для нових кнопок екзамену -->
+<div id="examButtonsContainer"></div>
 
-
-
-@* <table class="table" style="position:relative; top:100px;">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Card[0].Term)
-
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Card[0].Definition)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Card[0].TrainingModule)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-
-@foreach (var item in Model.Card) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Term)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Definition)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TrainingModule.Name)
-            </td>
-                <div class="items">
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                </div>
-        </tr>
-}
-      
-    </tbody>
-</table> *@
+<div id="currentMode" class="current-mode">Classic</div>
 
 <script>
     // Отримуємо картки з моделі
@@ -107,30 +61,77 @@
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     const cardCounter = document.getElementById('cardCounter');
-    const currentMode = document.getElementById('currentMode'); // Новий елемент
+    const currentMode = document.getElementById('currentMode');
 
     const classicBtn = document.querySelector('.classic-game-button');
     const randomBtn = document.querySelector('.random-game-button');
     const examBtn = document.querySelector('.test-game-button');
+
+    const examButtonsContainer = document.getElementById('examButtonsContainer'); // Контейнер для нових кнопок
 
     // Додаємо обробники подій для кнопок режимів
     classicBtn.addEventListener('click', () => {
         currentCards = [...originalCards];
         resetQuiz();
         updateCurrentMode('Classic');
+        removeExamButtons(); // Видаляємо додаткові кнопки, якщо вони є
     });
 
     randomBtn.addEventListener('click', () => {
         currentCards = shuffleArray([...originalCards]);
         resetQuiz();
         updateCurrentMode('Random');
+        removeExamButtons(); // Видаляємо додаткові кнопки, якщо вони є
     });
 
     examBtn.addEventListener('click', () => {
-        currentCards = generateExamCards(originalCards, 12);
+        currentCards = generateExamCards(originalCards, Math.min(originalCards.length, 12)); // Генеруємо картки екзамену
         resetQuiz();
         updateCurrentMode('Exam');
+
+        // Створення трьох нових кнопок при натисканні на "Exam"
+        createExamButtons();
     });
+
+    // Функція для створення трьох кнопок екзамену
+    function createExamButtons() {
+        // Перевіряємо, чи вже створені кнопки
+        if (document.getElementById('examButton1')) return;
+
+        // Створюємо кнопку 1
+        const button1 = document.createElement('input');
+        button1.type = 'button';
+        button1.name = 'examSub';
+        button1.value = 'Easy';
+        button1.id = 'examButton1';
+        button1.className = 'exam-sub-button';
+        examButtonsContainer.appendChild(button1);
+
+        // Створюємо кнопку 2
+        const button2 = document.createElement('input');
+        button2.type = 'button';
+        button2.name = 'examSub';
+        button2.value = 'Medium';
+        button2.id = 'examButton2';
+        button2.className = 'exam-sub-button';
+        examButtonsContainer.appendChild(button2);
+
+        // Створюємо кнопку 3
+        const button3 = document.createElement('input');
+        button3.type = 'button';
+        button3.name = 'examSub';
+        button3.value = 'Hard';
+        button3.id = 'examButton3';
+        button3.className = 'exam-sub-button';
+        examButtonsContainer.appendChild(button3);
+    }
+
+    // Функція для видалення трьох кнопок екзамену
+    function removeExamButtons() {
+        while (examButtonsContainer.firstChild) {
+            examButtonsContainer.removeChild(examButtonsContainer.firstChild);
+        }
+    }
 
     // Клік по картці для перевертання
     flashcard.addEventListener('click', () => {
