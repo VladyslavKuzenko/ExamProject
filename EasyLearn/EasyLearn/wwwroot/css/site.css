@@ -75,9 +75,9 @@ header {
 .search-bar {
     position: absolute;
     width: 35%;
-    left: 30%;
     top: 25%;
     z-index: 999;
+
 }
 .search-bar input {
         width: 100%;
@@ -116,7 +116,7 @@ header {
     border-radius: 5px;
     margin-right: 17px;
     border-radius: 10px;
-    left: 67%;
+    left: 68%;
     top: 24%;
     z-index: 999;
 }
@@ -239,11 +239,42 @@ a {
     border-radius:10px;
 }
 
+
+
 @media only screen and (min-width: 1024px) {
     header {
-        background-color:red;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Розподіляємо елементи по краях */
+        padding: 10px 20px;
+        position: relative;
+        width: 100%;
     }
-    
+    .logb,
+    .language-selector
+     {
+        visibility:hidden;
+    }
+    .logo {
+        left:0.5%;
+    }
+        .only-profile {
+            visibility: visible;
+            left: 90%;
+        }
+
+    .search-bar {
+        position: absolute; /* Абсолютне позиціонування, щоб вирівняти по центру */
+        left: 51%; /* Центрування по горизонталі */
+        transform: translateX(-50%); /* Вирівнювання по центру */
+        width: 33%; /* Задаємо ширину пошукового поля */
+    }
+
+    .nav-links {
+        font-size:16px;
+    }
+
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
@@ -261,10 +292,10 @@ a {
 
     .search-bar {
         left:35%;
-        width:40%;
+        width:43%;
     }
     .btn7 {
-        left:77%;
+        left:80%;
     }
     .language-selector {
         visibility:hidden;
@@ -281,9 +312,7 @@ a {
 
 @media only screen and (max-width: 767px) {
 
-    header {
-        background-color: yellow;
-    }
+
 
     .nav-links {
         visibility:hidden;
@@ -351,6 +380,20 @@ a {
     font-size: 20px;
     font-weight: bold;
 }
+
+.der1 {
+    position: absolute;
+    background-image: none;
+    background-image:none!important;
+    color: #FF4C4C !important;
+    font-size: 20px;
+    font-weight: bold;
+    border:2px solid white;
+    background-color:transparent;
+    height:50px;
+    border-radius:10px;
+}
+
 
 .mobile-language-selector {
     position:absolute;
@@ -1508,4 +1551,9 @@ a {
     background-image: url(../images/user.png);
     background-repeat: no-repeat;
     background-size: 90%;
+}
+
+.logout-btn {
+    position:absolute;
+    top:520px;
 }
