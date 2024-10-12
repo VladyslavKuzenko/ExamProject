@@ -5,6 +5,7 @@
     ViewData["Title"] = "Index";
 }
 
+<div class="top-page-card">
 <style>
     body {
         background-color: #0A082D;
@@ -46,7 +47,7 @@
 <div id="examButtonsContainer"></div>
 
 <div id="currentMode" class="current-mode">Classic</div>
-
+</div>
 <script>
     // Отримуємо картки з моделі
     const originalCards = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Card.Select(c => new { c.Term, c.Definition })));

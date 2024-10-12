@@ -3,6 +3,7 @@ using System;
 using EasyLearn.SqlLiteDb;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EasyLearn.SqlLiteDb.Migrations
 {
     [DbContext(typeof(SqlLiteDbContext))]
-    partial class SqlLiteDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241011193230_m0")]
+    partial class m0
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.8");
