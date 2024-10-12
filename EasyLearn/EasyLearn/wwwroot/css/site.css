@@ -1407,11 +1407,12 @@ a {
 
 }
 
-.game-container{
-    width:100%;
-    position:relative;
-    top:-490px;
-    left:100px;
+.game-container {
+    width: 100%;
+    position: relative;
+    top: -490px;
+    left: 100px;
+    align-items: center;
 
 }
 
