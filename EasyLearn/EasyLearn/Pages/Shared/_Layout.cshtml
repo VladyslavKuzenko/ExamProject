@@ -16,6 +16,10 @@
             <a asp-area="" asp-page="/Home/Index">EasyLearn</a>
         </div>
 
+        <div class="logo2">
+            <a asp-area="" asp-page="/Home/Index"></a>
+        </div>
+
         <!-- Навігаційні лінки для великих екранів -->
         <nav class="nav-links">
             <a asp-area="" asp-page="/Home/Index">Home</a>
@@ -43,7 +47,11 @@
         </div>
 
         <div class="logb">
-            <partial name="_LoginPartial" />
+            <partial name="_LoginPartial" class="c1"/>
+        </div>
+
+        <div class="only-profile">
+            <a id="manage" class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Profile</a>
         </div>
 
         <div class="language-selector">
