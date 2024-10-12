@@ -12,57 +12,117 @@
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="logo">
-                <a asp-area="" asp-page="/Home/Index">EasyLearn</a>
-            </div>
-            <nav class="nav-links">
-                <a asp-area="" asp-page="/Home/Index" >Home</a>
-
-
-                <a asp-area="" asp-page="/TrainingModules/Index">Your Library</a>
-
-
-            </nav>
-            <div class="search-bar">
-                <input type="text" placeholder="Search">
-            </div>
-            
-            <button class="btn7" onclick="togglePopup7()">+</button>
-
-            <!-- Випливаюче вікно -->
-            <div class="popup7" id="popup7">
-                <div class="create-button">
-                    <a class="full-button create-button-photo1" asp-area="" asp-page="/TrainingModules/Create">Training module</a>
-                </div>
-
-                <div class="create-button">
-                    <a class="full-button create-button-photo2" asp-area="" asp-page="/Folders/Create">Folder</a>
-                </div>
-
-                <div class="create-button">
-                    <a class="full-button create-button-photo3" asp-area="" asp-page="/Courses/Create">Course</a>
-                </div>
-            </div>
-
-            <div class="language-selector">
-                <partial name="_SelectLanguagePartial"/>
-            </div>
-                <partial name="_LoginPartial" />
-
-            
+        <div class="logo">
+            <a asp-area="" asp-page="/Home/Index">EasyLearn</a>
         </div>
 
+        <!-- Навігаційні лінки для великих екранів -->
+        <nav class="nav-links">
+            <a asp-area="" asp-page="/Home/Index">Home</a>
+            <a asp-area="" asp-page="/TrainingModules/Index">Your Library</a>
+        </nav>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+        </div>
+
+        <!-- Кнопка для створення -->
+        <button class="btn7" onclick="togglePopup7()">+</button>
+
+        <!-- Спливаюче вікно створення -->
+        <div class="popup7" id="popup7">
+            <div class="create-button">
+                <a class="full-button create-button-photo1" asp-area="" asp-page="/TrainingModules/Create">Training module</a>
+            </div>
+            <div class="create-button">
+                <a class="full-button create-button-photo2" asp-area="" asp-page="/Folders/Create">Folder</a>
+            </div>
+            <div class="create-button">
+                <a class="full-button create-button-photo3" asp-area="" asp-page="/Courses/Create">Course</a>
+            </div>
+        </div>
+
+        <div class="logb">
+            <partial name="_LoginPartial" />
+        </div>
+
+        <div class="language-selector">
+            <partial name="_SelectLanguagePartial" />
+        </div>
+
+        <!-- Кнопка мобільного меню -->
+        <button class="mobile-menu-button" onclick="toggleMobileMenu()">&#9776;</button>
+
+        <!-- Мобільне меню -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="menu-logo"></div>
 
 
-        
+            <a asp-area="" asp-page="/Home/Index">Home
+                <div class="home-menu-image"></div>
+            </a>
+            <a asp-area="" asp-page="/TrainingModules/Index">Your Library
+                <div class="library-menu-image"></div>
+            </a>
+            
+            <a asp-area="" asp-page="/TrainingModules/Create">Create Module
+                <div class="plimage1"></div>
+            </a>
+            <a asp-area="" asp-page="/Folders/Create">Create Folder
+                <div class="plimage2"></div>
+            </a>
+            <a asp-area="" asp-page="/Courses/Create">Create Course
+                <div class="plimage3"></div>
+            </a>
 
+            <a id="manage" class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Profile</a>
+            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+                <button type="submit" class="nav-link btn btn-link border-0 der" >Logout</button>
+                <div class="primage"></div>
 
+            </form>
+
+            <div class="mobile-language-selector">
+                <partial name="_SelectLanguagePartial" />
+            </div>
+        </div>
+
+        <div class="container"></div>
     </header>
 
 
 
+
    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

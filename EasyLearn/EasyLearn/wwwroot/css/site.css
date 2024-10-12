@@ -2,25 +2,29 @@ html {
     scrollbar-width: thin;  
     scrollbar-color: cornflowerblue white;
 }
-
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
-    height: 100%;
-    margin: 0;
-    padding: 0;
 }
-
 header {
     border-bottom: 2px solid white;
     background-color: #0A082D;
     color: white;
-    position: relative;
-}
+    position: fixed;
+    width:100%;
+    z-index:999;
 
+}
+.top-page {
+    position:absolute;
+    top:100px;
+    left:0;
+}
+.top-page-card {
+    position: absolute;
+    top: 70px;
+    left: 0;
+}
 .container {
     display: flex;
     align-items: center;
@@ -30,14 +34,12 @@ header {
     justify-content: space-between;
     position: relative;
 }
-
-
 .logo {
-    position: relative;
-    right: 300px;
+    position:absolute;
+    top:25%;
+    left:2%;
 }
-
-    .logo a {
+.logo a {
         font-size: 24px;
         font-weight: bold;
         color: white;
@@ -45,29 +47,41 @@ header {
         font-size: 32px;
     }
 
-.nav-links {
-    display: flex;
-    align-items: center;
-    font-weight:bold;
-    font-size:18px;
-    position:relative;
-    right:50px;
+.menu-logo {
+    position: relative;
+    background-image: url(../images/l1.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 120px;
+    height: 100px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    left:25%;
+    
 }
 
-
-
+.nav-links {
+    display: flex;
+    font-weight: bold;
+    font-size: 18px;
+    position: absolute;
+    left: 16%;
+    z-index: 999;
+    top: 40%;
+}
 .nav-links a {
     color: white;
     text-decoration: none;
     margin: 0 15px;
 }
-
 .search-bar {
-    margin: 0 15px;
-    flex: 1;
+    position: absolute;
+    width: 35%;
+    left: 30%;
+    top: 25%;
+    z-index: 999;
 }
-
-    .search-bar input {
+.search-bar input {
         width: 100%;
         padding: 8px;
         border-radius: 25px;
@@ -77,33 +91,25 @@ header {
         color: #fff;
         padding:10px;
     }
-
 .search-bar input::placeholder {
     color:white;
     font-weight:bold;
     opacity:0.6;
     text-align:center
 }
-
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-
-
 .h1 {
     position:relative;
     right:130px;
     top:50px;
 
 }
-
-
-
 .btn7 {
+    position: absolute;
     padding: 10px 20px;
     background-color: #4CAF50;
     color: white;
@@ -112,21 +118,22 @@ header {
     border-radius: 5px;
     margin-right: 17px;
     border-radius: 10px;
+    left: 67%;
+    top: 24%;
+    z-index: 999;
 }
-
 .popup7 {
     display: none;
     position: absolute;
     width: 220px;
     height: 150px;
     background-color: #0A082D;
-    left: 968px;
+    left: 70%;
     bottom: -140px;
     z-index: 1;
     border-radius: 10px;
     border: 1px solid white;
 }
-
 .create-button {
     width: 100%;
     height: 33.33%;
@@ -138,7 +145,6 @@ header {
     background-color: #0A082D;
     border-radius: 10px;
 }
-
 .create-button-photo1 {
     background-image: url(../images/wdocument.png);
     background-repeat: no-repeat;
@@ -160,26 +166,158 @@ header {
     background-position-x: 16px;
     background-position-y: 10px;
 }
-
-
 .create-button:hover {
     background-color: #090729;
 }
-
-
 a {
     text-decoration: none; 
     color: inherit; 
 }
 
+.language-selector {
+    position: relative;
+    left: 74%;
+    width: 130px;
+    top:5px;
+}
 
+.logb {
+    position: absolute;
+    left: 75%;
+    top: 13px;
+}
 
+.mobile-menu-button {
+    display: none; /* Ховаємо кнопку на великих екранах */
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white; /* Змінити за необхідності */
+    position: absolute;
+    left: 93%;
+    top: 16px;
+}
+
+/* Мобільне меню */
+.mobile-menu {
+    display: none; /* Ховаємо мобільне меню за замовчуванням */
+    position: absolute;
+    width: 100%;
+    background-color: #2E3756;
+    color: white;
+    flex-direction: column;
+    z-index: 1000;
+    border-left: 2px solid lightgray;
+}
+
+.mobile-menu a {
+        display: block;
+        padding: 10px;
+        padding-left: 55px;
+        text-align: start;
+        color: white;
+        text-decoration: none;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px dashed white;
+        height:65px;
+    }
+
+.mobile-menu a:hover {
+       background-color: #29314D;
+}
+
+@media only screen and (min-width: 1024px) {
+    header {
+        background-color:red;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    header {
+        background-color: yellow;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .nav-links {
+        visibility:hidden;
+    }
+
+    .btn7 {
+        visibility:hidden;
+    }
+
+    .logb {
+        visibility: hidden;
+    }
+    .language-selector {
+        visibility:hidden;
+    }
+    .search-bar {
+        left:32%;
+        width:50%;
+    }
+
+   
+    .mobile-menu-button {
+        display: block;
+    }
+
+    .logo a{
+        font-size:170%
+    }
+
+    /* Налаштовуємо мобільне меню */
+    .mobile-menu {
+        display: none; /* Залишається схованим до натискання кнопки */
+        width:30%;
+        left:70%;
+        top:70px;
+        height:864px;
+    }
+
+    
+    /* При відображенні мобільного меню */
+    .mobile-menu.active {
+        display: flex;
+    }
+}
+
+.kl {
+    position:relative;
+    left:-240px;
+}
+
+.der {
+    position: absolute;
+    padding-left: 55px;
+    background-image: none;
+    /*    background-image: url(../images/leave.png);
+    background-repeat: no-repeat;
+    background-size: 18%;
+    background-position-x: 30%;
+    background-position-y: 9px;*/
+    top: 93.5%;
+    left: 8%;
+    color: #FF4C4C !important;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.mobile-language-selector {
+    position:absolute;
+    top:60%;
+    left:22px;
+}
 /*__________________________Недавні модулі*/
 .recent {
-    position:absolute;
-    top:80px;
-    left:100px;
-    color:#fff;
+    position: absolute;
+    top: 80px;
+    left: 100px;
+    color: #fff;
 }
 
 .recent-modules {
@@ -613,23 +751,21 @@ a {
 
 
 #register {
-    position: relative;
+    position: absolute;
+    left:100px;
     border: 1px solid white;
-    top: 20px;
     padding: 10px;
     padding-left: 10px;
-    left: 30px;
     background-color: orange;
     font-weight: bold;
     color: #fff;
-    border-radius:7px;
+    border-radius: 7px;
 }
 
 #login {
     border: 1px solid white;
-    position: relative;
-    left: 160px;
-    top: -27px;
+    position: absolute;
+    left: 230px;
     padding: 10px;
     padding-left: 20px;
     color: #fff;
@@ -791,12 +927,6 @@ a {
 }
 /*_________________________________*/
 
-.language-selector {
-    position:relative;
-    left:30px;
-    width:130px;
-}
-/*_________________________________*/
 
 #profile-form {
     position:relative;
@@ -1269,3 +1399,68 @@ a {
     left:950px;
 }
 
+.home-menu-image {
+    position:absolute;
+    width:23px;
+    height:23px;
+    left:25px;
+    top:131px;
+    background-image:url(../images/home.png);
+    background-repeat:no-repeat;
+    background-size:100%;
+}
+
+.library-menu-image {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    left: 21px;
+    top: 194px;
+    background-image: url(../images/library.png);
+    background-repeat: no-repeat;
+    background-size: 110%;
+}
+
+.plimage1 {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    left: 23px;
+    top: 264px;
+    background-image: url(../images/nplusik.png);
+    background-repeat: no-repeat;
+    background-size: 90%;
+}
+
+.plimage2 {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    left: 23px;
+    top: 330px;
+    background-image: url(../images/nplusik.png);
+    background-repeat: no-repeat;
+    background-size: 90%;
+}
+
+.plimage3 {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    left: 23px;
+    top: 395px;
+    background-image: url(../images/nplusik.png);
+    background-repeat: no-repeat;
+    background-size: 90%;
+}
+
+.primage {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    left: 23px;
+    top: 460px;
+    background-image: url(../images/user.png);
+    background-repeat: no-repeat;
+    background-size: 90%;
+}

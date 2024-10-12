@@ -12,11 +12,6 @@ window.onclick = function (event) {
     }
 }
 
-
-
-
-
-
 let currentGroup = 0;  // Відстежуємо поточну групу
 
 function updateView() {
@@ -56,4 +51,23 @@ function prevGroup() {
 }
 
 // Початкова ініціалізація, викликаємо при завантаженні
-updateView();
+updateView(); 
+
+
+
+function toggleMobileMenu() {
+    var menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('active');
+}
+
+
+// Закриття мобільного меню при кліку поза ним
+window.onclick = function (event) {
+    var menu = document.getElementById('mobileMenu');
+    var button = document.querySelector('.mobile-menu-button');
+    if (!menu.contains(event.target) && !button.contains(event.target)) {
+        menu.classList.remove('active');
+    }
+}
+
+
