@@ -75,23 +75,18 @@
         currentCards = [...originalCards];
         resetQuiz();
         updateCurrentMode('Classic');
-        removeExamButtons(); // Видаляємо додаткові кнопки, якщо вони є
     });
 
     randomBtn.addEventListener('click', () => {
         currentCards = shuffleArray([...originalCards]);
         resetQuiz();
         updateCurrentMode('Random');
-        removeExamButtons(); // Видаляємо додаткові кнопки, якщо вони є
     });
 
     examBtn.addEventListener('click', () => {
         currentCards = generateExamCards(originalCards, Math.min(originalCards.length, 12)); // Генеруємо картки екзамену
         resetQuiz();
         updateCurrentMode('Exam');
-
-        // Створення трьох нових кнопок при натисканні на "Exam"
-        createExamButtons();
     });
 
     // Функція для створення трьох кнопок екзамену
