@@ -5,6 +5,7 @@ html {
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
+    height:2100px;
 }
 header {
     border-bottom: 2px solid white;
@@ -16,23 +17,16 @@ header {
 
 }
 .top-page {
-    position:absolute;
-    top:100px;
-    left:0;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    justify-content: flex-start; /* Вирівнювання контенту зліва */
 }
 .top-page-card {
     position: absolute;
     top: 70px;
     left: 0;
-}
-.container {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    width:100%;
-    margin: 0 auto;
-    justify-content: space-between;
-    position: relative;
 }
 .logo {
     position:absolute;
@@ -218,7 +212,6 @@ a {
 .mobile-menu a:hover {
        background-color: #29314D;
 }
-
 .logo2 {
     position: absolute;
     background-image: url(../images/l2.png);
@@ -231,7 +224,6 @@ a {
     visibility: hidden;
     top:-10px;
 }
-
 .only-profile {
     position:absolute;
     visibility: hidden;
@@ -239,11 +231,9 @@ a {
     border-radius:10px;
 }
 
-
-
 @media only screen and (min-width: 1024px) {
     header {
-
+        background-color:green;
         display: flex;
         align-items: center;
         justify-content: space-between; /* Розподіляємо елементи по краях */
@@ -257,39 +247,82 @@ a {
         visibility:hidden;
     }
     .logo {
-        left:0.5%;
+        left: 1%;
+        top:13px;
     }
-        .only-profile {
+    .only-profile {
             visibility: visible;
             left: 90%;
         }
-
     .search-bar {
         position: absolute; /* Абсолютне позиціонування, щоб вирівняти по центру */
         left: 51%; /* Центрування по горизонталі */
         transform: translateX(-50%); /* Вирівнювання по центру */
         width: 33%; /* Задаємо ширину пошукового поля */
     }
-
     .nav-links {
         font-size:16px;
     }
+    /*___________________________*/
+    .box-info {
+        position: relative;
+        left: -6px;
+        width: 33.33%;
+        height: 100%;
+        background-color: #2E3756;
+        border-radius: 10px;
+        border: 1px solid cornflowerblue;
+        margin-left: 10px;
+    }
+    .box-info-container {
+        display: flex;
+        width: 70%;
+        height: 330px;
+    }
+    .name {
+        color: white;
+        text-align: center;
+        position: relative;
+        font-size: 20px;
+        top: 15px;
+        width: 100%;
+        background-color: forestgreen;
+    }
+    .info {
+        color: white;
+        text-align: center;
+        position: relative;
+        font-size: 17px;
+        width: 100%;
+        top: 30px;
+    }
+    .stars {
+        display:none;
 
+    }
+    /*___________________________________*/
 }
-
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-
+    header {
+        background-color:yellow;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Розподіляємо елементи по краях */
+        padding: 10px 20px;
+        position: relative;
+        width: 100%;
+    }
     .logo {
         visibility:hidden;
     }
     .logo2 {
         visibility: visible;
+        left:0;
     }
     .nav-links {
         font-size:15px;
         left:10%;
     }
-
     .search-bar {
         left:35%;
         width:43%;
@@ -308,20 +341,72 @@ a {
         left:89%;
         top:15px;
     }
+    /*___________________________*/
+
+   .box-info {
+    position:relative;
+    left:-30px;
+    width: 100%;
+    height: 32%;
+    background-color: #2E3756;
+    border-radius: 10px;
+    border: 1px solid cornflowerblue;
+    margin-left:30px;
+    margin-top:3.3px;
+
 }
-
+   .box-info-container {
+    width: 70%;
+    height: 350px;
+    }
+    .photo1 {
+        display: none;
+    }
+    .photo2 {
+        display: none;
+    }
+    .photo3 {
+        display: none;
+    }
+    .name {
+        color: white;
+        text-align: center;
+        position: relative;
+        font-size: 23px;
+        top: 10px;
+        width: 100%;
+        background-color: forestgreen;
+    }
+    .info {
+        color: white;
+        text-align: center;
+        position: relative;
+        font-size: 17px;
+        width: 100%;
+        top: 30px;
+    }
+    .stars {
+        left: 72%;
+        width: 300px;
+        height: 300px;
+    }
+}
 @media only screen and (max-width: 767px) {
-
-
-
+     header {
+         background-color:red;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Розподіляємо елементи по краях */
+        padding: 10px 20px;
+        position: relative;
+        width: 100%;
+    }
     .nav-links {
         visibility:hidden;
     }
-
     .btn7 {
         visibility:hidden;
     }
-
     .logb {
         visibility: hidden;
     }
@@ -332,19 +417,15 @@ a {
         left:32%;
         width:50%;
     }
-
-   .popup7 {
+    .popup7 {
        visibility:hidden;
    }
     .mobile-menu-button {
         display: block;
     }
-
     .logo a{
         font-size:170%
     }
-
-    /* Налаштовуємо мобільне меню */
     .mobile-menu {
         display: none; /* Залишається схованим до натискання кнопки */
         width:30%;
@@ -352,19 +433,60 @@ a {
         top:70px;
         height:864px;
     }
-
-    
-    /* При відображенні мобільного меню */
     .mobile-menu.active {
         display: flex;
     }
+    /*___________________________*/
+    .box-info {
+        position: relative;
+        left: -30px;
+        width: 100%;
+        height: 32%;
+        background-color: #2E3756;
+        border-radius: 10px;
+        border: 1px solid cornflowerblue;
+        margin-left: 30px;
+        margin-top: 3.3px;
+    }
+    .box-info-container {
+        width: 70%;
+        height: 350px;
+    }
+    .photo1 {
+        display: none;
+    }
+    .photo2 {
+        display: none;
+    }
+    .photo3 {
+        display: none;
+    }
+    .name {
+        color: white;
+        text-align: center;
+        position: relative;
+        font-size: 23px;
+        top: 10px;
+        width: 100%;
+        background-color: forestgreen;
+    }
+    .info {
+        color: white;
+        text-align: center;
+        position: relative;
+        font-size: 17px;
+        width: 100%;
+        top: 30px;
+    }
+   
+
+    /*_________________________________*/
 }
 
 .kl {
     position:relative;
     left:-240px;
 }
-
 .der {
     position: absolute;
     padding-left: 55px;
@@ -380,7 +502,6 @@ a {
     font-size: 20px;
     font-weight: bold;
 }
-
 .der1 {
     position: absolute;
     background-image: none;
@@ -393,70 +514,47 @@ a {
     height:50px;
     border-radius:10px;
 }
-
-
 .mobile-language-selector {
     position:absolute;
     top:60%;
     left:22px;
 }
 /*__________________________Недавні модулі*/
-.recent {
-    position: absolute;
-    top: 80px;
-    left: 100px;
-    color: #fff;
-}
-
-.recent-modules {
-    position:absolute;
-    width:1200px;
-    height:285px;
-    background-color:cornflowerblue;
-    border-radius:10px;
-}
-
-/*__________________________*/
-
-.upd-func {
-    position: absolute;
-    top: 480px;
-    left: 100px;
-    color: #fff;
-    
-}
-
-.box-info {
-    width: 380px;
-    height: 320px;
-    background-color: #2E3756;
-    border-radius: 10px;
-    margin: 0px;
-    border: 1px solid cornflowerblue;
-}
-
-.box-info-container {
+.xbox-1 {
+    width: 100%;
+    height: 300px;
     display: flex;
-    justify-content: space-between;
-    width: 1200px;
-    height: 320px;
-    position: relative;
+    justify-content: center;  
+    align-items: center;  
 }
-
+.recent-modules {
+    display: flex;
+    width: 70%;
+    height: 285px;
+    background-color: cornflowerblue;
+    justify-content: center;
+    border-radius: 10px;
+}
+/*__________________________*/
+.xbox-2 {
+    width: 100%;
+    height: 390px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .photo1 {
     width: 100%;
-    height: 60%;
+    height: 57%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    position:relative;
     background-image:url(../images/paint1.png);
     background-repeat:no-repeat;
     background-size:cover;
 }
-
 .photo2 {
     width: 100%;
-    height: 60%;
+    height: 57%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     position: relative;
@@ -464,10 +562,9 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 .photo3 {
     width: 100%;
-    height: 60%;
+    height: 57%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     position: relative;
@@ -475,37 +572,24 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-.name {
-    position: relative;
-    left: 25px;
-    font-size: 23px;
-    top: 15px;
-}
-
-.info {
-    position: relative;
-    left: 25px;
-    font-size: 17px;
-    width: 320px;
-    height: 30px;
-    top: 30px;
-}
-
 /*__________________________*/
-
+.xbox-3 {
+    width: 100%;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .books-container {
     position: relative;
-    width: 1200px;
-    top: 930px;
-    left:75px;
-}
+    width:67%;
 
+}
 .box-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    justify-content: space-around;
 }
-
 .box {
     width: 380px;
     height: 220px;
@@ -513,12 +597,13 @@ a {
     border-radius: 10px;
     transition: all 0.3s ease;
     border: 1px solid cornflowerblue;
+    margin-left: 10px;
+    position:relative;
+    left: -5px;
 }
-
 .hidden {
     display: none;
 }
-
 .nav-btn {
     position: absolute;
     top: 50%;
@@ -530,45 +615,39 @@ a {
     border: none;
     border-radius: 5px;
 }
-
 .left-btn {
     left: -50px; 
 }
-
 .right-btn {
     right: -50px;  
 }
-
 .nav-btn:disabled {
     background-color: darkgray;
     cursor: not-allowed;
 }
-
 .book-photo1 {
     position: relative;
-    width: 120px;
+    width: 100%;
     height: 168px;
     top: 25px;
-    left: 20px;
+    left: 15%;
     border-radius: 10px;
     background-image: url(../images/hn.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 .image-link {
     display: block;
-    width: 120px; 
+    width: 32%; 
     height: 168px;
 
 }
-
 .book-photo2 {
     position: relative;
-    width: 120px;
+    width: 100%;
     height: 168px;
     top: 25px;
-    left: 20px;
+    left: 15%;
     border-radius: 10px;
     background-image: url(../images/mathb.jpg);
     background-repeat: no-repeat;
@@ -576,10 +655,10 @@ a {
 }
 .book-photo3 {
     position: relative;
-    width: 120px;
+    width: 100%;
     height: 168px;
     top: 25px;
-    left: 20px;
+    left: 15%;
     border-radius: 10px;
     background-image: url(../images/phb.jpg);
     background-repeat: no-repeat;
@@ -587,10 +666,10 @@ a {
 }
 .book-photo4 {
     position: relative;
-    width: 120px;
+    width: 100%;
     height: 168px;
     top: 25px;
-    left: 20px;
+    left: 15%;
     border-radius: 10px;
     background-image: url(../images/ghy.png);
     background-repeat: no-repeat;
@@ -598,10 +677,10 @@ a {
 }
 .book-photo5 {
     position: relative;
-    width: 120px;
+    width: 100%;
     height: 168px;
     top: 25px;
-    left: 20px;
+    left: 15%;
     border-radius: 10px;
     background-image: url(../images/naspbook.png);
     background-repeat: no-repeat;
@@ -609,134 +688,153 @@ a {
 }
 .book-photo6 {
     position: relative;
-    width: 120px;
+    width: 100%;
     height: 168px;
     top: 25px;
-    left: 20px;
+    left: 15%;
     border-radius: 10px;
     background-image: url(../images/chemistry.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 .book-name {
     position: relative;
-    width: 200px;
-    height: 16px;
-    top: -142px;
-    left: 150px;
+    width: 60%;
+    bottom: 65%;
+    left: 40%;
     color:#fff;
     font-weight:bold;
 }
-
 .book-info {
     position: relative;
-    bottom: 83px;
-    left: 150px;
+    bottom: 125px;
+    left: 40%;
     color: #fff;
     font-size: 12px;
+    width: 60%;
 }
-
 /*__________________________*/
-
-.video-lessons-column1 {
-    position: absolute;
-    top: 1320px;
-    left: 100px;
-    color: #fff;
-}
-
-.photo7 {
-    position: relative;
+.xbox-4 {
     width: 100%;
-    height: 70%;
-    border-radius: 10px;
+    height: 330px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.video-lessons-column1 {
+    color: #fff;
+    width: 70%;
+    height: 100%;
+}
+.box-video-info-container {
+    display: flex;
+    height: 100%;
+    position:relative;
+    left: -5px;
+}
+.photo7 {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     background-image: url(../images/el1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 .photo8 {
-    position: relative;
     width: 100%;
-    height:70%;
-    border-radius: 10px;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     background-image: url(../images/cpr.png);
     background-repeat: no-repeat;
 }
-
 .photo9 {
-    position: relative;
     width: 100%;
-    height: 70%;
-    border-radius: 10px;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     background-image: url(../images/mathls.png);
     background-repeat: no-repeat;
 }
-
 .nameless {
     position: relative;
-    left: 7px;
+    left:3%;
     font-size: 23px;
     color: white;
-    top: 10px;
+    top: 3%;
     font-size:20px;
+    width:95%;
 }
-
 .border-class {
     border: 1px solid cornflowerblue;
 }
-
 .video-lessons-column2 {
-    position: absolute;
-    top: 1730px;
-    left: 100px;
     color: #fff;
-}
+    width: 70%;
+    height: 90%;
 
+}
 .photo10 {
-    position: relative;
     width: 100%;
-    height: 70%;
-    border-radius: 10px;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     background-image: url(../images/aspl.png);
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
 }
-
 .photo11 {
-    position: relative;
     width: 100%;
-    height: 70%;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     border-radius: 10px;
     background-image: url(../images/frl.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 .photo12 {
-    position: relative;
     width: 100%;
-    height: 70%;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     border-radius: 10px;
     background-image: url(../images/hq720.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+.video-info-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #2E3756;
+    border-radius: 10px;
+    border: 1px solid cornflowerblue;
+    margin-left: 10px;
+}
+.ph-ct {
+    width:100%;
+    height:230px;
+}
+.xbox-5 {
+    width: 100%;
+    height: 370px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /*__________________________*/
-
 .dragon {
-    position:absolute;
+    position: absolute;
     width: 400px;
     height: 400px;
     background-image: url(../images/dragon.png);
     background-repeat: no-repeat;
     background-size: cover;
-    left:-400px;
-    top:80px;
+    left: -400px;
+    top: 80px;
 }
-
 .owl {
     position: absolute;
     width: 284px;
@@ -747,7 +845,6 @@ a {
     left: 1330px;
     top: 922px;
 }
-
 .cat {
     position: absolute;
     width: 400px;
@@ -757,6 +854,15 @@ a {
     background-size: cover;
     left: -330px;
     top: 1670px;
+}
+.stars {
+    position: absolute;
+
+    background-image: url(../images/stars.png);
+    background-repeat: no-repeat;
+    background-size: 42%;
+    z-index: 1;
+    top:2%;
 }
 /*__________________________*/
 
@@ -963,10 +1069,8 @@ a {
 .home-footer {
     border-top:1px solid white;
     position:absolute;
-    top:2100px;
-    width:1900px;
-    left:-290px;
-    height:70px;
+    top:102%;
+    width:100%;
 }
 
 /*_________________________________*/
@@ -1556,4 +1660,9 @@ a {
 .logout-btn {
     position:absolute;
     top:520px;
+}
+
+.adapted-text {
+    color: white;
+    padding-left: 15%;  
 }
