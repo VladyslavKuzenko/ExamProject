@@ -23,12 +23,22 @@ namespace EasyLearn.Pages.TrainingModules
 
         public IList<TrainingModule> TrainingModule { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string searchString)
         {
             var userId = _userManager.GetUserId(User);
+
             TrainingModule = await _context.TrainingModule
-                .Include(t => t.Folder).Where(f => f.UserId == userId)  // Фільтруємо папки за UserId
-                .ToListAsync();
+               .Include(t => t.Folder).Where(f => f.UserId == userId)  // Фільтруємо папки за UserId
+               .ToListAsync();
+
+           TrainingModule = TrainingModule.Reverse().ToList();
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                TrainingModule = TrainingModule.Where(tm => tm.Name.Contains(searchString) || tm.Description.Contains(searchString)).ToList();
+            }
+
+           
         }
     }
 }
