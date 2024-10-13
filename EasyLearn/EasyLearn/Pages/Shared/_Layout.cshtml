@@ -12,6 +12,10 @@
 </head>
 <body>
     <header>
+        <div class="logb">
+            <partial name="_LoginPartial" />
+        </div>
+
         <div class="logo">
             <a asp-area="" asp-page="/Home/Index">EasyLearn</a>
         </div>
@@ -46,9 +50,7 @@
             </div>
         </div>
 
-        <div class="logb">
-            <partial name="_LoginPartial" class="c1"/>
-        </div>
+        
 
         <div class="only-profile">
             <a id="manage" class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Profile</a>
@@ -95,7 +97,7 @@
             </div>
         </div>
 
-        <div class="container"></div>
+            
     </header>
 
 
