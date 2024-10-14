@@ -1,114 +1,248 @@
 ﻿@page
 @model EasyLearn.Pages.TrainingModules.EditModel
-<style>
-    body {
-        background-color: #0A082D;
-    }
-</style>
-@{
-    ViewData["Title"] = "Edit";
-    int cardIndex = 0; // Start from 0 for correct indexing
-}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-color: #0A082D;
+            color: white;
 
-<h2 class="create-title">Edit cards</h2>
-
-<form method="post">
-    <div class="form-group">
-        <label asp-for="Name" class="control-label"></label>
-        <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Description" class="control-label"></label>
-        <input asp-for="Description" class="form-control" />
-        <span asp-validation-for="Description" class="text-danger"></span>
-    </div>
-
-    <div id="cards-container">
-        @for (int i = 0; i < Model.Cards.Count; i++)
-        {
-            <hr style="height:15px; background-color:#0A082D;" />
-            <label class="gg" style="color:white; font-weight:bold;">Card @cardIndex</label>
-            <div class="card-box">
-                <div class="form-group">
-                    <label class="gg">Term</label>
-                    <input type="text" name="Cards[@i].Term" value="@Model.Cards[@i].Term" class="form-control shire" />
-                </div>
-                <div class="form-group">
-                    <label class="gg">Description</label>
-                    <input type="text" name="Cards[@i].Definition" value="@Model.Cards[@i].Definition" class="form-control shire" />
-                </div>
-            </div>
-            cardIndex++; // No need for @{ ... } here
         }
-    </div>
+        .create-title {
+            text-align: center;
+            font-size: 2em;
+            color: white;
+        }
+        .control-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .text-danger {
+            color: red;
+            font-size: 0.9em;
+        }
+        #cards-container {
+            border-radius: 10px;
+            margin-top: 120px;
+        }
+        .card-item {
+            background-color: #3E4A68;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .card-item label.gg {
+                font-weight: bold;
+                margin-bottom: 10px;
+                display: block;
+        }
+        .shire {
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            border-bottom: 4px solid white;
+            color: white;
+            border-radius: 0;
+            padding: 8px;
+        }
+        .shire:focus {
+                background-color: #2E3756;
+                border-bottom: 5px solid yellow;
+                outline: none;
+                box-shadow: none;
+                color: white;
+        }
+        #add-card {
+            background-color: #2E3756;
+            color: white;
+            width: 100%;
+            height: 140px;  
+            border: none;
+            font-weight: bold;
+            font-size: 16px;
+            border-bottom: 5px solid aquamarine;
+            cursor: pointer;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Центрування по вертикалі */
+        }
+        #add-card:hover {
+                background-color: #3E4A68;
+        }
+        .create-module-button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: -220px;
+            margin-left: 455px;;
+        }
+        .create-module-button:hover {
+            background-color: #0056b3;
+        }
+        .delete-card {
+            margin-top: -220px;
+            color: red;
+            text-decoration: underline;
+            cursor: pointer;
+            display:block;
+            width:70px;
+            height:70px;
 
-    <button type="button" class="btn btn-secondary" id="add-card">+ ДОДАТИ КАРТКУ</button>
+        }
+        .card-box {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 20px;
+            position: relative;  
+            top: -80px;
+        }
+        .card-box .form-group {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .card-box .form-group:last-child {
+                margin-right: 0;
+         }
 
-    <div class="form-group mt-3">
-        <input type="submit" value="Save" class="btn btn-primary create-module-button " />
-    </div>
-    <a asp-page="../TrainingModules/Delete" asp-route-id="@Model.Id">
-        <div class="delete-card"></div>
-    </a>
-</form>
+        #cards-container {
+            min-height: 200px;
+            border-radius: 10px;
+            margin-top: 110px;
+        }
 
-@section Scripts {
-    <script>
-        let cardIndex = @cardIndex; // Start from the count of existing cards
+        .delete-card button {
+            visibility:hidden;
+        }
+    </style>
+</head>
+<body>
+    @{
+        ViewData["Title"] = "Edit";
+        int cardIndex = 0;  
+    }
 
-        document.getElementById('add-card').addEventListener('click', function () {
-            let container = document.getElementById('cards-container');
+    <h2 class="create-title">Edit cards</h2>
 
-            // Flag to check if all card fields are filled
-            let allFilled = true;
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="control-label"></label>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
 
-            // Check all existing cards
-            const cardBoxes = container.querySelectorAll('.card-box');
-            cardBoxes.forEach((cardBox, index) => {
-                let termInput = cardBox.querySelector(`input[name^="Cards"][name$=".Term"]`);
-                let definitionInput = cardBox.querySelector(`input[name^="Cards"][name$=".Definition"]`);
+        <div id="cards-container">
+            @for (int i = 0; i < Model.Cards.Count; i++)
+            {
+                <div class="card-item">
+                    <label class="gg">@(cardIndex + 1)
+                        <hr style="height:5px; width:110%; opacity:1; background-color:#0A082D; position:relative; left:-25px;" />
 
-                if (!termInput.value.trim() || !definitionInput.value.trim()) {
-                    allFilled = false;
-                    // Optionally, you can add a visual indicator to the empty fields
-                    termInput.classList.add('is-invalid');
-                    definitionInput.classList.add('is-invalid');
-                } else {
-                    // Remove the invalid class if the field is filled
-                    termInput.classList.remove('is-invalid');
-                    definitionInput.classList.remove('is-invalid');
-                }
-            });
-
-            if (!allFilled) {
-                alert('Please fill in all existing card fields before adding a new card.');
-                return;
+                    </label> <!-- Додаємо 1 до cardIndex -->
+                    <div class="card-box">
+                        <div class="form-group">
+                            <label class="gg" for="Cards_@(cardIndex)__Term">Term</label>
+                            <input type="text" id="Cards_@(cardIndex)__Term" name="Cards[@i].Term" value="@Model.Cards[@i].Term" class="form-control shire" />
+                        </div>
+                        <div class="form-group">
+                            <label class="gg" for="Cards_@(cardIndex)__Definition">Description</label>
+                            <input type="text" id="Cards_@(cardIndex)__Definition" name="Cards[@i].Definition" value="@Model.Cards[@i].Definition" class="form-control shire" />
+                        </div>
+                    </div>
+                </div>
+                cardIndex++;
             }
 
-            // Add a new card if all fields are filled
-            let cardHtml = `
-                        <hr style="height:15px; background-color:#0A082D;" />
-                        <label class="gg" style="color:white; font-weight:bold;">Card ${cardIndex + 1}</label>
-                        <div class="card-box">
-                            <div class="form-group">
-                                <label class="gg">Term</label>
-                                <input type="text" name="Cards[${cardIndex}].Term" class="form-control shire" />
-                            </div>
-                            <div class="form-group">
-                                <label class="gg">Description</label>
-                                <input type="text" name="Cards[${cardIndex}].Definition" class="form-control shire" />
-                            </div>
-                        </div>`;
+        </div>
 
-            // Append the new card to the existing cards container
-            container.insertAdjacentHTML('beforeend', cardHtml);
+        <button type="button" class="btn btn-secondary" id="add-card">+ ДОДАТИ КАРТКУ</button>
 
-            cardIndex++; // Increment index after adding a new card
-        });
-    </script>
+        <div class="form-group mt-3">
+            <input type="submit" value="Save" class="btn btn-primary create-module-button" />
+        </div>
+        <a asp-page="../TrainingModules/Delete" asp-route-id="@Model.Id" class="delete-card">
+            <button type="button" class="btn btn-danger"></button>
+        </a>
+    </form>
 
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    @section Scripts {
+        <script>
+            let cardIndex = @cardIndex; // Start from the count of existing cards
+
+            document.getElementById('add-card').addEventListener('click', function () {
+                let container = document.getElementById('cards-container');
+
+                // Flag to check if all card fields are filled
+                let allFilled = true;
+
+                // Check all existing cards
+                const cardItems = container.querySelectorAll('.card-item');
+                cardItems.forEach((cardItem) => {
+                    let termInput = cardItem.querySelector(`input[name^="Cards"][name$=".Term"]`);
+                    let definitionInput = cardItem.querySelector(`input[name^="Cards"][name$=".Definition"]`);
+
+                    if (!termInput.value.trim() || !definitionInput.value.trim()) {
+                        allFilled = false;
+                        // Add a visual indicator to the empty fields
+                        termInput.classList.add('is-invalid');
+                        definitionInput.classList.add('is-invalid');
+                    } else {
+                        // Remove the invalid class if the field is filled
+                        termInput.classList.remove('is-invalid');
+                        definitionInput.classList.remove('is-invalid');
+                    }
+                });
+
+                if (!allFilled) {
+                    alert('Please fill in all existing card fields before adding a new card.');
+                    return;
+                }
+
+                // Add a new card if all fields are filled
+                let cardHtml = `
+                <div class="card-item">
+                                <label class="gg">${cardIndex + 1}</label>
+                    <div class="card-box">
+                        <div class="form-group">
+                            <label class="gg" for="Cards_${cardIndex}__Term">Term</label>
+                            <input type="text" id="Cards_${cardIndex}__Term" name="Cards[${cardIndex}].Term" class="form-control shire" />
+                        </div>
+                        <div class="form-group">
+                            <label class="gg" for="Cards_${cardIndex}__Definition">Description</label>
+                            <input type="text" id="Cards_${cardIndex}__Definition" name="Cards[${cardIndex}].Definition" class="form-control shire" />
+                        </div>
+                    </div>
+                </div>`;
+
+                // Append the new card to the existing cards container
+                container.insertAdjacentHTML('beforeend', cardHtml);
+
+                cardIndex++; // Increment index after adding a new card
+            });
+        </script>
+
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
     }
-}
+</body>
+</html>

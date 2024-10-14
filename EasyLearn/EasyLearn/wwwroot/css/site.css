@@ -1349,52 +1349,7 @@ a {
     top: 50px;
 }
 /*_________________________________*/
-#add-card {
-    position: relative;
-    top:230px;
-    background-color: #2E3756;
-    width: 100%;
-    height: 140px;
-    border:none;
-    font-weight:bold;
-    font-size:20px;
-    border-bottom:5px solid aquamarine;
-}
-.card-box {
-    display: flex;
-    justify-content: space-around;
-    position: relative;
-    bottom: 35px;
-}
-.shire {
-    width: 400px;
-    background-color: #2E3756;
-    border: none;
-    border-bottom: 4px solid white;
-    margin-left: 20px;
-    position: relative;
-    right: 10px;
-    color: white;
-    border-radius: 0;
-}
-.shire:focus {
-        background-color: #2E3756;
-        border-bottom: 5px solid yellow;
-        outline: none;
-        box-shadow: none;
-        color: white;
-    }
-#cards-container {
-    min-height: 200px;
-    background-color: #2E3756;
-    position: relative;
-    border-radius: 10px;
-    top: 100px;
-}
-.gg {
-    position: relative;
-    left: 10px;
-}
+
 .create-module-button {
     position:absolute;
     top:130px;
