@@ -36,7 +36,7 @@ function updateView() {
 }
 
 function nextGroup() {
-    const totalGroups = Math.floor(document.querySelectorAll('.box').length / 3);
+    const totalGroups = Math.floor(document.querySelectorAll('.box').length / 1);
     if (currentGroup < totalGroups - 1) {
         currentGroup++;
         updateView();
