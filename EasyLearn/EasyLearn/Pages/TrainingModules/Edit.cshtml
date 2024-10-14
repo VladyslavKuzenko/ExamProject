@@ -136,6 +136,8 @@
         int cardIndex = 0;  
     }
 
+    <div class="top-page-library-modules">
+
     <h2 class="create-title">Edit cards</h2>
 
     <form method="post">
@@ -155,7 +157,7 @@
             {
                 <div class="card-item">
                     <label class="gg">@(cardIndex + 1)
-                        <hr style="height:5px; width:110%; opacity:1; background-color:#0A082D; position:relative; left:-25px;" />
+                            <hr style="height:5px; width:104.2%; opacity:1; background-color:#0A082D; position:relative; left:-25px;" />
 
                     </label> <!-- Додаємо 1 до cardIndex -->
                     <div class="card-box">
@@ -183,7 +185,7 @@
             <button type="button" class="btn btn-danger"></button>
         </a>
     </form>
-
+    </div>
     @section Scripts {
         <script>
             let cardIndex = @cardIndex; // Start from the count of existing cards

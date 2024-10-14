@@ -750,6 +750,7 @@ a {
     .mobile-menu-button {
         left:90%;
     }
+
 }
 .kl {
     position:relative;
@@ -1368,7 +1369,7 @@ a {
 }
 .counter {
     position:relative;
-    top:155px;
+    top:177px;
     left:25px;
     color:white;
     font-weight:bold;
