@@ -5,7 +5,6 @@ html {
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
-    height:2100px;
 }
 header {
     border-bottom: 2px solid white;
@@ -14,6 +13,7 @@ header {
     position: fixed;
     width:100%;
     z-index:999;
+    height:90px;
 
 }
 .top-page {
@@ -21,7 +21,9 @@ header {
     top: 100px;
     left: 0;
     width: 100%;
-    justify-content: flex-start; /* Вирівнювання контенту зліва */
+    max-width: 100%; 
+    overflow-x: hidden;  
+    overflow-y: hidden;  
 }
 .top-page-card {
     position: absolute;
@@ -30,8 +32,6 @@ header {
 }
 .logo {
     position:absolute;
-    top:25%;
-    left:2%;
 }
 .logo a {
         font-size: 24px;
@@ -50,7 +50,6 @@ header {
     margin-top: 5px;
     margin-bottom: 10px;
     left:25%;
-    
 }
 .nav-links {
     display: flex;
@@ -59,7 +58,7 @@ header {
     position: absolute;
     left: 16%;
     z-index: 999;
-    top: 40%;
+    justify-content:center;
 }
 .nav-links a {
     color: white;
@@ -69,9 +68,8 @@ header {
 .search-bar {
     position: absolute;
     width: 35%;
-    top: 25%;
+    justify-content:center;
     z-index: 999;
-
 }
 .search-bar input {
         width: 100%;
@@ -94,12 +92,6 @@ header {
     padding: 0;
     box-sizing: border-box;
 }
-.h1 {
-    position:relative;
-    right:130px;
-    top:50px;
-
-}
 .btn7 {
     position: absolute;
     padding: 10px 20px;
@@ -110,8 +102,7 @@ header {
     border-radius: 5px;
     margin-right: 17px;
     border-radius: 10px;
-    left: 68%;
-    top: 24%;
+    left: 70%;
     z-index: 999;
 }
 .popup7 {
@@ -185,7 +176,7 @@ a {
     color: white; /* Змінити за необхідності */
     position: absolute;
     left: 93%;
-    top: 16px;
+    justify-content:center;
 }
 .mobile-menu {
     display: none; /* Ховаємо мобільне меню за замовчуванням */
@@ -219,10 +210,10 @@ a {
     background-size: 100%;
     width: 110px;
     height: 110px;
-    margin-top: 5px;
     margin-bottom: 10px;
     visibility: hidden;
-    top:-10px;
+    top:5%;
+    
 }
 .only-profile {
     position:absolute;
@@ -233,22 +224,20 @@ a {
 
 @media only screen and (min-width: 1024px) {
     header {
-        background-color:green;
         display: flex;
         align-items: center;
         justify-content: space-between; /* Розподіляємо елементи по краях */
         padding: 10px 20px;
-        position: relative;
+        position: fixed;
         width: 100%;
     }
     .logb,
     .language-selector
      {
-        visibility:hidden;
+        display:none;
     }
     .logo {
         left: 1%;
-        top:13px;
     }
     .only-profile {
             visibility: visible;
@@ -271,13 +260,14 @@ a {
         height: 100%;
         background-color: #2E3756;
         border-radius: 10px;
-        border: 1px solid cornflowerblue;
+        border-bottom: 2px solid aqua;
         margin-left: 10px;
     }
     .box-info-container {
         display: flex;
         width: 70%;
         height: 330px;
+
     }
     .name {
         color: white;
@@ -296,24 +286,117 @@ a {
         width: 100%;
         top: 30px;
     }
-    .stars {
+    .xbox-2 {
+        width: 100%;
+        height: 390px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .photo1 {
+        background-image: url(../images/newphoto4.jpg);
+    }
+    .photo2 {
+        background-image: url(../images/newphoto5.png);
+    }
+    .photo3 {
+        background-image: url(../images/newphoto6.png);
+    }
+    .box-container {
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+}
+    .box {
+        width: 500px;
+        height: 220px;
+        background-color: #2E3756;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        margin-left: 10px;
+        position: relative;
+        left: -10px;
+        border-bottom: 2px solid aqua;
+    }
+    .hidden {
+        display: none;
+    }
+    .xbox-4 {
+        width: 100%;
+        height: 330px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .xbox-5 {
+        width: 100%;
+        height: 370px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .video-info-box {
+        position: relative;
+        width: 70%;
+        height: 100%;
+        background-color: #2E3756;
+        border-radius: 10px;
+        margin: 5px;
+        border-bottom: 2px solid aqua;
+    }
+    .box-video-info-container {
+        display: flex;
+        height: 100%;
+        position: relative;
+        left: -5px;
+    }
+    .xbox-6 {
         display:none;
-
+    }
+    .nameless {
+        position: relative;
+        left: 3%;
+        font-size: 23px;
+        color: white;
+        top: 3%;
+        font-size: 20px;
+        width: 95%;
+    }
+    .ph-ct {
+        width: 100%;
+        height: 230px;
+    }
+    .adapted-text {
+        color: white;
+        padding-left: 15%;
+        margin-top: 55px;
     }
     /*___________________________________*/
+    .xbox-1 {
+        width: 100%;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .xbox-3 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
     header {
-        background-color:yellow;
         display: flex;
         align-items: center;
         justify-content: space-between; /* Розподіляємо елементи по краях */
         padding: 10px 20px;
-        position: relative;
+        position: fixed;
         width: 100%;
     }
     .logo {
-        visibility:hidden;
+        display: none;
     }
     .logo2 {
         visibility: visible;
@@ -328,98 +411,179 @@ a {
         width:43%;
     }
     .btn7 {
-        left:80%;
+        left: 80%;
+        justify-content: center;
     }
     .language-selector {
-        visibility:hidden;
+        display: none;
     }
     .logb {
-        visibility: hidden;
+        display: none;
     }
     .only-profile {
         visibility: visible;
-        left:89%;
-        top:15px;
+        left: 89%;
+        justify-content: center;
     }
     /*___________________________*/
-
-   .box-info {
-    position:relative;
-    left:-30px;
-    width: 100%;
-    height: 32%;
-    background-color: #2E3756;
-    border-radius: 10px;
-    border: 1px solid cornflowerblue;
-    margin-left:30px;
-    margin-top:3.3px;
-
-}
-   .box-info-container {
-    width: 70%;
-    height: 350px;
+    .box-info {
+        position: relative;
+        justify-content: center;
+        width: 100%;
+        height: 75%;
+        background-color: #2E3756;
+        border-radius: 10px;
+        margin-top: 3.3px;
     }
-    .photo1 {
-        display: none;
-    }
-    .photo2 {
-        display: none;
-    }
-    .photo3 {
-        display: none;
+    .box-info-container {
+        width: 70%;
+        height: 350px;
     }
     .name {
         color: white;
         text-align: center;
-        position: relative;
+        position: absolute;
         font-size: 23px;
-        top: 10px;
+        top: 65%;
         width: 100%;
         background-color: forestgreen;
     }
     .info {
         color: white;
         text-align: center;
-        position: relative;
-        font-size: 17px;
+        position: absolute;
+        font-size: 19px;
         width: 100%;
-        top: 30px;
+        top: 85%;
     }
-    .stars {
-        left: 72%;
-        width: 300px;
+    .xbox-2 {
+        display:flex;
+        height: 800px;
+        justify-content:center;
+
+    }
+    .photo1 {
+        background-image:url(../images/newphoto4.jpg);
+    }
+    .photo2 {
+        background-image: url(../images/newphoto2.png);
+    }
+    .photo3 {
+        background-image: url(../images/newphoto3.png);
+    }
+    .xbox-3 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .books-container {
+        margin-top:25px;
+        height: 102%;
+        display: flex;
+        flex-wrap: wrap; /* Дозволяє обтікання книжок, якщо вони не вміщаються в один ряд */
+        justify-content: space-between; /* Розміщує елементи рівномірно по ширині */
+    }
+    .box-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .box {
+        width: calc(50% - 5px); /* Кожна книжка займатиме 33% ширини контейнера з урахуванням відступів */
+        height: 220px;
+        background-color: #2E3756;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        position: relative;
+        margin-top:10px;
+    }
+    .hidden {
+        display:inline-block;
+    }
+    .right-btn {
+        display:none;
+    }
+    .left-btn {
+        display:none;
+    }
+    .xbox-4 {
+        display:none;
+        height: 1100px;
+        background-color: blue;
+    }
+    .xbox-5 {
+        display: none;
+        height: 900px;
+    }
+    .box-video-info-container {
+        height: 100%;
+        width:40%;
+    }
+    .video-info-box {
+        height: 100%;
+        margin-top: 10px;
+        border-radius: 10px;
+        border-bottom: 2px solid aqua;
+    }
+    .xbox-6 {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Два стовпчики */
+        gap: 20px; /* Відступ між елементами */
+        padding: 0 100px; /* Відступи по боках (зліва і справа) */
+    }
+    .ph-ct {
+        width: 100%;
+        height: 250px; /* Висота прев'ю відео */
+    }
+    .nameless {
+        padding: 10px;
+        color: #fff;
+        text-align: center;
+    }
+    .adapted-text {
+        color: white;
+        padding-left: 10%;
+        margin-top: 55px;
+    }
+    .xbox-1 {
+        width: 100%;
         height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
+
 }
 @media only screen and (max-width: 767px) {
      header {
-         background-color:red;
         display: flex;
         align-items: center;
         justify-content: space-between; /* Розподіляємо елементи по краях */
         padding: 10px 20px;
-        position: relative;
+        position: fixed;
         width: 100%;
     }
     .nav-links {
-        visibility:hidden;
+        display: none;
     }
     .btn7 {
-        visibility:hidden;
+        display: none;
     }
     .logb {
-        visibility: hidden;
+        display: none;
     }
     .language-selector {
-        visibility:hidden;
+        display: none;
     }
     .search-bar {
         left:32%;
         width:50%;
     }
     .popup7 {
-       visibility:hidden;
-   }
+        display: none;
+    }
     .mobile-menu-button {
         display: block;
     }
@@ -427,11 +591,14 @@ a {
         font-size:170%
     }
     .mobile-menu {
-        display: none; /* Залишається схованим до натискання кнопки */
-        width:30%;
-        left:70%;
-        top:70px;
-        height:864px;
+        display: none;  
+        position: fixed;  
+        width: 50%; 
+        right: 0; 
+        top: 90px;  
+        height: 100vh; 
+        overflow-y: auto;  
+        z-index: 1000; 
     }
     .mobile-menu.active {
         display: flex;
@@ -444,7 +611,6 @@ a {
         height: 32%;
         background-color: #2E3756;
         border-radius: 10px;
-        border: 1px solid cornflowerblue;
         margin-left: 30px;
         margin-top: 3.3px;
     }
@@ -452,37 +618,131 @@ a {
         width: 70%;
         height: 350px;
     }
-    .photo1 {
-        display: none;
-    }
-    .photo2 {
-        display: none;
-    }
-    .photo3 {
-        display: none;
-    }
     .name {
         color: white;
         text-align: center;
-        position: relative;
-        font-size: 23px;
-        top: 10px;
+        position: absolute;
+        font-size: 21px;
+        top: 65%;
         width: 100%;
         background-color: forestgreen;
     }
     .info {
         color: white;
         text-align: center;
-        position: relative;
-        font-size: 17px;
+        position: absolute;
+        font-size: 16px;
         width: 100%;
-        top: 30px;
+        top: 82%;
     }
-   
-
     /*_________________________________*/
+    .box-container {
+        width: 100%;
+    }
+    .hidden {
+        display:none;
+    }
+    .box {
+        width: 100%; /* Кожна книжка займатиме 33% ширини контейнера з урахуванням відступів */
+        height: 220px;
+        background-color: #2E3756;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        position: relative;
+        margin-top: 10px;
+    }
+    .photo1 {
+        background-image: url(../images/newphoto4.jpg);
+    }
+    .photo2 {
+        background-image: url(../images/newphoto5.png);
+    }
+    .photo3 {
+        background-image: url(../images/newphoto6.png);
+    }
+    .box-info {
+        position: relative;
+        justify-content: center;
+        width: 100%;
+        height: 75%;
+        background-color: #2E3756;
+        border-radius: 10px;
+        margin-top: 3.3px;
+    }
+    .xbox-1 {
+        width: 100%;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .xbox-2 {
+        width: 100%;
+        height:800px;
+        display: flex;
+        justify-content: center;
+    }
+    .xbox-3 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .xbox-4 {
+        display: none;
+    }
+    .xbox-5 {
+        display: none;
+    }
+    .xbox-6 {
+        display: grid;
+        grid-template-columns: 1fr; /* Два стовпчики */
+        gap: 20px; /* Відступ між елементами */
+        padding: 0 30px; /* Відступи по боках (зліва і справа) */
+    }
+    .box-video-info-container {
+        height: 100%;
+        width: 40%;
+    }
+    .video-info-box {
+        height: 100%;
+        margin-top: 10px;
+        border-radius: 10px;
+        border-bottom: 2px solid aqua;
+    }
+    .ph-ct {
+        width: 100%;
+        height: 290px;
+    }
+    .adapted-text {
+        color: white;
+        padding-left: 3%;
+        margin-top: 55px;
+    }
+    .nameless {
+        position: relative;
+        left: 3%;
+        font-size: 23px;
+        color: white;
+        top: 3%;
+        font-size: 20px;
+        width: 95%;
+    }
 }
 
+@media only screen and (max-width: 450px) {
+    .logo {
+        font-size:14px;
+        left:5px;
+
+    }
+    .search-bar {
+        left:35%;
+    }
+    .mobile-menu-button {
+        left:90%;
+    }
+}
 .kl {
     position:relative;
     left:-240px;
@@ -520,13 +780,6 @@ a {
     left:22px;
 }
 /*__________________________Недавні модулі*/
-.xbox-1 {
-    width: 100%;
-    height: 300px;
-    display: flex;
-    justify-content: center;  
-    align-items: center;  
-}
 .recent-modules {
     display: flex;
     width: 70%;
@@ -534,21 +787,14 @@ a {
     background-color: cornflowerblue;
     justify-content: center;
     border-radius: 10px;
+    border-bottom: 2px solid aqua;
 }
 /*__________________________*/
-.xbox-2 {
-    width: 100%;
-    height: 390px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .photo1 {
     width: 100%;
     height: 57%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background-image:url(../images/paint1.png);
     background-repeat:no-repeat;
     background-size:cover;
 }
@@ -558,7 +804,6 @@ a {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     position: relative;
-    background-image: url(../images/paint2.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -568,41 +813,15 @@ a {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     position: relative;
-    background-image: url(../images/paint3.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
 /*__________________________*/
-.xbox-3 {
-    width: 100%;
-    height: 280px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 .books-container {
     position: relative;
     width:67%;
 
-}
-.box-container {
-    display: flex;
-    justify-content: center;
-    justify-content: space-around;
-}
-.box {
-    width: 380px;
-    height: 220px;
-    background-color: #2E3756;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    border: 1px solid cornflowerblue;
-    margin-left: 10px;
-    position:relative;
-    left: -5px;
-}
-.hidden {
-    display: none;
 }
 .nav-btn {
     position: absolute;
@@ -614,16 +833,22 @@ a {
     background-color: lightgray;
     border: none;
     border-radius: 5px;
+    z-index: 10; /* Піднімаємо кнопки над іншими елементами */
 }
 .left-btn {
-    left: -50px; 
+    left: -80px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
 }
 .right-btn {
-    right: -50px;  
+    right: -70px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
 }
 .nav-btn:disabled {
-    background-color: darkgray;
-    cursor: not-allowed;
+    display:none;
 }
 .book-photo1 {
     position: relative;
@@ -714,60 +939,43 @@ a {
     width: 60%;
 }
 /*__________________________*/
-.xbox-4 {
-    width: 100%;
-    height: 330px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .video-lessons-column1 {
     color: #fff;
     width: 70%;
     height: 100%;
-}
-.box-video-info-container {
-    display: flex;
-    height: 100%;
-    position:relative;
-    left: -5px;
 }
 .photo7 {
     width: 100%;
     height: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background-image: url(../images/el1.jpg);
+    background-image: url('https://img.youtube.com/vi/juKd26qkNAw/maxresdefault.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 .photo8 {
     width: 100%;
     height: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background-image: url(../images/cpr.png);
+    background-image: url('https://img.youtube.com/vi/gfkTfcpWqAY/maxresdefault.jpg');
     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 .photo9 {
     width: 100%;
     height: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background-image: url(../images/mathls.png);
+    background-image: url('https://img.youtube.com/vi/NybHckSEQBI/maxresdefault.jpg');
     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
-.nameless {
-    position: relative;
-    left:3%;
-    font-size: 23px;
-    color: white;
-    top: 3%;
-    font-size:20px;
-    width:95%;
-}
+
 .border-class {
-    border: 1px solid cornflowerblue;
 }
 .video-lessons-column2 {
     color: #fff;
@@ -780,92 +988,33 @@ a {
     height: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background-image: url(../images/aspl.png);
+    background-image: url('https://img.youtube.com/vi/AhAxLiGC7Pc/maxresdefault.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 .photo11 {
     width: 100%;
     height: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    border-radius: 10px;
-    background-image: url(../images/frl.jpg);
+    background-image: url('https://img.youtube.com/vi/Sk6YQynZ1h8/maxresdefault.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 .photo12 {
     width: 100%;
     height: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    border-radius: 10px;
-    background-image: url(../images/hq720.png);
+    background-image: url('https://img.youtube.com/vi/5-AoFVwbWew/maxresdefault.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-}
-.video-info-box {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-color: #2E3756;
-    border-radius: 10px;
-    border: 1px solid cornflowerblue;
-    margin-left: 10px;
-}
-.ph-ct {
-    width:100%;
-    height:230px;
-}
-.xbox-5 {
-    width: 100%;
-    height: 370px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-position: center;
 }
 /*__________________________*/
-.dragon {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background-image: url(../images/dragon.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    left: -400px;
-    top: 80px;
-}
-.owl {
-    position: absolute;
-    width: 284px;
-    height: 300px;
-    background-image: url(../images/owl.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    left: 1330px;
-    top: 922px;
-}
-.cat {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background-image: url(../images/cat.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    left: -330px;
-    top: 1670px;
-}
-.stars {
-    position: absolute;
-
-    background-image: url(../images/stars.png);
-    background-repeat: no-repeat;
-    background-size: 42%;
-    z-index: 1;
-    top:2%;
-}
 /*__________________________*/
-
 .custom-background {
     background-color: #0A082D;
     font-family: Arial, sans-serif; 
@@ -873,7 +1022,6 @@ a {
     padding: 0;
     
 }
-
 .tabs {
     display: flex;
     justify-content: flex-start;
@@ -882,7 +1030,6 @@ a {
     position:relative;
     right:35px;
 }
-
 .tab {
     text-decoration: none;
     padding: 10px 20px;
@@ -892,9 +1039,7 @@ a {
     border-radius: 25px;
     background-color: transparent
 }
-
-
-    .tab.active {
+.tab.active {
         background-color: cornflowerblue;
         color: white;
     }
@@ -905,7 +1050,6 @@ a {
     width: 100%; 
     transition: width 0.3s ease, background-color 0.3s ease; 
 }
-
 .tab.active + .tab-line {
     width: 100px; 
     background-color: cornflowerblue; 
@@ -929,21 +1073,16 @@ a {
     background-position-x: 360px;
     background-position-y: 6.5px;
 }
-
 .s1::placeholder {
     color: white;
     opacity:0.8;
 
 }
-
-    .s1:focus {
+.s1:focus {
         box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); 
         border-color: #007bff; 
     }
-
 /*__________________________*/
-
-
 #register {
     position: absolute;
     left:100px;
@@ -955,7 +1094,6 @@ a {
     color: #fff;
     border-radius: 7px;
 }
-
 #login {
     border: 1px solid white;
     position: absolute;
@@ -967,23 +1105,19 @@ a {
     width:90px;
 
 }
-
 /*_________________________________*/
-
 .create-title {
     position: relative;
     color:white;
     top:70px;
     font-weight:bold;
 }
-
 .form-group {
     position: relative;
     top: 100px;
     color: white;
     margin-bottom: 30px;
 }
-
 #Name {
     background-color: #0A082D;
     border: none;
@@ -992,7 +1126,6 @@ a {
     border-radius: 0;
     width:30%;
 }
-
 #Description {
     background-color: #0A082D;
     border: none;
@@ -1001,7 +1134,6 @@ a {
     border-radius: 0;
     width: 30%;
 }
-
 #Name:focus {
     border-bottom: 2px solid cornflowerblue;
     box-shadow:none;
@@ -1023,23 +1155,18 @@ a {
     padding-left:50px;
 }
 /*_________________________________*/
-
 .profile-button {
     border:1px solid white;
     width:100px;
     text-align:center;
     border-radius:10px;
 }
-
 .nav-link {
     color:white;
 }
-
 .nav-link:hover {
     color:lightgray;
 }
-
-
 #logout {
     width: 80px;
     color: white;
@@ -1052,29 +1179,27 @@ a {
     background-position-x: 55px;
     background-position-y: 9px;
 }
-
 .profile-logout {
     position: relative;
     left: 250px;
     display: flex;
     flex-direction: row;
 }
-
 .reg-log {
     position: relative;
     left: 140px;
 }
 /*_________________________________*/
-
 .home-footer {
     border-top:1px solid white;
     position:absolute;
-    top:102%;
+    top:99%;
     width:100%;
+    height:70px;
+    margin-top:50px;
+    z-index:999;
 }
-
 /*_________________________________*/
-
 .recent-library-module {
     margin-top: 20px;
     height: 93px;
@@ -1086,7 +1211,6 @@ a {
     padding-left: 30px;
     padding-top: 20px;
 }
-
 .recent-library-folders {
     margin-top: 20px;
     height: 93px;
@@ -1098,7 +1222,6 @@ a {
     padding-left: 30px;
     padding-top: 21px;
 }
-
 .recent-library-courses {
     margin-top: 20px;
     height: 93px;
@@ -1110,62 +1233,48 @@ a {
     padding-left: 30px;
     padding-top: 21px;
 }
-
-
 .recent-description {
     font-size: 12px;
     font-weight: 400;
     color:lightgray;
 }
 /*_________________________________*/
-
-
 #profile-form {
     position:relative;
     left:30px;
     width:250px;
 }
-
 #email-form {
     position: relative;
     left: 30px;
     width: 250px;
     bottom:16px;
 }
-
 #change-password-form {
     position: relative;
     left: 30px;
     width: 250px;
 }
-
 .profile-position {
     position: relative;
     top: 70px;
 }
-
 .authentication {
     color:white;
     font-size:27px;
 }
-
 .authentication-smaller {
     color: white;
     font-size: 20px;
     margin-bottom:55px;
 }
-
 .auth-btn {
     height: 65px;
     text-align: center;
     padding: 17px;
     font-size: 19px;
 }
-
 /*_________________________________*/
-
-
-
 .reg-page-maket {
     width: 550px;
     height: 600px;
@@ -1176,7 +1285,6 @@ a {
     top: 50px;
     border-radius: 20px;
 }
-
 .label-reg {
     color: white;
     text-align: center;
@@ -1184,7 +1292,6 @@ a {
     top: 20px;
     font-weight:bold;
 }
-
 .hr-reg {
     border: 5px solid white;
     position: relative;
@@ -1192,7 +1299,6 @@ a {
     background-color: white;
     opacity: 1;
 }
-
 .reg-form {
     width: 400px;
     position:relative;
@@ -1200,8 +1306,6 @@ a {
 
 }
 /*_________________________________*/
-
-
 .log-page-maket {
     width: 550px;
     height: 600px;
@@ -1212,7 +1316,6 @@ a {
     top: 50px;
     border-radius: 20px;
 }
-
 .label-log {
     color: white;
     text-align: center;
@@ -1220,7 +1323,6 @@ a {
     top: 20px;
     font-weight: bold;
 }
-
 .hr-log {
     border: 5px solid white;
     position: relative;
@@ -1228,13 +1330,11 @@ a {
     background-color: white;
     opacity:1;
 }
-
 .log-form {
     width: 400px;
     position: relative;
     left: 120px;
 }
-
 .log-text {
     width: 400px;
     margin-bottom: 30px;
@@ -1242,16 +1342,13 @@ a {
     position: relative;
     top: 20px;
 }
-
 .other-log {
     width: 200px;
     color: deepskyblue;
     position: relative;
     top: 50px;
 }
-
 /*_________________________________*/
-
 #add-card {
     position: relative;
     top:230px;
@@ -1263,14 +1360,12 @@ a {
     font-size:20px;
     border-bottom:5px solid aquamarine;
 }
-
 .card-box {
     display: flex;
     justify-content: space-around;
     position: relative;
     bottom: 35px;
 }
-
 .shire {
     width: 400px;
     background-color: #2E3756;
@@ -1282,14 +1377,13 @@ a {
     color: white;
     border-radius: 0;
 }
-    .shire:focus {
+.shire:focus {
         background-color: #2E3756;
         border-bottom: 5px solid yellow;
         outline: none;
         box-shadow: none;
         color: white;
     }
-
 #cards-container {
     min-height: 200px;
     background-color: #2E3756;
@@ -1297,14 +1391,10 @@ a {
     border-radius: 10px;
     top: 100px;
 }
-
-
 .gg {
     position: relative;
     left: 10px;
 }
-
-
 .create-module-button {
     position:absolute;
     top:130px;
@@ -1312,7 +1402,6 @@ a {
     width:150px;
     height:60px;
 }
-
 .counter {
     position:relative;
     top:155px;
@@ -1322,7 +1411,6 @@ a {
     z-index:1;
 
 }
-
 .items {
     position: relative;
     top: 20px;
@@ -1330,7 +1418,6 @@ a {
     font-size: 20px; /* Змінюємо розмір шрифту */
     color: white; /* Змінюємо колір тексту на білий */
 }
-
 .card-container {
     perspective: 1000px;
     width: 800px;
@@ -1340,7 +1427,6 @@ a {
     top: 150px;
     left: 100px;
 }
-
 .card {
     width: 100%;
     height: 400px; /* Задаємо висоту для картки */
@@ -1356,11 +1442,9 @@ a {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-bottom: 20px; /* Додаємо відступ між картками */
 }
-
-    .card.flipped {
+.card.flipped {
         transform: rotateX(180deg);
     }
-
 .card-face {
     position: absolute;
     width: 100%;
@@ -1372,16 +1456,13 @@ a {
     border-radius: 30px;
     padding: 20px;
 }
-
 .card-front {
     background-color: #2E3756;
 }
-
 .card-back {
     background-color: #2E3756;
     transform: rotateX(180deg);
 }
-
 .navigation-buttons {
     display: flex;
     gap: 10px;
@@ -1389,8 +1470,7 @@ a {
     top: 150px;
     left: 300px;
 }
-
-    .navigation-buttons button {
+.navigation-buttons button {
         padding: 10px 20px;
         background-color: transparent;
         border: 2px solid lightgray;
@@ -1406,16 +1486,13 @@ a {
         right: 40px;
         top: -5px;
     }
-
-        .navigation-buttons button:disabled {
+.navigation-buttons button:disabled {
             background-color: #2E3756;
             cursor: auto;
         }
-
 .card-index {
     font-size: 1.2em;
 }
-
 #cardCounter {
     position: relative;
     top: 100px;
@@ -1423,9 +1500,7 @@ a {
     color: white;
     font-size: 20px;
 }
-
 /*_________________________________________________*/
-
 .edit-card {
     position: relative;
     bottom: 360px;
@@ -1446,7 +1521,6 @@ a {
     background-position-x: center;
     background-position-y: center;
 }
-
 .delete-card {
     position: relative;
     bottom: -215px;
@@ -1466,7 +1540,6 @@ a {
     background-position-x: center;
     background-position-y: center;
 }
-
 .classic-game-button {
     width: 31.1%;
     height: 60px;
@@ -1483,7 +1556,6 @@ a {
     background-position-x: 160px;
     background-position-y: 5px;
 }
-
 .random-game-button {
     width: 32%;
     height: 60px;
@@ -1510,7 +1582,6 @@ a {
     margin-right: 10px;
 
 }
-
 .game-container {
     width: 100%;
     position: relative;
@@ -1519,7 +1590,6 @@ a {
     align-items: center;
 
 }
-
 .current-mode {
     width:170px;
     position: relative;
@@ -1532,66 +1602,6 @@ a {
     text-align:end
 
 }
-
-
-#examButton1 {
-    border: none;
-    width: 200px;
-    height: 60px;
-    background-color: lime;
-    border-radius: 10px;
-    color: white;
-    font-weight: bold;
-    font-size: 25px;
-    margin-top: 10px;
-}
-
-#examButton2 {
-    border: none;
-    width: 200px;
-    height: 60px;
-    background-color: orange;
-    border-radius: 10px;
-    color: white;
-    font-weight: bold;
-    font-size: 25px;
-    margin-top: 10px;
-}
-
-#examButton3 {
-    border: none;
-    width: 200px;
-    height: 60px;
-    background-color: red;
-    border-radius: 10px;
-    color: white;
-    font-weight: bold;
-    font-size: 25px;
-    margin-top: 10px;
-}
-
-#examButton1:hover {
-    background-color: #00DE00;
-    transform: scale(1.05)
-}
-
-#examButton2:hover {
-    background-color: #E89600;
-    transform: scale(1.05)
-}
-
-#examButton3:hover {
-    background-color: #E80000;
-    transform: scale(1.05)
-}
-
-#examButtonsContainer {
-    position:absolute;
-    width:200px;
-    top:300px;
-    left:950px;
-}
-
 .home-menu-image {
     position:absolute;
     width:23px;
@@ -1602,7 +1612,6 @@ a {
     background-repeat:no-repeat;
     background-size:100%;
 }
-
 .library-menu-image {
     position: absolute;
     width: 26px;
@@ -1613,7 +1622,6 @@ a {
     background-repeat: no-repeat;
     background-size: 110%;
 }
-
 .plimage1 {
     position: absolute;
     width: 26px;
@@ -1624,7 +1632,6 @@ a {
     background-repeat: no-repeat;
     background-size: 90%;
 }
-
 .plimage2 {
     position: absolute;
     width: 26px;
@@ -1635,7 +1642,6 @@ a {
     background-repeat: no-repeat;
     background-size: 90%;
 }
-
 .plimage3 {
     position: absolute;
     width: 26px;
@@ -1646,7 +1652,6 @@ a {
     background-repeat: no-repeat;
     background-size: 90%;
 }
-
 .primage {
     position: absolute;
     width: 26px;
@@ -1657,13 +1662,7 @@ a {
     background-repeat: no-repeat;
     background-size: 90%;
 }
-
 .logout-btn {
     position:absolute;
     top:520px;
-}
-
-.adapted-text {
-    color: white;
-    padding-left: 15%;  
 }
