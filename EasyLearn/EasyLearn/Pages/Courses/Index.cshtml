@@ -5,7 +5,7 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="top-page">
+<div class="top-page-library-modules">
 <body class="custom-background">
 
     <h1 class="create-title">Your library</h1>
@@ -18,7 +18,10 @@
     <hr class="tab-line">
 
     <input type="search" class="s1" placeholder="Search Course" />
-
+        <form method="get">
+            <input type="search" name="searchString" class="s1" placeholder="Search Course" />
+            <button type="submit" class="btn btn-primary lupa"></button>
+        </form>
 
 </body>
 <table class="table">

@@ -30,8 +30,12 @@ header {
     top: 70px;
     left: 0;
 }
+.top-page-library-modules {
+    position:relative;  
+    top:100px;
+}
 .logo {
-    position:absolute;
+    position: absolute;
 }
 .logo a {
         font-size: 24px;
@@ -554,6 +558,10 @@ a {
         justify-content: center;
         align-items: center;
     }
+    .s1 {
+        display:flex;
+        justify-content:center;
+    }
 
 }
 @media only screen and (max-width: 767px) {
@@ -1014,7 +1022,6 @@ a {
     background-position: center;
 }
 /*__________________________*/
-/*__________________________*/
 .custom-background {
     background-color: #0A082D;
     font-family: Arial, sans-serif; 
@@ -1024,11 +1031,9 @@ a {
 }
 .tabs {
     display: flex;
-    justify-content: flex-start;
     margin-top: 130px;
-    width:1100px;
-    position:relative;
-    right:35px;
+    max-width: 100%;  
+    position: relative;
 }
 .tab {
     text-decoration: none;
@@ -1055,23 +1060,16 @@ a {
     background-color: cornflowerblue; 
 }
 .s1 {
+    position:absolute;
     width: 100%;
-    max-width: 400px;
+    max-width: 31%;
     padding: 10px;
-    margin-top: 50px;
     border-radius: 7px;
     font-size: 16px;
     outline: none;
     border: none;
     background-color: #2E3756;
     color: white;
-    position: relative;
-    margin-left: 700px;
-    background-image: url(../images/nwlupa.png);
-    background-repeat: no-repeat;
-    background-size: 7%;
-    background-position-x: 360px;
-    background-position-y: 6.5px;
 }
 .s1::placeholder {
     color: white;
@@ -1082,6 +1080,16 @@ a {
         box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); 
         border-color: #007bff; 
     }
+.lupa {
+    padding:21px;
+    position:relative;
+    left:32%;
+    background-image:url("../images/nwlupa.png");
+    background-position:center;
+    background-size:90%;
+    border-radius:20%;
+   
+}
 /*__________________________*/
 #register {
     position: absolute;
@@ -1238,11 +1246,12 @@ a {
     font-weight: 400;
     color:lightgray;
 }
+
 /*_________________________________*/
 #profile-form {
-    position:relative;
-    left:30px;
-    width:250px;
+    position: relative;
+    left: 30px;
+    width: 250px;
 }
 #email-form {
     position: relative;
