@@ -7,32 +7,8 @@
 </style>
 @{
     ViewData["Title"] = "Edit";
-    int cardIndex = 1;
-
+    int cardIndex = 0; // Start from 0 for correct indexing
 }
-
-<hr />
-@* <div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div> *@
 
 <h2 class="create-title">Edit cards</h2>
 
@@ -48,40 +24,24 @@
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
 
-    @* @foreach (var item in Model.Cards) *@
-    @for (int i = 0; i < Model.Cards.Count; i++)
-    {
-@*         <hr style=" height:15px;position:relative; top:115px; background-color:#0A082D ; opacity:1" />
-        <lable class="counter">@cardIndex</lable> *@
-
-        <hr style=" height:15px;position:relative; top:115px; background-color:#0A082D; opacity:1" />
-        <label class="gg" style="position:relative; top:140px; left:15px; color:white; font-weight:bold; z-index:1;">@cardIndex</label>
-        <div> 
-        @{
-            cardIndex++;
-        }
-        </div>
-        <div id="cards-container">
-            <hr style="background-color:white; height:5px;position:relative; top:55px; background-color:#0A082D; opacity:1" />
+    <div id="cards-container">
+        @for (int i = 0; i < Model.Cards.Count; i++)
+        {
+            <hr style="height:15px; background-color:#0A082D;" />
+            <label class="gg" style="color:white; font-weight:bold;">Card @cardIndex</label>
             <div class="card-box">
                 <div class="form-group">
-@*                     <label asp-for="Cards[i].Term" class="control-label"></label>
-                    <input asp-for="Cards[i].Term" class="form-control" />
-                    <span asp-validation-for="Cards[i].Term" class="text-danger"></span> *@
-                    <label class="gg" style="position:relative; top:70px;">Term</label>
+                    <label class="gg">Term</label>
                     <input type="text" name="Cards[@i].Term" value="@Model.Cards[@i].Term" class="form-control shire" />
                 </div>
                 <div class="form-group">
-                  @*   <label asp-for="Cards[i].Definition" class="control-label"></label>
-                    <input asp-for="Cards[i].Definition" class="form-control" />
-                <span asp-validation-for="Cards[i].Definition" class="text-danger"></span> *@
-                     <label class="gg" style="position:relative; top:70px;">Description</label>
+                    <label class="gg">Description</label>
                     <input type="text" name="Cards[@i].Definition" value="@Model.Cards[@i].Definition" class="form-control shire" />
                 </div>
             </div>
-        </div>
-    }
-
+            cardIndex++; // No need for @{ ... } here
+        }
+    </div>
 
     <button type="button" class="btn btn-secondary" id="add-card">+ ДОДАТИ КАРТКУ</button>
 
@@ -90,58 +50,65 @@
     </div>
     <a asp-page="../TrainingModules/Delete" asp-route-id="@Model.Id">
         <div class="delete-card"></div>
-
     </a>
-
- @*    <div>
-        <a asp-page="./Index">Back to List</a>
-    </div> *@
 </form>
 
 @section Scripts {
     <script>
-        let cardIndex = @cardIndex-1;
+        let cardIndex = @cardIndex; // Start from the count of existing cards
 
         document.getElementById('add-card').addEventListener('click', function () {
             let container = document.getElementById('cards-container');
 
-            // Отримуємо останню картку
-            let lastCard = container.querySelector(`.card-box:nth-child(${cardIndex})`);
+            // Flag to check if all card fields are filled
+            let allFilled = true;
 
-            // Перевіряємо, чи існує картка і чи її поля заповнені
-            if (lastCard) {
-                let lastTerm = lastCard.querySelector('input[name^="Cards"][name$=".Term"]').value;
-                let lastDefinition = lastCard.querySelector('input[name^="Cards"][name$=".Definition"]').value;
+            // Check all existing cards
+            const cardBoxes = container.querySelectorAll('.card-box');
+            cardBoxes.forEach((cardBox, index) => {
+                let termInput = cardBox.querySelector(`input[name^="Cards"][name$=".Term"]`);
+                let definitionInput = cardBox.querySelector(`input[name^="Cards"][name$=".Definition"]`);
 
-                if (lastTerm.trim() === "" || lastDefinition.trim() === "") {
-                    alert('Please fill in the term and definition fields before adding a new card.');
-                    return;
+                if (!termInput.value.trim() || !definitionInput.value.trim()) {
+                    allFilled = false;
+                    // Optionally, you can add a visual indicator to the empty fields
+                    termInput.classList.add('is-invalid');
+                    definitionInput.classList.add('is-invalid');
+                } else {
+                    // Remove the invalid class if the field is filled
+                    termInput.classList.remove('is-invalid');
+                    definitionInput.classList.remove('is-invalid');
                 }
+            });
+
+            if (!allFilled) {
+                alert('Please fill in all existing card fields before adding a new card.');
+                return;
             }
 
-            // Якщо всі поля заповнені, додаємо нову картку
-            let cardHtml = `         <hr style=" height:15px;position:relative; top:115px; background-color:#0A082D; opacity:1" />
-                            <label class="gg" style="position:relative; top:140px; left:15px; color:white; font-weight:bold; z-index:1;">${cardIndex + 1}</label>
-
-            <div id="cards-container">
-                <hr style="background-color:white; height:5px;position:relative; top:55px; background-color:#0A082D; opacity:1" />
-                <div class="card-box">
-                    <div class="form-group">
-                        <label class="gg" style="position:relative; top:70px;">Term</label>
+            // Add a new card if all fields are filled
+            let cardHtml = `
+                        <hr style="height:15px; background-color:#0A082D;" />
+                        <label class="gg" style="color:white; font-weight:bold;">Card ${cardIndex + 1}</label>
+                        <div class="card-box">
+                            <div class="form-group">
+                                <label class="gg">Term</label>
                                 <input type="text" name="Cards[${cardIndex}].Term" class="form-control shire" />
-                    </div>
-                    <div class="form-group">
-                        <label class="gg" style="position:relative; top:70px;">Description</label>
+                            </div>
+                            <div class="form-group">
+                                <label class="gg">Description</label>
                                 <input type="text" name="Cards[${cardIndex}].Definition" class="form-control shire" />
-                    </div>
-                </div>
-            </div>`;
+                            </div>
+                        </div>`;
+
+            // Append the new card to the existing cards container
             container.insertAdjacentHTML('beforeend', cardHtml);
-            cardIndex++;
+
+            cardIndex++; // Increment index after adding a new card
         });
     </script>
 
-
-
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
