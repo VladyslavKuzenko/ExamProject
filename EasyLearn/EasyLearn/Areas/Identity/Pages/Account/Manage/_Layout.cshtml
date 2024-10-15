@@ -9,7 +9,7 @@
     }
 }
 
-
+<div style="position:relative; top:50px;">
     <h1 class="create-title" >Manage your account</h1>
 
 <div>
@@ -17,19 +17,22 @@
     <div class="profile-position">
     <hr />
     <div class="row">
-        <div class="col-md-3">
-            <partial name="_ManageNav" />
+                <div class="col-md-3" style=" margin-bottom:30px;">
+                    <hr style="height:5px; background-color:white; opacity:1; width:100%;position:relative; top:100%" />
+
+                    <partial name="_ManageNav" />
         </div>
-        <div class="col-md-9">
+                <div class="col-md-9" style="position:relative; left:15px;">
             @RenderBody()
         </div>
     </div>
 </div>
 
 <div class="logout-btn">
-        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
-            <button id="logout" type="submit" class=" der1">Logout</button>
+        <form id="logoutForm" class="form-inline fff" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+            <button id="logout" type="submit" class="der1">Logout</button>
         </form>
+</div>
 </div>
 </div>
 @section Scripts {
