@@ -1376,6 +1376,9 @@ a {
     z-index:1;
 
 }
+.create-title{
+    margin-left:69px;
+}
 .items {
     position: relative;
     top: 20px;
@@ -1389,7 +1392,7 @@ a {
     height: auto; /* «м≥нюЇмо висоту, щоб врахувати вс≥ картки */
     margin-bottom: 20px;
     position: relative;
-    top: 150px;
+    top: 215px;
     left: 100px;
 }
 .card {
@@ -1432,7 +1435,7 @@ a {
     display: flex;
     gap: 10px;
     position: relative;
-    top: 150px;
+    top: 215px;
     left: 300px;
 }
 .navigation-buttons button {
@@ -1460,7 +1463,7 @@ a {
 }
 #cardCounter {
     position: relative;
-    top: 100px;
+    top: 165px;
     left: 480px;
     color: white;
     font-size: 20px;
@@ -1522,31 +1525,62 @@ a {
     background-position-y: 5px;
 }
 .random-game-button {
-    width: 32%;
-    height: 60px;
-    background-color: #1E90FF;
+    width: 52px;
+    height: 52px;
+    background-color: #040407;
     border: none;
-    border-radius: 10px;
+    border-radius: 52px;
     margin-right: 10px;
+    margin-bottom: 0px;
+    background-image: url(../images/shuffle.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
     color: white;
     font-weight: bold;
     font-size: 18px;
-    margin-right: 10px;
-
 }
+
+.shuffle-btn{
+    margin-top:10px;
+    margin-left:20px;
+}
+
+
 .test-game-button {
     width: 32%;
     height: 60px;
-    background-color:chartreuse;
+    background-color: chartreuse;
     border: none;
     border-radius: 10px;
     margin-right: 10px;
+    background-image: url(../images/test.png);
+    background-size: 20%;
+    background-repeat: no-repeat;
+    background-position-x: 160px;
+    background-position-y: 5px;
     color: white;
     font-weight: bold;
     font-size: 19.5px;
     margin-right: 10px;
-
 }
+.exam-game-button {
+    width: 32%;
+    height: 60px;
+    background-color: #0a2e3f;
+    border: none;
+    border-radius: 10px;
+    margin-right: 10px;
+    background-image: url(../images/exam.png);
+    background-size: 20%;
+    background-repeat: no-repeat;
+    background-position-x: 160px;
+    background-position-y: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 19.5px;
+    margin-right: 10px;
+}
+
 .game-container {
     width: 100%;
     position: relative;
@@ -1563,10 +1597,11 @@ a {
     color: white;
     font-size: 40px;
     font-weight: bold;
-    margin-top: 20px;
+    margin-bottom: 20px;
     text-align:end
 
 }
+
 .home-menu-image {
     position:absolute;
     width:23px;
