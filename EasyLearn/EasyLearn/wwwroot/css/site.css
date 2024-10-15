@@ -265,6 +265,8 @@ a {
         background-color: #2E3756;
         border-radius: 10px;
         border-bottom: 2px solid aqua;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
         margin-left: 10px;
     }
     .box-info-container {
@@ -347,6 +349,7 @@ a {
         border-radius: 10px;
         margin: 5px;
         border-bottom: 2px solid aqua;
+        border-bottom-right-radius: 0;
     }
     .box-video-info-container {
         display: flex;
@@ -530,6 +533,8 @@ a {
         margin-top: 10px;
         border-radius: 10px;
         border-bottom: 2px solid aqua;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
     }
     .xbox-6 {
         display: grid;
@@ -717,6 +722,8 @@ a {
         margin-top: 10px;
         border-radius: 10px;
         border-bottom: 2px solid aqua;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
     .ph-ct {
         width: 100%;
