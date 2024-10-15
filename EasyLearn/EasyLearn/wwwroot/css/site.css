@@ -348,8 +348,7 @@ a {
         background-color: #2E3756;
         border-radius: 10px;
         margin: 5px;
-        border-bottom: 2px solid aqua;
-        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 20px;
     }
     .box-video-info-container {
         display: flex;
@@ -532,9 +531,8 @@ a {
         height: 100%;
         margin-top: 10px;
         border-radius: 10px;
-        border-bottom: 2px solid aqua;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
     }
     .xbox-6 {
         display: grid;
@@ -714,16 +712,16 @@ a {
         padding: 0 30px; /* Відступи по боках (зліва і справа) */
     }
     .box-video-info-container {
-        height: 100%;
+        height: 110%;
         width: 40%;
+        background-color:blue;
     }
     .video-info-box {
         height: 100%;
         margin-top: 10px;
         border-radius: 10px;
-        border-bottom: 2px solid aqua;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
     }
     .ph-ct {
         width: 100%;
@@ -752,11 +750,13 @@ a {
 
     }
     .search-bar {
-        left:35%;
+        left:37%;
     }
     .mobile-menu-button {
         left:90%;
     }
+
+
 
 }
 .kl {
@@ -780,16 +780,27 @@ a {
 }
 .der1 {
     position: absolute;
-    background-image: none;
-    background-image:none!important;
+    background-image: none !important;
     color: #FF4C4C !important;
     font-size: 20px;
     font-weight: bold;
-    border:2px solid white;
-    background-color:transparent;
-    height:50px;
-    border-radius:10px;
+    border: none;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom: 2px solid red;
+    background-color: transparent;
+    height: 50px;
+    padding: 30px;
+    display: flex; /* Використовуємо flexbox */
+    justify-content: center; /* Вирівнюємо по горизонталі */
+    align-items: center; /* Вирівнюємо по вертикалі */
+    text-align: center; /* Текст по центру */
+    top: 210px;
 }
+
+
 .mobile-language-selector {
     position:absolute;
     top:60%;
@@ -803,7 +814,6 @@ a {
     background-color: cornflowerblue;
     justify-content: center;
     border-radius: 10px;
-    border-bottom: 2px solid aqua;
 }
 /*__________________________*/
 .photo1 {
