@@ -381,7 +381,10 @@ a {
         padding-left: 15%;
         margin-top: 55px;
     }
-    /*___________________________________*/
+    /*___________________________________ Login*/
+    .fe {
+        display: none;
+    }
     
 
 
@@ -546,6 +549,10 @@ a {
         margin-top: 55px;
     }
 
+/*    _______________________Login*/
+    .fe {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 767px) {
@@ -704,6 +711,12 @@ a {
         font-size: 20px;
         width: 95%;
     }
+    /*    ______________________Login*/
+    .bt,
+    .right-side{
+        display:none;
+    }
+
 }
 @media only screen and (max-width: 450px) {
     /*    ______________________________Header*/
@@ -1352,55 +1365,135 @@ a {
     left: 120px;
 }
 /*_________________________________*/
-.log-page-maket {
-    width: 550px;
-    height: 600px;
-    background-color: #2E3756;
-    justify-content: center;
+
+
+.log-forma {
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    position: relative;
+    top: 120px;
+    border-radius: 2rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border:1px solid white;
+    backdrop-filter: blur(10px);  
+}
+
+.log-label {
+    color:white;
+    font-size:3rem;
+    font-weight:bold;
+    display:flex;
+    justify-content:center;
+    position:relative;
+    top:10px;
+}
+
+.log-hr  {
+    background-color:white;
+    position:relative;
+    top:2%;
+    width:100%;
+    border:5px solid white;
+    opacity:1;
+}
+
+.maket {
+    display:flex;
+    justify-content:center;
+    width:100%;
+    position:relative;
+    top:5%;
+    margin-left:0;
+    align-items:center;
+    color:white;
+}
+
+
+.gtr {
+   margin-top:15px;
+}
+
+.frt {
+    background-color:transparent;
+    border-radius:2rem;
+    color:white!important;
+}
+.frt:focus {
+    background-color:transparent;
+
+}
+.right-side {
+    background: linear-gradient(45deg, #330A6A, #4E25A9, #6B3AD2);
+    height: 80%;
+    width: 50%;
     position: absolute;
-    left: 420px;
-    top: 50px;
-    border-radius: 20px;
+    right: 0;
+    top: 98px;
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
 }
-
-.label-log {
+.wb {
+    color:white;
+    font-weight:bold;
+    font-size:40px;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    position:relative;
+    top:13%;
+    font-family:Calibri;
+}
+.inf {
     color: white;
-    text-align: center;
-    position: relative;
-    top: 20px;
-    font-weight: bold;
+    font-size: 23px;
+    width: 83%;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    position: relative;  
+    top: 35%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    font-family: Calibri;
+    padding: 20px;  
+    text-align:center;
 }
 
-.hr-log {
-    border: 5px solid white;
-    position: relative;
-    top: 15px;
-    background-color: white;
-    opacity: 1;
-}
-
-.log-form {
-    width: 400px;
-    position: relative;
-    left: 120px;
-}
-
-.log-text {
-    width: 400px;
-    margin-bottom: 30px;
-    color: white;
-    position: relative;
-    top: 20px;
+.bt {
+    width: 20%;
+    height: auto;
+    background-color: #6536CA;
+    position: absolute;
+    top: 75%;
+    left: 76%;
+    transform: translate(-50%, -50%);
+    font-family: Calibri;
+    padding: 5px;
+    border-radius: 2rem;
 }
 
 .other-log {
-    width: 200px;
-    color: deepskyblue;
-    position: relative;
-    top: 50px;
+    color:white;
+    display:flex;
+    justify-content:center;
+    position:relative;
+    font-size:18px;
+    top:7px;
+    text-align:center;
+}
+
+.other-log a:hover  {
+    color:white!important;
+
+}
+.fe {
+    width: 37%;
+    position: absolute;
+    top: 190px;
+    right: 13px;
 }
 /*_________________________________*/
-
 .create-module-button {
     position: absolute;
     top: 130px;
