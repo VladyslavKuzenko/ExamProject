@@ -6,44 +6,74 @@
 
 <style>
     body {
-        background-color: #0A082D;
+        background-image: url(/images/log-background.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    header {
+        background-color: #9647CA;
+    }
+
+    .search-bar,
+    .btn7,
+    .nav-links,
+    .only-profile,
+    .logo2 {
+        display: none;
+    }
+
+    .mobile-menu {
+        background-color: #9647CA;
+    }
+
+    .logo {
+        visibility: visible;
+        display: block;
     }
 </style>
 
 
-<div class="reg-page-maket">
+<div class="log-forma">
 
-        <h1 class="label-reg">Register</h1>
-         <hr class="hr-reg"/>
+    <h1 class="log-label">Register</h1>
+    <hr class="log-hr " />
+    <div class="right-side1">
+        <label class="wb">Create Your Account</label>
+        <label class="inf">Welcome! Let’s get you set up. Fill out the information below to start your journey with us.</label>
 
-    <div class="row reg-form" style="position:relative; top:20px;">
+
+    </div>
+    <div class="row maket">
             <div class="col-md-4">
                 <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                    <h2 style="width:400px; margin-bottom:30px; color:white;">Create a new account</h2>
+                    <h2 >Create a new account</h2>
                     <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
 
-                    <div class="form-floating mb-3" style="width:320px; ">
-                        <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <div class="form-floating mb-3" style="width:100%; ">
+                    <input asp-for="Input.Email" class="form-control frt" autocomplete="username" aria-required="true" placeholder="name@example.com" />
                         <label asp-for="Input.Email">Email</label>
                         <span asp-validation-for="Input.Email" class="text-danger"></span>
                     </div>
-                    <div class="form-floating mb-3" style="width:320px;">
-                        <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <div class="form-floating mb-3" style="width:100%;">
+                    <input asp-for="Input.Password" class="form-control frt" autocomplete="new-password" aria-required="true" placeholder="password" />
                         <label asp-for="Input.Password">Password</label>
                         <span asp-validation-for="Input.Password" class="text-danger"></span>
                     </div>
-                    <div class="form-floating mb-3" style="width:320px;">
-                        <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <div class="form-floating mb-3" style="width:100%;">
+                    <input asp-for="Input.ConfirmPassword" class="form-control frt" autocomplete="new-password" aria-required="true" placeholder="password" />
                         <label asp-for="Input.ConfirmPassword">Confirm Password</label>
                         <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                     </div>
-                    <div class="form-floating mb-3" style="width:320px;">
-                        <input asp-for="Input.Name" class="form-control" aria-required="true" placeholder="Name" />
+                <div class="form-floating mb-3" style="width:100%;">
+                    <input asp-for="Input.Name" class="form-control frt" aria-required="true" placeholder="Name" />
                         <label asp-for="Input.Name">Name</label>
                         <span asp-validation-for="Input.Name" class="text-danger"></span>
                     </div>
 
-                    <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+
+                    <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary " style="margin-bottom:30px;">Register</button>
                 </form>
             </div>
             <div class="col-md-6 col-md-offset-2">
@@ -68,7 +98,7 @@
                     }
                 </section>
             </div>
-    </>
+    </div>
 
 </div>
 

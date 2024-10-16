@@ -219,8 +219,6 @@ a {
     border: 1px solid white;
     border-radius: 10px;
 }
-
-
 @media only screen and (min-width: 1024px) {
     /*___________________________Header*/ 
     header {
@@ -385,8 +383,6 @@ a {
     .fe {
         display: none;
     }
-    
-
 
 }
 
@@ -716,7 +712,9 @@ a {
     .right-side{
         display:none;
     }
-
+    .right-side1 {
+        display: none;
+    }
 }
 @media only screen and (max-width: 450px) {
     /*    ______________________________Header*/
@@ -1332,38 +1330,7 @@ a {
     font-size: 19px;
 }
 /*_________________________________*/
-.reg-page-maket {
-    width: 550px;
-    height: 600px;
-    background-color: #2E3756;
-    justify-content: center;
-    position: absolute;
-    left: 420px;
-    top: 50px;
-    border-radius: 20px;
-}
 
-.label-reg {
-    color: white;
-    text-align: center;
-    position: relative;
-    top: 20px;
-    font-weight: bold;
-}
-
-.hr-reg {
-    border: 5px solid white;
-    position: relative;
-    top: 15px;
-    background-color: white;
-    opacity: 1;
-}
-
-.reg-form {
-    width: 400px;
-    position: relative;
-    left: 120px;
-}
 /*_________________________________*/
 
 
@@ -1433,16 +1400,26 @@ a {
     border-bottom-right-radius: 2rem;
     border-bottom-left-radius: 2rem;
 }
+.right-side1 {
+    background: linear-gradient(45deg, #330A6A, #4E25A9, #6B3AD2);
+    height: 83.5%;
+    width: 50%;
+    position: absolute;
+    right: 0;
+    top: 85px;
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
 .wb {
-    color:white;
-    font-weight:bold;
-    font-size:40px;
-    width:100%;
-    display:flex;
-    justify-content:center;
-    position:relative;
-    top:13%;
-    font-family:Calibri;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 13%;
+    font-family: Calibri;
 }
 .inf {
     color: white;
