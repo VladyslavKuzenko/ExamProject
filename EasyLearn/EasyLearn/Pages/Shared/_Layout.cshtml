@@ -24,7 +24,6 @@
             <a asp-area="" asp-page="/Home/Index"></a>
         </div>
 
-        <!-- Навігаційні лінки для великих екранів -->
         <nav class="nav-links">
             <a asp-area="" asp-page="/Home/Index">Home</a>
             <a asp-area="" asp-page="/TrainingModules/Index">Your Library</a>
@@ -34,10 +33,8 @@
             <input type="text" placeholder="Search">
         </div>
 
-        <!-- Кнопка для створення -->
         <button class="btn7" onclick="togglePopup7()">+</button>
 
-        <!-- Спливаюче вікно створення -->
         <div class="popup7" id="popup7">
             <div class="create-button">
                 <a class="full-button create-button-photo1" asp-area="" asp-page="/TrainingModules/Create">Training module</a>
@@ -60,10 +57,8 @@
             <partial name="_SelectLanguagePartial" />
         </div>
 
-        <!-- Кнопка мобільного меню -->
         <button class="mobile-menu-button" onclick="toggleMobileMenu()">&#9776;</button>
 
-        <!-- Мобільне меню -->
         <div class="mobile-menu" id="mobileMenu">
             <div class="menu-logo"></div>
 
@@ -89,15 +84,12 @@
             <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
                 <button type="submit" class="nav-link btn btn-link border-0 der" >Logout</button>
                 <div class="primage"></div>
-
             </form>
 
             <div class="mobile-language-selector">
                 <partial name="_SelectLanguagePartial" />
             </div>
         </div>
-
-            
     </header>
 
 
@@ -136,14 +128,15 @@
 
 
 
-
     <div class="container">
+        
         <main role="main" class="pb-3">
             @RenderBody()
+
         </main>
     </div>
 
-    @*тут був footer(розміщений на інших сторінках)*@
+    
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -151,4 +144,5 @@
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>

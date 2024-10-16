@@ -101,7 +101,7 @@ header {
 .btn7 {
     position: absolute;
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background: linear-gradient(135deg, #4A3D9D, #9575CD);
     color: white;
     border: none;
     cursor: pointer;
@@ -237,7 +237,6 @@ a {
     left:255px;
     border:none;
 }
-
 .language-selector1 {
     position: absolute;
     top: 140px;
@@ -245,6 +244,14 @@ a {
     border-radius: 10px;
     z-index: 1000;
     left:120px;
+}
+.dsfg {
+    background-color:red;
+    border:10px solid red;
+    margin-top:30px;
+    position:absolute;
+    top:100%;
+
 }
 @media only screen and (min-width: 1024px) {
     /*___________________________Header*/
@@ -412,7 +419,6 @@ a {
     }
 
 }
-
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
    /* ___________________________Header*/
     header {
@@ -577,7 +583,6 @@ a {
         display: none;
     }
 }
-
 @media only screen and (max-width: 767px) {
     /*_________________________Header*/
     header {
@@ -773,23 +778,28 @@ a {
         font-size: 13px;
     }
 }
-
 .kl {
     position: relative;
     left: -240px;
 }
-
 .der {
     position: absolute;
-    padding-left: 55px;
     background-image: none;
-    top: 93.5%;
-    left: 8%;
+    top: 550px;
     color: #FF4C4C !important;
     font-size: 20px;
     font-weight: bold;
+    border-bottom: 3px solid red !important;
+    text-align: center;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    left: 50%; /* Вирівнює по центру */
+    transform: translateX(-50%); /* Центрує елемент */
 }
-
+.der:hover {
+    color:red!important;
+    opacity:1;
+}
 .der1 {
     position: absolute;
     background-image: none !important;
@@ -811,12 +821,10 @@ a {
     text-align: center;
     top: 210px;
 }
-
-
 .mobile-language-selector {
     position: absolute;
-    top: 60%;
-    left: 22px;
+    top: 515px;
+    left:7%;
 }
 /*__________________________Нещодавні модулі*/
 .recent-modules {
@@ -827,8 +835,6 @@ a {
     justify-content: space-between;
     border-radius: 10px;
 }
-
-
 /*__________________________*/
 .photo1 {
     width: 100%;
@@ -838,7 +844,6 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 .photo2 {
     width: 100%;
     height: 57%;
@@ -848,7 +853,6 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 .photo3 {
     width: 100%;
     height: 57%;
@@ -859,12 +863,10 @@ a {
     background-size: cover;
 }
 /*__________________________*/
-
 .books-container {
     position: relative;
     width: 67%;
 }
-
 .nav-btn {
     position: absolute;
     top: 50%;
@@ -877,25 +879,21 @@ a {
     border-radius: 5px;
     z-index: 10;
 }
-
 .left-btn {
     left: -80px;
     border-radius: 50%;
     width: 50px;
     height: 50px;
 }
-
 .right-btn {
     right: -70px;
     border-radius: 50%;
     width: 50px;
     height: 50px;
 }
-
 .nav-btn:disabled {
     display: none;
 }
-
 .book-photo1 {
     position: relative;
     width: 100%;
@@ -907,13 +905,11 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 .image-link {
     display: block;
     width: 32%;
     height: 168px;
 }
-
 .book-photo2 {
     position: relative;
     width: 100%;
@@ -925,7 +921,6 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 .book-photo3 {
     position: relative;
     width: 100%;
@@ -937,7 +932,6 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 .book-photo4 {
     position: relative;
     width: 100%;
@@ -949,7 +943,6 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 .book-photo5 {
     position: relative;
     width: 100%;
@@ -961,7 +954,6 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 .book-photo6 {
     position: relative;
     width: 100%;
@@ -973,7 +965,6 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 .book-name {
     position: relative;
     width: 60%;
@@ -982,7 +973,6 @@ a {
     color: #fff;
     font-weight: bold;
 }
-
 .book-info {
     position: relative;
     bottom: 125px;
@@ -996,7 +986,6 @@ a {
     width: 70%;
     height: 100%;
 }
-
 .photo7 {
     width: 100%;
     height: 100%;
@@ -1007,7 +996,6 @@ a {
     background-size: cover;
     background-position: center;
 }
-
 .photo8 {
     width: 100%;
     height: 100%;
@@ -1018,7 +1006,6 @@ a {
     background-size: cover;
     background-position: center;
 }
-
 .photo9 {
     width: 100%;
     height: 100%;
@@ -1029,14 +1016,12 @@ a {
     background-size: cover;
     background-position: center;
 }
-
 .video-lessons-column2 {
     margin-top:10px;
     color: #fff;
     width: 70%;
     height: 100%;
 }
-
 .photo10 {
     width: 100%;
     height: 100%;
@@ -1047,7 +1032,6 @@ a {
     background-size: cover;
     background-position: center;
 }
-
 .photo11 {
     width: 100%;
     height: 100%;
@@ -1058,7 +1042,6 @@ a {
     background-size: cover;
     background-position: center;
 }
-
 .photo12 {
     width: 100%;
     height: 100%;
@@ -1076,14 +1059,12 @@ a {
     margin: 0;
     padding: 0;
 }
-
 .tabs {
     display: flex;
     margin-top: 130px;
     max-width: 100%;
     position: relative;
 }
-
 .tab {
     text-decoration: none;
     padding: 10px 20px;
@@ -1093,12 +1074,10 @@ a {
     border-radius: 25px;
     background-color: transparent
 }
-
-    .tab.active {
-        background-color: cornflowerblue;
-        color: white;
-    }
-
+.tab.active {
+    background-color: cornflowerblue;
+    color: white;
+}
 .tab-line {
     border: none;
     background-color: white;
@@ -1106,12 +1085,10 @@ a {
     width: 100%;
     transition: width 0.3s ease, background-color 0.3s ease;
 }
-
 .tab.active + .tab-line {
     width: 100px;
     background-color: cornflowerblue;
 }
-
 .s1 {
     position: absolute;
     width: 100%;
@@ -1124,17 +1101,14 @@ a {
     background-color: #2E3756;
     color: white;
 }
-
-    .s1::placeholder {
-        color: white;
-        opacity: 0.8;
-    }
-
-    .s1:focus {
-        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-        border-color: #007bff;
-    }
-
+.s1::placeholder {
+    color: white;
+    opacity: 0.8;
+}
+.s1:focus {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    border-color: #007bff;
+}
 .lupa {
     padding: 21px;
     position: relative;
@@ -1156,7 +1130,6 @@ a {
     color: #fff;
     border-radius: 7px;
 }
-
 #login {
     border: 1px solid white;
     position: absolute;
@@ -1174,14 +1147,12 @@ a {
     top: 70px;
     font-weight: bold;
 }
-
 .form-group {
     position: relative;
     top: 100px;
     color: white;
     margin-bottom: 30px;
 }
-
 #Name {
     background-color: #0A082D;
     border: none;
@@ -1190,7 +1161,6 @@ a {
     border-radius: 0;
     width: 30%;
 }
-
 #Description {
     background-color: #0A082D;
     border: none;
@@ -1199,12 +1169,10 @@ a {
     border-radius: 0;
     width: 30%;
 }
-
 #Name:focus {
     border-bottom: 2px solid cornflowerblue;
     box-shadow: none;
 }
-
 #Description:focus {
     border-bottom: 2px solid cornflowerblue;
     box-shadow: none;
@@ -1228,15 +1196,12 @@ a {
     text-align: center;
     border-radius: 10px;
 }
-
 .nav-link {
     color: white;
 }
-
-    .nav-link:hover {
-        color: lightgray;
-    }
-
+.nav-link:hover {
+    color: lightgray;
+}
 #logout {
     width: 80px;
     color: white;
@@ -1249,14 +1214,12 @@ a {
     background-position-x: 55px;
     background-position-y: 9px;
 }
-
 .profile-logout {
     position: relative;
     left: 250px;
     display: flex;
     flex-direction: row;
 }
-
 .reg-log {
     position: relative;
     left: 140px;
@@ -1283,7 +1246,6 @@ a {
     padding-left: 30px;
     padding-top: 20px;
 }
-
 .recent-library-folders {
     margin-top: 20px;
     height: 93px;
@@ -1295,7 +1257,6 @@ a {
     padding-left: 30px;
     padding-top: 21px;
 }
-
 .recent-library-courses {
     margin-top: 20px;
     height: 93px;
@@ -1307,49 +1268,41 @@ a {
     padding-left: 30px;
     padding-top: 21px;
 }
-
 .recent-description {
     font-size: 12px;
     font-weight: 400;
     color: lightgray;
 }
-
 /*_________________________________*/
 #profile-form {
     position: relative;
     left: 30px;
     width: 250px;
 }
-
 #email-form {
     position: relative;
     left: 30px;
     width: 250px;
     bottom: 16px;
 }
-
 #change-password-form {
     position: relative;
     left: 30px;
     width: 250px;
 }
-
 .profile-position {
     position: relative;
     top: 70px;
 }
-
 .authentication {
     color: white;
     font-size: 27px;
 }
-
 .authentication-smaller {
     color: white;
     font-size: 20px;
     margin-bottom: 55px;
 }
-
 .auth-btn {
     height: 65px;
     text-align: center;
@@ -1357,10 +1310,6 @@ a {
     font-size: 19px;
 }
 /*_________________________________*/
-
-/*_________________________________*/
-
-
 .log-forma {
     width: 100%;
     height: auto;
@@ -1372,7 +1321,6 @@ a {
     border:1px solid white;
     backdrop-filter: blur(10px);  
 }
-
 .log-label {
     color:white;
     font-size:3rem;
@@ -1382,7 +1330,6 @@ a {
     position:relative;
     top:10px;
 }
-
 .log-hr  {
     background-color:white;
     position:relative;
@@ -1391,7 +1338,6 @@ a {
     border:5px solid white;
     opacity:1;
 }
-
 .maket {
     display:flex;
     justify-content:center;
@@ -1402,12 +1348,9 @@ a {
     align-items:center;
     color:white;
 }
-
-
 .gtr {
    margin-top:15px;
 }
-
 .frt {
     background-color:transparent;
     border-radius:2rem;
@@ -1463,7 +1406,6 @@ a {
     padding: 20px;  
     text-align:center;
 }
-
 .bt {
     width: 20%;
     height: auto;
@@ -1476,7 +1418,9 @@ a {
     padding: 5px;
     border-radius: 2rem;
 }
-
+.bt:hover {
+    background-color: #6516CA;
+}
 .other-log {
     color:white;
     display:flex;
@@ -1486,10 +1430,8 @@ a {
     top:7px;
     text-align:center;
 }
-
 .other-log a:hover  {
     color:white!important;
-
 }
 .fe {
     width: 37%;
@@ -1505,7 +1447,6 @@ a {
     width: 150px;
     height: 60px;
 }
-
 .counter {
     position: relative;
     top: 177px;
@@ -1514,11 +1455,6 @@ a {
     font-weight: bold;
     z-index: 1;
 }
-
-}
-.create-title{
-    margin-left:69px;
-}
 .items {
     position: relative;
     top: 20px;
@@ -1526,7 +1462,6 @@ a {
     font-size: 20px; 
     color: white; 
 }
-
 .card-container {
     perspective: 1000px;
     width: 800px;
@@ -1536,7 +1471,6 @@ a {
     top: 215px;
     left: 100px;
 }
-
 .card {
     width: 100%;
     height: 400px; 
@@ -1552,11 +1486,9 @@ a {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-bottom: 20px; 
 }
-
-    .card.flipped {
-        transform: rotateX(180deg);
-    }
-
+.card.flipped {
+    transform: rotateX(180deg);
+}
 .card-face {
     position: absolute;
     width: 100%;
@@ -1568,16 +1500,13 @@ a {
     border-radius: 30px;
     padding: 20px;
 }
-
 .card-front {
     background-color: #2E3756;
 }
-
 .card-back {
     background-color: #2E3756;
     transform: rotateX(180deg);
 }
-
 .navigation-buttons {
     display: flex;
     gap: 10px;
@@ -1585,8 +1514,7 @@ a {
     top: 215px;
     left: 300px;
 }
-
-    .navigation-buttons button {
+.navigation-buttons button {
         padding: 10px 20px;
         background-color: transparent;
         border: 2px solid lightgray;
@@ -1601,17 +1529,14 @@ a {
         position: relative;
         right: 40px;
         top: -5px;
-    }
-
-        .navigation-buttons button:disabled {
-            background-color: #2E3756;
-            cursor: auto;
-        }
-
+}
+.navigation-buttons button:disabled {
+     background-color: #2E3756;
+     cursor: auto;
+}
 .card-index {
     font-size: 1.2em;
 }
-
 #cardCounter {
     position: relative;
     top: 165px;
@@ -1640,7 +1565,6 @@ a {
     background-position-x: center;
     background-position-y: center;
 }
-
 .delete-card {
     position: relative;
     bottom: -215px;
@@ -1660,7 +1584,6 @@ a {
     background-position-x: center;
     background-position-y: center;
 }
-
 .classic-game-button {
     width: 31.1%;
     height: 60px;
@@ -1677,7 +1600,6 @@ a {
     background-position-x: 160px;
     background-position-y: 5px;
 }
-
 .random-game-button {
     width: 52px;
     height: 52px;
@@ -1693,13 +1615,10 @@ a {
     font-weight: bold;
     font-size: 18px;
 }
-
 .shuffle-btn{
     margin-top:10px;
     margin-left:20px;
 }
-
-
 .test-game-button {
     width: 32%;
     height: 60px;
@@ -1734,7 +1653,6 @@ a {
     font-size: 19.5px;
     margin-right: 10px;
 }
-
 .game-container {
     width: 100%;
     position: relative;
@@ -1742,7 +1660,6 @@ a {
     left: 100px;
     align-items: center;
 }
-
 .current-mode {
     width: 170px;
     position: relative;
@@ -1755,7 +1672,6 @@ a {
     text-align:end
 
 }
-
 .home-menu-image {
     position: absolute;
     width: 23px;
@@ -1766,7 +1682,6 @@ a {
     background-repeat: no-repeat;
     background-size: 100%;
 }
-
 .library-menu-image {
     position: absolute;
     width: 26px;
@@ -1777,7 +1692,6 @@ a {
     background-repeat: no-repeat;
     background-size: 110%;
 }
-
 .plimage1 {
     position: absolute;
     width: 26px;
@@ -1788,7 +1702,6 @@ a {
     background-repeat: no-repeat;
     background-size: 90%;
 }
-
 .plimage2 {
     position: absolute;
     width: 26px;
@@ -1799,7 +1712,6 @@ a {
     background-repeat: no-repeat;
     background-size: 90%;
 }
-
 .plimage3 {
     position: absolute;
     width: 26px;
@@ -1810,7 +1722,6 @@ a {
     background-repeat: no-repeat;
     background-size: 90%;
 }
-
 .primage {
     position: absolute;
     width: 26px;
