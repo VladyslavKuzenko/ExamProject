@@ -11,7 +11,7 @@ namespace EasyLearn.Data;
     {
     }
 
-    public DbSet<EasyLearn.Models.Card> Card { get; set; } = default!;
+        public DbSet<EasyLearn.Models.Card> Card { get; set; } = default!;
         public DbSet<EasyLearn.Models.TrainingModule> TrainingModule { get; set; } = default!;
         public DbSet<EasyLearn.Models.Folder> Folder { get; set; } = default!;
         public DbSet<EasyLearn.Models.Course> Course { get; set; } = default!;

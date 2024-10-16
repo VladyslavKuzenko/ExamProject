@@ -2,7 +2,7 @@
 @model EasyLearn.Pages.Folders.AddTrainingModulesModel
 
 @{
-    ViewData["Title"] = "Add Training Modules to Folder";
+    ViewData["Title"] = "AddTrainingModules";
 }
 
 <h2>Training Modules in @Model.Folder.Name</h2>
@@ -33,9 +33,11 @@
 
 <form method="post">
     <div class="form-group">
-        <label for="TrainingModuleId">Select Training Module</label>
+@*         <label for="TrainingModuleId">Select Training Module</label> *@
         <select asp-for="SelectedTrainingModuleId" class="form-control" asp-items="Model.TrainingModulesWithoutFolder">
+            @* <option value=""></option> *@
             <option value="">-- Select Training Module --</option>
+
         </select>
     </div>
     <button type="submit" class="btn btn-primary">Add to Folder</button>

@@ -30,14 +30,17 @@
     <tbody>
         @foreach (var item in Model.Folder)
         {
-            <div class="recent-library-folders">
-                @Html.DisplayFor(modelItem => item.Name)
-                <div class="recent-description">
-                    @Html.DisplayFor(modelItem => item.Description)
+            <a asp-area="" asp-page="/Folders/IndexFolder" asp-route-folderId="@item.Id">
+
+                <div class="recent-library-folders">
+                    @Html.DisplayFor(modelItem => item.Name)
+                    <div class="recent-description">
+                        @Html.DisplayFor(modelItem => item.Description)
+
+                    </div>
 
                 </div>
-
-            </div>
+            </a>
             @*  <td>
         <ul>
         @foreach (var module in item.TrainingModules)

@@ -36,20 +36,20 @@ namespace EasyLearn.Pages.Courses
                 .ToListAsync();
 
             // Додаємо тренінги (TrainingModule) до папок
-            //for (int i = 0; i < Folder.Count; i++)
-            //{
-            //    foreach (var el in _context.TrainingModule)
-            //    {
-            //        if (el.FolderId == Folder[i].Id)
-            //        {
-            //            if (Folder[i].TrainingModules == null)
-            //            {
-            //                Folder[i].TrainingModules = new List<TrainingModule>();
-            //            }
-            //            Folder[i].TrainingModules.Append(el);
-            //        }
-            //    }
-            //}
+            for (int i = 0; i < Course.Count; i++)
+            {
+                foreach (var el in _context.Folder)
+                {
+                    if (el.CourseId == Course[i].Id)
+                    {
+                        if (Course[i].Folders == null)
+                        {
+                            Course[i].Folders = new List<Folder>();
+                        }
+                        Course[i].Folders.Append(el);
+                    }
+                }
+            }
         }
     }
 }

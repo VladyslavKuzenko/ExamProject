@@ -1,0 +1,49 @@
+﻿@page
+@model EasyLearn.Pages.Folders.IndexFolderModel
+@{
+    ViewData["Title"] = "IndexFolder";
+
+}
+
+<body class="custom-background">
+</body>
+
+<table class="table">
+    <a asp-area="" asp-page="/Folders/AddTrainingModules" asp-route-folderId="@Model.FolderId">
+    Add TrainingModule
+    </a>
+
+    
+    <tbody>
+        @foreach (var item in Model.TrainingModule)
+        {
+            <a asp-area="" asp-page="/Cards/Index" asp-route-trainingModuleId="@item.Id">
+                <div class="recent-library-module">
+                    @Html.DisplayFor(modelItem => item.Name)
+                    <div class="recent-description">
+                        @Html.DisplayFor(modelItem => item.Description)
+                        <br />
+                        @Html.DisplayFor(modelItem => item.Create.Day) /
+                        @Html.DisplayFor(modelItem => item.Create.Month) /
+                        @Html.DisplayFor(modelItem => item.Create.Year)
+                    </div>
+
+                </div>
+            </a>
+        }
+    </tbody>
+</table>
+<h3>Add New Training Modules</h3>
+
+<form method="post">
+    <div class="form-group">
+        @*         <label for="TrainingModuleId">Select Training Module</label> *@
+        <select asp-for="SelectedTrainingModuleId" class="form-control" asp-items="Model.TrainingModulesWithoutFolder">
+            @* <option value=""></option> *@
+            <option value="">-- Select Training Module --</option>
+
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Add to Folder</button>
+</form>
+

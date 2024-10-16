@@ -31,6 +31,15 @@ namespace EasyLearn.Pages.Cards
              .Where(c => c.TrainingModuleId == trainingModuleId)
              .ToListAsync();
             TrainingModule= await _context.TrainingModule.FirstOrDefaultAsync(o=>o.Id == trainingModuleId);
+            TrainingModule.LastOpen= DateTime.Now;
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿@page
+@using EasyLearn.Models
 @using Microsoft.AspNetCore.Mvc.Localization
 @model EasyLearn.Pages.Home.IndexModel
 @using Microsoft.Extensions.Localization
@@ -24,7 +25,42 @@
 
 <div class="recent">
     <h1>@Localize["Recent"]</h1>
-    <div class="recent-modules"></div>
+    <div class="recent-modules">
+        @foreach (var item in Model.LastOpenItemsList)
+        {
+            if (item is Folder)
+            {
+                var itemF = item as Folder;
+                <div>
+                    <a asp-area="" asp-page="/Folders/IndexFolder" asp-route-folderId="@itemF.Id">
+                        <div class="recent-library-module">
+
+                        @Html.DisplayFor(modelItem => itemF.Name)
+                        </div>
+                    </a>
+                </div>
+
+            }
+            else if (item is TrainingModule)
+            {
+                var itemF = item as TrainingModule;
+                <a asp-area="" asp-page="/Cards/Index" asp-route-trainingModuleId="@itemF.Id">
+                    <div class="recent-library-module">
+                        @Html.DisplayFor(modelItem => itemF.Name)
+                        <div class="recent-description">
+                            @Html.DisplayFor(modelItem => itemF.Description)
+                            <br />
+                            @Html.DisplayFor(modelItem => itemF.Create.Day) /
+                            @Html.DisplayFor(modelItem => itemF.Create.Month) /
+                            @Html.DisplayFor(modelItem => itemF.Create.Year)
+                        </div>
+
+                    </div>
+                </a>
+
+            }
+        }
+    </div>
 </div>
 
 

@@ -7,11 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyLearn", "EasyLearn\Easy
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyLearn.Models", "EasyLearn.Models\EasyLearn.Models.csproj", "{8C77134F-E795-4BC7-98C2-99C72C66512B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyLearn.DbContext", "EasyLearn.DbContext\EasyLearn.DbContext.csproj", "{48895022-C08C-4377-94C0-972A59AAECE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyLearn.DbContext", "EasyLearn.DbContext\EasyLearn.DbContext.csproj", "{48895022-C08C-4377-94C0-972A59AAECE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyLearn.SqlLiteDb", "EasyLearn.SqlLiteDb\EasyLearn.SqlLiteDb.csproj", "{4C8C23EF-AD61-49BE-B15D-1D34EE1C17C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyLearn.SqlLiteDb", "EasyLearn.SqlLiteDb\EasyLearn.SqlLiteDb.csproj", "{4C8C23EF-AD61-49BE-B15D-1D34EE1C17C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyLearn.MSSqlDb", "EasyLearn.MSSqlDb\EasyLearn.MSSqlDb.csproj", "{1AA357C7-85B5-4CA0-9B90-73F01010F735}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyLearn.MSSqlDb", "EasyLearn.MSSqlDb\EasyLearn.MSSqlDb.csproj", "{1AA357C7-85B5-4CA0-9B90-73F01010F735}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
