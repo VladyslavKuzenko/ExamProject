@@ -219,8 +219,35 @@ a {
     border: 1px solid white;
     border-radius: 10px;
 }
+#show-languages {
+    background-color: #0D6EFC;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    background-image: url(../images/lng.png);
+    background-size:90%;
+    background-repeat:no-repeat;
+    background-position:center;
+    position:absolute;
+    top:200px;
+    left:255px;
+    border:none;
+}
+
+.language-selector1 {
+    position: absolute;
+    top: 140px;
+    color: white;
+    border-radius: 10px;
+    z-index: 1000;
+    left:120px;
+}
 @media only screen and (min-width: 1024px) {
-    /*___________________________Header*/ 
+    /*___________________________Header*/
     header {
         display: flex;
         align-items: center;

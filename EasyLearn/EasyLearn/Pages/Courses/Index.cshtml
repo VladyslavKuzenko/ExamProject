@@ -1,6 +1,8 @@
 ﻿@page
 @model EasyLearn.Pages.Courses.IndexModel
-
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<IndexModel> Localize
 @{
     ViewData["Title"] = "Index";
 }
@@ -8,18 +10,18 @@
 <div class="top-page-library-modules">
 <body class="custom-background">
 
-    <h1 class="create-title">Your library</h1>
+        <h1 class="create-title">@Localize["Your library"]</h1>
 
     <div class="tabs">
-        <a asp-area="" asp-page="/TrainingModules/Index" class="tab" style="color:white">Training modules</a>
-        <a asp-area="" asp-page="/Folders/Index" class="tab" style="color:white">Folders</a>
-        <a asp-area="" asp-page="/Courses/Index" class="tab" style="color:cornflowerblue">Courses</a>
+        <a asp-area="" asp-page="/TrainingModules/Index" class="tab" style="color:white">@Localize["Training modules"]</a>
+        <a asp-area="" asp-page="/Folders/Index" class="tab" style="color:white">@Localize["Folders"]</a>
+        <a asp-area="" asp-page="/Courses/Index" class="tab" style="color:cornflowerblue">@Localize["Courses"]</a>
     </div>
     <hr class="tab-line">
 
-    <input type="search" class="s1" placeholder="Search Course" />
+    <input type="search" class="s1"/>
         <form method="get">
-            <input type="search" name="searchString" class="s1" placeholder="Search Course" />
+            <input type="search" name="searchString" class="s1" placeholder="@Localize["Search Course"]"/>
             <button type="submit" class="btn btn-primary lupa"></button>
         </form>
 
