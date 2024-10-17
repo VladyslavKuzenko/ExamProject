@@ -14,14 +14,18 @@
 <form method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-group">
+
         <label asp-for="Name" class="control-label"></label>
-        <input asp-for="Name" class="form-control" />
+        <input asp-for="Name" class="form-control" maxlength="30" />
         <span asp-validation-for="Name" class="text-danger"></span>
+        <small id="nameHelp" class="form-text text-muted"></small>
     </div>
     <div class="form-group">
         <label asp-for="Description" class="control-label"></label>
-        <input asp-for="Description" class="form-control" />
+        <input asp-for="Description" class="form-control" maxlength="180" />
         <span asp-validation-for="Description" class="text-danger"></span>
+        <small id="descriptionHelp" class="form-text text-muted"></small>
+
     </div>
     <div class="form-group">
         <input type="submit" value="Create" class="btn btn-primary" />
@@ -31,6 +35,28 @@
 
 
 @section Scripts {
+    <script>
+        document.getElementById("Name").addEventListener("input", function () {
+            const maxLength = 30;
+            const currentLength = this.value.length;
+
+            if (currentLength >= maxLength) {
+                document.getElementById("nameHelp").innerText = "You have reached the maximum length (30 characters).";
+            } else {
+                document.getElementById("nameHelp").innerText = "";
+            }
+        });
+        document.getElementById("Description").addEventListener("input", function () {
+            const maxLength = 180;
+            const currentLength = this.value.length;
+
+            if (currentLength >= maxLength) {
+                document.getElementById("descriptionHelp").innerText = "You have reached the maximum length (180 characters).";
+            } else {
+                document.getElementById("descriptionHelp").innerText = "";
+            }
+        });
+    </script>
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }

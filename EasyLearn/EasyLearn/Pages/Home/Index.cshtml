@@ -18,7 +18,6 @@
         display: flex;
         width: 70%;
         height: 235px;
-        background-color: cornflowerblue;
         justify-content: space-between;
         border-radius: 10px;
     }
@@ -33,18 +32,90 @@
         width: 100%
     }
 
-    .recent-description {
-        font-size: 12px;
+        .recent-library-module2:hover {
+            border-bottom:3px solid yellow;
+            border-bottom-left-radius:0;
+            border-bottom-right-radius: 0;
+        }
+
+    .recent-library-module2 {
+        height: 100%;
+        border-radius: 6px;
+        background-color: #2E3756;
+        color: white;
+        font-weight: bold;
+        font-size: 23px;
+        width: 100%
+    }
+
+        .recent-library-module3:hover {
+            border-bottom: 3px solid lime;
+            border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        }
+
+    .recent-library-module3 {
+        height: 100%;
+        border-radius: 6px;
+        background-color: #2E3756;
+        color: white;
+        font-weight: bold;
+        font-size: 23px;
+        width: 100%
+    }
+        .recent-library-module1:hover {
+            border-bottom: 3px solid aqua;
+            border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        }
+        .recent-description {
+        font-size: 15px;
         font-weight: 400;
-        color: lightgray;
-        background-color: red;
+        color: #A9B0C3;
+        position:relative;
+        top:80px;
+        z-index:99;
+        font-weight: bold;
+        left:6%;
     }
 
     .poop {
         height: 100%;
-        width: 15.5%;
-        background-color: blue;
+        width: 32.5%;
     }
+    .name-recent1 {
+        width:80.5%;
+        display:flex;
+        justify-content:start;
+        position:relative;
+        top:25px;
+        left:6%;
+        overflow: hidden; /* приховує все, що виходить за межі */
+    }
+
+    .recent-info {
+        font-size: 13.7px;
+        font-weight: 400;
+        color: lightgray;
+        position: relative;
+        top: 65px;
+        z-index: 99;
+        font-weight: bold;
+        left: 6%;
+        background-color: #0A082D;
+        border-radius: 10px;
+        width: 70%;
+        height: 90px; /* Фіксована висота */
+        padding: 10px;
+        overflow: hidden; /* Приховує текст за межами блоку */
+        text-overflow: ellipsis; /* Додає три крапки для тексту, який не вміщується */
+        white-space: normal; /* Дозволяє переносити текст */
+        display: block; /* Важливо для коректного переносу */
+        word-wrap: break-word; /* Переносить слова, якщо вони занадто довгі */
+        line-height: 1.5em; /* Висота рядка */
+    }
+
+
 </style>
 
 <div class="top-page">
@@ -72,9 +143,18 @@
                     <div class=@classType>
 
                         <a asp-area="" asp-page="/Folders/IndexFolder" asp-route-folderId="@itemF.Id">
-                            <div class="recent-library-module1">
-
+                            <div class="recent-library-module2">
+                                <div class="name-recent1">
                                 @Html.DisplayFor(modelItem => itemF.Name)
+                                </div>
+                                <div class="recent-info">
+                                    @Html.DisplayFor(modelItem => itemF.Description)
+                                </div>
+                                <div class="recent-description">
+                                    @Html.DisplayFor(modelItem => itemF.Create.Day) /
+                                    @Html.DisplayFor(modelItem => itemF.Create.Month) /
+                                    @Html.DisplayFor(modelItem => itemF.Create.Year)
+                                </div>
                             </div>
                         </a>
                     </div>
@@ -98,15 +178,17 @@
 
                         <a asp-area="" asp-page="/Cards/Index" asp-route-trainingModuleId="@itemF.Id">
                             <div class="recent-library-module1">
-                                @Html.DisplayFor(modelItem => itemF.Name)
-                                <div class="recent-description">
+                                <div class="name-recent1">
+                                    @Html.DisplayFor(modelItem => itemF.Name)
+                                </div>
+                                <div class="recent-info">
                                     @Html.DisplayFor(modelItem => itemF.Description)
-                                    <br />
+                                </div>
+                                <div class="recent-description">
                                     @Html.DisplayFor(modelItem => itemF.Create.Day) /
                                     @Html.DisplayFor(modelItem => itemF.Create.Month) /
                                     @Html.DisplayFor(modelItem => itemF.Create.Year)
                                 </div>
-
                             </div>
                         </a>
                     </div>
@@ -129,16 +211,18 @@
                     <div class=@classType>
                         <a asp-area="" asp-page="/Courses/IndexCourses" asp-route-courseId="@itemF.Id">
 
-                            <div class="recent-library-module1">
-                                @Html.DisplayFor(modelItem => itemF.Name)
+                            <div class="recent-library-module3">
+                                <div class="name-recent1">
+                                    @Html.DisplayFor(modelItem => itemF.Name)
+                                </div>
+                                <div class="recent-info">
+                                    @Html.DisplayFor(modelItem => itemF.Description)
+                                </div>
                                 <div class="recent-description">
-                                    @*                         @Html.DisplayFor(modelItem => itemF.Description)
-                            *@                                <br />
                                     @Html.DisplayFor(modelItem => itemF.Create.Day) /
                                     @Html.DisplayFor(modelItem => itemF.Create.Month) /
                                     @Html.DisplayFor(modelItem => itemF.Create.Year)
                                 </div>
-
                             </div>
                         </a>
                     </div>
