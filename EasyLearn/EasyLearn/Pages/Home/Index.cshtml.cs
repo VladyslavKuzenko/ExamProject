@@ -88,17 +88,17 @@ namespace EasyLearn.Pages.Home
                 object minItem;
                 var minTime=DateTime.MinValue;
 
-                if (TrainingModulesTemp[0]!=null)
+                if (TrainingModulesTemp.Count>0)
                 {
                     minItem = TrainingModulesTemp[0];
                     minTime = TrainingModulesTemp[0].LastOpen;
                 }
-                else if (FoldersTemp[0]!=null)
+                else if (FoldersTemp.Count>0)
                 {
                     minItem = FoldersTemp[0];
                     minTime = FoldersTemp[0].LastOpen;
                 }
-                else if (CoursesTemp[0] != null)
+                else if (CoursesTemp.Count>0)
                 {
                     minItem = CoursesTemp[0];
                     minTime = CoursesTemp[0].LastOpen;
