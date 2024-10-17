@@ -1599,20 +1599,38 @@ a {
     background-position-y: 5px;
 }
 .random-game-button {
-    width: 31.5%;
-    height: 60px;
-    background-color: #1E90FF;
-    border: none;
-    border-radius: 10px;
+    width: 52px;
+    height: 26px;
+    background-color: #040407;
+    border: 1px solid white;
+    border-radius: 26px;
+    position: relative;
+    cursor: pointer;
     margin-right: 10px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    margin-right: 10px;
-    background-size: 15%;
-    background-repeat: no-repeat;
-    background-position-x: 173px;
-    background-position-y: 11.5px;
+    appearance: none; /* Прибирає стандартний вигляд чекбокса */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+    .random-game-button:before {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: white;
+        border-radius: 50%;
+        top: 3px;
+        left: 3px;
+        transition: all 0.3s;
+    }
+    .random-game-button:checked {
+        background-color: forestgreen;
+    }
+
+        .random-game-button:checked:before {
+            transform: translateX(26px);
+        }
+.text-shuffle{
+    color:whitesmoke;
 }
 .shuffle-btn{
     margin-top:10px;

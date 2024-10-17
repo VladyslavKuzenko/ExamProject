@@ -45,9 +45,27 @@
 
 <div class="game-container">
     <input type="button" name="name" value="Classic" class="classic-game-button" />
-    <input type="button" name="name" value="Random" class="random-game-button" />
-    <input type="button" name="name" value="Exam" class="test-game-button" />
+    <input type="button" name="name" value="Test" class="test-game-button" />
+    <input type="button" name="name" value="Exam" class="exam-game-button" />
 </div>
+
+<div class="toggle-container">
+    <p class="text-shuffle">Shuffle:</p>
+    <input type="checkbox" name="name" value="Shuffle" class="random-game-button" />
+</div>
+
+<div id="question-container" style="display:none;">
+    <h2 id="test-question"></h2>
+    <div id="answer-options"></div>
+    <p id="test-feedback"></p>
+</div>
+
+<div id="test-result" style="display:none;">
+    <h2>Test Completed!</h2>
+    <p id="score-result"></p>
+    <button id="back-to-classic">Back to Classic</button>
+</div>
+
 <div id="currentMode" class="current-mode">Classic mode</div>
 
 
@@ -58,6 +76,9 @@
     let currentCards = [...originalCards]; // Поточний набір карток
     let currentIndex = 0;
     let isFlipped = false;
+    let correctAnswers = 0; 
+    let totalQuestions = 0; 
+
 
     const flashcard = document.getElementById('flashcard');
     const cardTerm = document.getElementById('card-term');
@@ -68,8 +89,9 @@
     const currentMode = document.getElementById('currentMode'); // Новий елемент
 
     const classicBtn = document.querySelector('.classic-game-button');
-    const randomBtn = document.querySelector('.random-game-button');
-    const examBtn = document.querySelector('.test-game-button');
+    const shuffleSwitch = document.querySelector('.random-game-button');
+    const testBtn = document.querySelector('.test-game-button');
+    const examBtn = document.querySelector('.exam-game-button');
 
     // Додаємо обробники подій для кнопок режимів
     classicBtn.addEventListener('click', () => {
@@ -79,11 +101,18 @@
         console.log('Switched to Classic Mode');
     });
 
-    randomBtn.addEventListener('click', () => {
-        currentCards = shuffleArray([...originalCards]);
-        resetQuiz();
-        updateCurrentMode('Random');
-        console.log('Switched to Random Mode');
+    shuffleSwitch.addEventListener('change', () => {
+        if (shuffleSwitch.checked) {
+            currentCards = shuffleArray([...originalCards]); // Режим Shuffle
+            resetQuiz();
+            updateCurrentMode('Shuffle');
+            console.log('Shuffle Mode On');
+        } else {
+            currentCards = [...originalCards]; // Повертаємось до класичного режиму
+            resetQuiz();
+            updateCurrentMode('Classic');
+            console.log('Shuffle Mode Off, Classic Mode On');
+        }
     });
 
     examBtn.addEventListener('click', () => {
@@ -91,6 +120,16 @@
         resetQuiz();
         updateCurrentMode('Exam');
         console.log('Switched to Exam Mode');
+    });
+
+    testBtn.addEventListener('click', () => {
+        currentCards = shuffleArray([...originalCards]);
+        totalQuestions = currentCards.length;
+        correctAnswers = 0;
+        resetQuiz();
+        startTestMode();
+        updateCurrentMode('Test');
+        console.log('Switched to Test Mode');
     });
 
     // Клік по картці для перевертання
@@ -114,6 +153,78 @@
             updateCard();
         }
     });
+
+    function startTestMode() {
+        document.getElementById('game-container').style.display = 'none';
+        document.getElementById('question-container').style.display = 'block';
+        currentIndex = 0;
+        showTestQuestion();
+    }
+
+    // Функція для відображення поточного питання в тестовому режимі
+    function showTestQuestion() {
+        if (currentIndex < currentCards.length) {
+            const currentCard = currentCards[currentIndex];
+            document.getElementById('test-question').textContent = `What is the definition of "${currentCard.Term}"?`;
+
+            // Генеруємо варіанти відповіді
+            const answerOptions = generateAnswerOptions(currentCard);
+            const answerOptionsDiv = document.getElementById('answer-options');
+            answerOptionsDiv.innerHTML = ''; // Очищуємо попередні варіанти
+
+            // Додаємо нові варіанти відповіді
+            answerOptions.forEach(option => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.addEventListener('click', () => checkAnswer(option, currentCard.Definition));
+                answerOptionsDiv.appendChild(button);
+            });
+        } else {
+            finishTest();
+        }
+    }
+
+    // Функція для генерації 4 варіантів відповіді
+    function generateAnswerOptions(correctCard) {
+        const allDefinitions = originalCards.map(card => card.Definition);
+        const wrongOptions = allDefinitions.filter(def => def !== correctCard.Definition);
+        const randomOptions = shuffleArray(wrongOptions).slice(0, 3); // 3 невірні варіанти
+        const options = [...randomOptions, correctCard.Definition]; // Додаємо правильний варіант
+        return shuffleArray(options); // Перемішуємо варіанти відповіді
+    }
+
+    // Функція для перевірки вибраної відповіді
+    function checkAnswer(selectedAnswer, correctAnswer) {
+        const feedback = document.getElementById('test-feedback');
+        if (selectedAnswer === correctAnswer) {
+            correctAnswers++;
+            feedback.textContent = 'Correct!';
+            feedback.style.color = 'green';
+        } else {
+            feedback.textContent = `Incorrect! The correct answer was: ${correctAnswer}`;
+            feedback.style.color = 'red';
+        }
+
+        currentIndex++;
+        setTimeout(() => {
+            feedback.textContent = ''; // Очищуємо повідомлення після короткої паузи
+            showTestQuestion(); // Показуємо наступне запитання
+        }, 1500); // Затримка перед наступним питанням
+    }
+
+    // Функція для завершення тесту
+    function finishTest() {
+        document.getElementById('question-container').style.display = 'none';
+        document.getElementById('test-result').style.display = 'block';
+        document.getElementById('score-result').textContent = `You answered ${correctAnswers} out of ${totalQuestions} questions correctly.`;
+
+        // Додаємо обробник для кнопки повернення в класичний режим
+        document.getElementById('back-to-classic').addEventListener('click', () => {
+            document.getElementById('test-result').style.display = 'none';
+            document.getElementById('game-container').style.display = 'block';
+            updateCurrentMode('Classic');
+        });
+    }
 
     // Функція для перемішування масиву (Рандомний режим)
     function shuffleArray(array) {
