@@ -25,30 +25,22 @@ namespace EasyLearn.Pages.Courses
 
         public IList<Course> Course { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string searchString)
         {
-            // Отримуємо ідентифікатор користувача
             var userId = _userManager.GetUserId(User);
 
-            // Отримуємо папки, що належать цьому користувачеві
+            // Отримуємо всі курси, що належать поточному користувачу
             Course = await _context.Course
-                .Where(f => f.UserId == userId)  
+                .Where(c => c.UserId == userId)  // Фільтруємо курси за UserId
                 .ToListAsync();
 
-            // Додаємо тренінги (TrainingModule) до папок
-            for (int i = 0; i < Course.Count; i++)
+            // Перевертаємо порядок відображення курсів
+            Course = Course.Reverse().ToList();
+
+            // Якщо є пошуковий рядок, фільтруємо курси по імені або опису
+            if (!string.IsNullOrEmpty(searchString))
             {
-                foreach (var el in _context.Folder)
-                {
-                    if (el.CourseId == Course[i].Id)
-                    {
-                        if (Course[i].Folders == null)
-                        {
-                            Course[i].Folders = new List<Folder>();
-                        }
-                        Course[i].Folders.Append(el);
-                    }
-                }
+                Course = Course.Where(c => c.Name.Contains(searchString) || c.Description.Contains(searchString)).ToList();
             }
         }
     }

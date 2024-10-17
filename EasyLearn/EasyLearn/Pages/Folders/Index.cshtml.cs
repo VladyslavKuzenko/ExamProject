@@ -24,51 +24,23 @@ namespace EasyLearn.Pages.Folders
 
         public IList<Folder> Folder { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string searchString)
         {
-            //Folder = await _context.Folder
-            //    .Include(f => f.Course).ToListAsync();
-
-            //for (int i = 0; i < Folder.Count; i++)
-            //{
-            //     foreach (var el in _context.TrainingModule)
-            //    {
-            //        if (el.FolderId == Folder[i].Id)
-            //        {
-            //            if (Folder[i].TrainingModules == null)
-            //            {
-            //                Folder[i].TrainingModules = new List<TrainingModule>();
-            //            }
-            //            Folder[i].TrainingModules.Append(el);
-            //        }
-            //    }
-            //}
-
-            // Отримуємо ідентифікатор користувача
             var userId = _userManager.GetUserId(User);
 
-            // Отримуємо папки, що належать цьому користувачеві
+            // Отримуємо всі папки, що належать поточному користувачу
             Folder = await _context.Folder
-                .Include(f => f.Course)
                 .Where(f => f.UserId == userId)  // Фільтруємо папки за UserId
                 .ToListAsync();
 
-            // Додаємо тренінги (TrainingModule) до папок
-            for (int i = 0; i < Folder.Count; i++)
-            {
-                foreach (var el in _context.TrainingModule)
-                {
-                    if (el.FolderId == Folder[i].Id)
-                    {
-                        if (Folder[i].TrainingModules == null)
-                        {
-                            Folder[i].TrainingModules = new List<TrainingModule>();
-                        }
-                        Folder[i].TrainingModules.Append(el);
-                    }
-                }
-            }
+            // Перевертаємо порядок відображення папок
+            Folder = Folder.Reverse().ToList();
 
+            // Якщо є пошуковий рядок, фільтруємо папки по імені або опису
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                Folder = Folder.Where(f => f.Name.Contains(searchString) || f.Description.Contains(searchString)).ToList();
+            }
         }
     }
 }
