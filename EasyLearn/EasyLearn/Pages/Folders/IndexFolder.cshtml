@@ -11,12 +11,24 @@
     </body>
 
     <table class="table">
-        <a asp-area="" asp-page="/Folders/AddTrainingModules" asp-route-folderId="@Model.FolderId">
+        @*         <a asp-area="" asp-page="/Folders/AddTrainingModules" asp-route-folderId="@Model.FolderId">
         Add TrainingModule
-        </a>
+        </a> *@
+        <h3>Add New Training Modules</h3>
+        <form method="post">
+            <div class="form-group">
+                <select asp-for="SelectedTrainingModuleId" class="form-control" asp-items="Model.TrainingModulesWithoutFolder">
+                    <option value="">-- Select Training Module --</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Add to Folder</button>
+        </form>
 
-    
+
         <tbody>
+
+
+
             @foreach (var item in Model.TrainingModule)
             {
                 <a asp-area="" asp-page="/Cards/Index" asp-route-trainingModuleId="@item.Id">
@@ -34,17 +46,20 @@
                 </a>
             }
         </tbody>
-    </table>
-    <h3>Add New Training Modules</h3>
-
-    <form method="post">
-        <div class="form-group">
-            @*         <label for="TrainingModuleId">Select Training Module</label> *@
-            <select asp-for="SelectedTrainingModuleId" class="form-control" asp-items="Model.TrainingModulesWithoutFolder">
-                <option value="">-- Select Training Module --</option>
-
-            </select>
+        <div>
+            <div style="background-color:white; border:2px solid chartreuse">
+                <a asp-page="/Folders/Edit" asp-route-id="@Model.FolderId">
+                    This is Edit of Folders
+                </a>
+            </div>
+            </br>
+@*             <div style="background-color:white; border:2px solid chartreuse">
+                <a asp-page="/Folders/Delete" asp-route-id="@Model.FolderId">
+                    This is Delete of Folders
+                </a>
+            </div> *@
         </div>
-        <button type="submit" class="btn btn-primary">Add to Folder</button>
-    </form>
+    </table>
+
+
 </div>

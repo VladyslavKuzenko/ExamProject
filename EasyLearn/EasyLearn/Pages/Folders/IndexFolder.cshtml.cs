@@ -19,24 +19,42 @@ namespace EasyLearn.Pages.Folders
             _userManager = userManager;
         }
 
-        public IList<TrainingModule> TrainingModule { get; set; } = default!;
 
+        [BindProperty]
+        public int FolderId {  get; set; } 
+        public Folder Folder { get; set; }
+        public IList<TrainingModule> TrainingModule { get; set; } = default!;
         [BindProperty]
         public int? SelectedTrainingModuleId { get; set; }
         public SelectList TrainingModulesWithoutFolder { get; set; } = default!;
 
-        public Folder Folder { get; set; }
-
-        public int FolderId {  get; set; } 
-        public async Task OnGetAsync(int folderId)
+        public async Task<IActionResult> OnGetAsync(int folderId)
         {
             var userId = _userManager.GetUserId(User);
-            TrainingModule = await _context.TrainingModule
-                .Include(t => t.Folder).Where(f => f.UserId == userId&&f.FolderId== folderId)  // Фільтруємо папки за UserId
-                .ToListAsync();
-            Folder = await _context.Folder.FirstOrDefaultAsync(o => o.Id == folderId);
+            
+            
+            Folder = await _context.Folder
+                .Include(f => f.TrainingModules)
+                .FirstOrDefaultAsync(o => o.Id == folderId);
+            if (Folder == null)
+            {
+                return NotFound();
+            }
+
             Folder.LastOpen=DateTime.Now;
             FolderId=folderId;
+
+
+            TrainingModule = Folder.TrainingModules.ToList();
+            //TrainingModule = await _context.TrainingModule
+            //    .Include(t => t.Folder).Where(f => f.UserId == userId&&f.FolderId== folderId)  // Фільтруємо папки за UserId
+            //    .ToListAsync();
+
+            var modulesWithoutFolder = await _context.TrainingModule
+              .Where(m => m.FolderId == null)
+              .ToListAsync();
+            
+            TrainingModulesWithoutFolder = new SelectList(modulesWithoutFolder, "Id", "Name");
             try
             {
                 await _context.SaveChangesAsync();
@@ -45,7 +63,26 @@ namespace EasyLearn.Pages.Folders
             {
 
             }
+            return Page();
         }
-        
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid || SelectedTrainingModuleId == null)
+            {
+                return RedirectToPage(new { folderId = FolderId });
+            }
+
+            var module = await _context.TrainingModule.FindAsync(SelectedTrainingModuleId);
+
+            if (module != null && module.FolderId == null)
+            {
+                module.FolderId = FolderId;
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToPage(new { folderId = FolderId });
+        }
+
     }
 }
