@@ -1636,6 +1636,9 @@ a {
     font-size: 19.5px;
     margin-right: 10px;
 }
+
+
+
 .exam-game-button {
     width: 32%;
     height: 60px;
@@ -1672,6 +1675,92 @@ a {
     text-align:end
 
 }
+
+.answer-input {
+    width: 60%;
+    height: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #4682B4;
+    font-size: 18px;
+    color: #333; 
+    background-color: #F0F8FF; 
+    margin-right: 10px;
+    margin-top: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+
+    .answer-input:focus {
+        outline: none;
+        border-color: #32CD32; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    }
+
+.exit-exam-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 36px;
+    cursor: pointer;
+    z-index: 1000; 
+    margin-top:200px;
+}
+
+    .exit-exam-btn:hover {
+        color: red; /* Колір хрестика при наведенні */
+    }
+
+/* Основна кнопка для початку тесту */
+.start-test-button {
+    width: 31%;
+    height: 60px;
+    background-color: #FF6347; 
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 10px;
+    background-image: url(../images/start-test.png); 
+    background-size: 20%;
+    background-repeat: no-repeat;
+    background-position-x: 160px;
+    background-position-y: 5px;
+}
+
+
+.submit-answer-button {
+    width: 32%;
+    height: 60px;
+    background-color: #4682B4;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 19.5px;
+    margin-right: 10px;
+}
+
+
+.next-question-button {
+    width: 32%;
+    height: 60px;
+    background-color: #32CD32;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 19.5px;
+    margin-right: 10px;
+}
+
 .home-menu-image {
     position: absolute;
     width: 23px;
