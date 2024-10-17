@@ -23,14 +23,15 @@ namespace EasyLearn.Pages.Folders
         [BindProperty]
         public int FolderId {  get; set; } 
         public Folder Folder { get; set; }
-        public IList<TrainingModule> TrainingModule { get; set; } = default!;
+        public IList<TrainingModule> TrainingModules { get; set; } = default!;
+        public TrainingModule TrainingModule { get; set; } = default!;
         [BindProperty]
         public int? SelectedTrainingModuleId { get; set; }
         public SelectList TrainingModulesWithoutFolder { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int folderId)
         {
-            var userId = _userManager.GetUserId(User);
+            //var userId = _userManager.GetUserId(User);
             
             
             Folder = await _context.Folder
@@ -45,7 +46,7 @@ namespace EasyLearn.Pages.Folders
             FolderId=folderId;
 
 
-            TrainingModule = Folder.TrainingModules.ToList();
+            TrainingModules = Folder.TrainingModules.ToList();
             //TrainingModule = await _context.TrainingModule
             //    .Include(t => t.Folder).Where(f => f.UserId == userId&&f.FolderId== folderId)  // Фільтруємо папки за UserId
             //    .ToListAsync();
@@ -82,6 +83,36 @@ namespace EasyLearn.Pages.Folders
             }
 
             return RedirectToPage(new { folderId = FolderId });
+        }
+        public async Task<IActionResult> OnGetDeleteAsync(int? id)
+        {
+            TrainingModule=await _context.TrainingModule.FirstOrDefaultAsync(f => f.Id == id);
+            
+            Folder = await _context.Folder
+                .Include(f=>f.TrainingModules) 
+                .FirstOrDefaultAsync(f => f.TrainingModules.Contains(TrainingModule));
+           
+          
+            //var trainingModules = Folder.TrainingModules;
+            var trainingModules = await _context.TrainingModule
+                .Where(t=>t.FolderId == Folder.Id)
+                .ToListAsync();
+            trainingModules.Remove(TrainingModule);
+            Folder.TrainingModules= trainingModules;
+            TrainingModule.Folder = null;
+            TrainingModule.FolderId = null;
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+              
+            }
+            return RedirectToPage(new { folderId = Folder.Id });
+
+            //trainingModules.Remove();
+
         }
 
     }
