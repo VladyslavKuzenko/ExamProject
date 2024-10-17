@@ -124,7 +124,7 @@
     <div class="xbox-1">
         <div class="recent-modules">
             @* @foreach (var item in Model.LastOpenItemsList) *@
-            @for (int i = 0; i < 6; i++)
+            @for (int i = 0; i < Model.LastOpenItemsList.Count; i++)
             {
                 if (Model.LastOpenItemsList[i] is Folder)
                 {
