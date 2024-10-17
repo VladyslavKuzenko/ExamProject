@@ -2,7 +2,7 @@
 @model EasyLearn.Pages.Courses.AssignFoldersModel
 
 @{
-    ViewData["Title"] = "Assign Folders to Course";
+    ViewData["Title"] = "AssignFolders";
 }
 
 <h1>Assign Folders to @Model.Course.Name</h1>
@@ -35,7 +35,7 @@ else
 
 <form method="post">
     <div class="form-group">
-        <label for="SelectedFolderId">Select Folder</label>
+        @* <label for="SelectedFolderId">Select Folder</label> *@
         <select asp-for="SelectedFolderId" class="form-control">
             <option value="">-- Select a Folder --</option>
             @foreach (var folder in Model.UnassignedFolders)
