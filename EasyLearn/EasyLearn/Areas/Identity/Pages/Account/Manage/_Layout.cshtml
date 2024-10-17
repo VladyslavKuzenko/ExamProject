@@ -9,23 +9,71 @@
     }
 }
 
-
-    <h1 class="create-title" >Manage your account</h1>
+<div style="position:relative; top:50px;">
+    <h1 class="create-title">Manage your account</h1>
 
 <div>
-    <h2 class="create-title" style="font-size:20px;">Change your account settings</h2>
+        <h2 class="create-title" style="font-size:20px;">Change your account settings</h2>
     <div class="profile-position">
     <hr />
     <div class="row">
-        <div class="col-md-3">
-            <partial name="_ManageNav" />
+                <div class="col-md-3" style=" margin-bottom:30px;">
+                    <hr style="height:5px; background-color:white; opacity:1; width:100%;position:relative; top:100%" />
+
+                    <partial name="_ManageNav" />
         </div>
-        <div class="col-md-9">
+                <div class="col-md-9" style="position:relative; left:15px;">
             @RenderBody()
         </div>
     </div>
 </div>
+
+<div class="logout-btn">
+        <form id="logoutForm" class="form-inline fff" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+            <button id="logout" type="submit" class="der1">Logout</button>
+        </form>
+            <button id="show-languages"></button>
+
+            <div class="language-selector1" style="display: none;">
+                <partial name="_SelectLanguagePartial" />
+            </div>
+
+
 </div>
+       
+</div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const showLanguagesButton = document.getElementById('show-languages');
+        const languageSelector = document.querySelector('.language-selector1');
+
+        languageSelector.style.display = 'none';
+
+        showLanguagesButton.addEventListener('click', function (event) {
+            event.stopPropagation(); 
+
+            if (languageSelector.style.display === 'none' || languageSelector.style.display === '') {
+                languageSelector.style.display = 'block'; 
+            } else {
+                languageSelector.style.display = 'none'; 
+            }
+        });
+
+        document.addEventListener('click', function () {
+            languageSelector.style.display = 'none'; 
+        });
+
+        languageSelector.addEventListener('click', function (event) {
+            event.stopPropagation(); 
+        });
+    });
+
+
+
+</script>
+
 @section Scripts {
     @RenderSection("Scripts", required: false)
 }

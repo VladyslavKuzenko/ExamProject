@@ -5,8 +5,6 @@
 @using Microsoft.Extensions.Localization
 @inject IStringLocalizer<IndexModel> Localize
 
-
-
 @{
     ViewData["Title"] = "Index";
 }
@@ -17,7 +15,6 @@
 
     }
     html {
-        height:2200px;
     }
 
 </style>
@@ -62,10 +59,21 @@
         }
     </div>
 </div>
+<div class="top-page">
 
 
-<div class="upd-func">
-    <h1>@Localize["Try these updated functions"]</h1>
+    <h1 class="adapted-text" ">@Localize["Recent"]</h1>
+    <div class="xbox-1">
+        <div class="recent-modules">
+
+         
+
+        </div>
+     </div>
+
+
+    <h1 class="adapted-text">@Localize["Try these updated functions"]</h1>
+    <div class="xbox-2">
     
     <div class="box-info-container">
 
@@ -75,13 +83,13 @@
         <div class="info">@Localize["Find the flashcards you need to study any subject"]</div>
     </div>
 
-    <div class="box-info">
+            <div class="box-info">
             <div class="photo2"></div>
         <div class="name">@Localize["Learn something new!"]</div>
         <div class="info">@Localize["Improve your grades by learning new words"]</div>
     </div>
 
-        <div class="box-info">
+            <div class="box-info">
             <div class="photo3"></div>
             <div class="name">@Localize["Be prepared for exams"]</div>
             <div class="info">@Localize["Test yourself with study tips and advices"]</div>
@@ -90,10 +98,12 @@
 
     </div>
 
-</div>
+    </div>
 
-<div class="books-container">
-    <h1 style="color:#fff;">@Localize["Popular textbooks"]</h1>
+    <h1 class="adapted-text" ">@Localize["Popular textbooks"]</h1>
+    <div class="xbox-3">
+
+    <div class="books-container">
 
     <button class="nav-btn left-btn" onclick="prevGroup()">&#9664;</button>
 
@@ -103,7 +113,7 @@
             <a href="https://knigi1886.com/ua/" target="_blank" class="image-link">
                 <div class="book-photo1"></div>
             </a>
-            <div class="book-name">Textbook High Note 3 Student's Book</div>
+            <div class="book-name">High Note 3 Student's Book</div>
             <div class="book-info">Year: 2020 <br>Pages: 200<br>Language: English<br>Level: B2<br>Episode: Pearson Education Ltd</div>
         </div>
 
@@ -111,15 +121,15 @@
             <a href="https://www.yakaboo.ua/ua/fundamental-mathematics-for-epidemiology-study.html?" target="_blank" class="image-link">
                 <div class="book-photo2"></div>
             </a>
-            <div class="book-name">Fundamental Mathematics For Epidemiology Study</div>
-            <div class="book-info">Year: 2018 <br>Pages: 271<br>Language: English<br>Level: Advanced<br>Episode: Wiley. John Wiley &Aacute; Sons, LTD</div>
+            <div class="book-name">Mathematics For Epidemiology</div>
+            <div class="book-info">Year: 2018 <br>Pages: 271<br>Language: English<br>Level: Advanced<br>Episode: Sons, LTD</div>
         </div>
 
         <div class="box">
             <a href="https://www.wiley.com/en-sg/Basic+Physics%3A+A+Self-Teaching+Guide%2C+3rd+Edition-p-9781119629900" target="_blank" class="image-link">
                 <div class="book-photo3"></div>
             </a>
-            <div class="book-name">Basic Physics: A Self-Teaching Guide, 3rd Edition</div>
+            <div class="book-name">Basic Physics: 3rd Edition</div>
             <div class="book-info">Year: 2020 <br>Pages: 352<br>Language: English<br>Level: Advanced<br>Episode: Jossey-Bass</div>
         </div>
 
@@ -127,7 +137,7 @@
             <a href="https://www.wiley.com/en-nl/Introducing+Physical+Geography%2C+6th+Edition-p-9781118396209" target="_blank" class="image-link">
                 <div class="book-photo4"></div>
             </a>
-            <div class="book-name">Introducing Physical Geography, 6th Edition</div>
+            <div class="book-name">Physical Geography</div>
             <div class="book-info">Year: 2013 <br>Pages: 672 <br>Language: English<br>Level: Advanced<br>Episode: Alan H. Strahler</div>
         </div>
 
@@ -135,7 +145,7 @@
             <a href="https://www.amazon.com/Architecting-ASP-NET-Core-Applications-atypical/dp/1805123386" target="_blank" class="image-link">
                 <div class="book-photo5"></div>
             </a>
-            <div class="book-name">Architecting ASP.NET. Patterns guide for .NET 8</div>
+            <div class="book-name">Architecting ASP.NET 8</div>
             <div class="book-info">Year: 2024 <br>Pages: 806<br>Language: English<br>Level: Advanced<br>Episode: Carl-Hugo Marcotte</div>
         </div>
 
@@ -143,7 +153,7 @@
             <a href="https://www.amazon.com/Chemistry-Macmillan-Foundations-Rhobert-Lewis/dp/1137610352" target="_blank" class="image-link">
                 <div class="book-photo6"></div>
             </a>
-            <div class="book-name">Textbook Chemistry, Lewis and Evans</div>
+            <div class="book-name">Chemistry with Heisemberg</div>
             <div class="book-info">
                 Year: 2018 <br>Pages: 508<br>Language: English<br>Level: Advanced<br>Episode: Rob Lewis and Wynne Evans
             </div>
@@ -152,95 +162,160 @@
     </div>
 
     <button class="nav-btn right-btn" onclick="nextGroup()">&#9654;</button>
-</div>
+     </div>
+
+    </div>
 
 
+    <h1 class="adapted-text">@Localize["Video lessons"]</h1>
+
+    <div class="xbox-4">
 <div class="video-lessons-column1">
-    <h1>@Localize["Video lessons"]</h1>
 
-    <div class="box-info-container">
+    <div class="box-video-info-container">
 
-        <a href="https://www.youtube.com/watch?v=juKd26qkNAw" target="_blank">
-            <div class="box-info border-class" style="background-color:#2E3756">
-                <div class="photo7"></div>
-                <div class="nameless">Learn English in 30 Minutes - ALL the English Basics You Need</div>
-            </div>
-        </a>
-        
+                    <div class="video-info-box">
+                    <a href="https://www.youtube.com/watch?v=juKd26qkNAw" target="_blank">
+                        <div class="ph-ct">
+                            <div class="photo7"></div>
+                        </div>
+                    </a>
+                        <div class="nameless">Learn English in 30 Minutes - Basics English You Need</div>
+                    </div>
 
-        <a href="https://www.youtube.com/watch?v=gfkTfcpWqAY" target="_blank">
-            <div class="box-info  border-class" style="background-color:#2E3756">
-                <div class="photo8"></div>
-                <div class="nameless">
+                   <div class="video-info-box" >
+                    <a href="https://www.youtube.com/watch?v=gfkTfcpWqAY" target="_blank">
+                    <div class="ph-ct">
+                        <div class="photo8"></div>
+                    </div>
+                    </a>
+                       <div class="nameless">
                     C# Tutorial For Beginners - Learn C# Basics in 1 Hour
                 </div>
             </div>
-        </a>
-        
 
-        <a href="https://www.youtube.com/watch?v=NybHckSEQBI" target="_blank">
-            <div class="box-info border-class" style="background-color:#2E3756">
-                <div class="photo9"></div>
-                <div class="nameless">Algebra Basics: What Is Algebra? - Math Antics</div>
+
+
+                    <div class="video-info-box border-class" >
+                    <a href="https://www.youtube.com/watch?v=NybHckSEQBI" target="_blank">
+                    <div class="ph-ct">
+                        <div class="photo9"></div>
+                    </div>
+                    </a>
+                    <div class="nameless">Algebra Basics: What Is Algebra? - Math Antics</div>
             </div>
-        </a>
 
-    </div>
+
+            </div>
 
 </div>
+    </div>
 
-
+    <div class="xbox-5">
 <div class="video-lessons-column2">
 
-    <div class="box-info-container">
+            <div class="box-video-info-container">
 
-        <a href="https://www.youtube.com/watch?v=AhAxLiGC7Pc" target="_blank">
-            <div class="box-info border-class" style="background-color:#2E3756">
-                <div class="photo10"></div>
-                <div class="nameless">Advanced ASP.NET Core Full Course For Beginners</div>
+                <div class="video-info-box border-class" style="background-color:#2E3756">
+                    <a href="https://www.youtube.com/watch?v=AhAxLiGC7Pc" target="_blank">
+                        <div class="ph-ct">
+                            <div class="photo10"></div>
+                        </div>
+                    </a>
+                        <div class="nameless">Advanced ASP.NET Core Full Course For Beginners</div>
             </div>
-        </a>
 
 
-        <a href="https://www.youtube.com/watch?v=Sk6YQynZ1h8" target="_blank">
-            <div class="box-info  border-class" style="background-color:#2E3756">
-                <div class="photo11"></div>
-                <div class="nameless">
+                <div class="video-info-box  border-class" style="background-color:#2E3756">
+                    <a href="https://www.youtube.com/watch?v=Sk6YQynZ1h8" target="_blank">
+                        <div class="ph-ct">
+                            <div class="photo11"></div>
+                        </div>
+                    </a>
+                        <div class="nameless">
                     Learn French from Zero - French Absolute Beginners Guide
                 </div>
             </div>
-        </a>
 
 
-        <a href="https://www.youtube.com/watch?v=5-AoFVwbWew" target="_blank">
-            <div class="box-info border-class" style="background-color:#2E3756">
-                <div class="photo12"></div>
-                <div class="nameless">I Improved My Social Skills As FAST As I Could - HERE'S HOW</div>
+
+                <div class="video-info-box border-class" style="background-color:#2E3756">
+                    <a href="https://www.youtube.com/watch?v=5-AoFVwbWew" target="_blank">
+                        <div class="ph-ct">
+                            <div class="photo12"></div>
+                        </div>
+                    </a>
+                        <div class="nameless">I Improved My Social Skills As FAST As I Could - HERE'S HOW</div>
             </div>
-        </a>
 
     </div>
 
 </div>
-
-<div class="dragon"></div>
-<div class="owl"></div>
-<div class="cat"></div>
-
-<footer class="home-footer">
-    <label>скиньте грошей 5168 7520 2337 2876</label>
-</footer>
+    </div>
 
 
 
+    <div class="xbox-6">
+        <div class="video-info-box border-class" style="background-color:#2E3756">
+            <a href="https://www.youtube.com/watch?v=juKd26qkNAw" target="_blank">
+                <div class="ph-ct">
+                    <div class="photo7"></div>
+                </div>
+            </a>
+            <div class="nameless">Learn English in 30 Minutes - Basics English You Need</div>
+        </div>
+
+        <div class="video-info-box border-class" style="background-color:#2E3756">
+            <a href="https://www.youtube.com/watch?v=gfkTfcpWqAY" target="_blank">
+                <div class="ph-ct">
+                    <div class="photo8"></div>
+                </div>
+            </a>
+            <div class="nameless">C# Tutorial For Beginners - Learn C# Basics in 1 Hour</div>
+        </div>
+
+        <div class="video-info-box border-class" style="background-color:#2E3756">
+            <a href="https://www.youtube.com/watch?v=NybHckSEQBI" target="_blank">
+                <div class="ph-ct">
+                    <div class="photo9"></div>
+                </div>
+            </a>
+            <div class="nameless">Algebra Basics: What Is Algebra? - Math Antics</div>
+        </div>
+
+        <div class="video-info-box border-class" style="background-color:#2E3756">
+            <a href="https://www.youtube.com/watch?v=AhAxLiGC7Pc" target="_blank">
+                <div class="ph-ct">
+                    <div class="photo10"></div>
+                </div>
+            </a>
+            <div class="nameless">Advanced ASP.NET Core Full Course For Beginners</div>
+        </div>
+
+        <div class="video-info-box border-class" style="background-color:#2E3756">
+            <a href="https://www.youtube.com/watch?v=Sk6YQynZ1h8" target="_blank">
+                <div class="ph-ct">
+                    <div class="photo11"></div>
+                </div>
+            </a>
+            <div class="nameless">Learn French from Zero - French Absolute Beginners Guide</div>
+        </div>
+
+        <div class="video-info-box border-class" style="background-color:#2E3756">
+            <a href="https://www.youtube.com/watch?v=5-AoFVwbWew" target="_blank">
+                <div class="ph-ct">
+                    <div class="photo12"></div>
+                </div>
+            </a>
+            <div class="nameless">I Improved My Social Skills As FAST As I Could - HERE'S HOW</div>
+        </div>
+    </div>
 
 
+@*     <footer class="home-footer">
+        Ваш футер
+    </footer>
+ *@
 
-
-
-
-
-
-
-
+</div>
 

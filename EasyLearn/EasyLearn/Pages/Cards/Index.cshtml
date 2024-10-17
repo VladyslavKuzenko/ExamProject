@@ -5,6 +5,7 @@
     ViewData["Title"] = "Index";
 }
 
+<div class="top-page-card">
 <style>
     body {
         background-color: #0A082D;
@@ -38,15 +39,17 @@
 
 <div class="game-container">
     <input type="button" name="name" value="Classic" class="classic-game-button" />
-    <input type="button" name="name" value="Random" class="random-game-button" />
-    <input type="button" name="name" value="Exam" class="test-game-button" />
+    <input type="button" name="name" value="Test" class="test-game-button" />
+    <input type="button" name="name" value="Exam" class="exam-game-button" />
+    <div class="shuffle-btn">
+            <input type="button" name="name" value="" class="random-game-button" />
+    </div>
 </div>
-
 <!-- Контейнер для нових кнопок екзамену -->
-<div id="examButtonsContainer"></div>
+@* <div id="examButtonsContainer"></div>
 
-<div id="currentMode" class="current-mode">Classic</div>
-
+    <div id="currentMode" class="current-mode">Classic</div>
+</div> *@
 <script>
     // Отримуємо картки з моделі
     const originalCards = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Card.Select(c => new { c.Term, c.Definition })));
@@ -65,7 +68,8 @@
 
     const classicBtn = document.querySelector('.classic-game-button');
     const randomBtn = document.querySelector('.random-game-button');
-    const examBtn = document.querySelector('.test-game-button');
+    const testBtn = document.querySelector('.test-game-button');
+    const testBtn = document.querySelector('.exam-game-button');
 
     const examButtonsContainer = document.getElementById('examButtonsContainer'); // Контейнер для нових кнопок
 
@@ -73,65 +77,60 @@
     classicBtn.addEventListener('click', () => {
         currentCards = [...originalCards];
         resetQuiz();
-        updateCurrentMode('Classic');
-        removeExamButtons(); // Видаляємо додаткові кнопки, якщо вони є
+        //updateCurrentMode('Classic');
     });
 
     randomBtn.addEventListener('click', () => {
         currentCards = shuffleArray([...originalCards]);
         resetQuiz();
-        updateCurrentMode('Random');
-        removeExamButtons(); // Видаляємо додаткові кнопки, якщо вони є
+
     });
 
     examBtn.addEventListener('click', () => {
         currentCards = generateExamCards(originalCards, Math.min(originalCards.length, 12)); // Генеруємо картки екзамену
         resetQuiz();
-        updateCurrentMode('Exam');
-
-        // Створення трьох нових кнопок при натисканні на "Exam"
-        createExamButtons();
+        //updateCurrentMode('Exam');
     });
 
     // Функція для створення трьох кнопок екзамену
-    function createExamButtons() {
-        // Перевіряємо, чи вже створені кнопки
-        if (document.getElementById('examButton1')) return;
+    // function createExamButtons() {
+    //     // Перевіряємо, чи вже створені кнопки
+    //     if (document.getElementById('examButton1')) return;
 
-        // Створюємо кнопку 1
-        const button1 = document.createElement('input');
-        button1.type = 'button';
-        button1.name = 'examSub';
-        button1.value = 'Easy';
-        button1.id = 'examButton1';
-        button1.className = 'exam-sub-button';
-        examButtonsContainer.appendChild(button1);
+    //     // Створюємо кнопку 1
+    //     const button1 = document.createElement('input');
+    //     button1.type = 'button';
+    //     button1.name = 'examSub';
+    //     button1.value = 'Easy';
+    //     button1.id = 'examButton1';
+    //     button1.className = 'exam-sub-button';
+    //     examButtonsContainer.appendChild(button1);
 
-        // Створюємо кнопку 2
-        const button2 = document.createElement('input');
-        button2.type = 'button';
-        button2.name = 'examSub';
-        button2.value = 'Medium';
-        button2.id = 'examButton2';
-        button2.className = 'exam-sub-button';
-        examButtonsContainer.appendChild(button2);
+    //     // Створюємо кнопку 2
+    //     const button2 = document.createElement('input');
+    //     button2.type = 'button';
+    //     button2.name = 'examSub';
+    //     button2.value = 'Medium';
+    //     button2.id = 'examButton2';
+    //     button2.className = 'exam-sub-button';
+    //     examButtonsContainer.appendChild(button2);
 
-        // Створюємо кнопку 3
-        const button3 = document.createElement('input');
-        button3.type = 'button';
-        button3.name = 'examSub';
-        button3.value = 'Hard';
-        button3.id = 'examButton3';
-        button3.className = 'exam-sub-button';
-        examButtonsContainer.appendChild(button3);
-    }
+    //     // Створюємо кнопку 3
+    //     const button3 = document.createElement('input');
+    //     button3.type = 'button';
+    //     button3.name = 'examSub';
+    //     button3.value = 'Hard';
+    //     button3.id = 'examButton3';
+    //     button3.className = 'exam-sub-button';
+    //     examButtonsContainer.appendChild(button3);
+    // }
 
-    // Функція для видалення трьох кнопок екзамену
-    function removeExamButtons() {
-        while (examButtonsContainer.firstChild) {
-            examButtonsContainer.removeChild(examButtonsContainer.firstChild);
-        }
-    }
+    // // Функція для видалення трьох кнопок екзамену
+    // function removeExamButtons() {
+    //     while (examButtonsContainer.firstChild) {
+    //         examButtonsContainer.removeChild(examButtonsContainer.firstChild);
+    //     }
+    // }
 
     // Клік по картці для перевертання
     flashcard.addEventListener('click', () => {
@@ -155,7 +154,7 @@
         }
     });
 
-    // Функція для перемішування масиву (Рандомний режим)
+    // Функція для перемішування масиву 
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));

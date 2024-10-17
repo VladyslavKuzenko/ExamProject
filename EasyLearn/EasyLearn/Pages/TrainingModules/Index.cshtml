@@ -10,6 +10,8 @@
 }
 
 
+<div class="top-page-library-modules">
+
 <body class="custom-background">
 
     <h1 class="create-title">@Localize["Your library"]</h1>
@@ -21,7 +23,11 @@
     </div>
     <hr class="tab-line">
 
-    <input type="search" class="s1" placeholder="@Localize["Search Module"]" />
+        <form method="get">
+            <input type="search" name="searchString" class="s1" placeholder="@Localize["Search Module"]" />
+            <button type="submit" class="btn btn-primary lupa" ></button>
+        </form>
+
 
 
 </body>
@@ -47,3 +53,4 @@
         }
     </tbody>
 </table>
+</div>
