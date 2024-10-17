@@ -1585,7 +1585,7 @@ a {
     background-position-y: center;
 }
 .classic-game-button {
-    width: 31.1%;
+    width: 31.5%;
     height: 60px;
     background-color: cornflowerblue;
     border: none;
@@ -1594,49 +1594,47 @@ a {
     font-weight: bold;
     font-size: 18px;
     margin-right: 10px;
-    background-image: url(../images/flash-cards.png);
     background-size: 20%;
     background-repeat: no-repeat;
     background-position-x: 160px;
     background-position-y: 5px;
 }
 .random-game-button {
-    width: 52px;
-    height: 52px;
-    background-color: #040407;
+    width: 31.5%;
+    height: 60px;
+    background-color: #1E90FF;
     border: none;
-    border-radius: 52px;
+    border-radius: 10px;
     margin-right: 10px;
-    margin-bottom: 0px;
-    background-image: url(../images/shuffle.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
     color: white;
     font-weight: bold;
     font-size: 18px;
+    margin-right: 10px;
+    background-size: 15%;
+    background-repeat: no-repeat;
+    background-position-x: 173px;
+    background-position-y: 11.5px;
 }
 .shuffle-btn{
     margin-top:10px;
     margin-left:20px;
 }
 .test-game-button {
-    width: 32%;
+    width: 31.5%;
     height: 60px;
-    background-color: chartreuse;
+    background-color: #FF8C00;
     border: none;
     border-radius: 10px;
     margin-right: 10px;
-    background-image: url(../images/test.png);
-    background-size: 20%;
-    background-repeat: no-repeat;
-    background-position-x: 160px;
-    background-position-y: 5px;
     color: white;
     font-weight: bold;
     font-size: 19.5px;
     margin-right: 10px;
+    background-size: 14%;
+    background-repeat: no-repeat;
+    background-position-x: 162px;
+    background-position-y: 11px;
 }
-
 
 
 .exam-game-button {
@@ -1657,23 +1655,23 @@ a {
     margin-right: 10px;
 }
 .game-container {
-    width: 100%;
+    width: 62%;
     position: relative;
-    top: -490px;
+    top: -430px;
     left: 100px;
-    align-items: center;
+    display:flex;
+    justify-content:space-between;
 }
 .current-mode {
     width: 170px;
     position: relative;
-    top: -645px;
+    top: -585px;
     left: -80px;
     color: white;
     font-size: 40px;
     font-weight: bold;
-    margin-bottom: 20px;
-    text-align:end
-
+    margin-top: 20px;
+    text-align: end
 }
 
 .answer-input {
@@ -1825,3 +1823,20 @@ a {
     position: absolute;
     top: 520px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -5,25 +5,30 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="top-page-card">
 <style>
     body {
         background-color: #0A082D;
     }
+
 </style>
 
-<h1 class="create-title" style="position:relative; left:100px;">List: @Model.TrainingModule.Name</h1>
+<h1 class="create-title" style="position:relative; left:100px; top:130px;">Word List </h1>
 
 <div class="card-container">
     <div class="card" id="flashcard">
         <div class="card-face card-front">
             <span id="card-term">@Model.Card.FirstOrDefault()?.Term</span>
+            @* <a asp-page="./Edit" asp-route-id="@Model.Card.FirstOrDefault()?.Id">Edit</a> *@
+
         </div>
         <div class="card-face card-back">
             <span id="card-definition">@Model.Card.FirstOrDefault()?.Definition</span>
+            @* <a asp-page="./Edit" asp-route-id="@Model.Card.FirstOrDefault()?.Id">Edit</a> *@
+
         </div>
     </div>
 </div>
+
 
 <div class="navigation-buttons">
     <button id="prevBtn" disabled>⭠</button>
@@ -34,32 +39,17 @@
     <span id="cardCounter">1/@Model.Card.Count</span>
 </div>
 <a asp-page="../TrainingModules/Edit" asp-route-id="@Model.TrainingModuleId">
+
     <div class="edit-card"></div>
 </a>
 
 <div class="game-container">
     <input type="button" name="name" value="Classic" class="classic-game-button" />
-    <input type="button" name="name" value="Test" class="test-game-button" />
-    <input type="button" name="name" value="Exam" class="exam-game-button" />
-    <div class="shuffle-btn">
-            <input type="button" name="name" value="" class="random-game-button" />
-    </div>
+    <input type="button" name="name" value="Random" class="random-game-button" />
+    <input type="button" name="name" value="Exam" class="test-game-button" />
 </div>
+<div id="currentMode" class="current-mode">Classic mode</div>
 
-
-<!--РЕЖИМ EXAM-->
-    <div class="exam-mode">
-        <input type="text" id="userAnswer" placeholder="Введіть відповідь" class="answer-input" />
-        <button id="submitAnswerBtn" class="submit-answer-button">Перевірити</button>
-        <div id="feedbackMessage" class="feedback-message"></div>
-    </div>
-
-
-<!-- Контейнер для нових кнопок екзамену -->
-<div id="examButtonsContainer"></div>
-
-    <div id="currentMode" class="current-mode">Classic</div>
-</div> 
 
 <script>
     // Отримуємо картки з моделі
@@ -68,10 +58,6 @@
     let currentCards = [...originalCards]; // Поточний набір карток
     let currentIndex = 0;
     let isFlipped = false;
-    //для тестового режиму
-    let correctAnswersCount = 0;
-    let totalQuestions = currentCards.length;
-
 
     const flashcard = document.getElementById('flashcard');
     const cardTerm = document.getElementById('card-term');
@@ -79,104 +65,33 @@
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     const cardCounter = document.getElementById('cardCounter');
-    const currentMode = document.getElementById('currentMode');
+    const currentMode = document.getElementById('currentMode'); // Новий елемент
 
     const classicBtn = document.querySelector('.classic-game-button');
     const randomBtn = document.querySelector('.random-game-button');
-    const testBtn = document.querySelector('.test-game-button');
-    const examBtn = document.querySelector('.exam-game-button');
-    const editBtn = document.querySelector('.edit-card');
-
-    const examButtonsContainer = document.getElementById('examButtonsContainer'); // Контейнер для нових кнопок
-
-    const userAnswerInput = document.getElementById('userAnswer');
-    const submitAnswerBtn = document.getElementById('submitAnswerBtn');
-    const feedbackMessage = document.getElementById('feedbackMessage');
-    
-    const classicModeElements = document.querySelector('.game-container');
-    const examModeElements = document.querySelector('.exam-mode');
-
-    const exitExamBtn = document.createElement('button');
-
-    exitExamBtn.innerHTML = '&times;'; // Символ хрестика
-    exitExamBtn.classList.add('exit-exam-btn'); // Додаємо клас для стилізації
-    exitExamBtn.style.display = 'none'; // Спочатку хрестик прихований
-    document.body.appendChild(exitExamBtn); // Додаємо хрестик в тіло документа
-
+    const examBtn = document.querySelector('.test-game-button');
 
     // Додаємо обробники подій для кнопок режимів
     classicBtn.addEventListener('click', () => {
         currentCards = [...originalCards];
         resetQuiz();
-        // updateCurrentMode('Classic');
-
-        classicModeElements.style.display = 'block';
-        examModeElements.style.display = 'none'; // Приховуємо елементи для екзамену
-
-        // Повертаємо кнопки навігації картками
-        prevBtn.style.display = 'inline-block';
-        nextBtn.style.display = 'inline-block';
-        cardCounter.style.display = 'inline-block';
+        updateCurrentMode('Classic');
+        console.log('Switched to Classic Mode');
     });
 
     randomBtn.addEventListener('click', () => {
         currentCards = shuffleArray([...originalCards]);
         resetQuiz();
-
+        updateCurrentMode('Random');
+        console.log('Switched to Random Mode');
     });
 
     examBtn.addEventListener('click', () => {
-        currentCards = generateExamCards(originalCards, Math.min(originalCards.length, 12)); 
+        currentCards = generateExamCards(originalCards, 12);
         resetQuiz();
         updateCurrentMode('Exam');
-
-       document.querySelector('.exam-mode').style.display = 'block';
-
-        prevBtn.style.display = 'none';
-        nextBtn.style.display = 'none';
-        cardCounter.style.display = 'none';
-
-        classicModeElements.style.display = 'none';
-        editBtn.style.display = 'none';
-        exitExamBtn.style.display = 'block';
+        console.log('Switched to Exam Mode');
     });
-
-    exitExamBtn.addEventListener('click', () => {
-        
-        const userConfirmed = confirm("Ваші відповіді не будуть збережені. Ви дійсно хочете вийти з режиму екзамену?");
-
-        if (userConfirmed) {
-
-            currentCards = [...originalCards];
-            resetQuiz();
-            updateCurrentMode('Classic');
-
-      
-            classicModeElements.style.display = 'block';
-            examModeElements.style.display = 'none'; 
-
-     
-            prevBtn.style.display = 'inline-block';
-            nextBtn.style.display = 'inline-block';
-            cardCounter.style.display = 'inline-block';
-
-            
-            gameContainer.style.display = 'block';
-            exitExamBtn.style.margin = '10000';
-        } else {
-            
-        }
-    });
-
-    testBtn.addEventListener('click', () => {
-        currentCards = [...originalCards];
-        resetQuiz();
-        updateCurrentMode('Test');
-
-    });
-
-    document.querySelector('.exam-mode').style.display = 'none';
-
 
     // Клік по картці для перевертання
     flashcard.addEventListener('click', () => {
@@ -199,60 +114,8 @@
             updateCard();
         }
     });
-    submitAnswerBtn.addEventListener('click', checkAnswer);
 
-    // Функція для перевірки відповіді користувача
-    function checkAnswer() {
-        const userAnswer = userAnswerInput.value.trim().toLowerCase(); // Отримуємо введену відповідь
-        const correctAnswer = currentCards[currentIndex].Definition.toLowerCase(); // Правильна відповідь з картки
-
-        // Перевіряємо, чи відповів користувач правильно
-        if (userAnswer === correctAnswer) {
-            correctAnswersCount++;
-            feedbackMessage.textContent = "Правильно!";
-            feedbackMessage.style.color = "green";
-        } else {
-            feedbackMessage.textContent = `Неправильно! Правильна відповідь: ${currentCards[currentIndex].Definition}`;
-            feedbackMessage.style.color = "red";
-        }
-
-        // Переходимо до наступної картки
-        if (currentIndex < currentCards.length - 1) {
-            currentIndex++;
-            updateCard(); // Оновлюємо картку на нову
-            resetInput(); // Скидаємо поле введення та повідомлення
-        } else {
-            // Якщо це остання картка, виводимо результат
-            showFinalResult();
-        }
-    }
-
-    // Функція для скидання поля введення та повідомлення про правильність
-    function resetInput() {
-        userAnswerInput.value = ''; // Очищуємо поле введення
-        feedbackMessage.textContent = ''; // Очищуємо повідомлення про відповідь
-    }
-
-    // Функція для відображення фінального результату
-    function showFinalResult() {
-        feedbackMessage.textContent = `Ви відповіли правильно на ${correctAnswersCount} з ${totalQuestions} питань!`;
-        feedbackMessage.style.color = "blue";
-
-        // Можна додати кнопку для перезапуску тесту
-        submitAnswerBtn.disabled = true; // Вимикаємо кнопку після завершення
-    }
-
-
-    function resetQuiz() {
-        currentIndex = 0;
-        isFlipped = false;
-        flashcard.classList.remove('flipped');
-        resetInput(); // Очищуємо поле введення
-        updateCard(); // Оновлюємо картку
-
-    }
-
-    // Функція для перемішування масиву 
+    // Функція для перемішування масиву (Рандомний режим)
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
