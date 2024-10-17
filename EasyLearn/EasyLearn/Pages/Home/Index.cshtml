@@ -56,6 +56,25 @@
                 </a>
 
             }
+            else if (item is Course)
+            {
+                var itemF = item as Course;
+                <a asp-area="" asp-page="/Courses/IndexCourses" asp-route-courseId="@itemF.Id">
+
+                    <div class="recent-library-module">
+                        @Html.DisplayFor(modelItem => itemF.Name)
+                        <div class="recent-description">
+                            @Html.DisplayFor(modelItem => itemF.Description)
+                            <br />
+                            @Html.DisplayFor(modelItem => itemF.Create.Day) /
+                            @Html.DisplayFor(modelItem => itemF.Create.Month) /
+                            @Html.DisplayFor(modelItem => itemF.Create.Year)
+                        </div>
+
+                    </div>
+                </a>
+
+            }
         }
     </div>
 </div>
