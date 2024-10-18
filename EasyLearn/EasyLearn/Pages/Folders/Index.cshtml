@@ -22,7 +22,7 @@
     <hr class="tab-line">
 
         <form method="get">
-            <input type="search" name="searchString" class="s1" placeholder="@Localize["Search Module"]" />
+            <input type="search" name="searchString" class="s1" placeholder="@Localize["Search Folder"] " />
             <button type="submit" class="btn btn-primary lupa"></button>
         </form>
 
@@ -40,32 +40,18 @@
 
                 <div class="recent-library-folders">
                     @Html.DisplayFor(modelItem => item.Name)
-                    <div class="recent-description">
+                    <div class="recent-description1">
                         @Html.DisplayFor(modelItem => item.Description)
                                     <br />
+                        <div class="dta">
                         @Html.DisplayFor(modelItem => item.Create.Day) /
                         @Html.DisplayFor(modelItem => item.Create.Month) /
                         @Html.DisplayFor(modelItem => item.Create.Year)
+                        </div>
                     </div>
 
                 </div>
             </a>
-            @*  <td>
-        <ul>
-        @foreach (var module in item.TrainingModules)
-        {
-        <li>
-        @module.Name - @module.Description
-        <ul>
-        @foreach (var card in module.Cards)
-        {
-        <li>@card.Term: @card.Definition</li>
-        }
-        </ul>
-        </li>
-        }
-        </ul>
-        </td> *@
 
         }
     </tbody>

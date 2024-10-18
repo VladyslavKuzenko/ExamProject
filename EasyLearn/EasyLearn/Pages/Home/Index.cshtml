@@ -13,223 +13,113 @@
     body {
         background-color: #0A082D;
     }
-
-    .recent-modules {
-        display: flex;
-        width: 70%;
-        height: 235px;
-        justify-content: space-between;
-        border-radius: 10px;
-    }
-
-    .recent-library-module1 {
-        height: 100%;
-        border-radius: 6px;
-        background-color: #2E3756;
-        color: white;
-        font-weight: bold;
-        font-size: 23px;
-        width: 100%
-    }
-
-        .recent-library-module2:hover {
-            border-bottom:3px solid yellow;
-            border-bottom-left-radius:0;
-            border-bottom-right-radius: 0;
-        }
-
-    .recent-library-module2 {
-        height: 100%;
-        border-radius: 6px;
-        background-color: #2E3756;
-        color: white;
-        font-weight: bold;
-        font-size: 23px;
-        width: 100%
-    }
-
-        .recent-library-module3:hover {
-            border-bottom: 3px solid lime;
-            border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-        }
-
-    .recent-library-module3 {
-        height: 100%;
-        border-radius: 6px;
-        background-color: #2E3756;
-        color: white;
-        font-weight: bold;
-        font-size: 23px;
-        width: 100%
-    }
         .recent-library-module1:hover {
             border-bottom: 3px solid aqua;
-            border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
         }
-        .recent-description {
-        font-size: 15px;
-        font-weight: 400;
-        color: #A9B0C3;
+        .recent-library-module2:hover {
+            border-bottom: 3px solid yellow;
+        }
+        .recent-library-module3:hover {
+            border-bottom: 3px solid lime;
+        }
+        .hidden1 {
+         display: none;
+         }
+         .visible {
+          display: block;
+          }
+
+    .btn {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        color: white;
+        background-color: #2E3756;
+        border: 1px solid #374166;
+        cursor: pointer;
+        font-size: 16px;
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+        text-align: center; 
+        padding: 0;
+        transition: transform 0.3s ease, background-color 0.3s ease;
         position:relative;
-        top:80px;
-        z-index:99;
-        font-weight: bold;
-        left:6%;
+
     }
 
-    .poop {
-        height: 100%;
-        width: 32.5%;
+        .btn:hover {
+           transform:scale(1.1);
+           color:white;
+        }
+
+    .btn-left {
+        right: 20px;  
     }
-    .name-recent1 {
-        width:80.5%;
-        display:flex;
-        justify-content:start;
-        position:relative;
-        top:25px;
-        left:6%;
-        overflow: hidden; /* приховує все, що виходить за межі */
+    .btn-right {
+        left:20px;
     }
 
-    .recent-info {
-        font-size: 13.7px;
-        font-weight: 400;
-        color: lightgray;
-        position: relative;
-        top: 65px;
-        z-index: 99;
-        font-weight: bold;
-        left: 6%;
-        background-color: #0A082D;
-        border-radius: 10px;
-        width: 70%;
-        height: 90px; /* Фіксована висота */
-        padding: 10px;
-        overflow: hidden; /* Приховує текст за межами блоку */
-        text-overflow: ellipsis; /* Додає три крапки для тексту, який не вміщується */
-        white-space: normal; /* Дозволяє переносити текст */
-        display: block; /* Важливо для коректного переносу */
-        word-wrap: break-word; /* Переносить слова, якщо вони занадто довгі */
-        line-height: 1.5em; /* Висота рядка */
+    #previous-btn {
+        visibility:hidden;
     }
-
-
 </style>
 
 <div class="top-page">
 
     <h1 class="adapted-text">@Localize["Recent"]</h1>
     <div class="xbox-1">
+        <button class="btn-left btn" id="previous-btn">&#9664;</button>
         <div class="recent-modules">
-            @* @foreach (var item in Model.LastOpenItemsList) *@
+            <!-- Перебір карток -->
             @for (int i = 0; i < Model.LastOpenItemsList.Count; i++)
             {
-                if (Model.LastOpenItemsList[i] is Folder)
+                var item = Model.LastOpenItemsList[i];
+                string classType = i < 3 ? "poop visible" : "poop hidden1";
+                <!-- Використовуємо hidden1 -->
+                if (item is Folder)
                 {
-                    var itemF = Model.LastOpenItemsList[i] as Folder;
-                    string classType;
-                    if (i < 3)
-                    {
-                        classType = "poop";
-                    }
-                    else
-                    {
-                        classType = "poop hidden";
-                    }
-                    @* <div class="poop"> *@
-
-                    <div class=@classType>
-
+                    var itemF = item as Folder;
+                    <div class="@classType">
                         <a asp-area="" asp-page="/Folders/IndexFolder" asp-route-folderId="@itemF.Id">
                             <div class="recent-library-module2">
-                                <div class="name-recent1">
-                                @Html.DisplayFor(modelItem => itemF.Name)
-                                </div>
-                                <div class="recent-info">
-                                    @Html.DisplayFor(modelItem => itemF.Description)
-                                </div>
-                                <div class="recent-description">
-                                    @Html.DisplayFor(modelItem => itemF.Create.Day) /
-                                    @Html.DisplayFor(modelItem => itemF.Create.Month) /
-                                    @Html.DisplayFor(modelItem => itemF.Create.Year)
-                                </div>
+                                <div class="name-recent1">@Html.DisplayFor(modelItem => itemF.Name)</div>
+                                <div class="recent-info">@Html.DisplayFor(modelItem => itemF.Description)</div>
+                                <div class="recent-description">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
                             </div>
                         </a>
                     </div>
-
                 }
-                else if (Model.LastOpenItemsList[i] is TrainingModule)
+                else if (item is TrainingModule)
                 {
-                    var itemF = Model.LastOpenItemsList[i] as TrainingModule;
-                    string classType;
-                    if (i < 3)
-                    {
-                        classType = "poop";
-                    }
-                    else
-                    {
-                        classType = "poop hidden";
-                    }
-                                  @* <div class="poop"> *@
-
-                    <div class=@classType>
-
+                    var itemF = item as TrainingModule;
+                    <div class="@classType">
                         <a asp-area="" asp-page="/Cards/Index" asp-route-trainingModuleId="@itemF.Id">
                             <div class="recent-library-module1">
-                                <div class="name-recent1">
-                                    @Html.DisplayFor(modelItem => itemF.Name)
-                                </div>
-                                <div class="recent-info">
-                                    @Html.DisplayFor(modelItem => itemF.Description)
-                                </div>
-                                <div class="recent-description">
-                                    @Html.DisplayFor(modelItem => itemF.Create.Day) /
-                                    @Html.DisplayFor(modelItem => itemF.Create.Month) /
-                                    @Html.DisplayFor(modelItem => itemF.Create.Year)
-                                </div>
+                                <div class="name-recent1">@Html.DisplayFor(modelItem => itemF.Name)</div>
+                                <div class="recent-info">@Html.DisplayFor(modelItem => itemF.Description)</div>
+                                <div class="recent-description">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
                             </div>
                         </a>
                     </div>
-
                 }
-                else if (Model.LastOpenItemsList[i] is Course)
+                else if (item is Course)
                 {
-                    var itemF = Model.LastOpenItemsList[i] as Course;
-                    string classType;
-                    if (i < 3)
-                    {
-                        classType = "poop";
-                    }
-                    else
-                    {
-                        classType = "poop hidden";
-                    }
-                    @* <div class="poop"> *@
-
-                    <div class=@classType>
+                    var itemF = item as Course;
+                    <div class="@classType">
                         <a asp-area="" asp-page="/Courses/IndexCourses" asp-route-courseId="@itemF.Id">
-
                             <div class="recent-library-module3">
-                                <div class="name-recent1">
-                                    @Html.DisplayFor(modelItem => itemF.Name)
-                                </div>
-                                <div class="recent-info">
-                                    @Html.DisplayFor(modelItem => itemF.Description)
-                                </div>
-                                <div class="recent-description">
-                                    @Html.DisplayFor(modelItem => itemF.Create.Day) /
-                                    @Html.DisplayFor(modelItem => itemF.Create.Month) /
-                                    @Html.DisplayFor(modelItem => itemF.Create.Year)
-                                </div>
+                                <div class="name-recent1">@Html.DisplayFor(modelItem => itemF.Name)</div>
+                                <div class="recent-info">@Html.DisplayFor(modelItem => itemF.Description)</div>
+                                <div class="recent-description">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
                             </div>
                         </a>
                     </div>
-
                 }
             }
         </div>
+
+        <button class="btn-right btn" id="next-btn">&#9654;</button>
     </div>
 
 
@@ -480,3 +370,39 @@
 
 </div>
 
+<script>
+    let currentStart = 0;
+    const cards = document.querySelectorAll('.poop');
+
+    document.getElementById('next-btn').addEventListener('click', () => {
+        currentStart += 3;
+        if (currentStart >= cards.length) {
+            currentStart = 0;
+        }
+        updateVisibility();
+    });
+
+    document.getElementById('previous-btn').addEventListener('click', () => {
+        currentStart -= 3;
+        if (currentStart < 0) {
+            currentStart = cards.length - 3;
+        }
+        updateVisibility();
+    });
+
+    function updateVisibility() {
+        cards.forEach((card, index) => {
+            if (index >= currentStart && index < currentStart + 3) {
+                card.classList.remove('hidden1');
+                card.classList.add('visible');
+            } else {
+                card.classList.remove('visible');
+                card.classList.add('hidden1');
+            }
+        });
+
+        // Сховати та показати кнопки
+        document.getElementById('previous-btn').style.visibility = currentStart > 0 ? 'visible' : 'hidden';
+        document.getElementById('next-btn').style.visibility = currentStart + 3 < cards.length ? 'visible' : 'hidden';
+    }
+</script>

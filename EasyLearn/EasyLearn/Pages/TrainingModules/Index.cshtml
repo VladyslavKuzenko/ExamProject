@@ -40,12 +40,14 @@
             <a asp-area="" asp-page="/Cards/Index" asp-route-trainingModuleId="@item.Id">
             <div class="recent-library-module">
                     @Html.DisplayFor(modelItem => item.Name)
-                <div class="recent-description">
+                <div class="recent-description1">
                     @Html.DisplayFor(modelItem => item.Description)
                     <br />
+                    <div class="dta">
                             @Html.DisplayFor(modelItem => item.Create.Day) /
                             @Html.DisplayFor(modelItem => item.Create.Month) /
                             @Html.DisplayFor(modelItem => item.Create.Year)
+                            </div>
                 </div>
                   
             </div>

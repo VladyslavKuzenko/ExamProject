@@ -238,12 +238,17 @@ a {
     border:none;
 }
 .language-selector1 {
-    position: absolute;
-    top: 140px;
+    position: relative;
+    top: 110px;
     color: white;
-    border-radius: 10px;
     z-index: 1000;
-    left:120px;
+    left: 8px;
+    background-color: #2E3756;
+    width: 300px;
+    display: flex;
+    align-content: end;
+    justify-content: end;
+    align-items: end;
 }
 .dsfg {
     background-color:red;
@@ -252,6 +257,14 @@ a {
     position:absolute;
     top:100%;
 
+}
+.recent-description1 {
+    color:lightgray;
+    font-size:13px;
+}
+.dta {
+    text-align:end;
+    width:98%;
 }
 @media only screen and (min-width: 1024px) {
     /*___________________________Header*/
@@ -289,10 +302,66 @@ a {
     /*___________________________Home*/
     .xbox-1 {
         width: 100%;
-        height: 270px;
+        height: 235px;
         display: flex;
         justify-content: center;
-        align-items: start;
+        align-items: center;
+    }
+    .recent-modules {
+        display: flex;
+        width: 70%;
+        height: 235px;
+        justify-content: space-between;
+        border-radius: 10px;
+    }
+    .poop {
+        height: 100%;
+        width: 32.5%;
+        transition: opacity 0.3s ease;
+    }
+    .recent-description {
+        font-size: 15px!important;
+        font-weight: bold;
+        color: #A9B0C3;
+        position: relative;
+        top: 80px;
+        left: 8%;
+        width:90%;
+    }
+    .recent-info {
+        font-size: 13.7px;
+        font-weight: bold;
+        color: lightgray;
+        position: relative;
+        top: 65px;
+        left: 8%;
+        background-color: #0A082D;
+        border-radius: 10px;
+        width: 70%;
+        height: 90px;
+        padding: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.5em;
+        word-wrap: break-word;
+    }
+    .name-recent1 {
+        width: 80.5%;
+        display: flex;
+        justify-content: start;
+        position: relative;
+        top: 25px;
+        left: 8%;
+        overflow: hidden;
+    }
+    .recent-library-module1, .recent-library-module2, .recent-library-module3 {
+        height: 100%;
+        border-radius: 6px;
+        background-color: #2E3756;
+        color: white;
+        font-weight: bold;
+        font-size: 23px;
+        width: 100%;
     }
     .box-info {
         position: relative;
@@ -308,7 +377,7 @@ a {
     .box-info-container {
         display: flex;
         width: 70%;
-        height: 330px;
+        height: 350px;
     }
     .name {
         color: white;
@@ -329,7 +398,7 @@ a {
     }
     .xbox-2 {
         width: 100%;
-        height: 390px;
+        height: 350px;
         display: flex;
         justify-content: center;
         align-items: start;
@@ -417,6 +486,19 @@ a {
     .fe {
         display: none;
     }
+    .del {
+        background-color: crimson;
+        height: 100px;
+        width: 100px;
+        border: none;
+        position: absolute;
+        left: 92.3%;
+        background-image: url(/images/delete1.png);
+        background-repeat: no-repeat;
+        background-size: 42%;
+        background-position: center;
+        margin-top: -110px;
+    }
 
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
@@ -463,10 +545,70 @@ a {
     /*___________________________Home*/
     .xbox-1 {
         width: 100%;
-        height: 300px;
+        height: 600px;
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .name-recent1 {
+        width: 80.5%;
+        display: flex;
+        justify-content: start;
+        position: relative;
+        top: 25px;
+        left: 6%;
+        overflow: hidden;
+    }
+    .recent-info {
+        font-size: 13.7px;
+        font-weight: bold;
+        color: lightgray;
+        position: relative;
+        top: 50px;
+        left: 6%;
+        background-color: #0A082D;
+        border-radius: 10px;
+        width: 70%;
+        height: 90px;
+        padding: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.5em;
+        word-wrap: break-word;
+    }
+
+    .recent-description {
+        font-size: 15px!important;
+        font-weight: bold;
+        color: #A9B0C3;
+        position: relative;
+        top: 50px;
+        text-align:end;
+        width:98%
+
+    }
+
+    .recent-library-module1, .recent-library-module2, .recent-library-module3 {
+        height: 100%;
+        border-radius: 6px;
+        background-color: #2E3756;
+        color: white;
+        font-weight: bold;
+        font-size: 23px;
+        width: 100%;
+        margin-top: 5px;
+        position: relative;
+        top: -5px;
+    }
+
+        .poop {
+        height: 33%;
+        width: 100%;
+        transition: opacity 0.3s ease;
+    }
+    .recent-modules {
+        height: 100%;
+        width: 70%;
     }
     .xbox-2 {
         display: flex;
@@ -576,11 +718,25 @@ a {
         color: white;
         padding-left: 10%;
         margin-top: 55px;
+
     }
 
 /*    _______________________Login*/
     .fe {
         display: none;
+    }
+    .del {
+        background-color: crimson;
+        height: 100px;
+        width: 85px;
+        border: none;
+        position: absolute;
+        left: 92.3%;
+        background-image: url(/images/delete1.png);
+        background-repeat: no-repeat;
+        background-size: 42%;
+        background-position: center;
+        margin-top: -110px;
     }
 }
 @media only screen and (max-width: 767px) {
@@ -630,10 +786,71 @@ a {
     /*___________________________Home*/
     .xbox-1 {
         width: 100%;
-        height: 300px;
+        height: 600px;
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .name-recent1 {
+        width: 80.5%;
+        display: flex;
+        justify-content: start;
+        position: relative;
+        top: 25px;
+        left: 6%;
+        overflow: hidden;
+    }
+
+    .recent-info {
+        font-size: 13.7px;
+        font-weight: bold;
+        color: lightgray;
+        position: relative;
+        top: 50px;
+        left: 6%;
+        background-color: #0A082D;
+        border-radius: 10px;
+        width: 70%;
+        height: 90px;
+        padding: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.5em;
+        word-wrap: break-word;
+    }
+
+    .recent-description {
+        font-size: 14px !important;
+        font-weight: bold;
+        color: #A9B0C3;
+        position: relative;
+        top: 50px;
+        text-align: end;
+        width: 98%
+    }
+
+    .recent-library-module1, .recent-library-module2, .recent-library-module3 {
+        height: 100%;
+        border-radius: 6px;
+        background-color: #2E3756;
+        color: white;
+        font-weight: bold;
+        font-size: 23px;
+        width: 100%;
+        margin-top: 5px;
+        position: relative;
+        top: -5px;
+    }
+
+    .poop {
+        height: 33%;
+        width: 100%;
+        transition: opacity 0.3s ease;
+    }
+
+    .recent-modules {
+        height: 100%;
+        width: 70%;
     }
     .xbox-2 {
         width: 100%;
@@ -723,7 +940,7 @@ a {
     }
     .adapted-text {
         color: white;
-        margin: 55px auto 0; /* Встановлюємо верхній відступ 55px, а зліва і справа автоматичні відступи */
+        margin: 55px auto 5px; /* Встановлюємо верхній відступ 55px, а зліва і справа автоматичні відступи */
         font-size: 28px;
         text-align: center; /* Центрування тексту */
         background-color:steelblue;
@@ -746,6 +963,44 @@ a {
     }
     .right-side1 {
         display: none;
+    }
+    .del {
+        background-color: crimson;
+        height: 100px;
+        width: 14%;
+        border: none;
+        position: absolute;
+        left: 87%;
+        background-image: url(/images/delete1.png);
+        background-repeat: no-repeat;
+        background-size: 42%;
+        background-position: center;
+        margin-top: -110px;
+    }
+    .recent-library-module4 {
+        height: 100px !important;
+        border-radius: 6px;
+        background-color: #2E3756;
+        color: white;
+        font-weight: bold;
+        font-size: 23px;
+        width: 85%!important;
+        margin-bottom: 10px;
+    }
+    .tru {
+        width: 85% !important;
+    }
+    .edt {
+        height: 70px;
+        width: 70px;
+        background-color: #6495ED;
+        border-radius: 10px;
+        background-image: url(/images/pencil.png);
+        background-repeat: no-repeat;
+        background-size: 42%;
+        background-position: center;
+        position: fixed;
+        left: 85%!important;
     }
 }
 @media only screen and (max-width: 450px) {
@@ -825,14 +1080,6 @@ a {
     position: absolute;
     top: 515px;
     left:7%;
-}
-/*__________________________Нещодавні модулі*/
-.recent-modules {
-    display: flex;
-    width: 70%;
-    height: 285px;
-    justify-content: space-between;
-    border-radius: 10px;
 }
 /*__________________________*/
 .photo1 {
@@ -1611,7 +1858,7 @@ a {
     -webkit-appearance: none;
     -moz-appearance: none;
 }
-    .random-game-button:before {
+.random-game-button:before {
         content: '';
         position: absolute;
         width: 20px;
@@ -1622,13 +1869,12 @@ a {
         left: 3px;
         transition: all 0.3s;
     }
-    .random-game-button:checked {
-        background-color: forestgreen;
-    }
-
-        .random-game-button:checked:before {
-            transform: translateX(26px);
-        }
+.random-game-button:checked {
+    background-color: forestgreen;
+}
+.random-game-button:checked:before {
+        transform: translateX(26px);
+ }
 .text-shuffle{
     color:whitesmoke;
 }
@@ -1652,8 +1898,6 @@ a {
     background-position-x: 162px;
     background-position-y: 11px;
 }
-
-
 .exam-game-button {
     width: 32%;
     height: 60px;
@@ -1690,7 +1934,6 @@ a {
     margin-top: 20px;
     text-align: end
 }
-
 .answer-input {
     width: 60%;
     height: 50px;
@@ -1705,14 +1948,11 @@ a {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: border-color 0.3s ease;
 }
-
-
-    .answer-input:focus {
+.answer-input:focus {
         outline: none;
         border-color: #32CD32; 
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     }
-
 .exit-exam-btn {
     position: fixed;
     top: 20px;
@@ -1727,12 +1967,9 @@ a {
     z-index: 1000; 
     margin-top:200px;
 }
-
-    .exit-exam-btn:hover {
-        color: red; /* Колір хрестика при наведенні */
-    }
-
-/* Основна кнопка для початку тесту */
+.exit-exam-btn:hover {
+    color: red; /* Колір хрестика при наведенні */
+}
 .start-test-button {
     width: 31%;
     height: 60px;
@@ -1749,8 +1986,6 @@ a {
     background-position-x: 160px;
     background-position-y: 5px;
 }
-
-
 .submit-answer-button {
     width: 32%;
     height: 60px;
@@ -1762,8 +1997,6 @@ a {
     font-size: 19.5px;
     margin-right: 10px;
 }
-
-
 .next-question-button {
     width: 32%;
     height: 60px;
@@ -1775,7 +2008,6 @@ a {
     font-size: 19.5px;
     margin-right: 10px;
 }
-
 .home-menu-image {
     position: absolute;
     width: 23px;
@@ -1840,20 +2072,3 @@ a {
     position: absolute;
     top: 520px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
