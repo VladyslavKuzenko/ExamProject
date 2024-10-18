@@ -238,12 +238,17 @@ a {
     border:none;
 }
 .language-selector1 {
-    position: absolute;
-    top: 140px;
+    position: relative;
+    top: 110px;
     color: white;
-    border-radius: 10px;
     z-index: 1000;
-    left:120px;
+    left: 8px;
+    background-color: #2E3756;
+    width: 300px;
+    display: flex;
+    align-content: end;
+    justify-content: end;
+    align-items: end;
 }
 .dsfg {
     background-color:red;

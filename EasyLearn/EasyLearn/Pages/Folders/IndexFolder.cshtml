@@ -1,5 +1,8 @@
 ﻿@page
 @model EasyLearn.Pages.Folders.IndexFolderModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<IndexFolderModel> Localize
 @{
     ViewData["Title"] = "IndexFolder";
 
@@ -88,7 +91,7 @@
 
 
     <table class="table">
-        <h1 class="name-cont" style="color:white">Folder: @Model.Folder.Name</h1>
+        <h1 class="name-cont" style="color:white">@Localize["Folder"]: @Model.Folder.Name</h1>
         @*         <a asp-area="" asp-page="/Folders/AddTrainingModules" asp-route-folderId="@Model.FolderId">
         Add TrainingModule
         </a> *@
@@ -100,10 +103,10 @@
         <form method="post">
             <div class="form-group">
                 <select asp-for="SelectedTrainingModuleId" class="form-control tru" asp-items="Model.TrainingModulesWithoutFolder" style="background-color:steelblue; color:white; border:none; box-shadow:none;">
-                    <option value="" >-- Select Training Module --</option>
+                    <option value="" >-- @Localize["Select Training Module"] --</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary atf">Add to Folder</button>
+            <button type="submit" class="btn btn-primary atf">@Localize["Add to Folder +"]</button>
             
         </form>
 
