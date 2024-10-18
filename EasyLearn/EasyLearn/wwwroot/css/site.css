@@ -253,7 +253,14 @@ a {
     top:100%;
 
 }
-
+.recent-description1 {
+    color:lightgray;
+    font-size:13px;
+}
+.dta {
+    text-align:end;
+    width:98%;
+}
 @media only screen and (min-width: 1024px) {
     /*___________________________Header*/
     header {
@@ -1005,14 +1012,6 @@ a {
     top: 515px;
     left:7%;
 }
-/*__________________________Нещодавні модулі*/
-/*.recent-modules {
-    display: flex;
-    width: 70%;
-    height: 285px;
-    justify-content: space-between;
-    border-radius: 10px;
-}*/
 /*__________________________*/
 .photo1 {
     width: 100%;
@@ -1790,7 +1789,7 @@ a {
     -webkit-appearance: none;
     -moz-appearance: none;
 }
-    .random-game-button:before {
+.random-game-button:before {
         content: '';
         position: absolute;
         width: 20px;
@@ -1801,13 +1800,12 @@ a {
         left: 3px;
         transition: all 0.3s;
     }
-    .random-game-button:checked {
-        background-color: forestgreen;
-    }
-
-        .random-game-button:checked:before {
-            transform: translateX(26px);
-        }
+.random-game-button:checked {
+    background-color: forestgreen;
+}
+.random-game-button:checked:before {
+        transform: translateX(26px);
+ }
 .text-shuffle{
     color:whitesmoke;
 }
@@ -1831,8 +1829,6 @@ a {
     background-position-x: 162px;
     background-position-y: 11px;
 }
-
-
 .exam-game-button {
     width: 32%;
     height: 60px;
@@ -1869,7 +1865,6 @@ a {
     margin-top: 20px;
     text-align: end
 }
-
 .answer-input {
     width: 60%;
     height: 50px;
@@ -2008,20 +2003,4 @@ a {
     position: absolute;
     top: 520px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
