@@ -61,7 +61,6 @@
         border-bottom: 4px solid white;
         color: white;
         border-radius: 0;
-        padding: 8px;
         position: relative;
         top: -70px; /* Ваше позиціонування */
     }
@@ -124,11 +123,8 @@
 
 <form method="post">
     <div class="form-group">
-       @*  <label asp-for="Name" class="control-label"></label>
-        <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span> *@
             <label asp-for="Name" class="control-label"></label>
-            <input asp-for="Name" class="form-control" maxlength="30" />
+            <input asp-for="Name" class="form-control" maxlength="25"/>
             <span asp-validation-for="Name" class="text-danger"></span>
             <small id="nameHelp" class="form-text text-muted"></small>
     </div>

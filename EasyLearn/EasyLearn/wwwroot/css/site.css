@@ -481,6 +481,19 @@ a {
     .fe {
         display: none;
     }
+    .del {
+        background-color: crimson;
+        height: 100px;
+        width: 100px;
+        border: none;
+        position: absolute;
+        left: 92.3%;
+        background-image: url(/images/delete1.png);
+        background-repeat: no-repeat;
+        background-size: 42%;
+        background-position: center;
+        margin-top: -110px;
+    }
 
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
@@ -707,6 +720,19 @@ a {
     .fe {
         display: none;
     }
+    .del {
+        background-color: crimson;
+        height: 100px;
+        width: 85px;
+        border: none;
+        position: absolute;
+        left: 92.3%;
+        background-image: url(/images/delete1.png);
+        background-repeat: no-repeat;
+        background-size: 42%;
+        background-position: center;
+        margin-top: -110px;
+    }
 }
 @media only screen and (max-width: 767px) {
     /*_________________________Header*/
@@ -932,6 +958,44 @@ a {
     }
     .right-side1 {
         display: none;
+    }
+    .del {
+        background-color: crimson;
+        height: 100px;
+        width: 14%;
+        border: none;
+        position: absolute;
+        left: 87%;
+        background-image: url(/images/delete1.png);
+        background-repeat: no-repeat;
+        background-size: 42%;
+        background-position: center;
+        margin-top: -110px;
+    }
+    .recent-library-module4 {
+        height: 100px !important;
+        border-radius: 6px;
+        background-color: #2E3756;
+        color: white;
+        font-weight: bold;
+        font-size: 23px;
+        width: 85%!important;
+        margin-bottom: 10px;
+    }
+    .tru {
+        width: 85% !important;
+    }
+    .edt {
+        height: 70px;
+        width: 70px;
+        background-color: #6495ED;
+        border-radius: 10px;
+        background-image: url(/images/pencil.png);
+        background-repeat: no-repeat;
+        background-size: 42%;
+        background-position: center;
+        position: fixed;
+        left: 85%!important;
     }
 }
 @media only screen and (max-width: 450px) {
@@ -2003,4 +2067,3 @@ a {
     position: absolute;
     top: 520px;
 }
-
