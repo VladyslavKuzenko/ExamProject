@@ -253,6 +253,7 @@ a {
     top:100%;
 
 }
+
 @media only screen and (min-width: 1024px) {
     /*___________________________Header*/
     header {
@@ -289,10 +290,66 @@ a {
     /*___________________________Home*/
     .xbox-1 {
         width: 100%;
-        height: 270px;
+        height: 235px;
         display: flex;
         justify-content: center;
-        align-items: start;
+        align-items: center;
+    }
+    .recent-modules {
+        display: flex;
+        width: 70%;
+        height: 235px;
+        justify-content: space-between;
+        border-radius: 10px;
+    }
+    .poop {
+        height: 100%;
+        width: 32.5%;
+        transition: opacity 0.3s ease;
+    }
+    .recent-description {
+        font-size: 15px!important;
+        font-weight: bold;
+        color: #A9B0C3;
+        position: relative;
+        top: 80px;
+        left: 8%;
+        width:90%;
+    }
+    .recent-info {
+        font-size: 13.7px;
+        font-weight: bold;
+        color: lightgray;
+        position: relative;
+        top: 65px;
+        left: 8%;
+        background-color: #0A082D;
+        border-radius: 10px;
+        width: 70%;
+        height: 90px;
+        padding: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.5em;
+        word-wrap: break-word;
+    }
+    .name-recent1 {
+        width: 80.5%;
+        display: flex;
+        justify-content: start;
+        position: relative;
+        top: 25px;
+        left: 8%;
+        overflow: hidden;
+    }
+    .recent-library-module1, .recent-library-module2, .recent-library-module3 {
+        height: 100%;
+        border-radius: 6px;
+        background-color: #2E3756;
+        color: white;
+        font-weight: bold;
+        font-size: 23px;
+        width: 100%;
     }
     .box-info {
         position: relative;
@@ -308,7 +365,7 @@ a {
     .box-info-container {
         display: flex;
         width: 70%;
-        height: 330px;
+        height: 350px;
     }
     .name {
         color: white;
@@ -329,7 +386,7 @@ a {
     }
     .xbox-2 {
         width: 100%;
-        height: 390px;
+        height: 350px;
         display: flex;
         justify-content: center;
         align-items: start;
@@ -463,10 +520,70 @@ a {
     /*___________________________Home*/
     .xbox-1 {
         width: 100%;
-        height: 300px;
+        height: 600px;
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .name-recent1 {
+        width: 80.5%;
+        display: flex;
+        justify-content: start;
+        position: relative;
+        top: 25px;
+        left: 6%;
+        overflow: hidden;
+    }
+    .recent-info {
+        font-size: 13.7px;
+        font-weight: bold;
+        color: lightgray;
+        position: relative;
+        top: 50px;
+        left: 6%;
+        background-color: #0A082D;
+        border-radius: 10px;
+        width: 70%;
+        height: 90px;
+        padding: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.5em;
+        word-wrap: break-word;
+    }
+
+    .recent-description {
+        font-size: 15px!important;
+        font-weight: bold;
+        color: #A9B0C3;
+        position: relative;
+        top: 50px;
+        text-align:end;
+        width:98%
+
+    }
+
+    .recent-library-module1, .recent-library-module2, .recent-library-module3 {
+        height: 100%;
+        border-radius: 6px;
+        background-color: #2E3756;
+        color: white;
+        font-weight: bold;
+        font-size: 23px;
+        width: 100%;
+        margin-top: 5px;
+        position: relative;
+        top: -5px;
+    }
+
+        .poop {
+        height: 33%;
+        width: 100%;
+        transition: opacity 0.3s ease;
+    }
+    .recent-modules {
+        height: 100%;
+        width: 70%;
     }
     .xbox-2 {
         display: flex;
@@ -576,6 +693,7 @@ a {
         color: white;
         padding-left: 10%;
         margin-top: 55px;
+
     }
 
 /*    _______________________Login*/
@@ -630,10 +748,71 @@ a {
     /*___________________________Home*/
     .xbox-1 {
         width: 100%;
-        height: 300px;
+        height: 600px;
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .name-recent1 {
+        width: 80.5%;
+        display: flex;
+        justify-content: start;
+        position: relative;
+        top: 25px;
+        left: 6%;
+        overflow: hidden;
+    }
+
+    .recent-info {
+        font-size: 13.7px;
+        font-weight: bold;
+        color: lightgray;
+        position: relative;
+        top: 50px;
+        left: 6%;
+        background-color: #0A082D;
+        border-radius: 10px;
+        width: 70%;
+        height: 90px;
+        padding: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.5em;
+        word-wrap: break-word;
+    }
+
+    .recent-description {
+        font-size: 14px !important;
+        font-weight: bold;
+        color: #A9B0C3;
+        position: relative;
+        top: 50px;
+        text-align: end;
+        width: 98%
+    }
+
+    .recent-library-module1, .recent-library-module2, .recent-library-module3 {
+        height: 100%;
+        border-radius: 6px;
+        background-color: #2E3756;
+        color: white;
+        font-weight: bold;
+        font-size: 23px;
+        width: 100%;
+        margin-top: 5px;
+        position: relative;
+        top: -5px;
+    }
+
+    .poop {
+        height: 33%;
+        width: 100%;
+        transition: opacity 0.3s ease;
+    }
+
+    .recent-modules {
+        height: 100%;
+        width: 70%;
     }
     .xbox-2 {
         width: 100%;
@@ -723,7 +902,7 @@ a {
     }
     .adapted-text {
         color: white;
-        margin: 55px auto 0; /* Встановлюємо верхній відступ 55px, а зліва і справа автоматичні відступи */
+        margin: 55px auto 5px; /* Встановлюємо верхній відступ 55px, а зліва і справа автоматичні відступи */
         font-size: 28px;
         text-align: center; /* Центрування тексту */
         background-color:steelblue;
@@ -827,13 +1006,13 @@ a {
     left:7%;
 }
 /*__________________________Нещодавні модулі*/
-.recent-modules {
+/*.recent-modules {
     display: flex;
     width: 70%;
     height: 285px;
     justify-content: space-between;
     border-radius: 10px;
-}
+}*/
 /*__________________________*/
 .photo1 {
     width: 100%;
@@ -1705,14 +1884,11 @@ a {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: border-color 0.3s ease;
 }
-
-
-    .answer-input:focus {
+.answer-input:focus {
         outline: none;
         border-color: #32CD32; 
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     }
-
 .exit-exam-btn {
     position: fixed;
     top: 20px;
@@ -1727,12 +1903,9 @@ a {
     z-index: 1000; 
     margin-top:200px;
 }
-
-    .exit-exam-btn:hover {
-        color: red; /* Колір хрестика при наведенні */
-    }
-
-/* Основна кнопка для початку тесту */
+.exit-exam-btn:hover {
+    color: red; /* Колір хрестика при наведенні */
+}
 .start-test-button {
     width: 31%;
     height: 60px;
@@ -1749,8 +1922,6 @@ a {
     background-position-x: 160px;
     background-position-y: 5px;
 }
-
-
 .submit-answer-button {
     width: 32%;
     height: 60px;
@@ -1762,8 +1933,6 @@ a {
     font-size: 19.5px;
     margin-right: 10px;
 }
-
-
 .next-question-button {
     width: 32%;
     height: 60px;
@@ -1775,7 +1944,6 @@ a {
     font-size: 19.5px;
     margin-right: 10px;
 }
-
 .home-menu-image {
     position: absolute;
     width: 23px;
