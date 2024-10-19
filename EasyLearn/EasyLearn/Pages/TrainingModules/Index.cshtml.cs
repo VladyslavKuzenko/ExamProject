@@ -21,24 +21,40 @@ namespace EasyLearn.Pages.TrainingModules
             _userManager = userManager; 
         }
 
-        public IList<TrainingModule> TrainingModule { get;set; } = default!;
+        public IList<TrainingModule> TrainingModules { get;set; } = default!;
+        public TrainingModule TrainingModule { get;set; } = default!;
+        public IList<Card> Cards { get; set; } = default!;
+
 
         public async Task OnGetAsync(string searchString)
         {
             var userId = _userManager.GetUserId(User);
 
-            TrainingModule = await _context.TrainingModule
+            TrainingModules = await _context.TrainingModule
                .Include(t => t.Folder).Where(f => f.UserId == userId)  // Фільтруємо папки за UserId
                .ToListAsync();
 
-           TrainingModule = TrainingModule.Reverse().ToList();
+            TrainingModules = TrainingModules.Reverse().ToList();
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                TrainingModule = TrainingModule.Where(tm => tm.Name.Contains(searchString) || tm.Description.Contains(searchString)).ToList();
+                TrainingModules = TrainingModules.Where(tm => tm.Name.Contains(searchString) || tm.Description.Contains(searchString)).ToList();
             }
+        }
+        public async Task<IActionResult> OnGetDeleteAsync(int id)
+        {
+            TrainingModule = await _context.TrainingModule.FirstOrDefaultAsync(t => t.Id == id);
+            Cards = await _context.Card
+                .Where(c => c.TrainingModuleId == TrainingModule.Id)
+                .ToListAsync();
+            foreach (var card in Cards)
+            {
+                _context.Card.Remove(card);
+            }
+            _context.TrainingModule.Remove(TrainingModule);
+            _context.SaveChanges();
+            return RedirectToPage();
 
-           
         }
     }
 }

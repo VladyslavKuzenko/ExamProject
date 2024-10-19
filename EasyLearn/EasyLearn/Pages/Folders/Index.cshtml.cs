@@ -22,25 +22,45 @@ namespace EasyLearn.Pages.Folders
             _userManager = userManager;
         }
 
-        public IList<Folder> Folder { get;set; } = default!;
+        public IList<Folder> Folders { get;set; } = default!;
+        public Folder Folder { get; set; } = default!;
+
+        public IList<TrainingModule> TrainingModules { get; set; } = default!;
 
         public async Task OnGetAsync(string searchString)
         {
             var userId = _userManager.GetUserId(User);
 
             // Отримуємо всі папки, що належать поточному користувачу
-            Folder = await _context.Folder
+            Folders = await _context.Folder
                 .Where(f => f.UserId == userId)  // Фільтруємо папки за UserId
                 .ToListAsync();
 
             // Перевертаємо порядок відображення папок
-            Folder = Folder.Reverse().ToList();
+            Folders = Folders.Reverse().ToList();
 
             // Якщо є пошуковий рядок, фільтруємо папки по імені або опису
             if (!string.IsNullOrEmpty(searchString))
             {
-                Folder = Folder.Where(f => f.Name.Contains(searchString) || f.Description.Contains(searchString)).ToList();
+                Folders = Folders.Where(f => f.Name.Contains(searchString) || f.Description.Contains(searchString)).ToList();
             }
+        }
+        public async Task<IActionResult> OnGetDeleteAsync(int id)
+        {
+            Folder = await _context.Folder.FirstOrDefaultAsync(c => c.Id == id);
+            TrainingModules = await _context.TrainingModule
+                .Where(f => f.FolderId == Folder.Id)
+                .ToListAsync();
+            foreach (var item in TrainingModules)
+            {
+                item.Folder = null;
+                item.FolderId = null;
+            }
+            _context.Folder.Remove(Folder);
+            _context.SaveChanges();
+
+            return RedirectToPage();
+
         }
     }
 }

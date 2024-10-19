@@ -12,47 +12,69 @@
 
 <div class="top-page-library-modules">
 
-<body class="custom-background">
+    <body class="custom-background">
 
-    <h1 class="create-title">@Localize["Your library"]</h1>
+        <h1 class="create-title">@Localize["Your library"]</h1>
 
-    <div class="tabs">
-        <a asp-area="" asp-page="/TrainingModules/Index" class="tab" style="color:cornflowerblue">@Localize["Training modules"]</a>
-        <a asp-area="" asp-page="/Folders/Index" class="tab" style="color:white">@Localize["Folders"]</a>
-        <a asp-area="" asp-page="/Courses/Index" class="tab" style="color:white">@Localize["Courses"]</a>
-    </div>
-    <hr class="tab-line">
+        <div class="tabs">
+            <a asp-area="" asp-page="/TrainingModules/Index" class="tab" style="color:cornflowerblue">@Localize["Training modules"]</a>
+            <a asp-area="" asp-page="/Folders/Index" class="tab" style="color:white">@Localize["Folders"]</a>
+            <a asp-area="" asp-page="/Courses/Index" class="tab" style="color:white">@Localize["Courses"]</a>
+        </div>
+        <hr class="tab-line">
 
         <form method="get">
             <input type="search" name="searchString" class="s1" placeholder="@Localize["Search Module"]" />
-            <button type="submit" class="btn btn-primary lupa" ></button>
+            <button type="submit" class="btn btn-primary lupa"></button>
         </form>
 
 
 
-</body>
+    </body>
 
-<table class="table">
-   
-    <tbody>
-        @foreach (var item in Model.TrainingModule)
-        {
-            <a asp-area="" asp-page="/Cards/Index" asp-route-trainingModuleId="@item.Id">
-            <div class="recent-library-module">
-                    @Html.DisplayFor(modelItem => item.Name)
-                <div class="recent-description1">
-                    @Html.DisplayFor(modelItem => item.Description)
-                    <br />
-                    <div class="dta">
-                            @Html.DisplayFor(modelItem => item.Create.Day) /
-                            @Html.DisplayFor(modelItem => item.Create.Month) /
-                            @Html.DisplayFor(modelItem => item.Create.Year)
+    <table class="table">
+
+        <tbody>
+            @foreach (var item in Model.TrainingModules)
+            {
+                <a asp-area="" asp-page="/Cards/Index" asp-route-trainingModuleId="@item.Id">
+                    <div class="recent-library-module">
+                        @Html.DisplayFor(modelItem => item.Name)
+                        <div class="recent-description1">
+                            @Html.DisplayFor(modelItem => item.Description)
+                            <br />
+                            <div class="dta">
+                                @Html.DisplayFor(modelItem => item.Create.Day) /
+                                @Html.DisplayFor(modelItem => item.Create.Month) /
+                                @Html.DisplayFor(modelItem => item.Create.Year)
                             </div>
+                        </div>
+
+                    </div>
+                </a>
+                <button type="button" class="btn btn-primary del" data-bs-toggle="modal" data-bs-target="#@("deleteModel" + item.Id)">
+                </button>
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="@("deleteModel"+item.Id)" tabindex="-1" aria-labelledby="@("deleteModelLabel"+item.Id)" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="@("deleteModelLable"+item.Id)">Delete</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Ви впевнені , що хочете видалити цей елемент?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
+                                <a asp-page-handler="Delete" asp-route-id="@item.Id">Delete</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                  
-            </div>
-            </a>
-        }
-    </tbody>
-</table>
+            }
+        </tbody>
+    </table>
 </div>

@@ -21,13 +21,13 @@ namespace EasyLearn.Pages.Folders
 
 
         [BindProperty]
-        public int FolderId {  get; set; } 
-        public Folder Folder { get; set; }
-        public IList<TrainingModule> TrainingModules { get; set; } = default!;
+        public int FolderId {  get; set; } //
+        public Folder Folder { get; set; }//
+        public IList<TrainingModule> TrainingModules { get; set; } = default!;//
         public TrainingModule TrainingModule { get; set; } = default!;
         [BindProperty]
-        public int? SelectedTrainingModuleId { get; set; }
-        public SelectList TrainingModulesWithoutFolder { get; set; } = default!;
+        public int? SelectedTrainingModuleId { get; set; }//
+        public SelectList TrainingModulesWithoutFolder { get; set; } = default!;//
 
         public async Task<IActionResult> OnGetAsync(int folderId)
         {

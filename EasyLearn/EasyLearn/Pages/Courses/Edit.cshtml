@@ -26,7 +26,8 @@
 </form>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+        <a asp-area="" asp-page="/Courses/IndexCourses" asp-route-courseId="@Model.Id">
+        Back to List</a>
 </div>
 
 @section Scripts {

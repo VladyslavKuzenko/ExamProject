@@ -136,7 +136,7 @@
                 </a>
                 <button type="button" class="btn btn-primary del" data-bs-toggle="modal" data-bs-target="#@("deleteModel" + item.Id)">
                 </button>
-              
+               
 
                 <!-- Modal -->
                 <div class="modal fade" id="@("deleteModel"+item.Id)" tabindex="-1" aria-labelledby="@("deleteModelLabel"+item.Id)" aria-hidden="true">
@@ -150,7 +150,7 @@
                                 Ви впевнені , що хочете видалити цей елемент?
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
                                 <a asp-page-handler="Delete" asp-route-id="@item.Id">Delete</a>
                             </div>
                         </div>

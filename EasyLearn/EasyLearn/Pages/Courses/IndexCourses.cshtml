@@ -3,74 +3,156 @@
 @{
     ViewData["Title"] = "IndexCourses";
 }
+<style>
+    body {
+        background-color: #0A082D;
+    }
+
+    .atf {
+        margin-bottom: 40px;
+    }
+
+    .recent-library-module4 {
+        height: 100px !important;
+        border-radius: 6px;
+        background-color: #2E3756;
+        color: white;
+        font-weight: bold;
+        font-size: 23px;
+        width: 92%;
+        margin-bottom: 10px;
+    }
+
+    .recent-description1 {
+        font-size: 15px !important;
+        font-weight: bold;
+        color: #A9B0C3;
+        position: relative;
+        top: 20px;
+        left: 2%;
+        width: 90%;
+    }
+
+    .name-recent1 {
+        width: 80.5%;
+        display: flex;
+        justify-content: start;
+        position: relative;
+        top: 15px;
+        left: 2%;
+        overflow: hidden;
+    }
+
+    .del:hover {
+        background-color: red;
+        transform: scale(1.05);
+    }
+
+    .del:focus {
+        background-color: red;
+        box-shadow: none;
+        outline: none;
+    }
+
+    .edt {
+        height: 70px;
+        width: 70px;
+        background-color: #6495ED;
+        border-radius: 10px;
+        background-image: url(/images/pencil.png);
+        background-repeat: no-repeat;
+        background-size: 42%;
+        background-position: center;
+        position: fixed;
+        left: 90%;
+    }
+
+    .tru {
+        width: 92%;
+    }
+
+    .ll {
+        height: 100%;
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .name-cont {
+        colow: white !important;
+        position: relative;
+        top: 50px;
+    }
+</style>
 
 <div class="top-page-library-modules">
-
-    <body class="custom-background">
-
-        @* <h1 class="create-title">@Localize["Your library"]</h1>
-
-        <div class="tabs">
-            <a asp-area="" asp-page="/TrainingModules/Index" class="tab" style="color:white">@Localize["Training modules"]</a>
-            <a asp-area="" asp-page="/Folders/Index" class="tab" style="color:cornflowerblue">@Localize["Folders"]</a>
-            <a asp-area="" asp-page="/Courses/Index" class="tab" style="color:white">@Localize["Courses"]</a>
-        </div>
-        <hr class="tab-line">
-
-        <input type="search" class="s1" />
-        <form method="get">
-            <input type="search" name="searchString" class="s1" placeholder="@Localize["Search Folder"] " />
-            <button type="submit" class="btn btn-primary lupa"></button>
-        </form> *@
-
-    </body>
 
 
 
     <table class="table">
+        <h1 class="name-cont" style="color:white">Course: @Model.Course.Name</h1>
 
-        </tr>
-        </thead>
+        <div class="edt">
+            <a asp-page="/Courses/Edit" asp-route-id="@Model.CourseId">
+                <div class="ll"></div>
+            </a>
+        </div>
+        <form method="post">
+            <div class="form-group">
+                <select asp-for="SelectedFolderId" class="form-control tru" asp-items="Model.UnassignedFolders" style="background-color:steelblue; color:white; border:none; box-shadow:none;">
+                    <option value="">-- Select a Folder --</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary atf">Assign Folder</button>
+        </form>
+
         <tbody>
-            @foreach (var item in Model.Folder)
+            @foreach (var item in Model.Folders)
             {
                 <a asp-area="" asp-page="/Folders/IndexFolder" asp-route-folderId="@item.Id">
 
-                    <div class="recent-library-folders">
-                        @Html.DisplayFor(modelItem => item.Name)
-                        <div class="recent-description">
-                            @Html.DisplayFor(modelItem => item.Description)
-                            <br />
-                            @Html.DisplayFor(modelItem => item.Create.Day) /
-                            @Html.DisplayFor(modelItem => item.Create.Month) /
-                            @Html.DisplayFor(modelItem => item.Create.Year)
+                    <div class="recent-library-module4">
+
+                        <div class="recent-content">
+                            <div class="name-recent1">
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </div>
+                            <div class="recent-description1">
+                                @Html.DisplayFor(modelItem => item.Description)
+                                <br />
+                                @Html.DisplayFor(modelItem => item.Create.Day) /
+                                @Html.DisplayFor(modelItem => item.Create.Month) /
+                                @Html.DisplayFor(modelItem => item.Create.Year)
+                            </div>
                         </div>
 
                     </div>
                 </a>
-                @*  <td>
-            <ul>
-            @foreach (var module in item.TrainingModules)
-            {
-            <li>
-            @module.Name - @module.Description
-            <ul>
-            @foreach (var card in module.Cards)
-            {
-            <li>@card.Term: @card.Definition</li>
-            }
-            </ul>
-            </li>
-            }
-            </ul>
-            </td> *@
+                <button type="button" class="btn btn-primary del" data-bs-toggle="modal" data-bs-target="#@("deleteModel" + item.Id)">
+                </button>
 
+
+                <!-- Modal -->
+                <div class="modal fade" id="@("deleteModel"+item.Id)" tabindex="-1" aria-labelledby="@("deleteModelLabel"+item.Id)" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="@("deleteModelLable"+item.Id)">Delete</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Ви впевнені , що хочете видалити цей елемент?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
+                                <a asp-page-handler="Delete" asp-route-id="@item.Id">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             }
         </tbody>
     </table>
 
-    <a asp-area="" asp-page="/Courses/AssignFolders" asp-route-courseId="@Model.CourseId">
-        Add Folders to Course
 
-    </a>
 </div>
