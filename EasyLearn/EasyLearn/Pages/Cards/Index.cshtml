@@ -10,75 +10,168 @@
         background-color: #0A082D;
     }
 
+    .main-container-game {
+        width:100%;
+        height:700px;
+        position:relative;
+        top:100px;
+    }
+    .return-container {
+        position:relative;
+        top:90px;
+        
+        display:flex;
+        justify-content:center;
+        width:70%;
+        left:50.5%;
+        transform:translate(-50%);
+        z-index: 999;
+    }
+
+    #returnToClassic {
+        background-color: #21273D;
+        width:115px;
+        height:40px;
+        border:1px solid white;
+        border-radius:10px;
+        color:white;
+        font-weight:bold;
+        font-size:14px;
+        position:relative;
+        left:100%;
+        transform:translate(-115px);
+    }
+
+    #exam-term {
+        color:white;
+        font-weight:bold;
+        display:flex;
+        justify-content:center;
+        position:relative;
+        top:100px;
+    }
+
+    #test-question {
+        color: white;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: 100px;
+    }
+    #exam-answer {
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: 130px;
+        left:50%;
+        transform:translate(-50%);
+        text-align:center;
+        box-shadow:none;
+        outline:none;
+    }
+
+    #submit-answer {
+        border:none;
+        width: 215px;
+        height:35px;
+        background-color:deepskyblue;
+        border-radius:10px;
+        top: 145px;
+        position:relative;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    #answer-options {
+        position:relative;
+        top:100px;
+
+    }
+    header {
+        top:0;
+    }
 </style>
 
-<h1 class="create-title" style="position:relative; left:100px; top:130px;">Word List </h1>
-
+<div class="main-container-game">
+<!-- Контейнер для картки -->
 <div class="card-container">
     <div class="card" id="flashcard">
         <div class="card-face card-front">
             <span id="card-term">@Model.Card.FirstOrDefault()?.Term</span>
-            @* <a asp-page="./Edit" asp-route-id="@Model.Card.FirstOrDefault()?.Id">Edit</a> *@
-
         </div>
         <div class="card-face card-back">
             <span id="card-definition">@Model.Card.FirstOrDefault()?.Definition</span>
-            @* <a asp-page="./Edit" asp-route-id="@Model.Card.FirstOrDefault()?.Id">Edit</a> *@
-
         </div>
     </div>
 </div>
-
-
+<!-- Кнопки навігації -->
 <div class="navigation-buttons">
     <button id="prevBtn" disabled>⭠</button>
     <button id="nextBtn" @(Model.Card.Count <= 1 ? "disabled" : "")>⭢</button>
 </div>
-
+<!-- Лічильник карток -->
 <div class="card-index">
     <span id="cardCounter">1/@Model.Card.Count</span>
 </div>
-<a asp-page="../TrainingModules/Edit" asp-route-id="@Model.TrainingModuleId">
-
-    <div class="edit-card"></div>
-</a>
-
+<!-- Кнопки для перемикання режимів -->
 <div class="game-container">
     <input type="button" name="name" value="Classic" class="classic-game-button" />
     <input type="button" name="name" value="Test" class="test-game-button" />
     <input type="button" name="name" value="Exam" class="exam-game-button" />
 </div>
-
+<!-- Кнопка для шафлу -->
 <div class="toggle-container">
-    <p class="text-shuffle">Shuffle:</p>
+    <p class="text-shuffle">Random</p>
     <input type="checkbox" name="name" value="Shuffle" class="random-game-button" />
 </div>
+<!-- Кнопка для повернення в класичний режим -->
+<div class="return-container" style="display:none;">
+    <button id="returnToClassic">Return back</button>
+</div>
 
+<!-- Контейнер для тестових питань -->
 <div id="question-container" style="display:none;">
+        <h1 class="exm">Test: @Model.TrainingModule.Name</h1>
+        <div class="exmpm">
+
     <h2 id="test-question"></h2>
     <div id="answer-options"></div>
     <p id="test-feedback"></p>
+        </div>
 </div>
 
+<!-- Контейнер для екзамену -->
+<div id="exam-container" style="display:none;">
+    <h1 class="exm">Exam: @Model.TrainingModule.Name</h1>
+     <div class="exmpm">
+    <h2 id="exam-term"></h2>
+    <input type="text" id="exam-answer" placeholder="Enter the definition" />
+    <button id="submit-answer">Next</button>
+    <p id="exam-feedback"></p>
+        </div>
+</div>
+
+<!-- Результат тесту -->
 <div id="test-result" style="display:none;">
-    <h2>Test Completed!</h2>
+        <div class="exmpm">
+
+    <h2 class="tsc">Test Completed!</h2>
     <p id="score-result"></p>
-    <button id="back-to-classic">Back to Classic</button>
+            </div>
 </div>
 
-<div id="currentMode" class="current-mode">Classic mode</div>
-
-
+<!-- Режим гри -->
+<div id="currentMode" class="current-mode">Classic</div>
+</div>
 <script>
-    // Отримуємо картки з моделі
     const originalCards = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Card.Select(c => new { c.Term, c.Definition })));
-    console.log('Original Cards:', originalCards); // Дебаг
-    let currentCards = [...originalCards]; // Поточний набір карток
+    let currentCards = [...originalCards];
     let currentIndex = 0;
     let isFlipped = false;
-    let correctAnswers = 0; 
-    let totalQuestions = 0; 
-
+    let correctAnswers = 0;
+    let totalQuestions = 0;
 
     const flashcard = document.getElementById('flashcard');
     const cardTerm = document.getElementById('card-term');
@@ -86,40 +179,35 @@
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     const cardCounter = document.getElementById('cardCounter');
-    const currentMode = document.getElementById('currentMode'); // Новий елемент
-
+    const currentMode = document.getElementById('currentMode');
     const classicBtn = document.querySelector('.classic-game-button');
-    const shuffleSwitch = document.querySelector('.random-game-button');
     const testBtn = document.querySelector('.test-game-button');
     const examBtn = document.querySelector('.exam-game-button');
+    const returnBtn = document.getElementById('returnToClassic');
+    const gameContainer = document.querySelector('.game-container');
+    const shuffleSwitch = document.querySelector('.random-game-button');
+    const returnContainer = document.querySelector('.return-container');
+    const questionContainer = document.getElementById('question-container');
+    const examContainer = document.getElementById('exam-container');
+    const testResult = document.getElementById('test-result');
+
+    // Показати/сховати кнопки режимів і повернення
+    function toggleGameElements(show) {
+        gameContainer.style.display = show ? 'flex' : 'none';
+        shuffleSwitch.style.display = show ? 'block' : 'none'; // Показуємо кнопку Shuffle в класичному режимі
+        returnContainer.style.display = show ? 'none' : 'block';
+    }
 
     // Додаємо обробники подій для кнопок режимів
     classicBtn.addEventListener('click', () => {
         currentCards = [...originalCards];
         resetQuiz();
-        updateCurrentMode('Classic');
-        console.log('Switched to Classic Mode');
-    });
-
-    shuffleSwitch.addEventListener('change', () => {
-        if (shuffleSwitch.checked) {
-            currentCards = shuffleArray([...originalCards]); // Режим Shuffle
-            resetQuiz();
-            updateCurrentMode('Shuffle');
-            console.log('Shuffle Mode On');
-        } else {
-            currentCards = [...originalCards]; // Повертаємось до класичного режиму
-            resetQuiz();
-            updateCurrentMode('Classic');
-            console.log('Shuffle Mode Off, Classic Mode On');
-        }
-    });
-
-    examBtn.addEventListener('click', () => {
-        currentCards = generateExamCards(originalCards, 12);
-        resetQuiz();
-        updateCurrentMode('Exam');
-        console.log('Switched to Exam Mode');
+        toggleGameElements(true);
+        flashcard.style.display = 'block';
+        updateCurrentMode('');
+        prevBtn.style.display = "inline-block";
+        nextBtn.style.display = "inline-block";
+        cardCounter.style.display = "inline-block";
     });
 
     testBtn.addEventListener('click', () => {
@@ -128,46 +216,97 @@
         correctAnswers = 0;
         resetQuiz();
         startTestMode();
-        updateCurrentMode('Test');
-        console.log('Switched to Test Mode');
+        prevBtn.style.display = "none";
+        nextBtn.style.display = "none";
+        cardCounter.style.display = "none";
+
     });
 
-    // Клік по картці для перевертання
-    flashcard.addEventListener('click', () => {
-        flashcard.classList.toggle('flipped');
-        isFlipped = !isFlipped;
+    examBtn.addEventListener('click', () => {
+        currentCards = shuffleArray([...originalCards]);
+        totalQuestions = currentCards.length;
+        correctAnswers = 0;
+        resetQuiz();
+        startExamMode();
+        prevBtn.style.display = "none";
+        nextBtn.style.display = "none";
+        cardCounter.style.display = "none";
     });
 
-    // Клік по кнопці "Назад"
-    prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateCard();
+    returnBtn.addEventListener('click', () => {
+        toggleGameElements(true);
+        questionContainer.style.display = 'none';
+        examContainer.style.display = 'none';
+        testResult.style.display = 'none';
+        flashcard.style.display = 'block';
+        updateCurrentMode('');
+    });
+
+    shuffleSwitch.addEventListener('change', () => {
+        if (shuffleSwitch.checked) {
+            currentCards = shuffleArray([...originalCards]);
+        } else {
+            currentCards = [...originalCards];
         }
+        resetQuiz();
     });
 
-    // Клік по кнопці "Вперед"
-    nextBtn.addEventListener('click', () => {
-        if (currentIndex < currentCards.length - 1) {
-            currentIndex++;
-            updateCard();
-        }
-    });
-
+    // Функція для старту тестового режиму
     function startTestMode() {
-        document.getElementById('game-container').style.display = 'none';
-        document.getElementById('question-container').style.display = 'block';
+        toggleGameElements(false);
+        questionContainer.style.display = 'block';
+        flashcard.style.display = 'none';
         currentIndex = 0;
         showTestQuestion();
+
+
     }
 
-    // Функція для відображення поточного питання в тестовому режимі
-    function showTestQuestion() {
-        if (currentIndex < currentCards.length) {
-            const currentCard = currentCards[currentIndex];
-            document.getElementById('test-question').textContent = `What is the definition of "${currentCard.Term}"?`;
+    // Функція для старту екзаменаційного режиму
+    function startExamMode() {
+        toggleGameElements(false);
+        examContainer.style.display = 'block';
+        flashcard.style.display = 'none';
+        currentIndex = 0;
+        showExamQuestion();
+        updateCurrentMode(''); // Оновлено
 
-            // Генеруємо варіанти відповіді
+    }
+
+    // Показ екзаменаційного питання
+    function showExamQuestion() {
+        if (currentIndex < currentCards.length && currentIndex < totalQuestions) {
+            const currentCard = currentCards[currentIndex];
+            document.getElementById('exam-term').textContent = `${currentCard.Term}`;
+            document.getElementById('exam-answer').value = ''; // Очищуємо поле вводу
+            document.getElementById('exam-feedback').textContent = ''; // Очищуємо фідбек
+        } else {
+            finishTest();
+        }
+    }
+
+    // Перевірка відповіді в екзаменаційному режимі
+    document.getElementById('submit-answer').addEventListener('click', () => {
+        const currentCard = currentCards[currentIndex];
+        const userAnswer = document.getElementById('exam-answer').value.trim();
+        const feedback = document.getElementById('exam-feedback');
+
+        if (userAnswer.toLowerCase() === currentCard.Definition.toLowerCase()) {
+            correctAnswers++;
+        } else {
+        }
+
+        currentIndex++;
+        setTimeout(showExamQuestion, 500); // Переходимо до наступного питання через 1.5 секунди
+    });
+
+    // Функція для показу питання у тестовому режимі
+    function showTestQuestion() {
+        if (currentIndex < currentCards.length && currentIndex < totalQuestions) {
+            const currentCard = currentCards[currentIndex];
+            document.getElementById('test-question').textContent = `${currentCard.Term}`;
+
+            // Генеруємо варіанти відповідей
             const answerOptions = generateAnswerOptions(currentCard);
             const answerOptionsDiv = document.getElementById('answer-options');
             answerOptionsDiv.innerHTML = ''; // Очищуємо попередні варіанти
@@ -179,54 +318,87 @@
                 button.addEventListener('click', () => checkAnswer(option, currentCard.Definition));
                 answerOptionsDiv.appendChild(button);
             });
+
+            currentIndex++;
         } else {
             finishTest();
         }
     }
 
-    // Функція для генерації 4 варіантів відповіді
-    function generateAnswerOptions(correctCard) {
-        const allDefinitions = originalCards.map(card => card.Definition);
-        const wrongOptions = allDefinitions.filter(def => def !== correctCard.Definition);
-        const randomOptions = shuffleArray(wrongOptions).slice(0, 3); // 3 невірні варіанти
-        const options = [...randomOptions, correctCard.Definition]; // Додаємо правильний варіант
-        return shuffleArray(options); // Перемішуємо варіанти відповіді
+    // Завершення тесту/екзамену
+    function finishTest() {
+        questionContainer.style.display = 'none';
+        examContainer.style.display = 'none';
+        testResult.style.display = 'block';
+        document.getElementById('score-result').textContent = `You answered ${correctAnswers} out of ${totalQuestions} correctly!`;
     }
 
-    // Функція для перевірки вибраної відповіді
+    // Перевірка відповіді в тестовому режимі
     function checkAnswer(selectedAnswer, correctAnswer) {
         const feedback = document.getElementById('test-feedback');
         if (selectedAnswer === correctAnswer) {
             correctAnswers++;
-            feedback.textContent = 'Correct!';
-            feedback.style.color = 'green';
         } else {
-            feedback.textContent = `Incorrect! The correct answer was: ${correctAnswer}`;
-            feedback.style.color = 'red';
         }
-
-        currentIndex++;
         setTimeout(() => {
-            feedback.textContent = ''; // Очищуємо повідомлення після короткої паузи
-            showTestQuestion(); // Показуємо наступне запитання
-        }, 1500); // Затримка перед наступним питанням
+            feedback.textContent = '';
+            showTestQuestion();
+        }, 500);
     }
 
-    // Функція для завершення тесту
-    function finishTest() {
-        document.getElementById('question-container').style.display = 'none';
-        document.getElementById('test-result').style.display = 'block';
-        document.getElementById('score-result').textContent = `You answered ${correctAnswers} out of ${totalQuestions} questions correctly.`;
-
-        // Додаємо обробник для кнопки повернення в класичний режим
-        document.getElementById('back-to-classic').addEventListener('click', () => {
-            document.getElementById('test-result').style.display = 'none';
-            document.getElementById('game-container').style.display = 'block';
-            updateCurrentMode('Classic');
-        });
+    // Скидання стану тесту
+    function resetQuiz() {
+        currentIndex = 0;
+        updateCard();
     }
 
-    // Функція для перемішування масиву (Рандомний режим)
+    // Оновлення картки (при перемиканні між режимами)
+    function updateCard() {
+        cardTerm.textContent = currentCards[currentIndex].Term;
+        cardDefinition.textContent = currentCards[currentIndex].Definition;
+
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === currentCards.length - 1;
+        cardCounter.textContent = `${currentIndex + 1}/${currentCards.length}`;
+    }
+
+    // Логіка для перевертання картки
+    flashcard.addEventListener('click', () => {
+        if (!isFlipped) {
+            flashcard.classList.add('flipped');
+        } else {
+            flashcard.classList.remove('flipped');
+        }
+        isFlipped = !isFlipped;
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCard();
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < currentCards.length - 1) {
+            currentIndex++;
+            updateCard();
+        }
+    });
+
+    // Ініціалізація при завантаженні сторінки
+    updateCard();
+    updateCurrentMode(''); // Встановлюємо початковий режим
+
+    // Оновлення режиму
+    function updateCurrentMode(mode) {
+        currentMode.textContent = `${mode}`;
+        prevBtn.style.display = "inline-block";
+        nextBtn.style.display = "inline-block";
+        cardCounter.style.display = "inline-block";
+    }
+
+    // Перемішування масиву
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -235,62 +407,11 @@
         return array;
     }
 
-    // Функція для генерації карток для екзамену
-    function generateExamCards(array, total) {
-        if (array.length >= total) {
-            return shuffleArray([...array]).slice(0, total);
-        } else {
-            const result = [];
-            for (let i = 0; i < total; i++) {
-                const randomIndex = Math.floor(Math.random() * array.length);
-                result.push(array[randomIndex]);
-            }
-            return result;
-        }
+    // Генерація варіантів відповідей для тестового режиму
+    function generateAnswerOptions(correctCard) {
+        const incorrectAnswers = currentCards.filter(card => card.Term !== correctCard.Term);
+        const randomOptions = shuffleArray(incorrectAnswers).slice(0, 3);
+        randomOptions.push(correctCard);
+        return shuffleArray(randomOptions.map(option => option.Definition));
     }
-
-    // Функція для оновлення картки
-    function updateCard() {
-        if (isFlipped) {
-            flashcard.classList.remove('flipped');
-            isFlipped = false;
-
-            flashcard.addEventListener('transitionend', function handler() {
-                cardTerm.textContent = currentCards[currentIndex].Term;
-                cardDefinition.textContent = currentCards[currentIndex].Definition;
-
-                prevBtn.disabled = currentIndex === 0;
-                nextBtn.disabled = currentIndex === currentCards.length - 1;
-
-                cardCounter.textContent = `${currentIndex + 1}/${currentCards.length}`;
-
-                flashcard.removeEventListener('transitionend', handler);
-            });
-        } else {
-            cardTerm.textContent = currentCards[currentIndex].Term;
-            cardDefinition.textContent = currentCards[currentIndex].Definition;
-
-            prevBtn.disabled = currentIndex === 0;
-            nextBtn.disabled = currentIndex === currentCards.length - 1;
-
-            cardCounter.textContent = `${currentIndex + 1}/${currentCards.length}`;
-        }
-    }
-
-    // Функція для скидання стану квізу
-    function resetQuiz() {
-        currentIndex = 0;
-        isFlipped = false;
-        flashcard.classList.remove('flipped');
-        updateCard();
-    }
-
-    // Функція для оновлення поточного режиму
-    function updateCurrentMode(mode) {
-        currentMode.textContent = `${mode}`;
-    }
-
-    // Ініціалізація при завантаженні сторінки
-    updateCard();
-    updateCurrentMode('Classic'); // Встановлюємо початковий режим
 </script>

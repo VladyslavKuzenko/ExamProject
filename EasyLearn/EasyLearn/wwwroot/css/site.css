@@ -1710,12 +1710,13 @@ a {
 }
 .card-container {
     perspective: 1000px;
-    width: 800px;
+    width: 70%;
     height: auto;
     margin-bottom: 20px;
     position: relative;
-    top: 215px;
-    left: 100px;
+    top: 210px;
+    left: 50%; 
+    transform: translateX(-50%); 
 }
 .card {
     width: 100%;
@@ -1757,8 +1758,9 @@ a {
     display: flex;
     gap: 10px;
     position: relative;
-    top: 215px;
-    left: 300px;
+    top: 220px;
+    display:flex;
+    justify-content:center;
 }
 .navigation-buttons button {
         padding: 10px 20px;
@@ -1785,8 +1787,9 @@ a {
 }
 #cardCounter {
     position: relative;
-    top: 165px;
-    left: 480px;
+    top: 170px;
+    left: 50%;  
+    transform: translateX(-50%);  
     color: white;
     font-size: 20px;
 }
@@ -1831,7 +1834,7 @@ a {
     background-position-y: center;
 }
 .classic-game-button {
-    width: 31.5%;
+    width: 32%;
     height: 60px;
     background-color: cornflowerblue;
     border: none;
@@ -1839,22 +1842,19 @@ a {
     color: white;
     font-weight: bold;
     font-size: 18px;
-    margin-right: 10px;
-    background-size: 20%;
-    background-repeat: no-repeat;
-    background-position-x: 160px;
-    background-position-y: 5px;
 }
 .random-game-button {
     width: 52px;
     height: 26px;
-    background-color: #040407;
+    background-color: #2E3756;
     border: 1px solid white;
     border-radius: 26px;
     position: relative;
+    top: -436px;
+    left: 16%;
     cursor: pointer;
     margin-right: 10px;
-    appearance: none; /* Прибирає стандартний вигляд чекбокса */
+    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
 }
@@ -1865,7 +1865,7 @@ a {
         height: 20px;
         background-color: white;
         border-radius: 50%;
-        top: 3px;
+        top: 2px;
         left: 3px;
         transition: all 0.3s;
     }
@@ -1875,28 +1875,23 @@ a {
 .random-game-button:checked:before {
         transform: translateX(26px);
  }
-.text-shuffle{
-    color:whitesmoke;
+.text-shuffle {
+    color: white;
+    position: relative;
+    top: -394.5px;
+    left: 21%;
+    font-weight:bold;
 }
-.shuffle-btn{
-    margin-top:10px;
-    margin-left:20px;
-}
+
 .test-game-button {
-    width: 31.5%;
+    width: 32%;
     height: 60px;
     background-color: #FF8C00;
     border: none;
     border-radius: 10px;
-    margin-right: 10px;
     color: white;
     font-weight: bold;
     font-size: 19.5px;
-    margin-right: 10px;
-    background-size: 14%;
-    background-repeat: no-repeat;
-    background-position-x: 162px;
-    background-position-y: 11px;
 }
 .exam-game-button {
     width: 32%;
@@ -1904,35 +1899,69 @@ a {
     background-color: #0a2e3f;
     border: none;
     border-radius: 10px;
-    margin-right: 10px;
-    background-image: url(../images/exam.png);
-    background-size: 20%;
-    background-repeat: no-repeat;
-    background-position-x: 160px;
-    background-position-y: 5px;
+
     color: white;
     font-weight: bold;
-    font-size: 19.5px;
-    margin-right: 10px;
 }
 .game-container {
-    width: 62%;
+    width: 70%;
     position: relative;
-    top: -430px;
-    left: 100px;
+    top: -405px;
+    left: 50%;
+    transform:translate(-50%);
     display:flex;
     justify-content:space-between;
 }
 .current-mode {
-    width: 170px;
     position: relative;
-    top: -585px;
-    left: -80px;
+
     color: white;
     font-size: 40px;
     font-weight: bold;
     margin-top: 20px;
-    text-align: end
+    text-align: end;
+    display:flex;
+    justify-content:center;
+    left:-6px;
+    top:-630px;
+}
+.exm {
+    position: relative;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: end;
+    display: flex;
+    justify-content: center;
+    top: -20px;
+}
+.exmpm {
+    width: 70%;
+    height: 400px;
+    background-color: #2E3756;
+    position: relative;
+    top: 33px;
+    left: 50.5%;
+    transform: translate(-50%);
+    border-radius: 30px;
+    border: 1px solid gray;
+}
+.tsc {
+    display:flex;
+    justify-content:center;
+    color:white;
+    font-weight:bold;
+    position:relative;
+    top:50px;
+}
+#score-result {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    top: 100px;
 }
 .answer-input {
     width: 60%;
@@ -1941,8 +1970,8 @@ a {
     border-radius: 10px;
     border: 2px solid #4682B4;
     font-size: 18px;
-    color: #333; 
-    background-color: #F0F8FF; 
+    color: #333;
+    background-color: #F0F8FF;
     margin-right: 10px;
     margin-top: 50px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
