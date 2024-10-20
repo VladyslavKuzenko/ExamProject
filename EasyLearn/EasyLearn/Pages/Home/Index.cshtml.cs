@@ -72,6 +72,7 @@ namespace EasyLearn.Pages.Home
             }
 
             TrainingModules = await _context.TrainingModule
+                .Include(t => t.Cards)
                 .Include(t => t.Folder).Where(f => f.UserId == userId)  // Фільтруємо папки за UserId
                 .OrderByDescending(f => f.LastOpen)
                 .ToListAsync();

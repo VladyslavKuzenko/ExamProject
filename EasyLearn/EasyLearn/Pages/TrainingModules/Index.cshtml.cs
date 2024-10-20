@@ -25,13 +25,14 @@ namespace EasyLearn.Pages.TrainingModules
         public TrainingModule TrainingModule { get;set; } = default!;
         public IList<Card> Cards { get; set; } = default!;
 
-
         public async Task OnGetAsync(string searchString)
         {
             var userId = _userManager.GetUserId(User);
 
             TrainingModules = await _context.TrainingModule
-               .Include(t => t.Folder).Where(f => f.UserId == userId)  // Фільтруємо папки за UserId
+               .Include(t=>t.Cards)
+               .Include(t => t.Folder)
+               .Where(f => f.UserId == userId)  // Фільтруємо папки за UserId
                .ToListAsync();
 
             TrainingModules = TrainingModules.Reverse().ToList();

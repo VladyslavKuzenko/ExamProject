@@ -96,7 +96,7 @@
                     <div class="@classType">
                         <a asp-area="" asp-page="/Cards/Index" asp-route-trainingModuleId="@itemF.Id">
                             <div class="recent-library-module1">
-                                <div class="name-recent1">@Html.DisplayFor(modelItem => itemF.Name)</div>
+                                <div class="name-recent1">@Html.DisplayFor(modelItem => itemF.Name)   Кількість слів:@Html.DisplayFor(modelItem => itemF.Cards.Count)</div>
                                 <div class="recent-info">@Html.DisplayFor(modelItem => itemF.Description)</div>
                                 <div class="recent-description">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
                             </div>
