@@ -24,8 +24,11 @@ namespace EasyLearn.Pages.Courses
         public Folder Folder { get; set; } = default!;
         public SelectList UnassignedFolders { get; set; } = default!;
         //public List<Folder> UnassignedFolders { get; set; } = new List<Folder>();
+        [BindProperty]
         public Course Course { get; set; }
         public int CourseId { get; set; }
+        //public string Name { get; set; }
+        //public string Description { get; set; } 
         public async Task<IActionResult> OnGetAsync(int courseId)
         {
             //if (courseId == null)
@@ -96,6 +99,7 @@ namespace EasyLearn.Pages.Courses
                 .ToListAsync();
             folder.Remove(Folder);
             Course.Folders = folder;
+            CourseId = Course.Id;
             Folder.Course = null;
             Folder.CourseId = null;
             try
@@ -109,5 +113,33 @@ namespace EasyLearn.Pages.Courses
 
             return RedirectToPage(new { courseId = Course.Id });
         }
+        public async Task<IActionResult> OnPostEditAsync(/*int id*/)
+        {
+            //// Перевірка валідності моделі
+            //if (!ModelState.IsValid)
+            //{
+            //    return Page(); // Повертаємо ту ж сторінку з помилками
+            //}
+
+            // Встановлюємо ID курсу перед його оновленням
+            var course = await _context.Course.FindAsync(Course.Id);
+
+            course.Name = Course.Name;
+            course.Description = Course.Description;
+            
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                
+            }
+
+            // Переходимо на іншу сторінку або повертаємо відповідь
+            return RedirectToPage(new { courseId = Course.Id });
+        }
+
+
     }
 }

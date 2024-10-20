@@ -42,12 +42,72 @@
             <div class="create-button">
                 <a class="full-button create-button-photo2" asp-area="" asp-page="/Folders/Create">Folder</a>
             </div>
+            @*             <div class="create-button">
+            <a class="full-button create-button-photo3" asp-area="" asp-page="/Courses/Create">Course</a>
+            </div> *@
             <div class="create-button">
-                <a class="full-button create-button-photo3" asp-area="" asp-page="/Courses/Create">Course</a>
+                <button type="button" class="full-button create-button-photo3" data-bs-toggle="modal" data-bs-target="#@("сreateCourse")">
+                </button>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="@("сreateCourse")" tabindex="-1" aria-labelledby="@("сreateCourseLabel")" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="@("сreateCourseLable")">Create</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                    @*     <div class="modal-body">
+                            <form method="post">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group">
+
+                                    <label asp-for="Name" class="control-label"></label>
+                                    <input asp-for="Name" class="form-control" maxlength="30" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                    <small id="nameHelp" class="form-text text-muted"></small>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Description" class="control-label"></label>
+                                    <input asp-for="Description" class="form-control" maxlength="180" />
+                                    <span asp-validation-for="Description" class="text-danger"></span>
+                                    <small id="descriptionHelp" class="form-text text-muted"></small>
+
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Create" class="btn btn-primary" />
+                                </div> 
+                             </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
+                            <a asp-page="/Courses/Create"  asp-page-handler="Create" asp-route-id="@item.Id">Delete</a>
+                        </div> *@
+                        <div class="modal-body">
+                           @*  <form method="post" asp-page-handler="Create" asp-page="/Courses/Create">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group">
+                                    <label for="Name">Name</label>
+                                    <input type="text" name="Name" class="form-control" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="Description">Description</label>
+                                    <input type="text" name="Description" class="form-control" value="" />
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="submit" value="Create" class="btn btn-primary" />
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </form> *@
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        
+
 
         <div class="only-profile">
             <a id="manage" class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Profile</a>
@@ -63,26 +123,31 @@
             <div class="menu-logo"></div>
 
 
-            <a asp-area="" asp-page="/Home/Index">Home
+            <a asp-area="" asp-page="/Home/Index">
+                Home
                 <div class="home-menu-image"></div>
             </a>
-            <a asp-area="" asp-page="/TrainingModules/Index">Your Library
+            <a asp-area="" asp-page="/TrainingModules/Index">
+                Your Library
                 <div class="library-menu-image"></div>
             </a>
-            
-            <a asp-area="" asp-page="/TrainingModules/Create">Create Module
+
+            <a asp-area="" asp-page="/TrainingModules/Create">
+                Create Module
                 <div class="plimage1"></div>
             </a>
-            <a asp-area="" asp-page="/Folders/Create">Create Folder
+            <a asp-area="" asp-page="/Folders/Create">
+                Create Folder
                 <div class="plimage2"></div>
             </a>
-            <a asp-area="" asp-page="/Courses/Create">Create Course
+            <a asp-area="" asp-page="/Courses/Create">
+                Create Course
                 <div class="plimage3"></div>
             </a>
 
             <a id="manage" class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Profile</a>
             <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
-                <button type="submit" class="nav-link btn btn-link border-0 der" >Logout</button>
+                <button type="submit" class="nav-link btn btn-link border-0 der">Logout</button>
                 <div class="primage"></div>
             </form>
 
@@ -95,7 +160,7 @@
 
 
 
-   
+
 
 
 
@@ -129,14 +194,14 @@
 
 
     <div class="container">
-        
+
         <main role="main" class="pb-3">
             @RenderBody()
 
         </main>
     </div>
 
-    
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

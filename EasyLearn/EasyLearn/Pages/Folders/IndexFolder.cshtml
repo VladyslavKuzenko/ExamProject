@@ -13,21 +13,21 @@
     }
 
     .atf {
-        margin-bottom:40px;
+        margin-bottom: 40px;
     }
 
-    .recent-library-module4{
-        height: 100px!important;
+    .recent-library-module4 {
+        height: 100px !important;
         border-radius: 6px;
         background-color: #2E3756;
         color: white;
         font-weight: bold;
         font-size: 23px;
         width: 92%;
-        margin-bottom:10px;
+        margin-bottom: 10px;
     }
 
-    .recent-description1{
+    .recent-description1 {
         font-size: 15px !important;
         font-weight: bold;
         color: #A9B0C3;
@@ -48,41 +48,43 @@
     }
 
     .del:hover {
-        background-color:red;
-        transform:scale(1.05);
+        background-color: red;
+        transform: scale(1.05);
     }
+
     .del:focus {
-        background-color:red;
-        box-shadow:none;
-        outline:none;
+        background-color: red;
+        box-shadow: none;
+        outline: none;
     }
 
     .edt {
-        height:70px;
-        width:70px;
+        height: 70px;
+        width: 70px;
         background-color: #6495ED;
-        border-radius:10px;
+        border-radius: 10px;
         background-image: url(/images/pencil.png);
         background-repeat: no-repeat;
         background-size: 42%;
         background-position: center;
-        position:fixed;
-        left:90%;
+        position: fixed;
+        left: 90%;
     }
 
     .tru {
         width: 92%;
     }
+
     .ll {
-        height:100%;
-        width:100%;
+        height: 100%;
+        width: 100%;
         border-radius: 10px;
     }
 
     .name-cont {
-        colow:white!important;
-        position:relative;
-        top:50px;
+        colow: white !important;
+        position: relative;
+        top: 50px;
     }
 </style>
 
@@ -95,30 +97,71 @@
         @*         <a asp-area="" asp-page="/Folders/AddTrainingModules" asp-route-folderId="@Model.FolderId">
         Add TrainingModule
         </a> *@
-        <div class="edt">
-            <a asp-page="/Folders/Edit" asp-route-id="@Model.FolderId">
-                <div class="ll"></div>
-            </a>
+        @*       <div class="edt">
+        <a asp-page="/Folders/Edit" asp-route-id="@Model.FolderId">
+        <div class="ll"></div>
+        </a>
+        </div> *@
+        <!-- Button trigger modal -->
+        <button type="button" data-bs-toggle="modal" data-bs-target="#@("editModel" + @Model.Folder.Id)">
+            <div class="edt">
+            </div>
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="@("editModel"+@Model.Folder.Id)" tabindex="-1" aria-labelledby="@("editModelLabel"+@Model.Folder.Id)" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="@("editModelLable"+@Model.Folder.Id)">Edit</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" asp-page-handler="Edit" asp-route-id="@Model.Folder.Id">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="@Model.Folder.Id" />
+                            <div class="form-group">
+                                <label asp-for="@Model.Folder.Name" class="control-label"></label>
+                                <input asp-for="@Model.Folder.Name" class="form-control" value="@Model.Folder.Name" />
+                                <span asp-validation-for="@Model.Folder.Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="@Model.Folder.Description" class="control-label"></label>
+                                <input asp-for="@Model.Folder.Description" class="form-control" value="@Model.Folder.Description" />
+                                <span asp-validation-for="@Model.Folder.Description" class="text-danger"></span>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="form-group">
+                                    <input type="submit" value="Save" class="btn btn-primary" />
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
         </div>
         <form method="post">
             <div class="form-group">
                 <select asp-for="SelectedTrainingModuleId" class="form-control tru" asp-items="Model.TrainingModulesWithoutFolder" style="background-color:steelblue; color:white; border:none; box-shadow:none;">
-                    <option value="" >-- @Localize["Select Training Module"] --</option>
+                    <option value="">-- @Localize["Select Training Module"] --</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary atf">@Localize["Add to Folder +"]</button>
-            
+
         </form>
 
 
         <tbody>
             @foreach (var item in Model.TrainingModules)
             {
-              
+
                 <a asp-area="" asp-page="/Cards/Index" asp-route-trainingModuleId="@item.Id">
 
                     <div class="recent-library-module4">
-                       
+
                         <div class="recent-content">
                             <div class="name-recent1">
                                 @Html.DisplayFor(modelItem => item.Name)
@@ -136,7 +179,7 @@
                 </a>
                 <button type="button" class="btn btn-primary del" data-bs-toggle="modal" data-bs-target="#@("deleteModel" + item.Id)">
                 </button>
-               
+
 
                 <!-- Modal -->
                 <div class="modal fade" id="@("deleteModel"+item.Id)" tabindex="-1" aria-labelledby="@("deleteModelLabel"+item.Id)" aria-hidden="true">
@@ -160,13 +203,13 @@
         </tbody>
         <div>
 
-           
+
 
             </br>
-@*             <div style="background-color:white; border:2px solid chartreuse">
-                <a asp-page="/Folders/Delete" asp-route-id="@Model.FolderId">
-                    This is Delete of Folders
-                </a>
+            @*             <div style="background-color:white; border:2px solid chartreuse">
+            <a asp-page="/Folders/Delete" asp-route-id="@Model.FolderId">
+            This is Delete of Folders
+            </a>
             </div> *@
         </div>
     </table>

@@ -65,5 +65,9 @@ namespace EasyLearn.Pages.Courses
 
             return RedirectToPage("./Index");
         }
+        public async Task<IActionResult> OnGetCreateAsync()
+        {
+            return Page();
+        }
     }
 }

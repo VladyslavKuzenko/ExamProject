@@ -22,6 +22,8 @@ namespace EasyLearn.Pages.Folders
 
         [BindProperty]
         public int FolderId {  get; set; } //
+
+        [BindProperty]
         public Folder Folder { get; set; }//
         public IList<TrainingModule> TrainingModules { get; set; } = default!;//
         public TrainingModule TrainingModule { get; set; } = default!;
@@ -114,6 +116,31 @@ namespace EasyLearn.Pages.Folders
             //trainingModules.Remove();
 
         }
+        public async Task<IActionResult> OnPostEditAsync(/*int id*/)
+        {
+            //// Перевірка валідності моделі
+            //if (!ModelState.IsValid)
+            //{
+            //    return Page(); // Повертаємо ту ж сторінку з помилками
+            //}
 
+            // Встановлюємо ID курсу перед його оновленням
+            var folder = await _context.Folder.FindAsync(Folder.Id);
+
+            folder.Name = Folder.Name;
+            folder.Description = Folder.Description;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+
+            }
+
+            // Переходимо на іншу сторінку або повертаємо відповідь
+            return RedirectToPage(new { folderId = Folder.Id });
+        }
     }
 }
