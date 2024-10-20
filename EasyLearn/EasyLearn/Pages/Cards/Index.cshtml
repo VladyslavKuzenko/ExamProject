@@ -123,7 +123,7 @@
 </div>
 <!-- Кнопка для шафлу -->
 <div class="toggle-container">
-    <p class="text-shuffle">Random:</p>
+    <p class="text-shuffle">Random</p>
     <input type="checkbox" name="name" value="Shuffle" class="random-game-button" />
 </div>
 <!-- Кнопка для повернення в класичний режим -->
@@ -343,14 +343,13 @@
         setTimeout(() => {
             feedback.textContent = '';
             showTestQuestion();
-        }, 1500);
+        }, 500);
     }
 
     // Скидання стану тесту
     function resetQuiz() {
         currentIndex = 0;
         updateCard();
-
     }
 
     // Оновлення картки (при перемиканні між режимами)

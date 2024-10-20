@@ -1846,12 +1846,12 @@ a {
 .random-game-button {
     width: 52px;
     height: 26px;
-    background-color: #040407;
+    background-color: #2E3756;
     border: 1px solid white;
     border-radius: 26px;
     position: relative;
     top: -436px;
-    left:21%;
+    left: 16%;
     cursor: pointer;
     margin-right: 10px;
     appearance: none;
@@ -1879,7 +1879,7 @@ a {
     color: white;
     position: relative;
     top: -394.5px;
-    left: 15%;
+    left: 21%;
     font-weight:bold;
 }
 
