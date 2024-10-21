@@ -136,11 +136,10 @@
 
     </div>
 
-    <lable class="counter">1</lable>
-        <hr style="height:5px; width:100%; opacity:1; background-color:#0A082D; position:relative; top:170px;" />
-
     <div id="cards-container">
+            <hr style="height:5px; width:100%; opacity:1; background-color:#0A082D; position:relative; top:65px;" />
             <div class="card-box">
+                <div class="card-number" style="">1</div>
                 <div class="form-group">
                     <label class="gg">Term</label>
                     <input type="text" name="Cards[0].Term" class="form-control shire" />
@@ -149,6 +148,7 @@
                     <label class="gg">Definition</label>
                     <input type="text" name="Cards[0].Definition" class="form-control shire" />
                 </div>
+                <button type="button" class="btn btn-danger remove-card">Видалити</button>
             </div>
     </div>
 
@@ -194,12 +194,16 @@
                     <label class="gg">Definition</label>
                     <input type="text" name="Cards[${cardIndex}].Definition" class="form-control shire" />
                 </div>
+                <button type="button" class="btn btn-danger remove-card">Видалити</button>
+
             </div>`;
 
 
 
             container.insertAdjacentHTML('beforeend', cardHtml);
             cardIndex++;
+            updateRemoveButtonState(); 
+            updateCardNumbers(); 
         });
 
             document.getElementById("Name").addEventListener("input", function () {
@@ -222,6 +226,48 @@
                 document.getElementById("descriptionHelp").innerText = "";
             }
         });
+
+
+        document.getElementById('cards-container').addEventListener('click', function (event) {
+            if (event.target.classList.contains('remove-card')) {
+                const cardBox = event.target.closest('.card-box');
+                const hr = cardBox.previousElementSibling; // Знаходимо пов'язаний label (номер картки)
+
+                hr.remove();
+                cardBox.remove(); // Видаляємо картку
+                updateRemoveButtonState(); // Оновлюємо стан кнопок "Видалити"
+                updateCardNumbers(); // Оновлюємо нумерацію карток
+            }
+        });
+        // Функція для оновлення стану кнопок "Видалити"
+        function updateRemoveButtonState() {
+            const removeButtons = document.querySelectorAll('.remove-card');
+            removeButtons.forEach(button => button.disabled = false); // Усі кнопки активні
+            if (removeButtons.length === 1) {
+                removeButtons[0].disabled = true; // Якщо є лише одна картка, робимо кнопку неактивною
+            }
+        }
+
+        // Функція для оновлення нумерації карток
+        function updateCardNumbers() {
+            const cardCounters = document.querySelectorAll('.card-number');
+            cardCounters.forEach((label, index) => {
+                label.innerText = `${index + 1}`;
+            });
+
+            const cardBoxes = document.querySelectorAll('.card-box');
+            cardBoxes.forEach((cardBox, index) => {
+                const termInput = cardBox.querySelector('input[name^="Cards"][name$=".Term"]');
+                const definitionInput = cardBox.querySelector('input[name^="Cards"][name$=".Definition"]');
+                termInput.name = `Cards[${index}].Term`;
+                definitionInput.name = `Cards[${index}].Definition`;
+            });
+        }
+
+        // Оновлюємо стан кнопок "Видалити" на завантаженні сторінки
+        updateRemoveButtonState();
+
+
     </script>
 
     @{
