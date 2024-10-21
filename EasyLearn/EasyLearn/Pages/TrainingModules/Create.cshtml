@@ -166,18 +166,30 @@
         document.getElementById('add-card').addEventListener('click', function () {
             let container = document.getElementById('cards-container');
 
-            // Отримуємо останню картку
-            let lastCard = container.querySelector(`.card-box:last-child`);
+            // Flag to check if all card fields are filled
+            let allFilled = true;
 
-            // Перевіряємо, чи існує картка і чи її поля заповнені
-            if (lastCard) {
-                let lastTerm = lastCard.querySelector('input[name^="Cards"][name$=".Term"]').value;
-                let lastDefinition = lastCard.querySelector('input[name^="Cards"][name$=".Definition"]').value;
+            // Check all existing cards
+            const cardItems = container.querySelectorAll('.card-box');
+            cardItems.forEach((cardItem) => {
+                let termInput = cardItem.querySelector(`input[name^="Cards"][name$=".Term"]`);
+                let definitionInput = cardItem.querySelector(`input[name^="Cards"][name$=".Definition"]`);
 
-                if (lastTerm.trim() === "" || lastDefinition.trim() === "") {
-                    alert('Будь ласка, заповніть термін та визначення перед додаванням нової картки.');/* ${ cardIndex + 1 } */
-                    return;
+                if (!termInput.value.trim() || !definitionInput.value.trim()) {
+                    allFilled = false;
+                    // Add a visual indicator to the empty fields
+                    termInput.classList.add('is-invalid');
+                    definitionInput.classList.add('is-invalid');
+                } else {
+                    // Remove the invalid class if the field is filled
+                    termInput.classList.remove('is-invalid');
+                    definitionInput.classList.remove('is-invalid');
                 }
+            });
+
+            if (!allFilled) {
+                alert('Please fill in all existing card fields before adding a new card.');
+                return;
             }
 
             // Якщо всі поля заповнені, додаємо нову картку
