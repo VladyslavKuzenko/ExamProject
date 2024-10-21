@@ -1,6 +1,8 @@
 ﻿@page
 @model EasyLearn.Pages.Courses.CreateModel
-
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<CreateModel> Localize
 @{
     ViewData["Title"] = "Create Course";
 }
@@ -9,7 +11,8 @@
         background-color: #0A082D;
     }
 </style>
-<h1 class="create-title">Create Course</h1>
+<div class="top-page-library-modules">
+<h1 class="create-title">@Localize["Create course"]</h1>
 
 <form method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -28,9 +31,10 @@
 
     </div>
     <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-primary" />
+        <input type="submit" value="@Localize["Create"]" class="btn btn-primary" />
     </div>
 </form>
+</div>
 
 
 
@@ -57,6 +61,7 @@
             }
         });
     </script>
+
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }

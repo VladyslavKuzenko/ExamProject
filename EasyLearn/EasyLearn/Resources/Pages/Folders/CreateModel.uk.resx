@@ -117,28 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Courses" xml:space="preserve">
-    <value>Курси</value>
+  <data name="Create" xml:space="preserve">
+    <value>Створити</value>
   </data>
-  <data name="Folders" xml:space="preserve">
-    <value>Папки</value>
+  <data name="Create folder" xml:space="preserve">
+    <value>Створити папку</value>
   </data>
-  <data name="Seacrh Folder" xml:space="preserve">
-    <value>Знайти папку</value>
+  <data name="Description" xml:space="preserve">
+    <value>Опис</value>
   </data>
-  <data name="Search Course" xml:space="preserve">
-    <value>Знайти курс</value>
-  </data>
-  <data name="Search Module" xml:space="preserve">
-    <value>Знайти модуль</value>
-  </data>
-  <data name="terms" xml:space="preserve">
-    <value>термінів</value>
-  </data>
-  <data name="Training modules" xml:space="preserve">
-    <value>Навчальні модулі</value>
-  </data>
-  <data name="Your library" xml:space="preserve">
-    <value>Ваша Бібліотека</value>
+  <data name="Name" xml:space="preserve">
+    <value>Назва</value>
   </data>
 </root>

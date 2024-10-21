@@ -138,6 +138,9 @@
   <data name="Recent" xml:space="preserve">
     <value>Нещодавні</value>
   </data>
+  <data name="terms" xml:space="preserve">
+    <value>термінів</value>
+  </data>
   <data name="Test yourself with study tips and advices" xml:space="preserve">
     <value>Перевірте себе за допомогою підказок і порад щодо навчання</value>
   </data>
