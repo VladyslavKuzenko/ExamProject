@@ -263,9 +263,10 @@ a {
     font-size:13px;
 }
 .dta {
-    text-align:end;
-    width:98%;
+    text-align: end;
+    width: 98%;
 }
+
 @media only screen and (min-width: 1024px) {
     /*___________________________Header*/
     header {
@@ -321,14 +322,40 @@ a {
     }
     .recent-description {
         font-size: 15px!important;
-        font-weight: bold;
-        color: #A9B0C3;
+        font-weight: bold!important;
+        color: #A9B0C3!important;
         position: relative;
         top: 80px;
         left: 8%;
         width:90%;
     }
+    .recent-description4 {
+        font-size: 15px;
+        font-weight: bold;
+        color: #A9B0C3;
+        position: relative;
+        top: 46px;
+        left: 8%;
+        width: 90%;
+    }
     .recent-info {
+        font-size: 13.7px;
+        font-weight: bold;
+        color: lightgray;
+        position: relative;
+        top: 65px;
+        left: 8%;
+        background-color: #0A082D;
+        border-radius: 10px;
+        width: 70%;
+        height: 90px;
+        padding: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.5em;
+        word-wrap: break-word;
+    }
+    .recent-info4 {
         font-size: 13.7px;
         font-weight: bold;
         color: lightgray;
@@ -499,6 +526,20 @@ a {
         background-position: center;
         margin-top: -110px;
     }
+    .cntterm {
+        position: relative;
+        background-color: #586380;
+        height: 20px;
+        font-size: 12px;
+        top: 20px;
+        padding-right: 5px;
+        padding-left: 5px;
+        left: 8%;
+        width: auto;
+        text-align: center;
+        border-radius: 7px;
+        display: inline-block;
+    }
 
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
@@ -564,7 +605,7 @@ a {
         font-weight: bold;
         color: lightgray;
         position: relative;
-        top: 50px;
+        top: 66px;
         left: 6%;
         background-color: #0A082D;
         border-radius: 10px;
@@ -576,18 +617,41 @@ a {
         line-height: 1.5em;
         word-wrap: break-word;
     }
-
-    .recent-description {
-        font-size: 15px!important;
+    .recent-info4 {
+        font-size: 13.7px;
         font-weight: bold;
-        color: #A9B0C3;
+        color: lightgray;
+        position: relative;
+        top: 31px !important;
+        left: 6%;
+        background-color: #0A082D;
+        border-radius: 10px;
+        width: 70%;
+        height: 90px;
+        padding: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.5em;
+        word-wrap: break-word;
+    }
+    .recent-description {
+        font-size: 15px !important;
         position: relative;
         top: 50px;
-        text-align:end;
-        width:98%
-
+        text-align: end;
+        width: 98%;
+        color: #A9B0C3 !important;
+        font-weight: bold!important;
     }
-
+    .recent-description4 {
+        font-size: 15px !important;
+        color: #A9B0C3;
+        position: relative;
+        top: 15px;
+        text-align: end;
+        width: 98%;
+        font-weight:bold;
+    }
     .recent-library-module1, .recent-library-module2, .recent-library-module3 {
         height: 100%;
         border-radius: 6px;
@@ -720,7 +784,20 @@ a {
         margin-top: 55px;
 
     }
-
+    .cntterm {
+        position: relative;
+        background-color: #586380;
+        height: 20px;
+        font-size: 12px;
+        top: 20px;
+        padding-right: 5px;
+        padding-left: 5px;
+        left: 6%;
+        width: auto;
+        text-align: center;
+        border-radius: 7px;
+        display: inline-block;
+    }
 /*    _______________________Login*/
     .fe {
         display: none;
@@ -818,7 +895,23 @@ a {
         line-height: 1.5em;
         word-wrap: break-word;
     }
-
+    .recent-info4 {
+        font-size: 13.7px;
+        font-weight: bold;
+        color: lightgray;
+        position: relative;
+        top: 15px!important;
+        left: 6%;
+        background-color: #0A082D;
+        border-radius: 10px;
+        width: 70%;
+        height: 90px;
+        padding: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.5em;
+        word-wrap: break-word;
+    }
     .recent-description {
         font-size: 14px !important;
         font-weight: bold;
@@ -1001,6 +1094,39 @@ a {
         background-position: center;
         position: fixed;
         left: 85%!important;
+    }
+    .recent-description {
+        font-size: 15px !important;
+        position: relative;
+        top: 50px;
+        text-align: end;
+        width: 98%;
+        color: #A9B0C3 !important;
+        font-weight: bold !important;
+    }
+
+    .recent-description4 {
+        font-size: 15px !important;
+        color: #A9B0C3;
+        position: relative;
+        top: 15px;
+        text-align: end;
+        width: 98%;
+        font-weight: bold;
+    }
+    .cntterm {
+        position: relative;
+        background-color: #586380;
+        height: 20px;
+        font-size: 12px;
+        top: 15px;
+        padding-right: 5px;
+        padding-left: 5px;
+        left: 6%;
+        width: auto;
+        text-align: center;
+        border-radius: 7px;
+        display: inline-block;
     }
 }
 @media only screen and (max-width: 450px) {

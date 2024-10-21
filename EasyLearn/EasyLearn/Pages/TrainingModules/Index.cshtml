@@ -43,9 +43,9 @@
                         <div class="recent-description1">
                             @Html.DisplayFor(modelItem => item.Description)
                             <br />
-                            @Html.DisplayFor(modelItem => item.Cards.Count)
+                            @Html.DisplayFor(modelItem => item.Cards.Count) термінів
 
-                            <div class="dta">
+                            <div class="dta" style="position:relative; top:-20px;">
                                 @Html.DisplayFor(modelItem => item.Create.Day) /
                                 @Html.DisplayFor(modelItem => item.Create.Month) /
                                 @Html.DisplayFor(modelItem => item.Create.Year)
