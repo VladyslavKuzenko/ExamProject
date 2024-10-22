@@ -27,6 +27,16 @@
         transform:translate(-50%);
         z-index: 999;
     }
+    .status-text{
+        color: white;
+        font-weight: bold;
+        font-size: 36px; /* Задаємо розмір тексту для заголовка */
+        display: flex;
+        justify-content: center; /* Центрування по горизонталі */
+        position: relative;
+        top: 100px; /* Зміщуємо заголовок вниз */
+        text-align: center;
+    }
 
     #returnToClassic {
         background-color: #21273D;
@@ -94,7 +104,9 @@
     }
 </style>
 
+
 <div class="main-container-game">
+    <h1 class="status-text">Classic</h1>
 <!-- Контейнер для картки -->
 <div class="card-container">
     <div class="card" id="flashcard">
@@ -108,8 +120,11 @@
 </div>
 <!-- Кнопки навігації -->
 <div class="navigation-buttons">
-    <button id="prevBtn" disabled>⭠</button>
-    <button id="nextBtn" @(Model.Card.Count <= 1 ? "disabled" : "")>⭢</button>
+    <div class="arrow-btn">
+        <button id="prevBtn" disabled>⭠</button>
+        <button id="nextBtn" @(Model.Card.Count <= 1 ? "disabled" : "")>⭢</button>
+    </div>
+    <button id="backBtn">↺</button>
 </div>
 <!-- Лічильник карток -->
 <div class="card-index">
@@ -197,6 +212,11 @@
         shuffleSwitch.style.display = show ? 'block' : 'none'; // Показуємо кнопку Shuffle в класичному режимі
         returnContainer.style.display = show ? 'none' : 'block';
     }
+
+    backBtn.addEventListener('click', () => {
+        currentIndex = 0; 
+        updateCard(); 
+    });
 
     // Додаємо обробники подій для кнопок режимів
     classicBtn.addEventListener('click', () => {
