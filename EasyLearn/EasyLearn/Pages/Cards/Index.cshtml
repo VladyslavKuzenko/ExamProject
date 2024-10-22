@@ -27,14 +27,14 @@
         transform:translate(-50%);
         z-index: 999;
     }
-    .status-text{
+    .current-mode{
         color: white;
         font-weight: bold;
         font-size: 36px; /* Задаємо розмір тексту для заголовка */
         display: flex;
         justify-content: center; /* Центрування по горизонталі */
+        top: 145px;
         position: relative;
-        top: 100px; /* Зміщуємо заголовок вниз */
         text-align: center;
     }
 
@@ -94,10 +94,57 @@
         transform: translate(-50%);
     }
 
-    #answer-options {
-        position:relative;
-        top:100px;
+    #question-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+    }
 
+    /* Стиль для заголовку тесту */
+    #test-question {
+        font-size: 24px;
+        color: white;
+        margin-bottom: 20px;
+    }
+
+    /* Контейнер для варіантів відповідей */
+    #answer-options {
+        display: grid; /* Встановлюємо сітку */
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки однакової ширини */
+        gap: 20px; /* Відступ між кнопками */
+        position: relative;
+        width: 80%;
+        top: 152px;
+        margin: 10px auto; /* Вирівнюємо контейнер по центру */
+    }
+
+        /* Кнопки для варіантів відповідей */
+        #answer-options button {
+            background-color: #21273D;
+            color: white;
+            border: 2px solid lightgray;
+            border-radius: 10px;
+            padding: 15px 30px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%; /* Фіксована ширина для прямокутників */
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+            /* Стан при наведенні */
+            #answer-options button:hover {
+                background-color: deepskyblue;
+                color: white;
+            }
+
+    /* Фідбек для тесту */
+    #test-feedback {
+        margin-top: 15px;
+        color: white;
+        font-size: 18px;
     }
     header {
         top:0;
@@ -105,8 +152,10 @@
 </style>
 
 
+<!-- Режим гри -->
+<div id="currentMode" class="current-mode">Classic</div>
+
 <div class="main-container-game">
-    <h1 class="status-text">Classic</h1>
 <!-- Контейнер для картки -->
 <div class="card-container">
     <div class="card" id="flashcard">
@@ -177,8 +226,6 @@
      </div>
 </div>
     
-<!-- Режим гри -->
-<div id="currentMode" class="current-mode">Classic</div>
 </div>
 <script>
     const originalCards = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Card.Select(c => new { c.Term, c.Definition })));
@@ -205,6 +252,8 @@
     const questionContainer = document.getElementById('question-container');
     const examContainer = document.getElementById('exam-container');
     const testResult = document.getElementById('test-result');
+    
+
 
     // Показати/сховати кнопки режимів і повернення
     function toggleGameElements(show) {
@@ -239,7 +288,7 @@
         prevBtn.style.display = "none";
         nextBtn.style.display = "none";
         cardCounter.style.display = "none";
-
+        backBtn.style.display = "none";
     });
 
     examBtn.addEventListener('click', () => {
@@ -254,11 +303,14 @@
     });
 
     returnBtn.addEventListener('click', () => {
+        currentCards = [...originalCards];
+        resetQuiz();
         toggleGameElements(true);
         questionContainer.style.display = 'none';
         examContainer.style.display = 'none';
         testResult.style.display = 'none';
         flashcard.style.display = 'block';
+        backBtn.style.display = "inline-block";
         updateCurrentMode('');
     });
 
