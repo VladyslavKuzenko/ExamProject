@@ -27,6 +27,16 @@
         transform:translate(-50%);
         z-index: 999;
     }
+    .current-mode{
+        color: white;
+        font-weight: bold;
+        font-size: 36px; /* Задаємо розмір тексту для заголовка */
+        display: flex;
+        justify-content: center; /* Центрування по горизонталі */
+        top: 145px;
+        position: relative;
+        text-align: center;
+    }
 
     #returnToClassic {
         background-color: #21273D;
@@ -41,6 +51,10 @@
         left:100%;
         transform:translate(-115px);
     }
+         #returnToClassic button:hover {
+                background-color: darkred;
+                color: white;
+            }
 
     #exam-term {
         color:white;
@@ -84,15 +98,66 @@
         transform: translate(-50%);
     }
 
-    #answer-options {
-        position:relative;
-        top:100px;
+    #question-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+    }
 
+    /* Стиль для заголовку тесту */
+    #test-question {
+        font-size: 24px;
+        color: white;
+        margin-bottom: 20px;
+    }
+
+    /* Контейнер для варіантів відповідей */
+    #answer-options {
+        display: grid; /* Встановлюємо сітку */
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки однакової ширини */
+        gap: 20px; /* Відступ між кнопками */
+        position: relative;
+        width: 80%;
+        top: 152px;
+        margin: 10px auto; /* Вирівнюємо контейнер по центру */
+    }
+
+        /* Кнопки для варіантів відповідей */
+        #answer-options button {
+            background-color: #21273D;
+            color: white;
+            border: 2px solid lightgray;
+            border-radius: 10px;
+            padding: 15px 30px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%; /* Фіксована ширина для прямокутників */
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+            /* Стан при наведенні */
+            #answer-options button:hover {
+                background-color: deepskyblue;
+                color: white;
+            }
+
+    /* Фідбек для тесту */
+    #test-feedback {
+        margin-top: 15px;
+        color: white;
+        font-size: 18px;
     }
     header {
         top:0;
     }
 </style>
+
+
+<!-- Режим гри -->
+<div id="currentMode" class="current-mode">Classic</div>
 
 <div class="main-container-game">
 <!-- Контейнер для картки -->
@@ -108,8 +173,11 @@
 </div>
 <!-- Кнопки навігації -->
 <div class="navigation-buttons">
-    <button id="prevBtn" disabled>⭠</button>
-    <button id="nextBtn" @(Model.Card.Count <= 1 ? "disabled" : "")>⭢</button>
+    <div class="arrow-btn">
+        <button id="prevBtn" disabled>⭠</button>
+        <button id="nextBtn" @(Model.Card.Count <= 1 ? "disabled" : "")>⭢</button>
+    </div>
+    <button id="backBtn">↺</button>
 </div>
 <!-- Лічильник карток -->
 <div class="card-index">
@@ -161,9 +229,17 @@
     <p id="score-result"></p>
      </div>
 </div>
+
+    <!-- Контейнер для лічильника (якщо тестовий режим) -->
+    <div id="test-counter" style="display: none; text-align: center; color: white; margin-top: 15px;">
+        Question <span id="current-question-number-test">1</span> of <span id="total-questions-test"></span>
+    </div>
+
+    <!-- Контейнер для лічильника (якщо екзаменаційний режим) -->
+    <div id="exam-counter" style="display: none; text-align: center; color: white; margin-top: 15px;">
+        Question <span id="current-question-number-exam">1</span> of <span id="total-questions-exam"></span>
+    </div>
     
-<!-- Режим гри -->
-<div id="currentMode" class="current-mode">Classic</div>
 </div>
 <script>
     const originalCards = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Card.Select(c => new { c.Term, c.Definition })));
@@ -190,6 +266,8 @@
     const questionContainer = document.getElementById('question-container');
     const examContainer = document.getElementById('exam-container');
     const testResult = document.getElementById('test-result');
+    
+
 
     // Показати/сховати кнопки режимів і повернення
     function toggleGameElements(show) {
@@ -197,6 +275,11 @@
         shuffleSwitch.style.display = show ? 'block' : 'none'; // Показуємо кнопку Shuffle в класичному режимі
         returnContainer.style.display = show ? 'none' : 'block';
     }
+
+    backBtn.addEventListener('click', () => {
+        currentIndex = 0; 
+        updateCard(); 
+    });
 
     // Додаємо обробники подій для кнопок режимів
     classicBtn.addEventListener('click', () => {
@@ -219,7 +302,7 @@
         prevBtn.style.display = "none";
         nextBtn.style.display = "none";
         cardCounter.style.display = "none";
-
+        backBtn.style.display = "none";
     });
 
     examBtn.addEventListener('click', () => {
@@ -231,15 +314,20 @@
         prevBtn.style.display = "none";
         nextBtn.style.display = "none";
         cardCounter.style.display = "none";
+        backBtn.style.display = "none";
     });
 
     returnBtn.addEventListener('click', () => {
+        currentCards = [...originalCards];
+        resetQuiz();
         toggleGameElements(true);
         questionContainer.style.display = 'none';
         examContainer.style.display = 'none';
         testResult.style.display = 'none';
         flashcard.style.display = 'block';
+        backBtn.style.display = "inline-block";
         updateCurrentMode('');
+        hideCounters();
     });
 
     shuffleSwitch.addEventListener('change', () => {
@@ -251,27 +339,32 @@
         resetQuiz();
     });
 
-    // Функція для старту тестового режиму
+
+    // Функція для старту тестового режиму (додано показ лічильника)
     function startTestMode() {
         toggleGameElements(false);
         questionContainer.style.display = 'block';
+        document.getElementById('test-counter').style.display = 'block'; // Показуємо лічильник тесту
         flashcard.style.display = 'none';
         currentIndex = 0;
         showTestQuestion();
-
+        showCounters();
+        updateTestCounter(); // Оновлюємо лічильник
 
     }
 
-    // Функція для старту екзаменаційного режиму
+    // Функція для старту екзаменаційного режиму (додано показ лічильника)
     function startExamMode() {
         toggleGameElements(false);
         examContainer.style.display = 'block';
+        document.getElementById('exam-counter').style.display = 'block'; // Показуємо лічильник екзамену
         flashcard.style.display = 'none';
         currentIndex = 0;
         showExamQuestion();
-        updateCurrentMode(''); // Оновлено
-
+        showCounters();
+        updateExamCounter(); // Оновлюємо лічильник
     }
+
 
     // Показ екзаменаційного питання
     function showExamQuestion() {
@@ -280,6 +373,8 @@
             document.getElementById('exam-term').textContent = `${currentCard.Term}`;
             document.getElementById('exam-answer').value = ''; // Очищуємо поле вводу
             document.getElementById('exam-feedback').textContent = ''; // Очищуємо фідбек
+
+            updateExamCounter(); // Оновлюємо лічильник
         } else {
             finishTest();
         }
@@ -300,7 +395,15 @@
         setTimeout(showExamQuestion, 500); // Переходимо до наступного питання через 1.5 секунди
     });
 
-    // Функція для показу питання у тестовому режимі
+    function hideCounters() {
+        document.getElementById('test-counter').style.display = 'none';
+        document.getElementById('exam-counter').style.display = 'none';
+    }
+    function showCounters() {
+        document.getElementById('test-counter').style.display = 'block';
+        document.getElementById('exam-counter').style.display = 'block';
+    }
+
     function showTestQuestion() {
         if (currentIndex < currentCards.length && currentIndex < totalQuestions) {
             const currentCard = currentCards[currentIndex];
@@ -315,7 +418,10 @@
             answerOptions.forEach(option => {
                 const button = document.createElement('button');
                 button.textContent = option;
-                button.addEventListener('click', () => checkAnswer(option, currentCard.Definition));
+                button.addEventListener('click', () => {
+                    checkAnswer(option, currentCard.Definition);
+                    updateExamCounter(); // Оновлюємо лічильник
+                });
                 answerOptionsDiv.appendChild(button);
             });
 
@@ -350,6 +456,17 @@
     function resetQuiz() {
         currentIndex = 0;
         updateCard();
+    }
+
+    function updateTestCounter() {
+        document.getElementById('current-question-number-test').textContent = currentIndex + 1;
+        document.getElementById('total-questions-test').textContent = totalQuestions;
+    }
+
+    // Counter for Test & Exam
+    function updateExamCounter() {
+        document.getElementById('current-question-number-exam').textContent = currentIndex + 1;
+        document.getElementById('total-questions-exam').textContent = totalQuestions;
     }
 
     // Оновлення картки (при перемиканні між режимами)
