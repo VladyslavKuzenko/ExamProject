@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <title>@ViewData["Title"]</title>
-    <style>
+    @* <style>
         body {
             background-color: #0A082D;
             color: white;
@@ -88,7 +88,7 @@
             border-radius: 5px;
             cursor: pointer;
             margin-top: -220px;
-            margin-left: 455px;;
+            margin-left: 455px;
         }
         .create-module-button:hover {
             background-color: #0056b3;
@@ -128,7 +128,137 @@
         .delete-card button {
             visibility:hidden;
         }
-    </style>
+    </style> *@
+
+    <style>
+        .delete-card {
+            margin-top: -220px;
+            color: red;
+            text-decoration: underline;
+            cursor: pointer;
+            display: block;
+            width: 70px;
+            height: 70px;
+        }
+
+            .delete-card button {
+                visibility: hidden;
+            }
+    body {
+        background-color: #0A082D;
+        color: white;
+    }
+
+    .create-title {
+        text-align: center;
+        font-size: 2em;
+        color: white;
+    }
+
+    .control-label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .text-danger {
+        color: red;
+        font-size: 0.9em;
+    }
+
+    #cards-container {
+        border-radius: 10px;
+        margin-top: 120px; /* Відстань між контейнером і верхніми елементами */
+    }
+
+    .card-box {
+        padding: 45px;
+        border-radius: 8px;
+        background-color: #2E3756; /* Колір фону для картки */
+        margin-bottom: 15px; /* Відстань між картками */
+        display: flex; /* Вирівнюємо картки горизонтально */
+        justify-content: space-between; /* Відстань між полями */
+    }
+
+    .form-group {
+        width: 48%; /* Ширина полів */
+        margin-right: 20px; /* Відступ справа */
+    }
+
+        .form-group:last-child {
+            margin-right: 0; /* Прибираємо відступ у останнього елемента */
+        }
+
+    .shire {
+        width: 100%; /* 100% від батька */
+        background-color: transparent;
+        border: none;
+        border-bottom: 4px solid white;
+        color: white;
+        border-radius: 0;
+        position: relative;
+        top: -70px; /* Ваше позиціонування */
+    }
+
+        .shire:focus {
+            background-color: #2E3756;
+            border-bottom: 5px solid yellow;
+            outline: none;
+            box-shadow: none;
+            color: white;
+        }
+
+    #add-card {
+        background-color: #2E3756;
+        color: white;
+        width: 100%;
+        height: 140px;
+        border: none;
+        font-weight: bold;
+        font-size: 16px;
+        border-bottom: 5px solid aquamarine;
+        cursor: pointer;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 26px;
+    }
+
+        #add-card:hover {
+            background-color: #3E4A68;
+        }
+
+    .create-module-button {
+        background-color: #007BFF;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        position:relative;
+        left:0%;
+        top:-100px;
+    }
+
+        .create-module-button:hover {
+            background-color: #0056b3;
+        }
+        .card-number {
+            margin-left:-20px;
+        margin-top: -32px;
+        font-weight:bold;
+    }
+
+
+</style>
 </head>
 <body>
     @{
@@ -159,12 +289,11 @@
         <div id="cards-container">
             @for (int i = 0; i < Model.Cards.Count; i++)
             {
-                <div class="card-item">
-                    <label class="gg">@(cardIndex + 1)
-                            <hr style="height:5px; width:104.2%; opacity:1; background-color:#0A082D; position:relative; left:-25px;" />
 
-                    </label> <!-- Додаємо 1 до cardIndex -->
+                    <hr style="height:5px; width:100%; opacity:1; background-color:#0A082D; position:relative; top:65px;" />
+                    
                     <div class="card-box">
+                            <div class="card-number" style="">@(cardIndex + 1)</div>
                         <div class="form-group">
                             <label class="gg" for="Cards_@(cardIndex)__Term">Term</label>
                             <input type="text" id="Cards_@(cardIndex)__Term" name="Cards[@i].Term" value="@Model.Cards[@i].Term" class="form-control shire" />
@@ -173,8 +302,9 @@
                             <label class="gg" for="Cards_@(cardIndex)__Definition">Description</label>
                             <input type="text" id="Cards_@(cardIndex)__Definition" name="Cards[@i].Definition" value="@Model.Cards[@i].Definition" class="form-control shire" />
                         </div>
+                        <button type="button" class="btn btn-danger remove-card">Видалити</button>
                     </div>
-                </div>
+               
                 cardIndex++;
             }
 
@@ -201,7 +331,7 @@
                 let allFilled = true;
 
                 // Check all existing cards
-                const cardItems = container.querySelectorAll('.card-item');
+                const cardItems = container.querySelectorAll('.card-box');
                 cardItems.forEach((cardItem) => {
                     let termInput = cardItem.querySelector(`input[name^="Cards"][name$=".Term"]`);
                     let definitionInput = cardItem.querySelector(`input[name^="Cards"][name$=".Definition"]`);
@@ -225,26 +355,28 @@
 
                 // Add a new card if all fields are filled
                 let cardHtml = `
-                <div class="card-item">
-                                <label class="gg">${cardIndex + 1}</label>
-                    <hr style="height:5px; width:110%; opacity:1; background-color:#0A082D; position:relative; left:-25px;" />
+                            <hr style="height:5px; width:100%; opacity:1; background-color:#0A082D; position:relative; top:65px;" />
+                        <div class="card-box">
+                            <div class="card-number" style="">${cardIndex + 1}</div>
 
-                    <div class="card-box">
-                        <div class="form-group">
-                            <label class="gg" for="Cards_${cardIndex}__Term">Term</label>
-                            <input type="text" id="Cards_${cardIndex}__Term" name="Cards[${cardIndex}].Term" class="form-control shire" />
-                        </div>
-                        <div class="form-group">
-                            <label class="gg" for="Cards_${cardIndex}__Definition">Description</label>
-                            <input type="text" id="Cards_${cardIndex}__Definition" name="Cards[${cardIndex}].Definition" class="form-control shire" />
-                        </div>
-                    </div>
-                </div>`;
+                            <div class="form-group">
+                                        <label  >Term</label>
+                                        <input type="text" name="Cards[${cardIndex}].Term" class="form-control shire" />
+                            </div>
+                            <div class="form-group">
+                                <label class="gg">Definition</label>
+                                <input type="text" name="Cards[${cardIndex}].Definition" class="form-control shire" />
+                            </div>
+                            <button type="button" class="btn btn-danger remove-card">Видалити</button>
+
+                        </div>`;
 
                 // Append the new card to the existing cards container
                 container.insertAdjacentHTML('beforeend', cardHtml);
 
                 cardIndex++; // Increment index after adding a new card
+                updateRemoveButtonState();
+                updateCardNumbers();
             });
 
             document.getElementById("Name").addEventListener("input", function () {
@@ -267,6 +399,46 @@
                     document.getElementById("descriptionHelp").innerText = "";
                 }
             });
+
+            document.getElementById('cards-container').addEventListener('click', function (event) {
+                if (event.target.classList.contains('remove-card')) {
+                    const cardBox = event.target.closest('.card-box');
+                    const hr = cardBox.previousElementSibling; // Знаходимо пов'язаний label (номер картки)
+
+                    hr.remove();
+                    cardBox.remove(); // Видаляємо картку
+                    updateRemoveButtonState(); // Оновлюємо стан кнопок "Видалити"
+                    updateCardNumbers(); // Оновлюємо нумерацію карток
+                }
+            });
+            // Функція для оновлення стану кнопок "Видалити"
+            function updateRemoveButtonState() {
+                const removeButtons = document.querySelectorAll('.remove-card');
+                removeButtons.forEach(button => button.disabled = false); // Усі кнопки активні
+                if (removeButtons.length === 1) {
+                    removeButtons[0].disabled = true; // Якщо є лише одна картка, робимо кнопку неактивною
+                }
+            }
+
+            // Функція для оновлення нумерації карток
+            function updateCardNumbers() {
+                const cardCounters = document.querySelectorAll('.card-number');
+                cardCounters.forEach((label, index) => {
+                    label.innerText = `${index + 1}`;
+                });
+
+                const cardBoxes = document.querySelectorAll('.card-box');
+                cardBoxes.forEach((cardBox, index) => {
+                    const termInput = cardBox.querySelector('input[name^="Cards"][name$=".Term"]');
+                    const definitionInput = cardBox.querySelector('input[name^="Cards"][name$=".Definition"]');
+                    termInput.name = `Cards[${index}].Term`;
+                    definitionInput.name = `Cards[${index}].Definition`;
+                });
+            }
+
+            // Оновлюємо стан кнопок "Видалити" на завантаженні сторінки
+            updateRemoveButtonState();
+
         </script>
 
         @{
