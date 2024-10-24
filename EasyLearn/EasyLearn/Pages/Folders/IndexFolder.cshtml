@@ -67,8 +67,6 @@
         background-repeat: no-repeat;
         background-size: 42%;
         background-position: center;
-        position: fixed;
-        left: 90%;
     }
 
     .tru {
@@ -85,6 +83,27 @@
         color: white !important;
         position: relative;
         top: 50px;
+        width: 40%;
+    }
+    .delfb {
+        height: 70px;
+        width: 70px;
+        background-color: crimson;
+        border-radius: 10px;
+        background-image: url(/images/delete1.png);
+        background-repeat: no-repeat;
+        background-size: 42%;
+        background-position: center;
+        
+       
+    }
+
+    .del-edt {
+        width:100%;
+        display:flex;
+        align-content:end;
+        align-items: end;
+        justify-content:end;
     }
 </style>
 
@@ -103,11 +122,21 @@
         </a>
         </div> *@
         <!-- Button trigger modal -->
-        <button type="button" data-bs-toggle="modal" data-bs-target="#@("editModel" + @Model.Folder.Id)">
+
+        <div class="del-edt">
+        <button type="button" data-bs-toggle="modal" data-bs-target="#@("editModel" + @Model.Folder.Id)" style="background-color:transparent; border:none; position:relative;right:15px;">
             <div class="edt">
             </div>
         </button>
+            <a asp-page="/Folders/Delete" asp-route-id="@Model.FolderId">
+        <div class="delfb">
+        </div>
+            </a>
+
+        </div>
         <!-- Modal -->
+
+
         <div class="modal fade" id="@("editModel"+@Model.Folder.Id)" tabindex="-1" aria-labelledby="@("editModelLabel"+@Model.Folder.Id)" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -206,11 +235,7 @@
 
 
             </br>
-            @*             <div style="background-color:white; border:2px solid chartreuse">
-            <a asp-page="/Folders/Delete" asp-route-id="@Model.FolderId">
-            This is Delete of Folders
-            </a>
-            </div> *@
+                        
         </div>
     </table>
 

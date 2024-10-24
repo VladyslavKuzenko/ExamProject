@@ -119,13 +119,16 @@ namespace EasyLearn.Areas.Identity.Pages.Account
         {
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
 
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
-                await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-                user.Name = Input.Name;
+                // Зберігаємо Name як UserName
+                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None); // UserName == Email
+                await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);  // Email також встановлюється
+                user.Name = Input.Name; // Це окреме поле для зберігання імені користувача
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
@@ -160,9 +163,10 @@ namespace EasyLearn.Areas.Identity.Pages.Account
                 }
             }
 
-            // If we got this far, something failed, redisplay form
+            // Якщо досягли цієї точки, то сталася помилка, повертаємо форму
             return Page();
         }
+
 
         private async Task<bool> SendEmailAsync(string email,string subject, string confirmLink)
         {

@@ -24,9 +24,8 @@ namespace EasyLearn.Pages.TrainingModules
             _userManager = userManager;
         }
 
-
         [BindProperty]
-        public int Id { get; set;}
+        public int Id { get; set; }
 
         [BindProperty]
         public string Name { get; set; }
@@ -47,16 +46,22 @@ namespace EasyLearn.Pages.TrainingModules
             if (id == null) return NotFound();
 
             var userId = _userManager.GetUserId(User);
-            var module = await _context.TrainingModule.Include(o => o.Cards).FirstOrDefaultAsync(m => m.Id == id && m.UserId == userId);
+            var module = await _context.TrainingModule.Include(o => o.Cards)
+                .FirstOrDefaultAsync(m => m.Id == id && m.UserId == userId);
             if (module == null) return NotFound();
 
             Id = module.Id;
             Name = module.Name;
             Description = module.Description;
-            Cards=new List<CardInputModel>();
+            Cards = new List<CardInputModel>();
+
             for (int i = 0; i < module.Cards.Count; i++)
             {
-                Cards.Add(new CardInputModel { Term = module.Cards[i].Term, Definition = module.Cards[i].Definition });
+                Cards.Add(new CardInputModel
+                {
+                    Term = module.Cards[i].Term,
+                    Definition = module.Cards[i].Definition
+                });
             }
             return Page();
         }
@@ -67,23 +72,27 @@ namespace EasyLearn.Pages.TrainingModules
             {
                 return Page();
             }
-            var userId = _userManager.GetUserId(User);
-            var moduleToUpdate = await _context.TrainingModule.Include(o => o.Cards).FirstOrDefaultAsync(m => m.Id == id && m.UserId == userId);
 
+            var userId = _userManager.GetUserId(User);
+            var moduleToUpdate = await _context.TrainingModule
+                .Include(o => o.Cards)
+                .FirstOrDefaultAsync(m => m.Id == id && m.UserId == userId);
 
             if (moduleToUpdate == null) return NotFound();
 
             moduleToUpdate.Name = Name;
             moduleToUpdate.Description = Description;
 
-
-            if (Cards.Count>moduleToUpdate.Cards.Count)
+            // Якщо карток у модулі більше або рівно, ніж у списку Cards
+            for (int i = 0; i < Math.Min(moduleToUpdate.Cards.Count, Cards.Count); i++)
             {
-                for (int i = 0; i < moduleToUpdate.Cards.Count; i++)
-                {
-                    moduleToUpdate.Cards[i].Term = Cards[i].Term;
-                    moduleToUpdate.Cards[i].Definition = Cards[i].Definition;
-                }
+                moduleToUpdate.Cards[i].Term = Cards[i].Term;
+                moduleToUpdate.Cards[i].Definition = Cards[i].Definition;
+            }
+
+            // Якщо в списку Cards більше карток, ніж у модулі, додаємо нові картки
+            if (Cards.Count > moduleToUpdate.Cards.Count)
+            {
                 for (int i = moduleToUpdate.Cards.Count; i < Cards.Count; i++)
                 {
                     var card = new Card
@@ -93,20 +102,18 @@ namespace EasyLearn.Pages.TrainingModules
                         TrainingModuleId = moduleToUpdate.Id
                     };
 
-                    // Додаємо картку до бази даних
                     _context.Card.Add(card);
                     moduleToUpdate.Cards.Add(card);
                 }
             }
-            else 
+            // Якщо в модулі більше карток, ніж у списку Cards, видаляємо зайві картки
+            else if (moduleToUpdate.Cards.Count > Cards.Count)
             {
-                for (int i = 0; i < moduleToUpdate.Cards.Count; i++)
+                for (int i = Cards.Count; i < moduleToUpdate.Cards.Count; i++)
                 {
-                    moduleToUpdate.Cards[i].Term = Cards[i].Term;
-                    moduleToUpdate.Cards[i].Definition = Cards[i].Definition;
+                    _context.Card.Remove(moduleToUpdate.Cards[i]);
                 }
             }
-
 
             try
             {
@@ -124,13 +131,13 @@ namespace EasyLearn.Pages.TrainingModules
                 }
             }
 
-
             return RedirectToPage("./Index");
         }
+
+
         private bool ModuleExists(int id)
         {
             return _context.TrainingModule.Any(e => e.Id == id);
         }
     }
-
 }
