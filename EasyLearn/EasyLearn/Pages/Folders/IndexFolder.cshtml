@@ -85,6 +85,7 @@
         top: 50px;
         width: 40%;
     }
+
     .delfb {
         height: 70px;
         width: 70px;
@@ -94,16 +95,14 @@
         background-repeat: no-repeat;
         background-size: 42%;
         background-position: center;
-        
-       
     }
 
     .del-edt {
-        width:100%;
-        display:flex;
-        align-content:end;
+        width: 100%;
+        display: flex;
+        align-content: end;
         align-items: end;
-        justify-content:end;
+        justify-content: end;
     }
 </style>
 
@@ -124,17 +123,21 @@
         <!-- Button trigger modal -->
 
         <div class="del-edt">
-        <button type="button" data-bs-toggle="modal" data-bs-target="#@("editModel" + @Model.Folder.Id)" style="background-color:transparent; border:none; position:relative;right:15px;">
-            <div class="edt">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#@("editModel" + @Model.Folder.Id)" style="background-color:transparent; border:none; position:relative;right:15px;">
+                <div class="edt">
+                </div>
+            </button>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#@("deleteModel" + @Model.Folder.Id)" style="background-color:transparent; border:none; position:relative;right:15px;">
+                <div class="delfb">
+                </div>
+            </button>
+            @*         <a asp-page="/Folders/Delete" asp-route-id="@Model.FolderId">
+            <div class="delfb">
             </div>
-        </button>
-            <a asp-page="/Folders/Delete" asp-route-id="@Model.FolderId">
-        <div class="delfb">
-        </div>
-            </a>
+            </a> *@
 
         </div>
-        <!-- Modal -->
+        <!-- Modal edit-->
 
 
         <div class="modal fade" id="@("editModel"+@Model.Folder.Id)" tabindex="-1" aria-labelledby="@("editModelLabel"+@Model.Folder.Id)" aria-hidden="true">
@@ -146,7 +149,7 @@
                     </div>
                     <div class="modal-body">
                         <form method="post" asp-page-handler="Edit" asp-route-id="@Model.Folder.Id">
-                            <input asp-for="@Model.Folder.UserId"  type="hidden" value="@Model.Folder.UserId" />
+                            <input asp-for="@Model.Folder.UserId" type="hidden" value="@Model.Folder.UserId" />
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <input type="hidden" asp-for="@Model.Folder.Id" />
                             <div class="form-group">
@@ -173,6 +176,26 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal delete-->
+        <div class="modal fade" id="@("deleteModel"+@Model.Folder.Id)" tabindex="-1" aria-labelledby="@("deleteModelLabel"+Model.Folder.Id)" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="@("deleteModelLable"+@Model.Folder.Id)">Delete</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Ви впевнені , що хочете видалити цей елемент?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
+                        <a asp-page-handler="DeleteFolder" asp-route-id="@Model.Folder.Id">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <form method="post">
             <div class="form-group">
                 <select asp-for="SelectedTrainingModuleId" class="form-control tru" asp-items="Model.TrainingModulesWithoutFolder" style="background-color:steelblue; color:white; border:none; box-shadow:none;">
@@ -224,7 +247,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
-                                <a asp-page-handler="Delete" asp-route-id="@item.Id">Delete</a>
+                                <a asp-page-handler="RemoveTrainingModule" asp-route-id="@item.Id">Delete</a>
                             </div>
                         </div>
                     </div>
@@ -236,7 +259,7 @@
 
 
             </br>
-                        
+
         </div>
     </table>
 

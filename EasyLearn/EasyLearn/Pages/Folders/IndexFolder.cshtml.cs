@@ -69,7 +69,7 @@ namespace EasyLearn.Pages.Folders
             }
             return Page();
         }
-        public async Task<IActionResult> OnGetDeleteAsync(int? id)
+        public async Task<IActionResult> OnGetRemoveTrainingModuleAsync(int? id)
         {
             TrainingModule=await _context.TrainingModule.FirstOrDefaultAsync(f => f.Id == id);
             
@@ -99,7 +99,23 @@ namespace EasyLearn.Pages.Folders
             //trainingModules.Remove();
 
         }
+        public async Task<IActionResult> OnGetDeleteFolderAsync(int id)
+        {
+            Folder = await _context.Folder.FirstOrDefaultAsync(c => c.Id == id);
+            TrainingModules = await _context.TrainingModule
+                .Where(f => f.FolderId == Folder.Id)
+                .ToListAsync();
+            foreach (var item in TrainingModules)
+            {
+                item.Folder = null;
+                item.FolderId = null;
+            }
+            _context.Folder.Remove(Folder);
+            _context.SaveChanges();
 
+            return RedirectToPage("/Folders/Index");
+
+        }
         public async Task<IActionResult> OnPostAsync()
         {
             ModelState.Remove(nameof(Folder.Name));
