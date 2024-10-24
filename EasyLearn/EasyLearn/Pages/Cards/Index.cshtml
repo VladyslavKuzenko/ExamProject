@@ -113,18 +113,16 @@
         margin-bottom: 20px;
     }
 
-    /* Контейнер для варіантів відповідей */
     #answer-options {
-        display: grid; /* Встановлюємо сітку */
-        grid-template-columns: repeat(2, 1fr); /* 2 колонки однакової ширини */
-        gap: 20px; /* Відступ між кнопками */
+        display: grid; 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px; 
         position: relative;
         width: 80%;
         top: 152px;
-        margin: 10px auto; /* Вирівнюємо контейнер по центру */
+        margin: 10px auto; 
     }
 
-        /* Кнопки для варіантів відповідей */
         #answer-options button {
             background-color: #21273D;
             color: white;
@@ -138,13 +136,11 @@
             transition: background-color 0.3s ease;
         }
 
-            /* Стан при наведенні */
             #answer-options button:hover {
                 background-color: deepskyblue;
                 color: white;
             }
 
-    /* Фідбек для тесту */
     #test-feedback {
         margin-top: 15px;
         color: white;

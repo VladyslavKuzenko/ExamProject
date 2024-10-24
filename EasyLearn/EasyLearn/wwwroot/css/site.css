@@ -1083,18 +1083,7 @@ a {
     .tru {
         width: 85% !important;
     }
-    .edt {
-        height: 70px;
-        width: 70px;
-        background-color: #6495ED;
-        border-radius: 10px;
-        background-image: url(/images/pencil.png);
-        background-repeat: no-repeat;
-        background-size: 42%;
-        background-position: center;
-        position: fixed;
-        left: 85%!important;
-    }
+  
     .recent-description {
         font-size: 15px !important;
         position: relative;

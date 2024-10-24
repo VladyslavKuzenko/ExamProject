@@ -63,8 +63,6 @@
         background-repeat: no-repeat;
         background-size: 42%;
         background-position: center;
-        position: fixed;
-        left: 90%;
     }
 
     .tru {
@@ -81,6 +79,23 @@
         colow: white !important;
         position: relative;
         top: 50px;
+        width:40%;
+    }
+    .fred {
+        width:100%;
+        display:flex;
+        justify-content:end;
+    }
+
+    .delfb {
+        height: 70px;
+        width: 70px;
+        background-color: crimson;
+        border-radius: 10px;
+        background-image: url(/images/delete1.png);
+        background-repeat: no-repeat;
+        background-size: 42%;
+        background-position: center;
     }
 </style>
 
@@ -97,11 +112,22 @@
         </a>
         </div> *@
         <!-- Button trigger modal -->
-        <button type="button"  data-bs-toggle="modal" data-bs-target="#@("editModel" + @Model.Course.Id)">
+
+        <div class="fred">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#@("editModel" + @Model.Course.Id)" style="background-color:transparent; border:none; position:relative;right:15px;">
             <div class="edt">
             
             </div>
         </button>
+
+            <a asp-page="/Courses/Delete" asp-route-id="@Model.CourseId">
+                <div class="delfb">
+                </div>
+            </a>
+        </div>
+
+
+
         <!-- Modal -->
         <div class="modal fade" id="@("editModel"+@Model.Course.Id)" tabindex="-1" aria-labelledby="@("editModelLabel"+@Model.Course.Id)" aria-hidden="true">
             <div class="modal-dialog">
