@@ -69,26 +69,6 @@ namespace EasyLearn.Pages.Folders
             }
             return Page();
         }
-
-        public async Task<IActionResult> OnPostAsync()
-        {
-            ModelState.Remove(nameof(Folder.Name));
-            ModelState.Remove(nameof(Folder.UserId));
-            if (!ModelState.IsValid || SelectedTrainingModuleId == null)
-            {
-                return RedirectToPage(new { folderId = FolderId });
-            }
-
-            var module = await _context.TrainingModule.FindAsync(SelectedTrainingModuleId);
-
-            if (module != null && module.FolderId == null)
-            {
-                module.FolderId = FolderId;
-                await _context.SaveChangesAsync();
-            }
-
-            return RedirectToPage(new { folderId = FolderId });
-        }
         public async Task<IActionResult> OnGetDeleteAsync(int? id)
         {
             TrainingModule=await _context.TrainingModule.FirstOrDefaultAsync(f => f.Id == id);
@@ -119,11 +99,34 @@ namespace EasyLearn.Pages.Folders
             //trainingModules.Remove();
 
         }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            ModelState.Remove(nameof(Folder.Name));
+            ModelState.Remove(nameof(Folder.UserId));
+            if (!ModelState.IsValid || SelectedTrainingModuleId == null)
+            {
+                return RedirectToPage(new { folderId = FolderId });
+            }
+
+            var module = await _context.TrainingModule.FindAsync(SelectedTrainingModuleId);
+
+            if (module != null && module.FolderId == null)
+            {
+                module.FolderId = FolderId;
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToPage(new { folderId = FolderId });
+        }
         public async Task<IActionResult> OnPostEditAsync(/*int id*/)
         {
             //// Перевірка валідності моделі
             if (!ModelState.IsValid)
             {
+                return RedirectToPage(new { folderId = Folder.Id });
+
+
                 return Page(); // Повертаємо ту ж сторінку з помилками
             }
 

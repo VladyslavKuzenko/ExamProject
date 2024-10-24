@@ -146,6 +146,7 @@
                     </div>
                     <div class="modal-body">
                         <form method="post" asp-page-handler="Edit" asp-route-id="@Model.Folder.Id">
+                            <input asp-for="@Model.Folder.UserId"  type="hidden" value="@Model.Folder.UserId" />
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <input type="hidden" asp-for="@Model.Folder.Id" />
                             <div class="form-group">
