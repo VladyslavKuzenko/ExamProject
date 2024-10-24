@@ -312,8 +312,9 @@ a {
         display: flex;
         width: 70%;
         height: 235px;
-        justify-content: space-between;
+        justify-content: flex-start;
         border-radius: 10px;
+        gap: 14px; /* Приберемо відступи між елементами */
     }
     .poop {
         height: 100%;
