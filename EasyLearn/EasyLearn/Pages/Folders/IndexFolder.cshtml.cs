@@ -2,6 +2,7 @@ using EasyLearn.Data;
 using EasyLearn.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -71,6 +72,8 @@ namespace EasyLearn.Pages.Folders
 
         public async Task<IActionResult> OnPostAsync()
         {
+            ModelState.Remove(nameof(Folder.Name));
+            ModelState.Remove(nameof(Folder.UserId));
             if (!ModelState.IsValid || SelectedTrainingModuleId == null)
             {
                 return RedirectToPage(new { folderId = FolderId });
@@ -119,10 +122,10 @@ namespace EasyLearn.Pages.Folders
         public async Task<IActionResult> OnPostEditAsync(/*int id*/)
         {
             //// Перевірка валідності моделі
-            //if (!ModelState.IsValid)
-            //{
-            //    return Page(); // Повертаємо ту ж сторінку з помилками
-            //}
+            if (!ModelState.IsValid)
+            {
+                return Page(); // Повертаємо ту ж сторінку з помилками
+            }
 
             // Встановлюємо ID курсу перед його оновленням
             var folder = await _context.Folder.FindAsync(Folder.Id);

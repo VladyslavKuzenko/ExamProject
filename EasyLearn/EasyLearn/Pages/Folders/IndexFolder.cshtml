@@ -48,12 +48,12 @@
     }
 
     .del:hover {
-        background-color: red;
+        background-color: crimson;
         transform: scale(1.05);
     }
 
     .del:focus {
-        background-color: red;
+        background-color: #2e3756;
         box-shadow: none;
         outline: none;
     }
@@ -82,7 +82,7 @@
     }
 
     .name-cont {
-        colow: white !important;
+        color: white !important;
         position: relative;
         top: 50px;
     }
@@ -157,29 +157,29 @@
         <tbody>
             @foreach (var item in Model.TrainingModules)
             {
+                <div>
+                    <a asp-area="" asp-page="/Cards/Index" asp-route-trainingModuleId="@item.Id">
 
-                <a asp-area="" asp-page="/Cards/Index" asp-route-trainingModuleId="@item.Id">
+                        <div class="recent-library-module4">
 
-                    <div class="recent-library-module4">
-
-                        <div class="recent-content">
-                            <div class="name-recent1">
-                                @Html.DisplayFor(modelItem => item.Name)
+                            <div class="recent-content">
+                                <div class="name-recent1">
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </div>
+                                <div class="recent-description1">
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                    <br />
+                                    @Html.DisplayFor(modelItem => item.Create.Day) /
+                                    @Html.DisplayFor(modelItem => item.Create.Month) /
+                                    @Html.DisplayFor(modelItem => item.Create.Year)
+                                </div>
                             </div>
-                            <div class="recent-description1">
-                                @Html.DisplayFor(modelItem => item.Description)
-                                <br />
-                                @Html.DisplayFor(modelItem => item.Create.Day) /
-                                @Html.DisplayFor(modelItem => item.Create.Month) /
-                                @Html.DisplayFor(modelItem => item.Create.Year)
-                            </div>
+
                         </div>
-
-                    </div>
-                </a>
-                <button type="button" class="btn btn-primary del" data-bs-toggle="modal" data-bs-target="#@("deleteModel" + item.Id)">
-                </button>
-
+                    </a>
+                    <button type="button" class="btn btn-primary del" data-bs-toggle="modal" data-bs-target="#@("deleteModel" + item.Id)">
+                    </button>
+                </div>
 
                 <!-- Modal -->
                 <div class="modal fade" id="@("deleteModel"+item.Id)" tabindex="-1" aria-labelledby="@("deleteModelLabel"+item.Id)" aria-hidden="true">

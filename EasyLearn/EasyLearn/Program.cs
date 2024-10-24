@@ -27,7 +27,7 @@ switch (connectionType)
         connectionString = builder.Configuration.GetConnectionString("MSSqlContextConnection") ?? throw new InvalidOperationException("Connection string 'MSSqlContextConnection' not found.");
         // Add services to the container.
         builder.Services.AddDbContext<ApplicationDbContext, MSSqlDbContext>(options =>
-            options.UseSqlite(connectionString));
+            options.UseSqlServer(connectionString));
         builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
           .AddEntityFrameworkStores<MSSqlDbContext>();
         break;
