@@ -257,6 +257,20 @@
         font-weight:bold;
     }
 
+        .remove-card {
+            height:42px;
+            width: 42px;
+            background-color: crimson;
+            border-radius: 5px;
+            background-image: url(/images/delete1.png);
+            background-repeat: no-repeat;
+            background-size: 52%;
+            background-position: center;
+            position:relative;
+            top:20px;
+            left:30px;
+
+        }
 
 </style>
 </head>
@@ -302,7 +316,7 @@
                             <label class="gg" for="Cards_@(cardIndex)__Definition">Description</label>
                             <input type="text" id="Cards_@(cardIndex)__Definition" name="Cards[@i].Definition" value="@Model.Cards[@i].Definition" class="form-control shire" />
                         </div>
-                        <button type="button" class="btn btn-danger remove-card">Видалити</button>
+                        <button type="button" class="btn btn-danger remove-card"></button>
                     </div>
                
                 cardIndex++;
@@ -367,7 +381,7 @@
                                 <label class="gg">Definition</label>
                                 <input type="text" name="Cards[${cardIndex}].Definition" class="form-control shire" />
                             </div>
-                            <button type="button" class="btn btn-danger remove-card">Видалити</button>
+                            <button type="button" class="btn btn-danger remove-card"></button>
 
                         </div>`;
 
