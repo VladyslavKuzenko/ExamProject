@@ -11,61 +11,62 @@
     }
 
     .main-container-game {
-        width:100%;
-        height:700px;
-        position:relative;
-        top:100px;
-    }
-/*     .return-container {
-        position:relative;
-        top:90px;
-        display:flex;
-        justify-content:center;
-        width:70%;
-        left:50.5%;
-        transform:translate(-50%);
-        z-index: 999;
-
-    } */
-/*     .current-mode{
-        color: white;
-        font-weight: bold;
-        font-size: 36px; 
-        display: flex;
-        justify-content: center; 
-        top: 145px;
+        width: 100%;
+        height: 700px;
         position: relative;
-        text-align: center;
-
-        background-color:lime;
+        top: 100px;
     }
- */
+    /*     .return-container {
+                position:relative;
+                top:90px;
+                display:flex;
+                justify-content:center;
+                width:70%;
+                left:50.5%;
+                transform:translate(-50%);
+                z-index: 999;
+
+            } */
+    /*     .current-mode{
+                color: white;
+                font-weight: bold;
+                font-size: 36px;
+                display: flex;
+                justify-content: center;
+                top: 145px;
+                position: relative;
+                text-align: center;
+
+                background-color:lime;
+            }
+         */
     #returnToClassic {
         background-color: #21273D;
-        width:115px;
-        height:40px;
-        border:1px solid white;
-        border-radius:10px;
-        color:white;
-        font-weight:bold;
-        font-size:14px;
-        position:relative;
-        left:100%;
-        transform:translate(-115px);
+        width: 115px;
+        height: 40px;
+        border: 1px solid white;
+        border-radius: 10px;
+        color: white;
+        font-weight: bold;
+        font-size: 14px;
+        position: relative;
+        left: 100%;
+        transform: translate(-115px);
     }
-/*          #returnToClassic:hover {
-                background-color: darkred;
-                color: white;
-            } */
+    /*          #returnToClassic:hover {
+                        background-color: darkred;
+                        color: white;
+                    } */
 
     #exam-term {
-        color:white;
-        font-weight:bold;
-        display:flex;
-        justify-content:center;
-        position:relative;
-        top:100px;
+        color: white;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: 100px;
     }
+
     #test-question {
         color: white;
         font-weight: bold;
@@ -74,38 +75,39 @@
         position: relative;
         top: 100px;
     }
+
     #exam-answer {
         font-weight: bold;
         display: flex;
         justify-content: center;
         position: relative;
         top: 130px;
-        left:50%;
-        transform:translate(-50%);
-        text-align:center;
-        box-shadow:none;
-        outline:none;
+        left: 50%;
+        transform: translate(-50%);
+        text-align: center;
+        box-shadow: none;
+        outline: none;
     }
 
     #submit-answer {
-        border:none;
+        border: none;
         width: 215px;
-        height:35px;
-        background-color:deepskyblue;
-        border-radius:10px;
+        height: 35px;
+        background-color: deepskyblue;
+        border-radius: 10px;
         top: 145px;
-        position:relative;
+        position: relative;
         left: 50%;
         transform: translate(-50%);
     }
 
-/*     #question-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 50px;
-    } */
+    /*     #question-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top: 50px;
+            } */
 
     /* Стиль для заголовку тесту */
     #test-question {
@@ -115,15 +117,15 @@
     }
 
     #answer-options {
-        display: grid; 
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 20px; 
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
         position: relative;
         width: 80%;
         top: 152px;
-        margin: 10px auto; 
-
+        margin: 10px auto;
     }
+
         #answer-options button {
             background-color: #21273D;
             color: white;
@@ -132,10 +134,11 @@
             padding: 15px 30px;
             cursor: pointer;
             font-size: 18px;
-            width: 100%;  
+            width: 100%;
             text-align: center;
             transition: background-color 0.3s ease;
         }
+
             #answer-options button:hover {
                 background-color: deepskyblue;
                 color: white;
@@ -146,85 +149,90 @@
         color: white;
         font-size: 18px;
     }
+
     header {
-        top:0;
+        top: 0;
     }
 </style>
 
+    <a asp-page="/TrainingModules/Edit" asp-route-id="@Model.TrainingModuleId">
+        <div class="edt">
+        </div>
+    </a>
 
 <!-- Режим гри -->
 <div id="currentMode" class="current-mode">Classic</div>
 
 <div class="main-container-game">
-<!-- Контейнер для картки -->
-<div class="card-container">
-    <div class="card" id="flashcard">
-        <div class="card-face card-front">
-            <span id="card-term">@Model.Card.FirstOrDefault()?.Term</span>
-        </div>
-        <div class="card-face card-back">
-            <span id="card-definition">@Model.Card.FirstOrDefault()?.Definition</span>
+    <!-- Контейнер для картки -->
+    <div class="card-container">
+        <div class="card" id="flashcard">
+            <div class="card-face card-front">
+                <span id="card-term">@Model.Card.FirstOrDefault()?.Term</span>
+            </div>
+            <div class="card-face card-back">
+                <span id="card-definition">@Model.Card.FirstOrDefault()?.Definition</span>
+            </div>
         </div>
     </div>
-</div>
-<!-- Кнопки навігації -->
-<div class="navigation-buttons">
-    <div class="arrow-btn">
-        <button id="prevBtn" disabled>⭠</button>
-        <button id="nextBtn" @(Model.Card.Count <= 1 ? "disabled" : "")>⭢</button>
+    <!-- Кнопки навігації -->
+    <div class="navigation-buttons">
+        <div class="arrow-btn">
+            <button id="prevBtn" disabled>⭠</button>
+            <button id="nextBtn" @(Model.Card.Count <= 1 ? "disabled" : "")>⭢</button>
+        </div>
+        <button id="backBtn">↺</button>
     </div>
-    <button id="backBtn">↺</button>
-</div>
-<!-- Лічильник карток -->
-<div class="card-index">
-    <span id="cardCounter">1/@Model.Card.Count</span>
-</div>
-<!-- Кнопки для перемикання режимів -->
-<div class="game-container">
-    <input type="button" name="name" value="Classic" class="classic-game-button" />
-    <input type="button" name="name" value="Test" class="test-game-button" />
-    <input type="button" name="name" value="Exam" class="exam-game-button" />
-</div>
-<!-- Кнопка для шафлу -->
-<div class="toggle-container">
-    <p class="text-shuffle">Random</p>
-    <input type="checkbox" name="name" value="Shuffle" class="random-game-button" />
-</div>
-<!-- Кнопка для повернення в класичний режим -->
-<div class="return-container" style="display:none;">
-    <button id="returnToClassic">Return back</button>
-</div>
+    <!-- Лічильник карток -->
+    <div class="card-index">
+        <span id="cardCounter">1/@Model.Card.Count</span>
+    </div>
+    <!-- Кнопки для перемикання режимів -->
+    <div class="game-container">
+        <input type="button" name="name" value="Classic" class="classic-game-button" />
+        <input type="button" name="name" value="Test" class="test-game-button" />
+        <input type="button" name="name" value="Exam" class="exam-game-button" />
+    </div>
+    <!-- Кнопка для шафлу -->
+    <div class="toggle-container">
+        <p class="text-shuffle">Random</p>
+        <input type="checkbox" name="name" value="Shuffle" class="random-game-button" />
+    </div>
+    <!-- Кнопка для повернення в класичний режим -->
+    <div class="return-container" style="display:none;">
+        <button id="returnToClassic">Return back</button>
+    </div>
 
-<!-- Контейнер для тестових питань -->
-<div id="question-container" style="display:none;">
+    <!-- Контейнер для тестових питань -->
+    <div id="question-container" style="display:none;">
         <h1 class="exm">Test: @Model.TrainingModule.Name</h1>
         <div class="exmpm">
 
-    <h2 id="test-question"></h2>
-    <div id="answer-options"></div>
-    <p id="test-feedback"></p>
+            <h2 id="test-question"></h2>
+            <div id="answer-options"></div>
+            <p id="test-feedback"></p>
         </div>
-</div>
+    </div>
 
-<!-- Контейнер для екзамену -->
-<div id="exam-container" style="display:none;">
-    <h1 class="exm">Exam: @Model.TrainingModule.Name</h1>
-     <div class="exmpm">
-    <h2 id="exam-term"></h2>
-    <input type="text" id="exam-answer" placeholder="Enter the definition" />
-    <button id="submit-answer">Next</button>
-    <p id="exam-feedback"></p>
+    <!-- Контейнер для екзамену -->
+    <div id="exam-container" style="display:none;">
+        <h1 class="exm">Exam: @Model.TrainingModule.Name</h1>
+        <div class="exmpm">
+            <h2 id="exam-term"></h2>
+            <input type="text" id="exam-answer" placeholder="Enter the definition" />
+            <button id="submit-answer">Next</button>
+            <p id="exam-feedback"></p>
         </div>
-</div>
+    </div>
 
-<!-- Результат тесту -->
-<div id="test-result" style="display:none;">
+    <!-- Результат тесту -->
+    <div id="test-result" style="display:none;">
         <div class="exmpm">
 
-    <h2 class="tsc">Test Completed!</h2>
-    <p id="score-result"></p>
-     </div>
-</div>
+            <h2 class="tsc">Test Completed!</h2>
+            <p id="score-result"></p>
+        </div>
+    </div>
 
     <!-- Контейнер для лічильника (якщо тестовий режим) -->
     <div id="test-counter" style="display: none; text-align: center; color: white; margin-top: 15px;">
@@ -235,7 +243,7 @@
     <div id="exam-counter" style="display: none; text-align: center; color: white; margin-top: 15px;">
         Question <span id="current-question-number-exam">1</span> of <span id="total-questions-exam"></span>
     </div>
-    
+
 </div>
 <script>
     const originalCards = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Card.Select(c => new { c.Term, c.Definition })));
@@ -262,7 +270,7 @@
     const questionContainer = document.getElementById('question-container');
     const examContainer = document.getElementById('exam-container');
     const testResult = document.getElementById('test-result');
-    
+
 
 
     // Показати/сховати кнопки режимів і повернення
@@ -273,8 +281,8 @@
     }
 
     backBtn.addEventListener('click', () => {
-        currentIndex = 0; 
-        updateCard(); 
+        currentIndex = 0;
+        updateCard();
     });
 
     // Додаємо обробники подій для кнопок режимів

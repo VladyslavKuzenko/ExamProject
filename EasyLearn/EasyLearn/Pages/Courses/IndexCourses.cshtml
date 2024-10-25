@@ -79,12 +79,13 @@
         colow: white !important;
         position: relative;
         top: 50px;
-        width:40%;
+        width: 40%;
     }
+
     .fred {
-        width:100%;
-        display:flex;
-        justify-content:end;
+        width: 100%;
+        display: flex;
+        justify-content: end;
     }
 
     .delfb {
@@ -115,20 +116,23 @@
 
         <div class="fred">
             <button type="button" data-bs-toggle="modal" data-bs-target="#@("editModel" + @Model.Course.Id)" style="background-color:transparent; border:none; position:relative;right:15px;">
-            <div class="edt">
-            
-            </div>
-        </button>
+                <div class="edt">
+                </div>
+            </button>
 
-            <a asp-page="/Courses/Delete" asp-route-id="@Model.CourseId">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#@("deleteModel" + @Model.Course.Id)" style="background-color:transparent; border:none; position:relative;right:15px;">
                 <div class="delfb">
                 </div>
-            </a>
+            </button>
+            @* <a asp-page="/Courses/Delete" asp-route-id="@Model.CourseId">
+            <div class="delfb">
+            </div>
+            </a> *@
         </div>
 
 
 
-        <!-- Modal -->
+        <!-- Modal edit -->
         <div class="modal fade" id="@("editModel"+@Model.Course.Id)" tabindex="-1" aria-labelledby="@("editModelLabel"+@Model.Course.Id)" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -161,6 +165,25 @@
                     </div>
 
 
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal delete-->
+        <div class="modal fade" id="@("deleteModel"+@Model.Course.Id)" tabindex="-1" aria-labelledby="@("deleteModelLabel"+@Model.Course.Id)" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="@("deleteModelLable"+@Model.Course.Id)">Delete</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Ви впевнені , що хочете видалити цей елемент?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
+                        <a asp-page-handler="DeleteCourse" asp-route-id="@Model.Course.Id">Delete</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -213,7 +236,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
-                                <a asp-page-handler="Delete" asp-route-id="@item.Id">Delete</a>
+                                <a asp-page-handler="RemoveFolder" asp-route-id="@item.Id">Delete</a>
                             </div>
                         </div>
                     </div>

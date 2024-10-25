@@ -87,7 +87,7 @@ namespace EasyLearn.Pages.Courses
 
             return RedirectToPage(new { courseId = course.Id });
         }
-        public async Task<IActionResult> OnGetDeleteAsync(int? id)
+        public async Task<IActionResult> OnGetRemoveFolderAsync(int? id)
         {
             Folder = await _context.Folder.FirstOrDefaultAsync(f => f.Id == id);
             Course = await _context.Course
@@ -112,6 +112,23 @@ namespace EasyLearn.Pages.Courses
             }
 
             return RedirectToPage(new { courseId = Course.Id });
+        }
+        public async Task<IActionResult> OnGetDeleteCourseAsync(int id)
+        {
+            Course = await _context.Course.FirstOrDefaultAsync(c => c.Id == id);
+            Folders = await _context.Folder
+                .Where(f => f.CourseId == Course.Id)
+                .ToListAsync();
+            foreach (var item in Folders)
+            {
+                item.Course = null;
+                item.CourseId = null;
+            }
+            _context.Course.Remove(Course);
+            _context.SaveChanges();
+
+            return RedirectToPage("/Courses/Index");
+
         }
         public async Task<IActionResult> OnPostEditAsync(/*int id*/)
         {
