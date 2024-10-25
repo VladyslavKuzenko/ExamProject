@@ -1917,8 +1917,8 @@ a {
 }
 #cardCounter {
     position: relative;
-    top: 170px;
-    left: 50%;  
+    top: 175px;
+    left: 82%;  
     transform: translateX(-50%);  
     color: white;
     font-size: 20px;
@@ -2011,6 +2011,7 @@ a {
     top: -394.5px;
     left: 21%;
     font-weight:bold;
+    width:200px;
 }
 
 .test-game-button {

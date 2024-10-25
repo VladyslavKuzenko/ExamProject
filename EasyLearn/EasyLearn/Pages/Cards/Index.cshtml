@@ -16,6 +16,7 @@
         position: relative;
         top: 100px;
     }
+    
     /*     .return-container {
                 position:relative;
                 top:90px;
@@ -153,6 +154,12 @@
     header {
         top: 0;
     }
+
+    .arrow-btn {
+        position:relative;
+        left:20%;
+    }
+
 </style>
 
     <a asp-page="/TrainingModules/Edit" asp-route-id="@Model.TrainingModuleId">
@@ -441,6 +448,9 @@
         examContainer.style.display = 'none';
         testResult.style.display = 'block';
         document.getElementById('score-result').textContent = `You answered ${correctAnswers} out of ${totalQuestions} correctly!`;
+        document.getElementById('test-counter').style.display = 'none'; // Показуємо лічильник тесту
+        document.getElementById('exam-counter').style.display = 'none'; // Показуємо лічильник тесту
+
     }
 
     // Перевірка відповіді в тестовому режимі
