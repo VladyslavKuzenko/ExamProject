@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using static NuGet.Packaging.PackagingConstants;
 
 namespace EasyLearn.Pages.Courses
 {
@@ -19,13 +20,14 @@ namespace EasyLearn.Pages.Courses
             _userManager = userManager;
         }
         [BindProperty]
-        public int SelectedFolderId { get; set; }
+        public int? SelectedFolderId { get; set; }
         public IList<Folder> Folders { get; set; }
         public Folder Folder { get; set; } = default!;
         public SelectList UnassignedFolders { get; set; } = default!;
         //public List<Folder> UnassignedFolders { get; set; } = new List<Folder>();
         [BindProperty]
         public Course Course { get; set; }
+        [BindProperty]
         public int CourseId { get; set; }
         //public string Name { get; set; }
         //public string Description { get; set; } 
@@ -68,9 +70,9 @@ namespace EasyLearn.Pages.Courses
         }
         public async Task<IActionResult> OnPostAsync(int? courseId)
         {
-            if (courseId == null || SelectedFolderId == 0)
+            if (courseId == null || SelectedFolderId == null)
             {
-                return Page();
+                return RedirectToPage(new { courseId = CourseId });
             }
 
             var course = await _context.Course.FindAsync(courseId);
