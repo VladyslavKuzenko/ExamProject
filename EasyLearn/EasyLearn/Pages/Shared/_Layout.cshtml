@@ -8,7 +8,15 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/EasyLearn.styles.css" asp-append-version="true" />
 
+    @*  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script> *@
+    <style>
+        .modal-backdrop {
+            display: none;
+        }
 
+    </style>
 </head>
 <body>
     <header>
@@ -29,10 +37,50 @@
             <a asp-area="" asp-page="/TrainingModules/Index">Your Library</a>
         </nav>
 
-        <div class="search-bar">
-            <input type="text" placeholder="Search">
-        </div>
+        @*  <div class="search-bar">
+        <input type="text" placeholder="Search">
+        </div> *@
+        @* <form id="searchForm" onsubmit="event.preventDefault();" class="search-bar">
+            <input id="searchQuery" class="form-control mr-sm-2" type="search" placeholder="Пошук" aria-label="Пошук"  oninput="openSearchModal() " />
+        </form> *@
+        <form id="searchForm" onsubmit="event.preventDefault();" class="search-bar">
+            <input id="searchQuery" class="form-control mr-sm-2" type="search" placeholder="Пошук" aria-label="Пошук" />
+        </form>
 
+        <!-- Модальне вікно для відображення результатів -->
+        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true" style="margin-top:40px">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                    </div>
+                    <div class="modal-body" id="searchResults">
+                        <!-- Тут з'являться результати пошуку -->
+                        <p>Зачекайте, завантаження...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+ @*        <form id="searchForm" onsubmit="event.preventDefault();" class="search-bar">
+            <input id="searchQuery" class="form-control mr-sm-2" type="search" placeholder="Пошук" aria-label="Пошук" />
+        </form>
+
+        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true" style="margin-top:40px">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="searchModalLabel">Результати пошуку</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Закрити">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="searchResults">
+                        <p>Зачекайте, завантаження...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+ *@
         <button class="btn7" onclick="togglePopup7()">+</button>
 
         <div class="popup7" id="popup7">
@@ -45,47 +93,6 @@
             <div class="create-button">
                 <a class="full-button create-button-photo3" asp-area="" asp-page="/Courses/Create">Course</a>
             </div>
-          @*   <!-- Button trigger modal -->
-            <button type="button" data-bs-toggle="modal" data-bs-target="#@("createModel")">
-                <div class="edt">
-                </div>
-            </button>
-            <!-- Modal -->
-            <div class="modal fade" id="@("createModel")" tabindex="-1" aria-labelledby="@("createModelLabel")" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="@("createModelLable")">Edit</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form method="post" asp-page-handler="Edit" asp-route-id="@Model.Course.Id">
-                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                <input type="hidden" asp-for="@Model.Course.Id" />
-                                <div class="form-group">
-                                    <label asp-for="@Model.Course.Name" class="control-label"></label>
-                                    <input asp-for="@Model.Course.Name" class="form-control" value="@Model.Course.Name" />
-                                    <span asp-validation-for="@Model.Course.Name" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="@Model.Course.Description" class="control-label"></label>
-                                    <input asp-for="@Model.Course.Description" class="form-control" value="@Model.Course.Description" />
-                                    <span asp-validation-for="@Model.Course.Description" class="text-danger"></span>
-                                </div>
-                                <div class="modal-footer">
-                                    <div class="form-group">
-                                        <input type="submit" value="Save" class="btn btn-primary" />
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-
-                            </form>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div> *@
 
         </div>
 
@@ -135,6 +142,162 @@
                 <partial name="_SelectLanguagePartial" />
             </div>
         </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <script>
+            let debounceTimer;
+
+            async function getQuery() {
+                let query = document.getElementById("searchQuery").value;
+
+                while (true) {
+                    await new Promise(resolve => setTimeout(resolve, 700));
+
+                    const tmp = document.getElementById("searchQuery").value;
+
+                    if (query === tmp || !tmp.trim()) {
+                        break;
+                    } else {
+                        query = tmp;
+                    }
+                }
+
+                return query;
+            }
+
+            async function openSearchModal() {
+                let query = await getQuery();
+
+                if (!query.trim()) {
+                    $('#searchModal').modal('hide');
+                    return;
+                }
+
+                $('#searchModal').modal('show');
+
+                // Затримка перед виконанням запиту (debounce)
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    // Виконати пошук (додайте вашу логіку пошуку)
+                    fetch(`/Search/Search?query=${encodeURIComponent(query)}`)
+                        .then(response => response.text())
+                        .then(data => {
+                            console.log(data);
+                            // Вставляємо результати пошуку в модальне вікно
+                            document.getElementById("searchResults").innerHTML = data;
+                        })
+                        .catch(error => {
+                            console.error('Помилка при виконанні пошуку:', error);
+                            document.getElementById("searchResults").innerHTML = "<p>Сталася помилка. Спробуйте знову.</p>";
+                        });
+                }, 300); // Виконуємо запит через 300 мс після введення тексту
+            }
+
+            document.getElementById("searchQuery").addEventListener("input", openSearchModal);
+
+            // Додаємо подію для фокусу на полі вводу після відкриття модального вікна
+            $('#searchModal').on('shown.bs.modal', function () {
+                document.getElementById("searchQuery").focus(); // Установлюємо фокус на полі вводу
+            });
+
+            // Відслідковуємо події кліка поза модальним вікном
+            $(document).on('click', function (e) {
+                const modal = $('#searchModal');
+                const searchInput = $('#searchQuery');
+
+                // Якщо клік поза модальним вікном і поза полем вводу, закриваємо модальне вікно
+                if (!modal.is(e.target) && modal.has(e.target).length === 0 && !searchInput.is(e.target)) {
+                    modal.modal('hide');
+                }
+            });
+        </script>
+@*         <!-- Підключення jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script>
+            let debounceTimer;
+
+            async function getQuery() {
+                console.log('getQuery start');
+                let query = document.getElementById("searchQuery").value;
+                console.log(query);
+                console.log(typeof query);
+
+                while (true) {
+                    // Чекаємо 500 мс перед наступною перевіркою
+                    await new Promise(resolve => setTimeout(resolve, 500));
+
+                    // Отримуємо нове значення з поля введення
+                    const tmp = document.getElementById("searchQuery").value;
+
+                    // Якщо нове значення не відрізняється від старого, або поле порожнє, виходимо з циклу
+                    if (query === tmp || !tmp.trim()) {
+                        console.log("If==true");
+                        break;
+                    } else {
+                        query = tmp; // Оновлюємо значення
+                        console.log("If==false");
+                    }
+                }
+
+                console.log('getQuery end');
+                return query; // Повертаємо просто query
+            }
+
+            async function openSearchModal() { // Додано async
+                console.log("openSearchModal start");
+                let query = await getQuery(); // Використання await для отримання значення
+
+                console.log(query);
+                console.log(typeof query); // Перевірка типу
+
+                // Якщо запит порожній, не показуємо модальне вікно і не виконуємо пошук
+                if (!query.trim()) {
+                    $('#searchModal').modal('hide');
+                    return;
+                }
+
+                // Відкриваємо модальне вікно
+                $('#searchModal').modal('show');
+
+                // Залишаємо фокус на полі вводу
+                // document.getElementById("searchQuery").focus(); // Додано
+
+                // Затримка перед виконанням запиту (debounce)
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    fetch(`/Search/Search?query=${encodeURIComponent(query)}`)
+                        .then(response => response.text())
+                        .then(data => {
+                            console.log(data);
+                            // Вставляємо результати пошуку в модальне вікно
+                            document.getElementById("searchResults").innerHTML = data;
+                        })
+                        .catch(error => {
+                            console.error('Помилка при виконанні пошуку:', error);
+                            document.getElementById("searchResults").innerHTML = "<p>Сталася помилка. Спробуйте знову.</p>";
+                        });
+                    // document.getElementById("searchQuery").focus(); // Додано
+
+                }, 300); // Виконуємо запит через 300 мс після введення тексту
+                // document.getElementById("searchQuery").focus(); // Додано
+
+            }
+            // Встановлюємо фокус на поле вводу після показу модального вікна
+            $('#searchModal').on('shown.bs.modal', function () {
+                setTimeout(() => {
+                    document.getElementById("searchQuery").focus();
+                }, 100); // Встановлюємо фокус на полі вводу
+            });
+
+            // Додайте обробник для поля вводу
+            document.getElementById("searchQuery").addEventListener("input", openSearchModal);
+
+
+           
+        </script>
+ *@
     </header>
 
 

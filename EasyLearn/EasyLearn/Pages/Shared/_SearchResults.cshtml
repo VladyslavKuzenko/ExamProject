@@ -1,0 +1,72 @@
+﻿@model List<object>
+@using EasyLearn.Models;
+@if (Model.Any())
+{
+    <!-- Перебір карток -->
+    @* @for (int i = 0; i < Model.LastOpenItemsList.Count; i++) *@
+    foreach (var item in Model)
+    {
+        @* var item = Model.LastOpenItemsList[i]; *@
+        @* string classType = i < 3 ? "poop visible" : "poop hidden1"; *@
+
+        <!-- Використовуємо hidden1 -->
+        if (item is Folder)
+        {
+            var itemF = item as Folder;
+            <div>
+                <a asp-area="" asp-page="/Folders/IndexFolder" asp-route-folderId="@itemF.Id">
+                    <div class="recent-library-module2">
+                        <div class="name-recent1">@Html.DisplayFor(modelItem => itemF.Name)</div>
+                        <div class="recent-info">@Html.DisplayFor(modelItem => itemF.Description)</div>
+                        <div class="recent-description">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
+                    </div>
+                </a>
+            </div>
+        }
+        else if (item is TrainingModule)
+        {
+            var itemF = item as TrainingModule;
+            <div>
+
+                <a asp-area="" asp-page="/Cards/Index" asp-route-trainingModuleId="@itemF.Id">
+                    <div class="recent-library-module1">
+
+                        <div class="name-recent1">
+                            @Html.DisplayFor(modelItem => itemF.Name)
+
+                        </div>
+                        <div class="cntterm">
+                            @Html.DisplayFor(modelItem => itemF.Cards.Count) terms@* @Localize["terms"] *@
+                        </div>
+                        <div class="recent-info4" style="top:31px;">@Html.DisplayFor(modelItem => itemF.Description)</div>
+                        <div class="recent-description4">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
+                    </div>
+                </a>
+            </div>
+        }
+        else if (item is Course)
+        {
+            var itemF = item as Course;
+            <div>
+
+                <a asp-area="" asp-page="/Courses/IndexCourses" asp-route-courseId="@itemF.Id">
+                    <div class="recent-library-module3">
+                        <div class="name-recent1">@Html.DisplayFor(modelItem => itemF.Name)</div>
+                        <div class="recent-info">@Html.DisplayFor(modelItem => itemF.Description)</div>
+                        <div class="recent-description">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
+                    </div>
+                </a>
+            </div>
+        }
+        <ul>
+            @foreach (var result in Model)
+            {
+                <li style="color:black">@result</li>
+            }
+        </ul>
+    }
+}
+else
+{
+    <p>Нічого не знайдено.</p>
+}
