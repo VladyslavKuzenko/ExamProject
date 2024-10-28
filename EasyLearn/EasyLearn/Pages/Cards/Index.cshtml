@@ -372,12 +372,13 @@
     function startTestMode() {
         toggleGameElements(false);
         questionContainer.style.display = 'block';
-        document.getElementById('test-counter').style.display = 'block'; // Показуємо лічильник тесту
+        document.getElementById('exam-counter').style.display = 'block'; // Показуємо лічильник тесту
         flashcard.style.display = 'none';
         currentIndex = 0;
         showTestQuestion();
         showCounters();
-        updateTestCounter(); // Оновлюємо лічильник
+        updateExamCounter(); // Оновлюємо лічильник
+        document.getElementById('current-question-number-exam').textContent = 1;
 
     }
 
