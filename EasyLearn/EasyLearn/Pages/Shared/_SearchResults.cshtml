@@ -15,10 +15,9 @@
             var itemF = item as Folder;
             <div>
                 <a asp-area="" asp-page="/Folders/IndexFolder" asp-route-folderId="@itemF.Id">
-                    <div class="recent-library-module2">
-                        <div class="name-recent1">@Html.DisplayFor(modelItem => itemF.Name)</div>
-                        <div class="recent-info">@Html.DisplayFor(modelItem => itemF.Description)</div>
-                        <div class="recent-description">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
+                    <div class="recent-library-module2" style="height:50px; background-color:#0A082D;margin-bottom:10px;">
+                        <div class="name-recent1" style="top:10px; left:3%">@Html.DisplayFor(modelItem => itemF.Name)</div>
+                        <div class="recent-description" style="top:-5px; left:80%; width:90px;">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
                     </div>
                 </a>
             </div>
@@ -29,17 +28,16 @@
             <div>
 
                 <a asp-area="" asp-page="/Cards/Index" asp-route-trainingModuleId="@itemF.Id">
-                    <div class="recent-library-module1">
+                    <div class="recent-library-module1" style="height:50px;background-color:#0A082D;margin-bottom:10px;">
 
-                        <div class="name-recent1">
+                        <div class="name-recent1" style="top:10px; left:3%">
                             @Html.DisplayFor(modelItem => itemF.Name)
 
                         </div>
-                        <div class="cntterm">
+                        <div class="cntterm" style="top:-37px; left:80%">
                             @Html.DisplayFor(modelItem => itemF.Cards.Count) terms@* @Localize["terms"] *@
                         </div>
-                        <div class="recent-info4" style="top:31px;">@Html.DisplayFor(modelItem => itemF.Description)</div>
-                        <div class="recent-description4">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
+                        <div class="recent-description4" style="top:-40px; left:80%; width:90px;">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
                     </div>
                 </a>
             </div>
@@ -50,18 +48,18 @@
             <div>
 
                 <a asp-area="" asp-page="/Courses/IndexCourses" asp-route-courseId="@itemF.Id">
-                    <div class="recent-library-module3">
-                        <div class="name-recent1">@Html.DisplayFor(modelItem => itemF.Name)</div>
-                        <div class="recent-info">@Html.DisplayFor(modelItem => itemF.Description)</div>
-                        <div class="recent-description">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
+                    <div class="recent-library-module3" style="height:50px;background-color:#0A082D;margin-bottom:10px; ">
+                        <div class="name-recent1" style="top:10px; left:3%">@Html.DisplayFor(modelItem => itemF.Name)</div>
+                        <div class="recent-description" style="top:-10px; left:80%; width:90px;">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
                     </div>
                 </a>
             </div>
         }
 
+       
     }
 }
 else
 {
-    <p style="color:black">Нічого не знайдено.</p>
+    <p style="color:white">Нічого не знайдено.</p>
 }
