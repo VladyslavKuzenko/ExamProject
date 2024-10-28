@@ -14,6 +14,7 @@
     <style>
         .modal-backdrop {
             display: none;
+
         }
 
     </style>
@@ -48,14 +49,10 @@
         </form>
 
         <!-- Модальне вікно для відображення результатів -->
-        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true" style="margin-top:40px">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-
-                    </div>
+        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true" style="top:70px;">
+            <div class="modal-dialog" role="document" style="top:-27px;left:20px; background-color:#2E3756">
+                <div class="modal-content" style="background-color:#2E3756;">
                     <div class="modal-body" id="searchResults">
-                        <!-- Тут з'являться результати пошуку -->
                         <p>Зачекайте, завантаження...</p>
                     </div>
                 </div>
@@ -153,7 +150,7 @@
                 let query = document.getElementById("searchQuery").value;
 
                 while (true) {
-                    await new Promise(resolve => setTimeout(resolve, 700));
+                    await new Promise(resolve => setTimeout(resolve, 0));
 
                     const tmp = document.getElementById("searchQuery").value;
 
@@ -192,7 +189,7 @@
                             console.error('Помилка при виконанні пошуку:', error);
                             document.getElementById("searchResults").innerHTML = "<p>Сталася помилка. Спробуйте знову.</p>";
                         });
-                }, 300); // Виконуємо запит через 300 мс після введення тексту
+                }, 300);  
             }
 
             document.getElementById("searchQuery").addEventListener("input", openSearchModal);
