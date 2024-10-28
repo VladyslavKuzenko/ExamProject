@@ -15,9 +15,9 @@
             var itemF = item as Folder;
             <div>
                 <a asp-area="" asp-page="/Folders/IndexFolder" asp-route-folderId="@itemF.Id">
-                    <div class="recent-library-module2" style="height:50px; background-color:#0A082D">
+                    <div class="recent-library-module2" style="height:50px; background-color:#0A082D;margin-bottom:10px;">
                         <div class="name-recent1" style="top:10px; left:3%">@Html.DisplayFor(modelItem => itemF.Name)</div>
-                        <div class="recent-description" style="top:-5px; left:80%;">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
+                        <div class="recent-description" style="top:-5px; left:80%; width:90px;">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
                     </div>
                 </a>
             </div>
@@ -28,7 +28,7 @@
             <div>
 
                 <a asp-area="" asp-page="/Cards/Index" asp-route-trainingModuleId="@itemF.Id">
-                    <div class="recent-library-module1" style="height:50px;background-color:#0A082D">
+                    <div class="recent-library-module1" style="height:50px;background-color:#0A082D;margin-bottom:10px;">
 
                         <div class="name-recent1" style="top:10px; left:3%">
                             @Html.DisplayFor(modelItem => itemF.Name)
@@ -48,9 +48,9 @@
             <div>
 
                 <a asp-area="" asp-page="/Courses/IndexCourses" asp-route-courseId="@itemF.Id">
-                    <div class="recent-library-module3" style="height:50px;background-color:#0A082D ">
+                    <div class="recent-library-module3" style="height:50px;background-color:#0A082D;margin-bottom:10px; ">
                         <div class="name-recent1" style="top:10px; left:3%">@Html.DisplayFor(modelItem => itemF.Name)</div>
-                        <div class="recent-description" style="top:-10px; left:80%;">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
+                        <div class="recent-description" style="top:-10px; left:80%; width:90px;">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
                     </div>
                 </a>
             </div>
@@ -61,5 +61,5 @@
 }
 else
 {
-    <p style="color:black">Нічого не знайдено.</p>
+    <p style="color:white">Нічого не знайдено.</p>
 }
