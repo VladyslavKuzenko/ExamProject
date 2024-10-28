@@ -1,5 +1,8 @@
 ﻿@page
 @model EasyLearn.Pages.Courses.IndexCoursesModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<IndexCoursesModel> Localize
 @{
     ViewData["Title"] = "IndexCourses";
 }
@@ -107,14 +110,7 @@
 
 
     <table class="table">
-        <h1 class="name-cont" style="color:white">Course: @Model.Course.Name</h1>
-
-        @*         <div class="edt">
-        <a asp-page="/Courses/Edit" asp-route-id="@Model.CourseId">
-        <div class="ll"></div>
-        </a>
-        </div> *@
-        <!-- Button trigger modal -->
+        <h1 class="name-cont" style="color:white">@Localize["Course"]: @Model.Course.Name</h1>
 
         <div class="fred">
             <button type="button" data-bs-toggle="modal" data-bs-target="#@("editModel" + @Model.Course.Id)" style="background-color:transparent; border:none; position:relative;right:15px;">
@@ -126,10 +122,6 @@
                 <div class="delfb">
                 </div>
             </button>
-            @* <a asp-page="/Courses/Delete" asp-route-id="@Model.CourseId">
-            <div class="delfb">
-            </div>
-            </a> *@
         </div>
 
 
@@ -138,65 +130,62 @@
         <div class="modal fade" id="@("editModel"+@Model.Course.Id)" tabindex="-1" aria-labelledby="@("editModelLabel"+@Model.Course.Id)" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="@("editModelLable"+@Model.Course.Id)">Edit</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-header" style="background-color:cornflowerblue">
+                        <h5 class="modal-title" id="@("editModelLabel"+@Model.Course.Id)" style="color:white; font-weight:bold">@Localize["Edit"]</h5>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" style="background-color: cornflowerblue; height:220px;">
                         <form method="post" asp-page-handler="Edit" asp-route-id="@Model.Course.Id">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <input type="hidden" asp-for="@Model.Course.Id" />
-                            <div class="form-group">
-                                <label asp-for="@Model.Course.Name" class="control-label"></label>
+                            <div class="form-group" style="position:relative; top:10px; z-index:999;">
+                                <label asp-for="@Model.Course.Name" class="control-label">@Localize["Name"]</label>
                                 <input asp-for="@Model.Course.Name" class="form-control" value="@Model.Course.Name" />
                                 <span asp-validation-for="@Model.Course.Name" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
-                                <label asp-for="@Model.Course.Description" class="control-label"></label>
+                            <div class="form-group" style="position:relative; top:10px; z-index:999;" >
+                                <label asp-for="@Model.Course.Description" class="control-label">@Localize["Description"]</label>
                                 <input asp-for="@Model.Course.Description" class="form-control" value="@Model.Course.Description" />
                                 <span asp-validation-for="@Model.Course.Description" class="text-danger"></span>
                             </div>
-                            <div class="modal-footer">
-                                <div class="form-group">
-                                    <input type="submit" value="Save" class="btn btn-primary" />
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <div class="modal-footer" style="position:relative; top:-90px;">
+                                <div class="form-group" style="width:100%; display:flex; left:7%; justify-content:end;">
+                                    <input type="submit" value=@Localize["Save"] class="btn btn-primary" style="background-color:#28A745; border:none; margin-right:10px;" />
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color:#DC3545; border:none;">@Localize["Close"]</button>
                                 </div>
                             </div>
-
                         </form>
                     </div>
-
-
                 </div>
             </div>
         </div>
+
 
         <!-- Modal delete-->
         <div class="modal fade" id="@("deleteModel"+@Model.Course.Id)" tabindex="-1" aria-labelledby="@("deleteModelLabel"+@Model.Course.Id)" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="@("deleteModelLable"+@Model.Course.Id)">Delete</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-header" style="background-color:crimson; color:white; font-weight:bold;">
+                        <h5 class="modal-title" id="@("deleteModelLabel"+@Model.Course.Id)">@Localize["Delete"]</h5>
                     </div>
                     <div class="modal-body">
-                        Ви впевнені , що хочете видалити цей елемент?
+                        @Localize["Are you sure you want to delete"] @Model.Course.Name?
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
-                        <a asp-page-handler="DeleteCourse" asp-route-id="@Model.Course.Id">Delete</a>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color:dodgerblue; border:none;">@Localize["Cancel"]</button>
+                        <a asp-page-handler="DeleteCourse" asp-route-id="@Model.Course.Id" class="btn btn-danger" style="background-color:crimson; border:none;">@Localize["Delete"]</a>
                     </div>
                 </div>
             </div>
         </div>
+
         <form method="post">
             <div class="form-group">
                 <select asp-for="SelectedFolderId" class="form-control tru" asp-items="Model.UnassignedFolders" style="background-color:steelblue; color:white; border:none; box-shadow:none;">
-                    <option value="">-- Select a Folder --</option>
+                    <option value="">-- @Localize["Select a Folder"] --</option>
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary atf">Assign Folder</button>
+            <button type="submit" class="btn btn-primary atf">@Localize["Assign Folder"]</button>
         </form>
 
         <tbody>
@@ -231,7 +220,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="@("deleteModelLable"+item.Id)">Delete</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label=@Localize["Close"]></button>
                             </div>
                             <div class="modal-body">
                                 Ви впевнені , що хочете видалити цей елемент?
