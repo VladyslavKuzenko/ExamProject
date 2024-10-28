@@ -117,17 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Add to Folder +" xml:space="preserve">
-    <value>Додати до папки +</value>
-  </data>
   <data name="Are you sure you want to delete" xml:space="preserve">
     <value>Ви впевнені, що хочете видалити</value>
+  </data>
+  <data name="Assign Folder" xml:space="preserve">
+    <value>Призначити папку</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Скасувати</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>Закрити</value>
+  </data>
+  <data name="Course" xml:space="preserve">
+    <value>Курс</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Видалити</value>
@@ -138,16 +141,13 @@
   <data name="Edit" xml:space="preserve">
     <value>Редагування</value>
   </data>
-  <data name="Folder" xml:space="preserve">
-    <value>Папка</value>
-  </data>
   <data name="Name" xml:space="preserve">
     <value>Назва</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Зберегти</value>
   </data>
-  <data name="Select Training Module" xml:space="preserve">
-    <value>Виберіть Тренувальний Модуль</value>
+  <data name="Select a Folder" xml:space="preserve">
+    <value>Вибрати папку</value>
   </data>
 </root>
