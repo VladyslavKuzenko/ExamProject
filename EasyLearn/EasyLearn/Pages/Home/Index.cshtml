@@ -13,21 +13,26 @@
     body {
         background-color: #0A082D;
     }
-        .recent-library-module1:hover {
-            border-bottom: 3px solid aqua;
-        }
-        .recent-library-module2:hover {
-            border-bottom: 3px solid yellow;
-        }
-        .recent-library-module3:hover {
-            border-bottom: 3px solid lime;
-        }
-        .hidden1 {
-         display: none;
-         }
-         .visible {
-          display: block;
-          }
+
+    .recent-library-module1:hover {
+        border-bottom: 3px solid aqua;
+    }
+
+    .recent-library-module2:hover {
+        border-bottom: 3px solid yellow;
+    }
+
+    .recent-library-module3:hover {
+        border-bottom: 3px solid lime;
+    }
+
+    .hidden1 {
+        display: none;
+    }
+
+    .visible {
+        display: block;
+    }
 
     .btn {
         border-radius: 50%;
@@ -38,96 +43,103 @@
         border: 1px solid #374166;
         cursor: pointer;
         font-size: 16px;
-        display: flex; 
-        justify-content: center; 
+        display: flex;
+        justify-content: center;
         align-items: center;
-        text-align: center; 
+        text-align: center;
         padding: 0;
         transition: transform 0.3s ease, background-color 0.3s ease;
-        position:relative;
-
+        position: relative;
     }
 
         .btn:hover {
-           transform:scale(1.1);
-           color:white;
+            transform: scale(1.1);
+            color: white;
         }
 
     .btn-left {
-        right: 20px;  
+        right: 20px;
     }
+
     .btn-right {
-        left:20px;
+        left: 20px;
     }
 
     #previous-btn {
-        visibility:hidden;
+        visibility: hidden;
     }
 </style>
 
 <div class="top-page">
 
-    <h1 class="adapted-text">@Localize["Recent"]</h1>
-    <div class="xbox-1">
-        <button class="btn-left btn" id="previous-btn">&#9664;</button>
-        <div class="recent-modules">
-            <!-- Перебір карток -->
-            @for (int i = 0; i < Model.LastOpenItemsList.Count; i++)
-            {
-                var item = Model.LastOpenItemsList[i];
-                string classType = i < 3 ? "poop visible" : "poop hidden1";
-                <!-- Використовуємо hidden1 -->
-                if (item is Folder)
+    @if (User.Identity.IsAuthenticated)
+    {
+        <h1 class="adapted-text">@Localize["Recent"]</h1>
+        <div class="xbox-1">
+            <button class="btn-left btn" id="previous-btn">&#9664;</button>
+            <div class="recent-modules">
+                <!-- Перебір карток -->
+                @for (int i = 0; i < Model.LastOpenItemsList.Count; i++)
                 {
-                    var itemF = item as Folder;
-                    <div class="@classType">
-                        <a asp-area="" asp-page="/Folders/IndexFolder" asp-route-folderId="@itemF.Id">
-                            <div class="recent-library-module2">
-                                <div class="name-recent1">@Html.DisplayFor(modelItem => itemF.Name)</div>
-                                <div class="recent-info">@Html.DisplayFor(modelItem => itemF.Description)</div>
-                                <div class="recent-description">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
-                            </div>
-                        </a>
-                    </div>
-                }
-                else if (item is TrainingModule)
-                {
-                    var itemF = item as TrainingModule;
-                    <div class="@classType">
-                        <a asp-area="" asp-page="/Cards/Index" asp-route-trainingModuleId="@itemF.Id">
-                            <div class="recent-library-module1">
-                                
-                                <div class="name-recent1">@Html.DisplayFor(modelItem => itemF.Name)
-                                   
-                                        </div>
-                                <div class="cntterm">
-                                    @Html.DisplayFor(modelItem => itemF.Cards.Count) @Localize["terms"]
+                    var item = Model.LastOpenItemsList[i];
+                    string classType = i < 3 ? "poop visible" : "poop hidden1";
+                    <!-- Використовуємо hidden1 -->
+                    if (item is Folder)
+                    {
+                        var itemF = item as Folder;
+                        <div class="@classType">
+                            <a asp-area="" asp-page="/Folders/IndexFolder" asp-route-folderId="@itemF.Id">
+                                <div class="recent-library-module2">
+                                    <div class="name-recent1">@Html.DisplayFor(modelItem => itemF.Name)</div>
+                                    <div class="recent-info">@Html.DisplayFor(modelItem => itemF.Description)</div>
+                                    <div class="recent-description">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
                                 </div>
-                                <div class="recent-info4" style="top:31px;">@Html.DisplayFor(modelItem => itemF.Description)</div>
-                                <div class="recent-description4">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    }
+                    else if (item is TrainingModule)
+                    {
+                        var itemF = item as TrainingModule;
+                        <div class="@classType">
+                            <a asp-area="" asp-page="/Cards/Index" asp-route-trainingModuleId="@itemF.Id">
+                                <div class="recent-library-module1">
+
+                                    <div class="name-recent1">
+                                        @Html.DisplayFor(modelItem => itemF.Name)
+
+                                    </div>
+                                    <div class="cntterm">
+                                        @Html.DisplayFor(modelItem => itemF.Cards.Count) @Localize["terms"]
+                                    </div>
+                                    <div class="recent-info4" style="top:31px;">@Html.DisplayFor(modelItem => itemF.Description)</div>
+                                    <div class="recent-description4">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                    else if (item is Course)
+                    {
+                        var itemF = item as Course;
+                        <div class="@classType">
+                            <a asp-area="" asp-page="/Courses/IndexCourses" asp-route-courseId="@itemF.Id">
+                                <div class="recent-library-module3">
+                                    <div class="name-recent1">@Html.DisplayFor(modelItem => itemF.Name)</div>
+                                    <div class="recent-info">@Html.DisplayFor(modelItem => itemF.Description)</div>
+                                    <div class="recent-description">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
+                                </div>
+                            </a>
+                        </div>
+                    }
                 }
-                else if (item is Course)
-                {
-                    var itemF = item as Course;
-                    <div class="@classType">
-                        <a asp-area="" asp-page="/Courses/IndexCourses" asp-route-courseId="@itemF.Id">
-                            <div class="recent-library-module3">
-                                <div class="name-recent1">@Html.DisplayFor(modelItem => itemF.Name)</div>
-                                <div class="recent-info">@Html.DisplayFor(modelItem => itemF.Description)</div>
-                                <div class="recent-description">@Html.DisplayFor(modelItem => itemF.Create.Day)/@Html.DisplayFor(modelItem => itemF.Create.Month)/@Html.DisplayFor(modelItem => itemF.Create.Year)</div>
-                            </div>
-                        </a>
-                    </div>
-                }
-            }
+            </div>
+
+            <button class="btn-right btn" id="next-btn">&#9654;</button>
         </div>
-
-        <button class="btn-right btn" id="next-btn">&#9654;</button>
-    </div>
-
+    }
+    else
+    {
+    
+    }
 
     <h1 class="adapted-text">@Localize["Try these updated functions"]</h1>
     <div class="xbox-2">
