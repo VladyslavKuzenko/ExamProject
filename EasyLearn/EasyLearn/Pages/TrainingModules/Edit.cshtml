@@ -6,128 +6,128 @@
     <meta charset="utf-8" />
     <title>@ViewData["Title"]</title>
     @* <style>
-        body {
-            background-color: #0A082D;
-            color: white;
+    body {
+    background-color: #0A082D;
+    color: white;
 
-        }
-        .create-title {
-            text-align: center;
-            font-size: 2em;
-            color: white;
-        }
-        .control-label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        .form-control {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .text-danger {
-            color: red;
-            font-size: 0.9em;
-        }
-        #cards-container {
-            border-radius: 10px;
-            margin-top: 120px;
-        }
-        .card-item {
-            background-color: #3E4A68;
-            padding: 25px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-        .card-item label.gg {
-                font-weight: bold;
-                margin-bottom: 10px;
-                display: block;
-        }
-        .shire {
-            width: 100%;
-            background-color: transparent;
-            border: none;
-            border-bottom: 4px solid white;
-            color: white;
-            border-radius: 0;
-            padding: 8px;
-        }
-        .shire:focus {
-                background-color: #2E3756;
-                border-bottom: 5px solid yellow;
-                outline: none;
-                box-shadow: none;
-                color: white;
-        }
-        #add-card {
-            background-color: #2E3756;
-            color: white;
-            width: 100%;
-            height: 140px;  
-            border: none;
-            font-weight: bold;
-            font-size: 16px;
-            border-bottom: 5px solid aquamarine;
-            cursor: pointer;
-            border-radius: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center; /* Центрування по вертикалі */
-        }
-        #add-card:hover {
-                background-color: #3E4A68;
-        }
-        .create-module-button {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: -220px;
-            margin-left: 455px;
-        }
-        .create-module-button:hover {
-            background-color: #0056b3;
-        }
-        .delete-card {
-            margin-top: -220px;
-            color: red;
-            text-decoration: underline;
-            cursor: pointer;
-            display:block;
-            width:70px;
-            height:70px;
+    }
+    .create-title {
+    text-align: center;
+    font-size: 2em;
+    color: white;
+    }
+    .control-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    }
+    .form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    }
+    .text-danger {
+    color: red;
+    font-size: 0.9em;
+    }
+    #cards-container {
+    border-radius: 10px;
+    margin-top: 120px;
+    }
+    .card-item {
+    background-color: #3E4A68;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    }
+    .card-item label.gg {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    }
+    .shire {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 4px solid white;
+    color: white;
+    border-radius: 0;
+    padding: 8px;
+    }
+    .shire:focus {
+    background-color: #2E3756;
+    border-bottom: 5px solid yellow;
+    outline: none;
+    box-shadow: none;
+    color: white;
+    }
+    #add-card {
+    background-color: #2E3756;
+    color: white;
+    width: 100%;
+    height: 140px;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    border-bottom: 5px solid aquamarine;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Центрування по вертикалі */
+    }
+    #add-card:hover {
+    background-color: #3E4A68;
+    }
+    .create-module-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: -220px;
+    margin-left: 455px;
+    }
+    .create-module-button:hover {
+    background-color: #0056b3;
+    }
+    .delete-card {
+    margin-top: -220px;
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+    display:block;
+    width:70px;
+    height:70px;
 
-        }
-        .card-box {
-            display: flex;
-            flex-direction: row;
-            align-items: flex-start;
-            gap: 20px;
-            position: relative;  
-            top: -80px;
-        }
-        .card-box .form-group {
-            flex: 1;
-            margin-right: 10px;
-        }
-        .card-box .form-group:last-child {
-                margin-right: 0;
-         }
+    }
+    .card-box {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+    top: -80px;
+    }
+    .card-box .form-group {
+    flex: 1;
+    margin-right: 10px;
+    }
+    .card-box .form-group:last-child {
+    margin-right: 0;
+    }
 
-        #cards-container {
-            min-height: 200px;
-            border-radius: 10px;
-            margin-top: 110px;
-        }
+    #cards-container {
+    min-height: 200px;
+    border-radius: 10px;
+    margin-top: 110px;
+    }
 
-        .delete-card button {
-            visibility:hidden;
-        }
+    .delete-card button {
+    visibility:hidden;
+    }
     </style> *@
 
     <style>
@@ -144,121 +144,123 @@
             .delete-card button {
                 visibility: hidden;
             }
-    body {
-        background-color: #0A082D;
-        color: white;
-    }
 
-    .create-title {
-        text-align: center;
-        font-size: 2em;
-        color: white;
-    }
-
-    .control-label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
-    }
-
-    .form-control {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-
-    .text-danger {
-        color: red;
-        font-size: 0.9em;
-    }
-
-    #cards-container {
-        border-radius: 10px;
-        margin-top: 120px; /* Відстань між контейнером і верхніми елементами */
-    }
-
-    .card-box {
-        padding: 45px;
-        border-radius: 8px;
-        background-color: #2E3756; /* Колір фону для картки */
-        margin-bottom: 15px; /* Відстань між картками */
-        display: flex; /* Вирівнюємо картки горизонтально */
-        justify-content: space-between; /* Відстань між полями */
-    }
-
-    .form-group {
-        width: 48%; /* Ширина полів */
-        margin-right: 20px; /* Відступ справа */
-    }
-
-        .form-group:last-child {
-            margin-right: 0; /* Прибираємо відступ у останнього елемента */
-        }
-
-    .shire {
-        width: 100%; /* 100% від батька */
-        background-color: transparent;
-        border: none;
-        border-bottom: 4px solid white;
-        color: white;
-        border-radius: 0;
-        position: relative;
-        top: -70px; /* Ваше позиціонування */
-    }
-
-        .shire:focus {
-            background-color: #2E3756;
-            border-bottom: 5px solid yellow;
-            outline: none;
-            box-shadow: none;
+        body {
+            background-color: #0A082D;
             color: white;
         }
 
-    #add-card {
-        background-color: #2E3756;
-        color: white;
-        width: 100%;
-        height: 140px;
-        border: none;
-        font-weight: bold;
-        font-size: 16px;
-        border-bottom: 5px solid aquamarine;
-        cursor: pointer;
-        border-radius: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 26px;
-    }
-
-        #add-card:hover {
-            background-color: #3E4A68;
+        .create-title {
+            text-align: center;
+            font-size: 2em;
+            color: white;
         }
 
-    .create-module-button {
-        background-color: #007BFF;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        position:relative;
-        left:0%;
-        top:-100px;
-    }
-
-        .create-module-button:hover {
-            background-color: #0056b3;
+        .control-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
         }
+
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .text-danger {
+            color: red;
+            font-size: 0.9em;
+        }
+
+        #cards-container {
+            border-radius: 10px;
+            margin-top: 120px; /* Відстань між контейнером і верхніми елементами */
+        }
+
+        .card-box {
+            padding: 45px;
+            border-radius: 8px;
+            background-color: #2E3756; /* Колір фону для картки */
+            margin-bottom: 15px; /* Відстань між картками */
+            display: flex; /* Вирівнюємо картки горизонтально */
+            justify-content: space-between; /* Відстань між полями */
+        }
+
+        .form-group {
+            width: 48%; /* Ширина полів */
+            margin-right: 20px; /* Відступ справа */
+        }
+
+            .form-group:last-child {
+                margin-right: 0; /* Прибираємо відступ у останнього елемента */
+            }
+
+        .shire {
+            width: 100%; /* 100% від батька */
+            background-color: transparent;
+            border: none;
+            border-bottom: 4px solid white;
+            color: white;
+            border-radius: 0;
+            position: relative;
+            top: -70px; /* Ваше позиціонування */
+        }
+
+            .shire:focus {
+                background-color: #2E3756;
+                border-bottom: 5px solid yellow;
+                outline: none;
+                box-shadow: none;
+                color: white;
+            }
+
+        #add-card {
+            background-color: #2E3756;
+            color: white;
+            width: 100%;
+            height: 140px;
+            border: none;
+            font-weight: bold;
+            font-size: 16px;
+            border-bottom: 5px solid aquamarine;
+            cursor: pointer;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 26px;
+        }
+
+            #add-card:hover {
+                background-color: #3E4A68;
+            }
+
+        .create-module-button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+            left: 0%;
+            top: -100px;
+        }
+
+            .create-module-button:hover {
+                background-color: #0056b3;
+            }
+
         .card-number {
-            margin-left:-20px;
-        margin-top: -32px;
-        font-weight:bold;
-    }
+            margin-left: -20px;
+            margin-top: -32px;
+            font-weight: bold;
+        }
 
         .remove-card {
-            height:42px;
+            height: 42px;
             width: 42px;
             background-color: crimson;
             border-radius: 5px;
@@ -266,27 +268,26 @@
             background-repeat: no-repeat;
             background-size: 52%;
             background-position: center;
-            position:relative;
-            top:20px;
-            left:30px;
-
+            position: relative;
+            top: 20px;
+            left: 30px;
         }
 
-</style>
+    </style>
 </head>
 <body>
     @{
         ViewData["Title"] = "Edit";
-        int cardIndex = 0;  
+        int cardIndex = 0;
     }
 
     <div class="top-page-library-modules">
 
-    <h2 class="create-title">Edit cards</h2>
+        <h2 class="create-title">Edit cards</h2>
 
-    <form method="post">
+        <form method="post">
             <div class="form-group">
-              
+
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" maxlength="30" />
                 <span asp-validation-for="Name" class="text-danger"></span>
@@ -300,14 +301,14 @@
 
             </div>
 
-        <div id="cards-container">
-            @for (int i = 0; i < Model.Cards.Count; i++)
-            {
+            <div id="cards-container">
+                @for (int i = 0; i < Model.Cards.Count; i++)
+                {
 
                     <hr style="height:5px; width:100%; opacity:1; background-color:#0A082D; position:relative; top:65px;" />
-                    
+
                     <div class="card-box">
-                            <div class="card-number" style="">@(cardIndex + 1)</div>
+                        <div class="card-number" style="">@(cardIndex + 1)</div>
                         <div class="form-group">
                             <label class="gg" for="Cards_@(cardIndex)__Term">Term</label>
                             <input type="text" id="Cards_@(cardIndex)__Term" name="Cards[@i].Term" value="@Model.Cards[@i].Term" class="form-control shire" />
@@ -318,21 +319,47 @@
                         </div>
                         <button type="button" class="btn btn-danger remove-card"></button>
                     </div>
-               
-                cardIndex++;
-            }
 
-        </div>
+                    cardIndex++;
+                }
 
-        <button type="button" class="btn btn-secondary" id="add-card">+ ДОДАТИ КАРТКУ</button>
+            </div>
 
-        <div class="form-group mt-3">
-            <input type="submit" value="Save" class="btn btn-primary create-module-button" />
-        </div>
-        <a asp-page="../TrainingModules/Delete" asp-route-id="@Model.Id" class="delete-card">
-            <button type="button" class="btn btn-danger"></button>
-        </a>
-    </form>
+            <button type="button" class="btn btn-secondary" id="add-card">+ ДОДАТИ КАРТКУ</button>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Save" class="btn btn-primary create-module-button" />
+            </div>
+         @*    <a asp-page="../TrainingModules/Delete" asp-route-id="@Model.Id" class="delete-card">
+            </a> *@
+                <button type="button" data-bs-toggle="modal" data-bs-target="#@("deleteModel")" class="btn btn-danger">
+            <div class="delete-card">
+            </div>
+            </button>
+       @*      <div>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#@("deleteModel")" class="btn btn-danger" style="background-color:transparent; border:none; position:relative;right:15px;">
+                    <div class="delfb">
+                    </div>
+                </button>
+            </div> *@
+            <!-- Modal delete-->
+            <div class="modal fade" id="@("deleteModel")" tabindex="-1" aria-labelledby="@("deleteModelLabel")" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header" style="background-color:crimson; color:white; font-weight:bold;">
+                            <h5 class="modal-title" id="@("deleteModelLable")">@* @Localize[ *@"Delete"@* ] *@</h5>
+                        </div>
+                        <div class="modal-body">
+                            @* @Localize[ "*@Are you sure you want to delete"@* ] *@ @Model.Name?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color:dodgerblue; border:none;">@* @Localize[" *@Cancel@* "] *@</button>
+                            <a asp-page-handler="DeleteTrainingModule" asp-route-id="@Model.Id" class="btn btn-danger" style="background-color:crimson; border:none;">@* @Localize[" *@Delete@* "] *@</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
     @section Scripts {
         <script>
@@ -369,21 +396,21 @@
 
                 // Add a new card if all fields are filled
                 let cardHtml = `
-                            <hr style="height:5px; width:100%; opacity:1; background-color:#0A082D; position:relative; top:65px;" />
-                        <div class="card-box">
-                            <div class="card-number" style="">${cardIndex + 1}</div>
+                                                    <hr style="height:5px; width:100%; opacity:1; background-color:#0A082D; position:relative; top:65px;" />
+                                                <div class="card-box">
+                                                    <div class="card-number" style="">${cardIndex + 1}</div>
 
-                            <div class="form-group">
-                                        <label  >Term</label>
-                                        <input type="text" name="Cards[${cardIndex}].Term" class="form-control shire" />
-                            </div>
-                            <div class="form-group">
-                                <label class="gg">Definition</label>
-                                <input type="text" name="Cards[${cardIndex}].Definition" class="form-control shire" />
-                            </div>
-                            <button type="button" class="btn btn-danger remove-card"></button>
+                                                    <div class="form-group">
+                                                                <label  >Term</label>
+                                                                <input type="text" name="Cards[${cardIndex}].Term" class="form-control shire" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="gg">Definition</label>
+                                                        <input type="text" name="Cards[${cardIndex}].Definition" class="form-control shire" />
+                                                    </div>
+                                                    <button type="button" class="btn btn-danger remove-card"></button>
 
-                        </div>`;
+                                                </div>`;
 
                 // Append the new card to the existing cards container
                 container.insertAdjacentHTML('beforeend', cardHtml);

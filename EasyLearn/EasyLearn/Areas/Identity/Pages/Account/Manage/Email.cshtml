@@ -11,7 +11,10 @@
     }
 </style>
 
-<partial name="_StatusMessage" for="StatusMessage" />
+<div>
+    <partial name="_StatusMessage" for="StatusMessage"/>
+    @Html.Raw(Model.StatusMessage)
+</div>
 <div class="row">
     <div class="col-md-6">
         <form id="email-form" method="post">

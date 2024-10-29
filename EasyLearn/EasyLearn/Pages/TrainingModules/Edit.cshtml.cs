@@ -65,6 +65,22 @@ namespace EasyLearn.Pages.TrainingModules
             }
             return Page();
         }
+        public async Task<IActionResult> OnGetDeleteTrainingModuleAsync(int id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var trainingmodule = await _context.TrainingModule.FindAsync(id);
+            if (trainingmodule != null)
+            {
+                _context.TrainingModule.Remove(trainingmodule);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToPage("./Index");
+        }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {

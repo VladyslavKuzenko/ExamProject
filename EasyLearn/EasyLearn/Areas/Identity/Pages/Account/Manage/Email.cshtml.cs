@@ -127,12 +127,14 @@ namespace EasyLearn.Areas.Identity.Pages.Account.Manage
                     values: new { area = "Identity", userId = userId, email = Input.NewEmail, code = code },
                     protocol: Request.Scheme);
 
-                await SendEmailAsync(
-                    Input.NewEmail,
-                    "Confirm your email",
-                    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                //await SendEmailAsync(
+                //    Input.NewEmail,
+                //    "Confirm your email",
+                //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                //$"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-                StatusMessage = "Confirmation link to change email sent. Please check your email.";
+                StatusMessage = $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.";
+                
                 return RedirectToPage();
             }
 
