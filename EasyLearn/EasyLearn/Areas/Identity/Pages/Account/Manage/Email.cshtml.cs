@@ -133,8 +133,7 @@ namespace EasyLearn.Areas.Identity.Pages.Account.Manage
                 //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
                 //$"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-                StatusMessage = $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.";
-                
+                StatusMessage = $"<span style='color: white;'>Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}' style='color: deepskyblue;'>clicking here</a>.</span>";
                 return RedirectToPage();
             }
 
