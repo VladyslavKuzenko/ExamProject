@@ -224,23 +224,26 @@
                 </div>
 
                 <!-- Modal -->
+
+
                 <div class="modal fade" id="@("deleteModel"+item.Id)" tabindex="-1" aria-labelledby="@("deleteModelLabel"+item.Id)" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="@("deleteModelLable"+item.Id)">Delete</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <div class="modal-header" style="background-color:crimson; color:white; font-weight:bold;">
+                                <h5 class="modal-title" id="@("deleteModelLable"+item.Id)">@Localize["Delete"]</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label=@Localize["Close"]></button>
                             </div>
                             <div class="modal-body">
-                                Ви впевнені , що хочете видалити цей елемент?
+                                @Localize["Are you sure you want to delete this item?"]
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
-                                <a asp-page-handler="RemoveTrainingModule" asp-route-id="@item.Id">Delete</a>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color:dodgerblue; border:none;">@Localize["Cancel"]</button>
+                                <a asp-page-handler="RemoveTrainingModule" asp-route-id="@item.Id" style="background-color:crimson; border:none;" class="btn btn-danger">@Localize["Delete"]</a>
                             </div>
                         </div>
                     </div>
                 </div>
+
             }
         </tbody>
         <div>

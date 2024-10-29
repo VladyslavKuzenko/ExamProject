@@ -332,10 +332,8 @@
             </div>
          @*    <a asp-page="../TrainingModules/Delete" asp-route-id="@Model.Id" class="delete-card">
             </a> *@
-                <button type="button" data-bs-toggle="modal" data-bs-target="#@("deleteModel")" class="btn btn-danger">
-            <div class="delete-card">
+                <div class="delete-card" data-bs-toggle="modal" data-bs-target="#@("deleteModel")" class="btn btn-danger">
             </div>
-            </button>
        @*      <div>
                 <button type="button" data-bs-toggle="modal" data-bs-target="#@("deleteModel")" class="btn btn-danger" style="background-color:transparent; border:none; position:relative;right:15px;">
                     <div class="delfb">
@@ -347,14 +345,14 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header" style="background-color:crimson; color:white; font-weight:bold;">
-                            <h5 class="modal-title" id="@("deleteModelLable")">@* @Localize[ *@"Delete"@* ] *@</h5>
+                            <h5 class="modal-title" id="@("deleteModelLable")">Delete</h5>
                         </div>
-                        <div class="modal-body">
-                            @* @Localize[ "*@Are you sure you want to delete"@* ] *@ @Model.Name?
+                        <div class="modal-body" style="color:black;">
+                            Are you sure you want to delete @Model.Name?
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color:dodgerblue; border:none;">@* @Localize[" *@Cancel@* "] *@</button>
-                            <a asp-page-handler="DeleteTrainingModule" asp-route-id="@Model.Id" class="btn btn-danger" style="background-color:crimson; border:none;">@* @Localize[" *@Delete@* "] *@</a>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color:dodgerblue; border:none;">Cancel</button>
+                            <a asp-page-handler="DeleteTrainingModule" asp-route-id="@Model.Id" class="btn btn-danger" style="background-color:crimson; border:none;">Delete</a>
                         </div>
                     </div>
                 </div>
