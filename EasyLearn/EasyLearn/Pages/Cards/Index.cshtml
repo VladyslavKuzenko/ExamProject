@@ -1,6 +1,9 @@
 ﻿@page
 @model EasyLearn.Pages.Cards.IndexModel
-
+@using EasyLearn.Models
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<IndexModel> Localize
 @{
     ViewData["Title"] = "Index";
 }
@@ -17,30 +20,6 @@
         position: relative;
     }
     
-    /*     .return-container {
-                position:relative;
-                top:90px;
-                display:flex;
-                justify-content:center;
-                width:70%;
-                left:50.5%;
-                transform:translate(-50%);
-                z-index: 999;
-
-            } */
-    /*     .current-mode{
-                color: white;
-                font-weight: bold;
-                font-size: 36px;
-                display: flex;
-                justify-content: center;
-                top: 145px;
-                position: relative;
-                text-align: center;
-
-                background-color:lime;
-            }
-         */
     #returnToClassic {
         background-color: #21273D;
         width: 115px;
@@ -54,10 +33,6 @@
         left: 100%;
         transform: translate(-115px);
     }
-    /*          #returnToClassic:hover {
-                        background-color: darkred;
-                        color: white;
-                    } */
 
     #exam-term {
         color: white;
@@ -102,15 +77,7 @@
         transform: translate(-50%);
     }
 
-    /*     #question-container {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                margin-top: 50px;
-            } */
 
-    /* Стиль для заголовку тесту */
     #test-question {
         font-size: 24px;
         color: white;
@@ -212,24 +179,24 @@
     </div>
     <!-- Кнопки для перемикання режимів -->
     <div class="game-container">
-        <input type="button" name="name" value="Classic" class="classic-game-button" />
-        <input type="button" name="name" value="Test" class="test-game-button" />
-        <input type="button" name="name" value="Exam" class="exam-game-button" />
+        <input type="button" name="name" value="@Localize["Classic"]" class="classic-game-button" />
+        <input type="button" name="name" value="@Localize["Test"]" class="test-game-button" />
+        <input type="button" name="name" value="@Localize["Exam"]" class="exam-game-button" />
     </div>
 
     <!-- Кнопка для шафлу -->
     <div class="toggle-container">
-        <p class="text-shuffle">Random</p>
+        <p class="text-shuffle">@Localize["Random"]</p>
         <input type="checkbox" name="name" value="Shuffle" class="random-game-button" />
     </div>
     <!-- Кнопка для повернення в класичний режим -->
     <div class="return-container" style="display:none;">
-        <button id="returnToClassic">Return back</button>
+        <button id="returnToClassic">@Localize["Return back"]</button>
     </div>
 
     <!-- Контейнер для тестових питань -->
     <div id="question-container" style="display:none;">
-        <h1 class="exm">Test: @Model.TrainingModule.Name</h1>
+        <h1 class="exm">@Localize["Test"]: @Model.TrainingModule.Name</h1>
         <div class="exmpm">
 
             <h2 id="test-question"></h2>
@@ -240,11 +207,11 @@
 
     <!-- Контейнер для екзамену -->
     <div id="exam-container" style="display:none;">
-        <h1 class="exm">Exam: @Model.TrainingModule.Name</h1>
+        <h1 class="exm">@Localize["Exam"]: @Model.TrainingModule.Name</h1>
         <div class="exmpm">
             <h2 id="exam-term"></h2>
-            <input type="text" id="exam-answer" placeholder="Enter the definition" />
-            <button id="submit-answer">Next</button>
+            <input type="text" id="exam-answer" placeholder="@Localize["Enter the definition"]" />
+            <button id="submit-answer">@Localize["Next"]</button>
             <p id="exam-feedback"></p>
         </div>
     </div>
@@ -253,19 +220,19 @@
     <div id="test-result" style="display:none;">
         <div class="exmpm">
 
-            <h2 class="tsc">Test Completed!</h2>
+            <h2 class="tsc">@Localize["Test Completed!"]</h2>
             <p id="score-result"></p>
         </div>
     </div>
 
     <!-- Контейнер для лічильника (якщо тестовий режим) -->
     <div id="test-counter" style="display: none; text-align: center; color: white; margin-top: 15px;">
-        Question <span id="current-question-number-test">1</span> of <span id="total-questions-test"></span>
+        @Localize["Question"] <span id="current-question-number-test">1</span> @Localize["of"] <span id="total-questions-test"></span>
     </div>
 
     <!-- Контейнер для лічильника (якщо екзаменаційний режим) -->
     <div id="exam-counter" style="display: none; text-align: center; color: white; margin-top: 15px;">
-        Question <span id="current-question-number-exam">1</span> of <span id="total-questions-exam"></span>
+        @Localize["Question"] <span id="current-question-number-exam">1</span> @Localize["of"] <span id="total-questions-exam"></span>
     </div>
 
 </div>
@@ -460,12 +427,31 @@
         }
     }
 
+    let currentLanguage = 'uk'; // Початкова мова
+    function Localize(key) {
+        const translations = {
+            // Українська
+            "uk": {
+                "You answered": "Ви відповіли",
+                "out of": "з",
+                "correctly!": "правильно!"
+            },
+            // Англійська
+            "en": {
+                "You answered": "You answered",
+                "out of": "out of",
+                "correctly!": "correctly!"
+            }
+        };
+        return translations[currentLanguage][key] || key; // Повертаємо локалізований рядок
+    }
     // Завершення тесту/екзамену
     function finishTest() {
         questionContainer.style.display = 'none';
         examContainer.style.display = 'none';
         testResult.style.display = 'block';
-        document.getElementById('score-result').textContent = `You answered ${correctAnswers} out of ${totalQuestions} correctly!`;
+        const resultText = `${Localize("You answered")} ${correctAnswers} ${Localize("out of")} ${totalQuestions} ${Localize("correctly!")}`;
+        document.getElementById('score-result').textContent = resultText; document.getElementById('score-result').textContent = resultText;
         document.getElementById('test-counter').style.display = 'none'; // Показуємо лічильник тесту
         document.getElementById('exam-counter').style.display = 'none'; // Показуємо лічильник тесту
 
@@ -503,13 +489,23 @@
 
     // Оновлення картки (при перемиканні між режимами)
     function updateCard() {
-        cardTerm.textContent = currentCards[currentIndex].Term;
-        cardDefinition.textContent = currentCards[currentIndex].Definition;
+        // Скидаємо стан перевертання картки перед оновленням контенту
+        if (isFlipped) {
+            flashcard.classList.remove('flipped');
+            isFlipped = false;
+        }
 
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex === currentCards.length - 1;
-        cardCounter.textContent = `${currentIndex + 1}/${currentCards.length}`;
+        // Затримка перед оновленням контенту картки (щоб не було видно визначення на мить)
+        setTimeout(() => {
+            cardTerm.textContent = currentCards[currentIndex].Term;
+            cardDefinition.textContent = currentCards[currentIndex].Definition;
+
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === currentCards.length - 1;
+            cardCounter.textContent = `${currentIndex + 1}/${currentCards.length}`;
+        }, 360); // затримка, щоб картка встигла перевернутися
     }
+
 
     // Логіка для перевертання картки
     flashcard.addEventListener('click', () => {

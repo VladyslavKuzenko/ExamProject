@@ -40,7 +40,7 @@
                 <a asp-area="" asp-page="/Cards/Index" asp-route-trainingModuleId="@item.Id">
                     <div class="recent-library-module">
                         @Html.DisplayFor(modelItem => item.Name)
-                        <div class="recent-description1">
+                        <div class="recent-description1" >
                             @Html.DisplayFor(modelItem => item.Description)
                             <br />
                             @Html.DisplayFor(modelItem => item.Cards.Count) @Localize["terms"]
@@ -55,28 +55,7 @@
                     </div>
                 </a>
 
-@*                 <button type="button" class="btn btn-primary del" data-bs-toggle="modal" data-bs-target="#@("deleteModel" + item.Id)">
-                </button>
 
-
-                <!-- Modal -->
-                <div class="modal fade" id="@("deleteModel"+item.Id)" tabindex="-1" aria-labelledby="@("deleteModelLabel"+item.Id)" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="@("deleteModelLable"+item.Id)">Delete</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                Ви впевнені , що хочете видалити цей елемент?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
-                                <a asp-page-handler="Delete" asp-route-id="@item.Id">Delete</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> *@
             }
         </tbody>
     </table>
