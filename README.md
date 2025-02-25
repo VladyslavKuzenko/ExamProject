@@ -1,12 +1,12 @@
-Веб-додаток на ASP.Net RazorPage
+Web application on ASP.Net RazorPage
 
-Це буде веб-додаток спрямований на вивчення мови.
+This will be a web application aimed at language learning.
 
-Основна суть програми:
-
-    Основна суть програми полягає у простому вивченні мови.
-    Користувач сам створює набір карток та картки і вивчає мову за їх допомогою.
-    Пояснення: 
-       -Користувач створює категорію під назвою "Їжа".
-       -Далі користувач наповнює цю категорію картками,що містять слово та його переклад. 
-       -Далі програма опираючись на задані користувачем дані та прописані всередині алгоритми допомагає вивчати мову.
+The main essence of the program:
+    
+    The main essence of the program is simple language learning.
+    The user himself creates a set of cards and cards and learns the language with their help.
+    Explanation:
+    -The user creates a category called "Food."
+    -The user fills this category with cards containing the word and its translation.
+    - Long-range program based on user-defined data and written inside algorithms helps to learn the language.
