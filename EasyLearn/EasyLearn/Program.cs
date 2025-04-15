@@ -19,7 +19,7 @@ switch (connectionType)
         connectionString = builder.Configuration.GetConnectionString("SqlLiteContextConnection") ?? throw new InvalidOperationException("Connection string 'SqlLiteContextConnection' not found.");
         // Add services to the container.
         builder.Services.AddDbContext<ApplicationDbContext, SqlLiteDbContext>(options =>
-            options.UseSqlite(connectionString));
+            options.UseSqlite(connectionString, b => b.MigrationsAssembly("EasyLearn")));
         builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
              .AddEntityFrameworkStores<SqlLiteDbContext>();
         break;

@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace EasyLearn.SqlLiteDb.Migrations
+namespace EasyLearn.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class m0 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -313,8 +313,8 @@ namespace EasyLearn.SqlLiteDb.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "user123", 0, "be1e2f28-686f-42fc-b74b-978b1e117ca5", "testuser1@example.com", true, false, null, "testUser1", "TESTUSER1@EXAMPLE.COM", "TESTUSER1", "AQAAAAEAACcQAAAAEMJP9v5ZC", null, false, "8b28e532-6e3e-438a-89a4-0358334ac58e", false, "testuser1" },
-                    { "user456", 0, "32a3f954-d18a-41e8-aa3e-97653177c8ce", "testuser2@example.com", true, false, null, "testUser2", "TESTUSER2@EXAMPLE.COM", "TESTUSER2", "AQAAAAEAACcQAAAAEMJP9v5ZC", null, false, "0caef80e-22f0-4292-8f8f-1ebe12f7aa55", false, "testuser2" }
+                    { "user123", 0, "da047e60-a7ca-4616-a97d-f4f0a3f6c4c0", "testuser1@example.com", true, false, null, "testUser1", "TESTUSER1@EXAMPLE.COM", "TESTUSER1", "AQAAAAEAACcQAAAAEMJP9v5ZC", null, false, "5313576c-8506-45a1-b128-18707f9b5015", false, "testuser1" },
+                    { "user456", 0, "b8a97b21-5b6d-4f0c-80cd-eeb63f10e853", "testuser2@example.com", true, false, null, "testUser2", "TESTUSER2@EXAMPLE.COM", "TESTUSER2", "AQAAAAEAACcQAAAAEMJP9v5ZC", null, false, "493cb612-9621-4003-8d95-1fa43511b5dd", false, "testuser2" }
                 });
 
             migrationBuilder.InsertData(
@@ -322,8 +322,8 @@ namespace EasyLearn.SqlLiteDb.Migrations
                 columns: new[] { "Id", "Create", "Description", "IsLearned", "LastOpen", "Name", "UserId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 10, 11, 22, 22, 4, 710, DateTimeKind.Local).AddTicks(3285), "Basic course for C# programming", false, new DateTime(2024, 10, 11, 22, 22, 4, 710, DateTimeKind.Local).AddTicks(3333), "C# for Beginners", "user123" },
-                    { 2, new DateTime(2024, 10, 11, 22, 22, 4, 710, DateTimeKind.Local).AddTicks(3339), "Advanced topics in C#", false, new DateTime(2024, 10, 11, 22, 22, 4, 710, DateTimeKind.Local).AddTicks(3341), "Advanced C#", "user456" }
+                    { 1, new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8453), "Basic course for C# programming", false, new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8507), "C# for Beginners", "user123" },
+                    { 2, new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8510), "Advanced topics in C#", false, new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8511), "Advanced C#", "user456" }
                 });
 
             migrationBuilder.InsertData(
@@ -331,8 +331,8 @@ namespace EasyLearn.SqlLiteDb.Migrations
                 columns: new[] { "Id", "CourseId", "Create", "Description", "IsLearned", "LastOpen", "Name", "UserId" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2024, 10, 11, 22, 22, 4, 710, DateTimeKind.Local).AddTicks(3383), "Introductory folder", false, new DateTime(2024, 10, 11, 22, 22, 4, 710, DateTimeKind.Local).AddTicks(3386), "Introduction", "user123" },
-                    { 2, 2, new DateTime(2024, 10, 11, 22, 22, 4, 710, DateTimeKind.Local).AddTicks(3390), "Folder with advanced topics", false, new DateTime(2024, 10, 11, 22, 22, 4, 710, DateTimeKind.Local).AddTicks(3392), "Advanced Topics", "user456" }
+                    { 1, 1, new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8538), "Introductory folder", false, new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8541), "Introduction", "user123" },
+                    { 2, 2, new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8543), "Folder with advanced topics", false, new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8544), "Advanced Topics", "user456" }
                 });
 
             migrationBuilder.InsertData(
@@ -340,8 +340,8 @@ namespace EasyLearn.SqlLiteDb.Migrations
                 columns: new[] { "Id", "Create", "Description", "FolderId", "IsLearned", "LastOpen", "Name", "UserId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 10, 11, 22, 22, 4, 710, DateTimeKind.Local).AddTicks(3430), "Learn the basics of C#", 1, false, new DateTime(2024, 10, 11, 22, 22, 4, 710, DateTimeKind.Local).AddTicks(3433), "C# Basics", "user123" },
-                    { 2, new DateTime(2024, 10, 11, 22, 22, 4, 710, DateTimeKind.Local).AddTicks(3437), "Learn advanced C# features", 2, false, new DateTime(2024, 10, 11, 22, 22, 4, 710, DateTimeKind.Local).AddTicks(3439), "Advanced C# Features", "user456" }
+                    { 1, new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8571), "Learn the basics of C#", 1, false, new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8572), "C# Basics", "user123" },
+                    { 2, new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8577), "Learn advanced C# features", 2, false, new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8578), "Advanced C# Features", "user456" }
                 });
 
             migrationBuilder.InsertData(

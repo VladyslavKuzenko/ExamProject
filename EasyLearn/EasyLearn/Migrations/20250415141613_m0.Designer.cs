@@ -3,16 +3,19 @@ using System;
 using EasyLearn.SqlLiteDb;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace EasyLearn.SqlLiteDb.Migrations
+namespace EasyLearn.Migrations
 {
     [DbContext(typeof(SqlLiteDbContext))]
-    partial class SqlLiteDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250415141613_m0")]
+    partial class m0
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.8");
@@ -89,7 +92,7 @@ namespace EasyLearn.SqlLiteDb.Migrations
                         {
                             Id = "user123",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7f3c4380-0396-42dd-93e3-7c00aa2153d5",
+                            ConcurrencyStamp = "da047e60-a7ca-4616-a97d-f4f0a3f6c4c0",
                             Email = "testuser1@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
@@ -98,7 +101,7 @@ namespace EasyLearn.SqlLiteDb.Migrations
                             NormalizedUserName = "TESTUSER1",
                             PasswordHash = "AQAAAAEAACcQAAAAEMJP9v5ZC",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ed4a67fb-ee05-42c1-947f-e784edbc4584",
+                            SecurityStamp = "5313576c-8506-45a1-b128-18707f9b5015",
                             TwoFactorEnabled = false,
                             UserName = "testuser1"
                         },
@@ -106,7 +109,7 @@ namespace EasyLearn.SqlLiteDb.Migrations
                         {
                             Id = "user456",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d1d28350-3a20-4c27-b350-b768162756c2",
+                            ConcurrencyStamp = "b8a97b21-5b6d-4f0c-80cd-eeb63f10e853",
                             Email = "testuser2@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
@@ -115,7 +118,7 @@ namespace EasyLearn.SqlLiteDb.Migrations
                             NormalizedUserName = "TESTUSER2",
                             PasswordHash = "AQAAAAEAACcQAAAAEMJP9v5ZC",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b0d51f75-5f87-4b29-9b77-da98c9e078f0",
+                            SecurityStamp = "493cb612-9621-4003-8d95-1fa43511b5dd",
                             TwoFactorEnabled = false,
                             UserName = "testuser2"
                         });
@@ -204,20 +207,20 @@ namespace EasyLearn.SqlLiteDb.Migrations
                         new
                         {
                             Id = 1,
-                            Create = new DateTime(2024, 10, 11, 22, 19, 54, 462, DateTimeKind.Local).AddTicks(5976),
+                            Create = new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8453),
                             Description = "Basic course for C# programming",
                             IsLearned = false,
-                            LastOpen = new DateTime(2024, 10, 11, 22, 19, 54, 462, DateTimeKind.Local).AddTicks(6026),
+                            LastOpen = new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8507),
                             Name = "C# for Beginners",
                             UserId = "user123"
                         },
                         new
                         {
                             Id = 2,
-                            Create = new DateTime(2024, 10, 11, 22, 19, 54, 462, DateTimeKind.Local).AddTicks(6028),
+                            Create = new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8510),
                             Description = "Advanced topics in C#",
                             IsLearned = false,
-                            LastOpen = new DateTime(2024, 10, 11, 22, 19, 54, 462, DateTimeKind.Local).AddTicks(6030),
+                            LastOpen = new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8511),
                             Name = "Advanced C#",
                             UserId = "user456"
                         });
@@ -265,10 +268,10 @@ namespace EasyLearn.SqlLiteDb.Migrations
                         {
                             Id = 1,
                             CourseId = 1,
-                            Create = new DateTime(2024, 10, 11, 22, 19, 54, 462, DateTimeKind.Local).AddTicks(6062),
+                            Create = new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8538),
                             Description = "Introductory folder",
                             IsLearned = false,
-                            LastOpen = new DateTime(2024, 10, 11, 22, 19, 54, 462, DateTimeKind.Local).AddTicks(6064),
+                            LastOpen = new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8541),
                             Name = "Introduction",
                             UserId = "user123"
                         },
@@ -276,10 +279,10 @@ namespace EasyLearn.SqlLiteDb.Migrations
                         {
                             Id = 2,
                             CourseId = 2,
-                            Create = new DateTime(2024, 10, 11, 22, 19, 54, 462, DateTimeKind.Local).AddTicks(6066),
+                            Create = new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8543),
                             Description = "Folder with advanced topics",
                             IsLearned = false,
-                            LastOpen = new DateTime(2024, 10, 11, 22, 19, 54, 462, DateTimeKind.Local).AddTicks(6067),
+                            LastOpen = new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8544),
                             Name = "Advanced Topics",
                             UserId = "user456"
                         });
@@ -326,22 +329,22 @@ namespace EasyLearn.SqlLiteDb.Migrations
                         new
                         {
                             Id = 1,
-                            Create = new DateTime(2024, 10, 11, 22, 19, 54, 462, DateTimeKind.Local).AddTicks(6094),
+                            Create = new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8571),
                             Description = "Learn the basics of C#",
                             FolderId = 1,
                             IsLearned = false,
-                            LastOpen = new DateTime(2024, 10, 11, 22, 19, 54, 462, DateTimeKind.Local).AddTicks(6097),
+                            LastOpen = new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8572),
                             Name = "C# Basics",
                             UserId = "user123"
                         },
                         new
                         {
                             Id = 2,
-                            Create = new DateTime(2024, 10, 11, 22, 19, 54, 462, DateTimeKind.Local).AddTicks(6102),
+                            Create = new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8577),
                             Description = "Learn advanced C# features",
                             FolderId = 2,
                             IsLearned = false,
-                            LastOpen = new DateTime(2024, 10, 11, 22, 19, 54, 462, DateTimeKind.Local).AddTicks(6103),
+                            LastOpen = new DateTime(2025, 4, 15, 16, 16, 12, 620, DateTimeKind.Local).AddTicks(8578),
                             Name = "Advanced C# Features",
                             UserId = "user456"
                         });
